@@ -16,7 +16,9 @@ def load_cache():
     with open(CACHE_FILE, "r") as f:
         for line in f.readlines():
             files.append(json.loads(line))
-    print(f"Loaded cache: {files}")
+    print(f"Loaded cache: ")
+    for i,file in enumerate(files):
+        print(f"{i}. {file}")
     return files
 
 def save_cache(files):

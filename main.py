@@ -39,8 +39,7 @@ def download(video_url, files):
     print("______________________________________________________________")
     print(yt.title)
     if yt.title not in files:
-        files.append(yt.title)
-        save_cache(files)
+        pass
     else:
         print(f"File is already downloaded: {video_url}: {yt.title}")
         return 0
@@ -50,6 +49,8 @@ def download(video_url, files):
         output_path = "high/"
 
         stream.download(output_path)
+        files.append(yt.title)
+        save_cache(files)
         print(f"Download complete! {video_url}: {yt.title}")
     except Exception as e:
         print(f"SMTH went wrong with video: {video_url}: {yt.title}")
