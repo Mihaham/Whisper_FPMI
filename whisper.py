@@ -43,6 +43,7 @@ for fileName in onlyfiles:
     os.remove(new_name)
   else:
     print(f"Раньше расшифровано {new_name}")
+    os.remove(new_name)
   print("______________________________________________________________")
   try:
       c = inputimeout(prompt="Если хотите остановить программу, введите q\n", timeout=5)
