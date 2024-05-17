@@ -3,6 +3,7 @@ from os.path import isfile, join
 import os
 import json
 from inputimeout import inputimeout, TimeoutOccurred
+import time
 
 mypath = "high/"
 
@@ -36,10 +37,13 @@ for fileName in onlyfiles:
   os.rename(join(mypath,fileName),new_name)
   if new_name not in files:
     print(f"Расшифровываю {new_name}")
+    start_time = time.time()
     os.system(f"whisper --language ru --model medium -o ./result/ --output_format txt --verbose True -- {new_name} > download/{new_name[5:]}.txt")
-    print(f"Расшифровано: {new_name}")
+    end_time = time.time() - start_time
+    print(f"Расшифровано: {new_name} за {end_time//3600} часов, {(end_time//60)%60} минут, {end_time%60} секунд")
     files.append(new_name)
     save_cache(files)
+    files = load_cache()
     os.remove(new_name)
   else:
     print(f"Раньше расшифровано {new_name}")
