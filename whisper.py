@@ -34,6 +34,8 @@ for fileName in onlyfiles:
   new_name = join(mypath,fileName.replace(" ", "-"))
   new_name = new_name.replace("(","-")
   new_name = new_name.replace(")","-")
+  new_name = new_name.replace("&","-")
+  new_name = new_name.replace("|","-")
   os.rename(join(mypath,fileName),new_name)
   if new_name not in files:
     print(f"Расшифровываю {new_name}")
@@ -43,7 +45,6 @@ for fileName in onlyfiles:
     print(f"Расшифровано: {new_name} за {end_time//3600} часов, {(end_time//60)%60} минут, {end_time%60} секунд")
     files.append(new_name)
     save_cache(files)
-    files = load_cache()
     os.remove(new_name)
   else:
     print(f"Раньше расшифровано {new_name}")
