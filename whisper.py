@@ -1,3 +1,4 @@
+from datetime import datetime
 from os import listdir
 from os.path import isfile, join
 import os
@@ -5,56 +6,39 @@ import json
 from inputimeout import inputimeout, TimeoutOccurred
 import time
 
+from loguru import logger as lg
+
 mypath = "high/"
 
-onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
+def refactor_name(fileName : str) -> str:
+    '''Refactoring filename to save mode for console'''
+    new_name = join(mypath, fileName.replace(" ", "-"))
+    new_name = new_name.replace("(", "-")
+    new_name = new_name.replace(")", "-")
+    new_name = new_name.replace("&", "-")
+    new_name = new_name.replace("|", "-")
+    return new_name
 
-CACHE_FILE = "whisper_file_cache"
-VERBOSE = True
+def whisper(files)-> None:
+    '''Whispers user input'''
+    lg.info("Getting all files in folder")
+    onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
 
-def load_cache():
-    files = []
-    with open(CACHE_FILE, "r") as f:
-        for line in f.readlines():
-            files.append(json.loads(line))
-    print(f"Loaded cache: ")
-    for i,file in enumerate(files):
-        print(f"{i}. {file}")
-    return files
-
-def save_cache(files):
-    with open(CACHE_FILE, "w") as f:
-        for file in files:
-            f.write(json.dumps(file))
-            f.write("\n")
-
-i = 0
-files = load_cache()
-for fileName in onlyfiles:
-  new_name = join(mypath,fileName.replace(" ", "-"))
-  new_name = new_name.replace("(","-")
-  new_name = new_name.replace(")","-")
-  new_name = new_name.replace("&","-")
-  new_name = new_name.replace("|","-")
-  os.rename(join(mypath,fileName),new_name)
-  if new_name not in files:
-    print(f"Расшифровываю {new_name}")
-    start_time = time.time()
-    os.system(f"whisper --language ru --model medium -o ./result/ --output_format txt --verbose True -- {new_name} > download/{new_name[5:]}.txt")
-    end_time = time.time() - start_time
-    print(f"Расшифровано: {new_name} за {end_time//3600} часов, {(end_time//60)%60} минут, {end_time%60} секунд")
-    files.append(new_name)
-    save_cache(files)
-    os.remove(new_name)
-  else:
-    print(f"Раньше расшифровано {new_name}")
-    os.remove(new_name)
-  print("______________________________________________________________")
-  try:
-      c = inputimeout(prompt="Если хотите остановить программу, введите q\n", timeout=5)
-  except TimeoutOccurred:
-      c = "timeout"
-  if (c + "123")[0] == "q":
-      exit()
-  print("______________________________________________________________")
-  i+=1
+    for fileName in onlyfiles:
+      new_name = refactor_name(fileName)
+      lg.info(f"Refactored name into : {new_name}")
+      os.rename(join(mypath,fileName),new_name)
+      lg.debug(f"Renamed file : {new_name}")
+      if new_name not in files:
+        lg.info(f"Whispering {new_name}, start time = {datetime.now()}")
+        start_time = time.time()
+        os.system(f"whisper --language ru --model medium -o ./result/ --output_format txt --verbose True -- {new_name} > download/{new_name[5:]}.txt")
+        end_time = time.time() - start_time
+        lg.info(f"Whispered: {new_name} за {end_time//3600} часов, {(end_time//60)%60} минут, {round(end_time%60,2)} секунд")
+        files.append(new_name)
+        os.remove(new_name)
+        lg.info(f"Deleted file : {new_name}")
+      else:
+        lg.warning(f"Раньше расшифровано {new_name}")
+        os.remove(new_name)
+        lg.info(f"Deleted file : {new_name}")
