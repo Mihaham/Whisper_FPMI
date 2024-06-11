@@ -6454,3 +6454,291 @@
 2024-06-11T09:51:59.518793+0300 | INFO | whisper.py | 29 | Refactored name into : high/Алгебра-и-геометрия-33-Линейные-рекурренты-Расширение-полей-Конечные-поля.mp4
 2024-06-11T09:51:59.521333+0300 | DEBUG | whisper.py | 31 | Renamed file : high/Алгебра-и-геометрия-33-Линейные-рекурренты-Расширение-полей-Конечные-поля.mp4
 2024-06-11T09:51:59.521712+0300 | INFO | whisper.py | 33 | Whispering high/Алгебра-и-геометрия-33-Линейные-рекурренты-Расширение-полей-Конечные-поля.mp4, start time = 2024-06-11 09:51:59.521699
+2024-06-11T10:17:06.409155+0300 | INFO | whisper.py | 37 | Whispered: high/Алгебра-и-геометрия-33-Линейные-рекурренты-Расширение-полей-Конечные-поля.mp4 за 0.0 часов, 25.0 минут, 6.89 секунд
+2024-06-11T10:17:06.488456+0300 | INFO | whisper.py | 40 | Deleted file : high/Алгебра-и-геометрия-33-Линейные-рекурренты-Расширение-полей-Конечные-поля.mp4
+2024-06-11T10:17:06.488844+0300 | DEBUG | cache.py | 19 | Saving cache: whisper_file_cache
+2024-06-11T10:17:07.840448+0300 | INFO | download.py | 41 | Downloading video Математическая логика и теория алгоритмов 8. Начало теории вычислимости. Машина Тьюринга.
+2024-06-11T10:17:07.841030+0300 | DEBUG | download.py | 45 | Downloading video
+2024-06-11T10:18:55.636396+0300 | DEBUG | download.py | 49 | Adding file to cache
+2024-06-11T10:18:55.636964+0300 | INFO | download.py | 51 | Download complete! https://www.youtube.com/watch?v=mtic9mpvxkE: Математическая логика и теория алгоритмов 8. Начало теории вычислимости. Машина Тьюринга.
+2024-06-11T10:18:55.637374+0300 | DEBUG | cache.py | 19 | Saving cache: whisper_cache
+2024-06-11T10:18:55.648247+0300 | INFO | whisper.py | 24 | Getting all files in folder
+2024-06-11T10:18:55.651156+0300 | INFO | whisper.py | 29 | Refactored name into : high/Математическая-логика-и-теория-алгоритмов-8-Начало-теории-вычислимости-Машина-Тьюринга.mp4
+2024-06-11T10:18:55.653158+0300 | DEBUG | whisper.py | 31 | Renamed file : high/Математическая-логика-и-теория-алгоритмов-8-Начало-теории-вычислимости-Машина-Тьюринга.mp4
+2024-06-11T10:18:55.653536+0300 | INFO | whisper.py | 33 | Whispering high/Математическая-логика-и-теория-алгоритмов-8-Начало-теории-вычислимости-Машина-Тьюринга.mp4, start time = 2024-06-11 10:18:55.653523
+2024-06-11T10:32:51.384492+0300 | INFO | whisper.py | 37 | Whispered: high/Математическая-логика-и-теория-алгоритмов-8-Начало-теории-вычислимости-Машина-Тьюринга.mp4 за 0.0 часов, 13.0 минут, 55.73 секунд
+2024-06-11T10:32:51.417370+0300 | INFO | whisper.py | 40 | Deleted file : high/Математическая-логика-и-теория-алгоритмов-8-Начало-теории-вычислимости-Машина-Тьюринга.mp4
+2024-06-11T10:32:51.417931+0300 | DEBUG | cache.py | 19 | Saving cache: whisper_file_cache
+2024-06-11T10:32:51.565838+0300 | INFO | download.py | 41 | Downloading video Вычислительная математика 19 Устойчивость разностных схем
+2024-06-11T10:32:51.566562+0300 | DEBUG | download.py | 45 | Downloading video
+2024-06-11T10:33:34.022532+0300 | DEBUG | download.py | 49 | Adding file to cache
+2024-06-11T10:33:34.022926+0300 | INFO | download.py | 51 | Download complete! https://www.youtube.com/watch?v=8-RQNKrTdpo: Вычислительная математика 19 Устойчивость разностных схем
+2024-06-11T10:33:34.023263+0300 | DEBUG | cache.py | 19 | Saving cache: whisper_cache
+2024-06-11T10:33:34.035331+0300 | INFO | whisper.py | 24 | Getting all files in folder
+2024-06-11T10:33:34.038923+0300 | INFO | whisper.py | 29 | Refactored name into : high/Вычислительная-математика-19-Устойчивость-разностных-схем.mp4
+2024-06-11T10:33:34.040985+0300 | DEBUG | whisper.py | 31 | Renamed file : high/Вычислительная-математика-19-Устойчивость-разностных-схем.mp4
+2024-06-11T10:33:34.041363+0300 | INFO | whisper.py | 33 | Whispering high/Вычислительная-математика-19-Устойчивость-разностных-схем.mp4, start time = 2024-06-11 10:33:34.041335
+2024-06-11T10:46:42.612599+0300 | INFO | whisper.py | 37 | Whispered: high/Вычислительная-математика-19-Устойчивость-разностных-схем.mp4 за 0.0 часов, 13.0 минут, 8.57 секунд
+2024-06-11T10:46:42.643285+0300 | INFO | whisper.py | 40 | Deleted file : high/Вычислительная-математика-19-Устойчивость-разностных-схем.mp4
+2024-06-11T10:46:42.643814+0300 | DEBUG | cache.py | 19 | Saving cache: whisper_file_cache
+2024-06-11T10:46:42.949027+0300 | INFO | download.py | 41 | Downloading video Случайные процессы 6 Свойства корреляционной функции стационарных процессов
+2024-06-11T10:46:42.949570+0300 | DEBUG | download.py | 45 | Downloading video
+2024-06-11T10:47:01.545099+0300 | DEBUG | download.py | 49 | Adding file to cache
+2024-06-11T10:47:01.545634+0300 | INFO | download.py | 51 | Download complete! https://www.youtube.com/watch?v=IsfKGfgnt3A: Случайные процессы 6 Свойства корреляционной функции стационарных процессов
+2024-06-11T10:47:01.546167+0300 | DEBUG | cache.py | 19 | Saving cache: whisper_cache
+2024-06-11T10:47:01.558649+0300 | INFO | whisper.py | 24 | Getting all files in folder
+2024-06-11T10:47:01.561772+0300 | INFO | whisper.py | 29 | Refactored name into : high/Случайные-процессы-6-Свойства-корреляционной-функции-стационарных-процессов.mp4
+2024-06-11T10:47:01.564408+0300 | DEBUG | whisper.py | 31 | Renamed file : high/Случайные-процессы-6-Свойства-корреляционной-функции-стационарных-процессов.mp4
+2024-06-11T10:47:01.564969+0300 | INFO | whisper.py | 33 | Whispering high/Случайные-процессы-6-Свойства-корреляционной-функции-стационарных-процессов.mp4, start time = 2024-06-11 10:47:01.564956
+2024-06-11T11:07:55.283046+0300 | INFO | whisper.py | 37 | Whispered: high/Случайные-процессы-6-Свойства-корреляционной-функции-стационарных-процессов.mp4 за 0.0 часов, 20.0 минут, 53.72 секунд
+2024-06-11T11:07:55.312276+0300 | INFO | whisper.py | 40 | Deleted file : high/Случайные-процессы-6-Свойства-корреляционной-функции-стационарных-процессов.mp4
+2024-06-11T11:07:55.312794+0300 | DEBUG | cache.py | 19 | Saving cache: whisper_file_cache
+2024-06-11T11:07:55.480419+0300 | INFO | download.py | 41 | Downloading video Highload 3. Инвалидация кешей
+2024-06-11T11:07:55.481715+0300 | DEBUG | download.py | 45 | Downloading video
+2024-06-11T11:08:49.037536+0300 | DEBUG | download.py | 49 | Adding file to cache
+2024-06-11T11:08:49.037983+0300 | INFO | download.py | 51 | Download complete! https://www.youtube.com/watch?v=FZ10pRSFzoA: Highload 3. Инвалидация кешей
+2024-06-11T11:08:49.038486+0300 | DEBUG | cache.py | 19 | Saving cache: whisper_cache
+2024-06-11T11:08:49.049710+0300 | INFO | whisper.py | 24 | Getting all files in folder
+2024-06-11T11:08:49.051734+0300 | INFO | whisper.py | 29 | Refactored name into : high/Highload-3-Инвалидация-кешей.mp4
+2024-06-11T11:08:49.053691+0300 | DEBUG | whisper.py | 31 | Renamed file : high/Highload-3-Инвалидация-кешей.mp4
+2024-06-11T11:08:49.053981+0300 | INFO | whisper.py | 33 | Whispering high/Highload-3-Инвалидация-кешей.mp4, start time = 2024-06-11 11:08:49.053970
+2024-06-11T11:18:11.374243+0300 | INFO | whisper.py | 37 | Whispered: high/Highload-3-Инвалидация-кешей.mp4 за 0.0 часов, 9.0 минут, 22.32 секунд
+2024-06-11T11:18:11.388166+0300 | INFO | whisper.py | 40 | Deleted file : high/Highload-3-Инвалидация-кешей.mp4
+2024-06-11T11:18:11.388691+0300 | DEBUG | cache.py | 19 | Saving cache: whisper_file_cache
+2024-06-11T11:18:11.570065+0300 | INFO | download.py | 41 | Downloading video Алгоритмы и модели вычислений 5. NP-полные задачи.
+2024-06-11T11:18:11.571133+0300 | DEBUG | download.py | 45 | Downloading video
+2024-06-11T11:22:33.150003+0300 | DEBUG | download.py | 49 | Adding file to cache
+2024-06-11T11:22:33.150361+0300 | INFO | download.py | 51 | Download complete! https://www.youtube.com/watch?v=R2qzk_vMCiU: Алгоритмы и модели вычислений 5. NP-полные задачи.
+2024-06-11T11:22:33.150782+0300 | DEBUG | cache.py | 19 | Saving cache: whisper_cache
+2024-06-11T11:22:33.160811+0300 | INFO | whisper.py | 24 | Getting all files in folder
+2024-06-11T11:22:33.163134+0300 | INFO | whisper.py | 29 | Refactored name into : high/Алгоритмы-и-модели-вычислений-5-NP-полные-задачи.mp4
+2024-06-11T11:22:33.164636+0300 | DEBUG | whisper.py | 31 | Renamed file : high/Алгоритмы-и-модели-вычислений-5-NP-полные-задачи.mp4
+2024-06-11T11:22:33.164911+0300 | INFO | whisper.py | 33 | Whispering high/Алгоритмы-и-модели-вычислений-5-NP-полные-задачи.mp4, start time = 2024-06-11 11:22:33.164900
+2024-06-11T11:41:56.296402+0300 | INFO | whisper.py | 37 | Whispered: high/Алгоритмы-и-модели-вычислений-5-NP-полные-задачи.mp4 за 0.0 часов, 19.0 минут, 23.13 секунд
+2024-06-11T11:41:56.343952+0300 | INFO | whisper.py | 40 | Deleted file : high/Алгоритмы-и-модели-вычислений-5-NP-полные-задачи.mp4
+2024-06-11T11:41:56.344497+0300 | DEBUG | cache.py | 19 | Saving cache: whisper_file_cache
+2024-06-11T11:41:56.568934+0300 | INFO | download.py | 41 | Downloading video Функциональный анализ 20. Самосопряженные операторы
+2024-06-11T11:41:56.569461+0300 | DEBUG | download.py | 45 | Downloading video
+2024-06-11T11:42:17.640100+0300 | DEBUG | download.py | 49 | Adding file to cache
+2024-06-11T11:42:17.640488+0300 | INFO | download.py | 51 | Download complete! https://www.youtube.com/watch?v=4eJvAZCkLJQ: Функциональный анализ 20. Самосопряженные операторы
+2024-06-11T11:42:17.640916+0300 | DEBUG | cache.py | 19 | Saving cache: whisper_cache
+2024-06-11T11:42:17.652892+0300 | INFO | whisper.py | 24 | Getting all files in folder
+2024-06-11T11:42:17.655573+0300 | INFO | whisper.py | 29 | Refactored name into : high/Функциональный-анализ-20-Самосопряженные-операторы.mp4
+2024-06-11T11:42:17.657817+0300 | DEBUG | whisper.py | 31 | Renamed file : high/Функциональный-анализ-20-Самосопряженные-операторы.mp4
+2024-06-11T11:42:17.658332+0300 | INFO | whisper.py | 33 | Whispering high/Функциональный-анализ-20-Самосопряженные-операторы.mp4, start time = 2024-06-11 11:42:17.658317
+2024-06-11T12:02:52.744277+0300 | INFO | whisper.py | 37 | Whispered: high/Функциональный-анализ-20-Самосопряженные-операторы.mp4 за 0.0 часов, 20.0 минут, 35.09 секунд
+2024-06-11T12:02:52.760487+0300 | INFO | whisper.py | 40 | Deleted file : high/Функциональный-анализ-20-Самосопряженные-операторы.mp4
+2024-06-11T12:02:52.761091+0300 | DEBUG | cache.py | 19 | Saving cache: whisper_file_cache
+2024-06-11T12:02:52.946327+0300 | INFO | download.py | 41 | Downloading video Матлогика 21. Изоморфизм структур. Логика предикатов
+2024-06-11T12:02:52.946948+0300 | DEBUG | download.py | 45 | Downloading video
+2024-06-11T12:03:28.758183+0300 | DEBUG | download.py | 49 | Adding file to cache
+2024-06-11T12:03:28.758665+0300 | INFO | download.py | 51 | Download complete! https://www.youtube.com/watch?v=m8Mnp8Pb8lk: Матлогика 21. Изоморфизм структур. Логика предикатов
+2024-06-11T12:03:28.759036+0300 | DEBUG | cache.py | 19 | Saving cache: whisper_cache
+2024-06-11T12:03:28.769061+0300 | INFO | whisper.py | 24 | Getting all files in folder
+2024-06-11T12:03:28.771853+0300 | INFO | whisper.py | 29 | Refactored name into : high/Матлогика-21-Изоморфизм-структур-Логика-предикатов.mp4
+2024-06-11T12:03:28.774665+0300 | DEBUG | whisper.py | 31 | Renamed file : high/Матлогика-21-Изоморфизм-структур-Логика-предикатов.mp4
+2024-06-11T12:03:28.775178+0300 | INFO | whisper.py | 33 | Whispering high/Матлогика-21-Изоморфизм-структур-Логика-предикатов.mp4, start time = 2024-06-11 12:03:28.775166
+2024-06-11T12:18:24.074276+0300 | INFO | whisper.py | 37 | Whispered: high/Матлогика-21-Изоморфизм-структур-Логика-предикатов.mp4 за 0.0 часов, 14.0 минут, 55.3 секунд
+2024-06-11T12:18:24.097564+0300 | INFO | whisper.py | 40 | Deleted file : high/Матлогика-21-Изоморфизм-структур-Логика-предикатов.mp4
+2024-06-11T12:18:24.098060+0300 | DEBUG | cache.py | 19 | Saving cache: whisper_file_cache
+2024-06-11T12:18:24.242444+0300 | INFO | download.py | 41 | Downloading video ОКТЧ 23. Бесконечные цепные дроби. Теорема Лиувилля
+2024-06-11T12:18:24.242966+0300 | DEBUG | download.py | 45 | Downloading video
+2024-06-11T12:23:35.178911+0300 | DEBUG | download.py | 49 | Adding file to cache
+2024-06-11T12:23:35.179175+0300 | INFO | download.py | 51 | Download complete! https://www.youtube.com/watch?v=g1qrIfum5xU: ОКТЧ 23. Бесконечные цепные дроби. Теорема Лиувилля
+2024-06-11T12:23:35.179493+0300 | DEBUG | cache.py | 19 | Saving cache: whisper_cache
+2024-06-11T12:23:35.188217+0300 | INFO | whisper.py | 24 | Getting all files in folder
+2024-06-11T12:23:35.190530+0300 | INFO | whisper.py | 29 | Refactored name into : high/ОКТЧ-23-Бесконечные-цепные-дроби-Теорема-Лиувилля.mp4
+2024-06-11T12:23:35.191817+0300 | DEBUG | whisper.py | 31 | Renamed file : high/ОКТЧ-23-Бесконечные-цепные-дроби-Теорема-Лиувилля.mp4
+2024-06-11T12:23:35.192077+0300 | INFO | whisper.py | 33 | Whispering high/ОКТЧ-23-Бесконечные-цепные-дроби-Теорема-Лиувилля.mp4, start time = 2024-06-11 12:23:35.192052
+2024-06-11T12:42:58.623292+0300 | INFO | whisper.py | 37 | Whispered: high/ОКТЧ-23-Бесконечные-цепные-дроби-Теорема-Лиувилля.mp4 за 0.0 часов, 19.0 минут, 23.43 секунд
+2024-06-11T12:42:58.671560+0300 | INFO | whisper.py | 40 | Deleted file : high/ОКТЧ-23-Бесконечные-цепные-дроби-Теорема-Лиувилля.mp4
+2024-06-11T12:42:58.672001+0300 | DEBUG | cache.py | 19 | Saving cache: whisper_file_cache
+2024-06-11T12:42:58.879090+0300 | INFO | download.py | 41 | Downloading video ОВАиТК 7. Действия групп II. Задача о числе орбит.
+2024-06-11T12:42:58.879946+0300 | DEBUG | download.py | 45 | Downloading video
+2024-06-11T12:46:38.976830+0300 | DEBUG | download.py | 49 | Adding file to cache
+2024-06-11T12:46:38.977140+0300 | INFO | download.py | 51 | Download complete! https://www.youtube.com/watch?v=aoQXksTtGYs: ОВАиТК 7. Действия групп II. Задача о числе орбит.
+2024-06-11T12:46:38.977431+0300 | DEBUG | cache.py | 19 | Saving cache: whisper_cache
+2024-06-11T12:46:38.990345+0300 | INFO | whisper.py | 24 | Getting all files in folder
+2024-06-11T12:46:38.993013+0300 | INFO | whisper.py | 29 | Refactored name into : high/ОВАиТК-7-Действия-групп-II-Задача-о-числе-орбит.mp4
+2024-06-11T12:46:38.994548+0300 | DEBUG | whisper.py | 31 | Renamed file : high/ОВАиТК-7-Действия-групп-II-Задача-о-числе-орбит.mp4
+2024-06-11T12:46:38.994879+0300 | INFO | whisper.py | 33 | Whispering high/ОВАиТК-7-Действия-групп-II-Задача-о-числе-орбит.mp4, start time = 2024-06-11 12:46:38.994869
+2024-06-11T13:05:30.062904+0300 | INFO | whisper.py | 37 | Whispered: high/ОВАиТК-7-Действия-групп-II-Задача-о-числе-орбит.mp4 за 0.0 часов, 18.0 минут, 51.07 секунд
+2024-06-11T13:05:30.116853+0300 | INFO | whisper.py | 40 | Deleted file : high/ОВАиТК-7-Действия-групп-II-Задача-о-числе-орбит.mp4
+2024-06-11T13:05:30.117472+0300 | DEBUG | cache.py | 19 | Saving cache: whisper_file_cache
+2024-06-11T13:05:30.248451+0300 | INFO | download.py | 41 | Downloading video АКОС 19. Низкоуровневое сетевое программирование
+2024-06-11T13:05:30.249020+0300 | DEBUG | download.py | 45 | Downloading video
+2024-06-11T13:07:47.249383+0300 | DEBUG | download.py | 49 | Adding file to cache
+2024-06-11T13:07:47.249726+0300 | INFO | download.py | 51 | Download complete! https://www.youtube.com/watch?v=T1wsFoCK4Jk: АКОС 19. Низкоуровневое сетевое программирование
+2024-06-11T13:07:47.250357+0300 | DEBUG | cache.py | 19 | Saving cache: whisper_cache
+2024-06-11T13:07:47.262438+0300 | INFO | whisper.py | 24 | Getting all files in folder
+2024-06-11T13:07:47.266894+0300 | INFO | whisper.py | 29 | Refactored name into : high/АКОС-19-Низкоуровневое-сетевое-программирование.mp4
+2024-06-11T13:07:47.268776+0300 | DEBUG | whisper.py | 31 | Renamed file : high/АКОС-19-Низкоуровневое-сетевое-программирование.mp4
+2024-06-11T13:07:47.269135+0300 | INFO | whisper.py | 33 | Whispering high/АКОС-19-Низкоуровневое-сетевое-программирование.mp4, start time = 2024-06-11 13:07:47.269122
+2024-06-11T13:26:48.182734+0300 | INFO | whisper.py | 37 | Whispered: high/АКОС-19-Низкоуровневое-сетевое-программирование.mp4 за 0.0 часов, 19.0 минут, 0.91 секунд
+2024-06-11T13:26:48.228167+0300 | INFO | whisper.py | 40 | Deleted file : high/АКОС-19-Низкоуровневое-сетевое-программирование.mp4
+2024-06-11T13:26:48.228697+0300 | DEBUG | cache.py | 19 | Saving cache: whisper_file_cache
+2024-06-11T13:26:48.374780+0300 | INFO | download.py | 41 | Downloading video C++ и алгоритмы (Базовый поток) 7. Variadic template. Семантика перемещения II
+2024-06-11T13:26:48.375333+0300 | DEBUG | download.py | 45 | Downloading video
+2024-06-11T13:29:10.623357+0300 | DEBUG | download.py | 49 | Adding file to cache
+2024-06-11T13:29:10.623804+0300 | INFO | download.py | 51 | Download complete! https://www.youtube.com/watch?v=hR16oxtQSn0: C++ и алгоритмы (Базовый поток) 7. Variadic template. Семантика перемещения II
+2024-06-11T13:29:10.624177+0300 | DEBUG | cache.py | 19 | Saving cache: whisper_cache
+2024-06-11T13:29:10.633682+0300 | INFO | whisper.py | 24 | Getting all files in folder
+2024-06-11T13:29:10.636430+0300 | INFO | whisper.py | 29 | Refactored name into : high/C++-и-алгоритмы--Базовый-поток--7-Variadic-template-Семантика-перемещения-II.mp4
+2024-06-11T13:29:10.638322+0300 | DEBUG | whisper.py | 31 | Renamed file : high/C++-и-алгоритмы--Базовый-поток--7-Variadic-template-Семантика-перемещения-II.mp4
+2024-06-11T13:29:10.638663+0300 | INFO | whisper.py | 33 | Whispering high/C++-и-алгоритмы--Базовый-поток--7-Variadic-template-Семантика-перемещения-II.mp4, start time = 2024-06-11 13:29:10.638652
+2024-06-11T14:24:57.348255+0300 | INFO | whisper.py | 37 | Whispered: high/C++-и-алгоритмы--Базовый-поток--7-Variadic-template-Семантика-перемещения-II.mp4 за 0.0 часов, 55.0 минут, 46.71 секунд
+2024-06-11T14:24:57.375179+0300 | INFO | whisper.py | 40 | Deleted file : high/C++-и-алгоритмы--Базовый-поток--7-Variadic-template-Семантика-перемещения-II.mp4
+2024-06-11T14:24:57.375707+0300 | DEBUG | cache.py | 19 | Saving cache: whisper_file_cache
+2024-06-11T14:24:57.581439+0300 | INFO | download.py | 41 | Downloading video Введение в LaTeX 5. Как делать презентации в LaTeX
+2024-06-11T14:24:57.581999+0300 | DEBUG | download.py | 45 | Downloading video
+2024-06-11T14:25:10.959300+0300 | DEBUG | download.py | 49 | Adding file to cache
+2024-06-11T14:25:10.959662+0300 | INFO | download.py | 51 | Download complete! https://www.youtube.com/watch?v=Iw7ndRavwUM: Введение в LaTeX 5. Как делать презентации в LaTeX
+2024-06-11T14:25:10.960107+0300 | DEBUG | cache.py | 19 | Saving cache: whisper_cache
+2024-06-11T14:25:10.973839+0300 | INFO | whisper.py | 24 | Getting all files in folder
+2024-06-11T14:25:10.978148+0300 | INFO | whisper.py | 29 | Refactored name into : high/Введение-в-LaTeX-5-Как-делать-презентации-в-LaTeX.mp4
+2024-06-11T14:25:10.981206+0300 | DEBUG | whisper.py | 31 | Renamed file : high/Введение-в-LaTeX-5-Как-делать-презентации-в-LaTeX.mp4
+2024-06-11T14:25:10.981740+0300 | INFO | whisper.py | 33 | Whispering high/Введение-в-LaTeX-5-Как-делать-презентации-в-LaTeX.mp4, start time = 2024-06-11 14:25:10.981725
+2024-06-11T14:37:57.167790+0300 | INFO | whisper.py | 37 | Whispered: high/Введение-в-LaTeX-5-Как-делать-презентации-в-LaTeX.mp4 за 0.0 часов, 12.0 минут, 46.19 секунд
+2024-06-11T14:37:57.177942+0300 | INFO | whisper.py | 40 | Deleted file : high/Введение-в-LaTeX-5-Как-делать-презентации-в-LaTeX.mp4
+2024-06-11T14:37:57.178468+0300 | DEBUG | cache.py | 19 | Saving cache: whisper_file_cache
+2024-06-11T14:37:57.450311+0300 | INFO | download.py | 41 | Downloading video Дискретная математика 7. Планарность
+2024-06-11T14:37:57.451079+0300 | DEBUG | download.py | 45 | Downloading video
+2024-06-11T14:41:51.198031+0300 | DEBUG | download.py | 49 | Adding file to cache
+2024-06-11T14:41:51.198406+0300 | INFO | download.py | 51 | Download complete! https://www.youtube.com/watch?v=OCl6UeFU6v8: Дискретная математика 7. Планарность
+2024-06-11T14:41:51.198733+0300 | DEBUG | cache.py | 19 | Saving cache: whisper_cache
+2024-06-11T14:41:51.209269+0300 | INFO | whisper.py | 24 | Getting all files in folder
+2024-06-11T14:41:51.212258+0300 | INFO | whisper.py | 29 | Refactored name into : high/Дискретная-математика-7-Планарность.mp4
+2024-06-11T14:41:51.214337+0300 | DEBUG | whisper.py | 31 | Renamed file : high/Дискретная-математика-7-Планарность.mp4
+2024-06-11T14:41:51.214710+0300 | INFO | whisper.py | 33 | Whispering high/Дискретная-математика-7-Планарность.mp4, start time = 2024-06-11 14:41:51.214700
+2024-06-11T14:56:04.003583+0300 | INFO | whisper.py | 37 | Whispered: high/Дискретная-математика-7-Планарность.mp4 за 0.0 часов, 14.0 минут, 12.79 секунд
+2024-06-11T14:56:04.060233+0300 | INFO | whisper.py | 40 | Deleted file : high/Дискретная-математика-7-Планарность.mp4
+2024-06-11T14:56:04.060760+0300 | DEBUG | cache.py | 19 | Saving cache: whisper_file_cache
+2024-06-11T14:56:04.241320+0300 | INFO | download.py | 41 | Downloading video Алгоритмы и структуры данных 7. Рёберная и вершинная двусвязность
+2024-06-11T14:56:04.241827+0300 | DEBUG | download.py | 45 | Downloading video
+2024-06-11T14:57:25.901047+0300 | DEBUG | download.py | 49 | Adding file to cache
+2024-06-11T14:57:25.901395+0300 | INFO | download.py | 51 | Download complete! https://www.youtube.com/watch?v=3lwut9ysYwA: Алгоритмы и структуры данных 7. Рёберная и вершинная двусвязность
+2024-06-11T14:57:25.901880+0300 | DEBUG | cache.py | 19 | Saving cache: whisper_cache
+2024-06-11T14:57:25.915051+0300 | INFO | whisper.py | 24 | Getting all files in folder
+2024-06-11T14:57:25.919160+0300 | INFO | whisper.py | 29 | Refactored name into : high/Алгоритмы-и-структуры-данных-7-Рёберная-и-вершинная-двусвязность.mp4
+2024-06-11T14:57:25.921701+0300 | DEBUG | whisper.py | 31 | Renamed file : high/Алгоритмы-и-структуры-данных-7-Рёберная-и-вершинная-двусвязность.mp4
+2024-06-11T14:57:25.922105+0300 | INFO | whisper.py | 33 | Whispering high/Алгоритмы-и-структуры-данных-7-Рёберная-и-вершинная-двусвязность.mp4, start time = 2024-06-11 14:57:25.922094
+2024-06-11T15:29:06.237088+0300 | INFO | whisper.py | 37 | Whispered: high/Алгоритмы-и-структуры-данных-7-Рёберная-и-вершинная-двусвязность.mp4 за 0.0 часов, 31.0 минут, 40.31 секунд
+2024-06-11T15:29:06.308020+0300 | INFO | whisper.py | 40 | Deleted file : high/Алгоритмы-и-структуры-данных-7-Рёберная-и-вершинная-двусвязность.mp4
+2024-06-11T15:29:06.308540+0300 | DEBUG | cache.py | 19 | Saving cache: whisper_file_cache
+2024-06-11T15:29:06.524604+0300 | INFO | download.py | 41 | Downloading video Матлогика 20. Значение формул и термов
+2024-06-11T15:29:06.525136+0300 | DEBUG | download.py | 45 | Downloading video
+2024-06-11T15:29:53.443999+0300 | DEBUG | download.py | 49 | Adding file to cache
+2024-06-11T15:29:53.444519+0300 | INFO | download.py | 51 | Download complete! https://www.youtube.com/watch?v=uv5BBOGp6qY: Матлогика 20. Значение формул и термов
+2024-06-11T15:29:53.445097+0300 | DEBUG | cache.py | 19 | Saving cache: whisper_cache
+2024-06-11T15:29:53.458035+0300 | INFO | whisper.py | 24 | Getting all files in folder
+2024-06-11T15:29:53.461707+0300 | INFO | whisper.py | 29 | Refactored name into : high/Матлогика-20-Значение-формул-и-термов.mp4
+2024-06-11T15:29:53.463892+0300 | DEBUG | whisper.py | 31 | Renamed file : high/Матлогика-20-Значение-формул-и-термов.mp4
+2024-06-11T15:29:53.464263+0300 | INFO | whisper.py | 33 | Whispering high/Матлогика-20-Значение-формул-и-термов.mp4, start time = 2024-06-11 15:29:53.464252
+2024-06-11T15:41:45.510200+0300 | INFO | whisper.py | 37 | Whispered: high/Матлогика-20-Значение-формул-и-термов.mp4 за 0.0 часов, 11.0 минут, 52.05 секунд
+2024-06-11T15:41:45.529775+0300 | INFO | whisper.py | 40 | Deleted file : high/Матлогика-20-Значение-формул-и-термов.mp4
+2024-06-11T15:41:45.530239+0300 | DEBUG | cache.py | 19 | Saving cache: whisper_file_cache
+2024-06-11T15:41:45.697691+0300 | INFO | download.py | 41 | Downloading video Многомерный анализ, интегралы и ряды 13. Функциональные последовательности и ряды
+2024-06-11T15:41:45.698237+0300 | DEBUG | download.py | 45 | Downloading video
+2024-06-11T15:45:27.842315+0300 | DEBUG | download.py | 49 | Adding file to cache
+2024-06-11T15:45:27.842698+0300 | INFO | download.py | 51 | Download complete! https://www.youtube.com/watch?v=nhRiOit_mBI: Многомерный анализ, интегралы и ряды 13. Функциональные последовательности и ряды
+2024-06-11T15:45:27.843084+0300 | DEBUG | cache.py | 19 | Saving cache: whisper_cache
+2024-06-11T15:45:27.852724+0300 | INFO | whisper.py | 24 | Getting all files in folder
+2024-06-11T15:45:27.855826+0300 | INFO | whisper.py | 29 | Refactored name into : high/Многомерный-анализ-интегралы-и-ряды-13-Функциональные-последовательности-и-ряды.mp4
+2024-06-11T15:45:27.857976+0300 | DEBUG | whisper.py | 31 | Renamed file : high/Многомерный-анализ-интегралы-и-ряды-13-Функциональные-последовательности-и-ряды.mp4
+2024-06-11T15:45:27.858362+0300 | INFO | whisper.py | 33 | Whispering high/Многомерный-анализ-интегралы-и-ряды-13-Функциональные-последовательности-и-ряды.mp4, start time = 2024-06-11 15:45:27.858336
+2024-06-11T15:58:27.715516+0300 | INFO | whisper.py | 37 | Whispered: high/Многомерный-анализ-интегралы-и-ряды-13-Функциональные-последовательности-и-ряды.mp4 за 0.0 часов, 12.0 минут, 59.86 секунд
+2024-06-11T15:58:27.758854+0300 | INFO | whisper.py | 40 | Deleted file : high/Многомерный-анализ-интегралы-и-ряды-13-Функциональные-последовательности-и-ряды.mp4
+2024-06-11T15:58:27.759392+0300 | DEBUG | cache.py | 19 | Saving cache: whisper_file_cache
+2024-06-11T15:58:27.917669+0300 | INFO | download.py | 41 | Downloading video Многомерный анализ, интегралы и ряды 12. Криволинейный интеграл
+2024-06-11T15:58:27.918233+0300 | DEBUG | download.py | 45 | Downloading video
+2024-06-11T15:59:57.663192+0300 | DEBUG | download.py | 49 | Adding file to cache
+2024-06-11T15:59:57.663539+0300 | INFO | download.py | 51 | Download complete! https://www.youtube.com/watch?v=xoBfB3WG5oI: Многомерный анализ, интегралы и ряды 12. Криволинейный интеграл
+2024-06-11T15:59:57.664013+0300 | DEBUG | cache.py | 19 | Saving cache: whisper_cache
+2024-06-11T15:59:57.675267+0300 | INFO | whisper.py | 24 | Getting all files in folder
+2024-06-11T15:59:57.678605+0300 | INFO | whisper.py | 29 | Refactored name into : high/Многомерный-анализ-интегралы-и-ряды-12-Криволинейный-интеграл.mp4
+2024-06-11T15:59:57.680646+0300 | DEBUG | whisper.py | 31 | Renamed file : high/Многомерный-анализ-интегралы-и-ряды-12-Криволинейный-интеграл.mp4
+2024-06-11T15:59:57.680932+0300 | INFO | whisper.py | 33 | Whispering high/Многомерный-анализ-интегралы-и-ряды-12-Криволинейный-интеграл.mp4, start time = 2024-06-11 15:59:57.680920
+2024-06-11T16:23:26.702972+0300 | INFO | whisper.py | 37 | Whispered: high/Многомерный-анализ-интегралы-и-ряды-12-Криволинейный-интеграл.mp4 за 0.0 часов, 23.0 минут, 29.02 секунд
+2024-06-11T16:23:26.726480+0300 | INFO | whisper.py | 40 | Deleted file : high/Многомерный-анализ-интегралы-и-ряды-12-Криволинейный-интеграл.mp4
+2024-06-11T16:23:26.727017+0300 | DEBUG | cache.py | 19 | Saving cache: whisper_file_cache
+2024-06-11T16:23:26.860658+0300 | INFO | download.py | 41 | Downloading video Математическая логика и теория алгоритмов 7. Бесконечные множества. Базис Гамеля.
+2024-06-11T16:23:26.862094+0300 | DEBUG | download.py | 45 | Downloading video
+2024-06-11T16:24:22.721876+0300 | DEBUG | download.py | 49 | Adding file to cache
+2024-06-11T16:24:22.722265+0300 | INFO | download.py | 51 | Download complete! https://www.youtube.com/watch?v=TykF2_mMxvE: Математическая логика и теория алгоритмов 7. Бесконечные множества. Базис Гамеля.
+2024-06-11T16:24:22.722795+0300 | DEBUG | cache.py | 19 | Saving cache: whisper_cache
+2024-06-11T16:24:22.734952+0300 | INFO | whisper.py | 24 | Getting all files in folder
+2024-06-11T16:24:22.738207+0300 | INFO | whisper.py | 29 | Refactored name into : high/Математическая-логика-и-теория-алгоритмов-7-Бесконечные-множества-Базис-Гамеля.mp4
+2024-06-11T16:24:22.740544+0300 | DEBUG | whisper.py | 31 | Renamed file : high/Математическая-логика-и-теория-алгоритмов-7-Бесконечные-множества-Базис-Гамеля.mp4
+2024-06-11T16:24:22.740975+0300 | INFO | whisper.py | 33 | Whispering high/Математическая-логика-и-теория-алгоритмов-7-Бесконечные-множества-Базис-Гамеля.mp4, start time = 2024-06-11 16:24:22.740962
+2024-06-11T16:38:34.906011+0300 | INFO | whisper.py | 37 | Whispered: high/Математическая-логика-и-теория-алгоритмов-7-Бесконечные-множества-Базис-Гамеля.mp4 за 0.0 часов, 14.0 минут, 12.16 секунд
+2024-06-11T16:38:34.941683+0300 | INFO | whisper.py | 40 | Deleted file : high/Математическая-логика-и-теория-алгоритмов-7-Бесконечные-множества-Базис-Гамеля.mp4
+2024-06-11T16:38:34.942220+0300 | DEBUG | cache.py | 19 | Saving cache: whisper_file_cache
+2024-06-11T16:38:35.152474+0300 | INFO | download.py | 41 | Downloading video Многомерный анализ, интегралы и ряды 12. Виды сходимостей числовых рядов
+2024-06-11T16:38:35.153899+0300 | DEBUG | download.py | 45 | Downloading video
+2024-06-11T16:39:44.159307+0300 | DEBUG | download.py | 49 | Adding file to cache
+2024-06-11T16:39:44.159803+0300 | INFO | download.py | 51 | Download complete! https://www.youtube.com/watch?v=xMa4GySGsC0: Многомерный анализ, интегралы и ряды 12. Виды сходимостей числовых рядов
+2024-06-11T16:39:44.160288+0300 | DEBUG | cache.py | 19 | Saving cache: whisper_cache
+2024-06-11T16:39:44.171605+0300 | INFO | whisper.py | 24 | Getting all files in folder
+2024-06-11T16:39:44.173982+0300 | INFO | whisper.py | 29 | Refactored name into : high/Многомерный-анализ-интегралы-и-ряды-12-Виды-сходимостей-числовых-рядов.mp4
+2024-06-11T16:39:44.176005+0300 | DEBUG | whisper.py | 31 | Renamed file : high/Многомерный-анализ-интегралы-и-ряды-12-Виды-сходимостей-числовых-рядов.mp4
+2024-06-11T16:39:44.176365+0300 | INFO | whisper.py | 33 | Whispering high/Многомерный-анализ-интегралы-и-ряды-12-Виды-сходимостей-числовых-рядов.mp4, start time = 2024-06-11 16:39:44.176351
+2024-06-11T16:53:15.324216+0300 | INFO | whisper.py | 37 | Whispered: high/Многомерный-анализ-интегралы-и-ряды-12-Виды-сходимостей-числовых-рядов.mp4 за 0.0 часов, 13.0 минут, 31.15 секунд
+2024-06-11T16:53:15.341883+0300 | INFO | whisper.py | 40 | Deleted file : high/Многомерный-анализ-интегралы-и-ряды-12-Виды-сходимостей-числовых-рядов.mp4
+2024-06-11T16:53:15.342400+0300 | DEBUG | cache.py | 19 | Saving cache: whisper_file_cache
+2024-06-11T16:53:15.552529+0300 | INFO | download.py | 41 | Downloading video Матлогика 19. Логика предикатов. Структуры. Сигнатуры и их интерпретации
+2024-06-11T16:53:15.554173+0300 | DEBUG | download.py | 45 | Downloading video
+2024-06-11T16:56:26.411948+0300 | DEBUG | download.py | 49 | Adding file to cache
+2024-06-11T16:56:26.412403+0300 | INFO | download.py | 51 | Download complete! https://www.youtube.com/watch?v=m5P3Ax3ibvs: Матлогика 19. Логика предикатов. Структуры. Сигнатуры и их интерпретации
+2024-06-11T16:56:26.412741+0300 | DEBUG | cache.py | 19 | Saving cache: whisper_cache
+2024-06-11T16:56:26.424622+0300 | INFO | whisper.py | 24 | Getting all files in folder
+2024-06-11T16:56:26.427541+0300 | INFO | whisper.py | 29 | Refactored name into : high/Матлогика-19-Логика-предикатов-Структуры-Сигнатуры-и-их-интерпретации.mp4
+2024-06-11T16:56:26.429501+0300 | DEBUG | whisper.py | 31 | Renamed file : high/Матлогика-19-Логика-предикатов-Структуры-Сигнатуры-и-их-интерпретации.mp4
+2024-06-11T16:56:26.430038+0300 | INFO | whisper.py | 33 | Whispering high/Матлогика-19-Логика-предикатов-Структуры-Сигнатуры-и-их-интерпретации.mp4, start time = 2024-06-11 16:56:26.430024
+2024-06-11T17:10:53.185156+0300 | INFO | whisper.py | 37 | Whispered: high/Матлогика-19-Логика-предикатов-Структуры-Сигнатуры-и-их-интерпретации.mp4 за 0.0 часов, 14.0 минут, 26.75 секунд
+2024-06-11T17:10:53.231343+0300 | INFO | whisper.py | 40 | Deleted file : high/Матлогика-19-Логика-предикатов-Структуры-Сигнатуры-и-их-интерпретации.mp4
+2024-06-11T17:10:53.231886+0300 | DEBUG | cache.py | 19 | Saving cache: whisper_file_cache
+2024-06-11T17:10:53.533912+0300 | INFO | download.py | 41 | Downloading video Статфиз, семинар 6
+2024-06-11T17:10:53.534951+0300 | DEBUG | download.py | 45 | Downloading video
+2024-06-11T17:12:27.614491+0300 | DEBUG | download.py | 49 | Adding file to cache
+2024-06-11T17:12:27.614922+0300 | INFO | download.py | 51 | Download complete! https://www.youtube.com/watch?v=9Z6IQ9KJQNI: Статфиз, семинар 6
+2024-06-11T17:12:27.615235+0300 | DEBUG | cache.py | 19 | Saving cache: whisper_cache
+2024-06-11T17:12:27.626970+0300 | INFO | whisper.py | 24 | Getting all files in folder
+2024-06-11T17:12:27.629521+0300 | INFO | whisper.py | 29 | Refactored name into : high/Статфиз-семинар-6.mp4
+2024-06-11T17:12:27.631830+0300 | DEBUG | whisper.py | 31 | Renamed file : high/Статфиз-семинар-6.mp4
+2024-06-11T17:12:27.632259+0300 | INFO | whisper.py | 33 | Whispering high/Статфиз-семинар-6.mp4, start time = 2024-06-11 17:12:27.632231
+2024-06-11T17:24:24.492825+0300 | INFO | whisper.py | 37 | Whispered: high/Статфиз-семинар-6.mp4 за 0.0 часов, 11.0 минут, 56.86 секунд
+2024-06-11T17:24:24.520450+0300 | INFO | whisper.py | 40 | Deleted file : high/Статфиз-семинар-6.mp4
+2024-06-11T17:24:24.520948+0300 | DEBUG | cache.py | 19 | Saving cache: whisper_file_cache
+2024-06-11T17:24:24.681783+0300 | INFO | download.py | 41 | Downloading video Статфиз, лекция 6
+2024-06-11T17:24:24.682369+0300 | DEBUG | download.py | 45 | Downloading video
+2024-06-11T17:28:17.257721+0300 | DEBUG | download.py | 49 | Adding file to cache
+2024-06-11T17:28:17.258063+0300 | INFO | download.py | 51 | Download complete! https://www.youtube.com/watch?v=_2qhGrBUZVU: Статфиз, лекция 6
+2024-06-11T17:28:17.258335+0300 | DEBUG | cache.py | 19 | Saving cache: whisper_cache
+2024-06-11T17:28:17.269607+0300 | INFO | whisper.py | 24 | Getting all files in folder
+2024-06-11T17:28:17.271901+0300 | INFO | whisper.py | 29 | Refactored name into : high/Статфиз-лекция-6.mp4
+2024-06-11T17:28:17.273875+0300 | DEBUG | whisper.py | 31 | Renamed file : high/Статфиз-лекция-6.mp4
+2024-06-11T17:28:17.274162+0300 | INFO | whisper.py | 33 | Whispering high/Статфиз-лекция-6.mp4, start time = 2024-06-11 17:28:17.274151
+2024-06-11T17:43:48.593927+0300 | INFO | whisper.py | 37 | Whispered: high/Статфиз-лекция-6.mp4 за 0.0 часов, 15.0 минут, 31.32 секунд
+2024-06-11T17:43:48.630598+0300 | INFO | whisper.py | 40 | Deleted file : high/Статфиз-лекция-6.mp4
+2024-06-11T17:43:48.631131+0300 | DEBUG | cache.py | 19 | Saving cache: whisper_file_cache
+2024-06-11T17:43:48.918192+0300 | INFO | download.py | 41 | Downloading video Статфиз, семинар 5
+2024-06-11T17:43:48.918732+0300 | DEBUG | download.py | 45 | Downloading video
+2024-06-11T17:46:40.241731+0300 | DEBUG | download.py | 49 | Adding file to cache
+2024-06-11T17:46:40.242081+0300 | INFO | download.py | 51 | Download complete! https://www.youtube.com/watch?v=d3peeENSflU: Статфиз, семинар 5
+2024-06-11T17:46:40.242423+0300 | DEBUG | cache.py | 19 | Saving cache: whisper_cache
+2024-06-11T17:46:40.253004+0300 | INFO | whisper.py | 24 | Getting all files in folder
+2024-06-11T17:46:40.255382+0300 | INFO | whisper.py | 29 | Refactored name into : high/Статфиз-семинар-5.mp4
+2024-06-11T17:46:40.258044+0300 | DEBUG | whisper.py | 31 | Renamed file : high/Статфиз-семинар-5.mp4
+2024-06-11T17:46:40.258628+0300 | INFO | whisper.py | 33 | Whispering high/Статфиз-семинар-5.mp4, start time = 2024-06-11 17:46:40.258585
+2024-06-11T18:02:06.105953+0300 | INFO | whisper.py | 37 | Whispered: high/Статфиз-семинар-5.mp4 за 0.0 часов, 15.0 минут, 25.85 секунд
+2024-06-11T18:02:06.132335+0300 | INFO | whisper.py | 40 | Deleted file : high/Статфиз-семинар-5.mp4
+2024-06-11T18:02:06.132997+0300 | DEBUG | cache.py | 19 | Saving cache: whisper_file_cache
+2024-06-11T18:02:06.316445+0300 | INFO | download.py | 41 | Downloading video Функциональный анализ 19. Спектр, резольвента
+2024-06-11T18:02:06.317915+0300 | DEBUG | download.py | 45 | Downloading video
+2024-06-11T18:02:36.457479+0300 | DEBUG | download.py | 49 | Adding file to cache
+2024-06-11T18:02:36.458531+0300 | INFO | download.py | 51 | Download complete! https://www.youtube.com/watch?v=Jfaum5-bOys: Функциональный анализ 19. Спектр, резольвента
+2024-06-11T18:02:36.459025+0300 | DEBUG | cache.py | 19 | Saving cache: whisper_cache
+2024-06-11T18:02:36.471581+0300 | INFO | whisper.py | 24 | Getting all files in folder
+2024-06-11T18:02:36.474916+0300 | INFO | whisper.py | 29 | Refactored name into : high/Функциональный-анализ-19-Спектр-резольвента.mp4
+2024-06-11T18:02:36.477794+0300 | DEBUG | whisper.py | 31 | Renamed file : high/Функциональный-анализ-19-Спектр-резольвента.mp4
+2024-06-11T18:02:36.478307+0300 | INFO | whisper.py | 33 | Whispering high/Функциональный-анализ-19-Спектр-резольвента.mp4, start time = 2024-06-11 18:02:36.478294

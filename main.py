@@ -1,3 +1,4 @@
+'''Main script for the WHISPER of FPMI'''
 import sys
 
 from loguru import logger as lg
@@ -17,9 +18,12 @@ def main() -> None:
 
     lg.remove()
     lg.level("INFO", color="<cyan>")
-    lg.add("debug.txt", format="{time} | {level} | {file} | {line} | {message}", level="DEBUG", rotation="1 MB",
+    lg.add("debug.txt", format="{time} | {level} | {file} | {line} | {message}", level="DEBUG",
+           rotation="1 MB",
            colorize=True, compression="zip")
-    lg.add(sys.stdout, format="<level><b>{time} | {level} | {file} | {line} | {message}</b></level>", level="DEBUG",
+    lg.add(sys.stdout,
+           format="<level><b>{time} | {level} | {file} | {line} | {message}</b></level>",
+           level="DEBUG",
            colorize=True)
     cache_download = load_cache(CACHE_DOWNLOAD)
     cache_file = load_cache(CACHE_FILE)

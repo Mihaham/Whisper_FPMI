@@ -1,3 +1,4 @@
+'''Module for downloading videos from Youtube'''
 import os
 import scrapetube
 
@@ -13,19 +14,24 @@ def check_folders() -> bool:
 
     flag = True
 
-    checkContentFolder = os.path.exists("content")
-    checkDownLoadFolder = os.path.exists("download")
-    checkHighFolder = os.path.exists("high")
+    check_content_folder = os.path.exists("content")
+    check_down_load_folder = os.path.exists("download")
+    check_high_folder = os.path.exists("high")
+    check_part_folder = os.path.exists("parts")
 
-    if not checkContentFolder:
+    if not check_part_folder:
+        os.mkdir("parts")
+        lg.warning("Content folder was created")
+        flag = False
+    if not check_content_folder:
         os.mkdir("content")
         lg.warning("Content folder was created")
         flag = False
-    if not checkDownLoadFolder:
+    if not check_down_load_folder:
         os.mkdir("download")
         lg.warning("Download folder was created")
         flag = False
-    if not checkHighFolder:
+    if not check_high_folder:
         os.mkdir("high")
         lg.warning("High folder was created")
         flag = False
@@ -41,11 +47,11 @@ def download(video_url: str, files: list) -> int:
     if yt.title in files:
         lg.warning(f"File is already downloaded: {video_url}: {yt.title}")
         return 0
-    lg.debug(f"Downloading video")
+    lg.debug("Downloading video")
     stream = yt.streams.get_highest_resolution()
     output_path = "high/"
     stream.download(output_path)
-    lg.debug(f"Adding file to cache")
+    lg.debug("Adding file to cache")
     files.append(yt.title)
     lg.info(f"Download complete! {video_url}: {yt.title}")
     return 1
