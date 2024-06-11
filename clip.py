@@ -1,6 +1,4 @@
-import glob
 from moviepy.editor import VideoFileClip, concatenate_videoclips
-
 
 loaded_video_list = [VideoFileClip("10_часов_РАЙГОРОДСКИЙ_ТОВАРИЩ_ДРУЗЬЯ.mp4")] * 300
 
