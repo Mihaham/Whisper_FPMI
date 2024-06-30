@@ -19,7 +19,7 @@ def main() -> None:
     lg.remove()
     lg.level("INFO", color="<cyan>")
     lg.add("debug.txt", format="{time} | {level} | {file} | {line} | {message}", level="DEBUG",
-           rotation="1 MB",
+           rotation="100 MB",
            colorize=True, compression="zip")
     lg.add(sys.stdout,
            format="<level><b>{time} | {level} | {file} | {line} | {message}</b></level>",

@@ -1323,3 +1323,15 @@
 2024-06-30T19:25:31.225302+0300 | INFO | whisper.py | 30 | Refactored name into : high/TFTDS--Лекция-15--PBFT.mp4
 2024-06-30T19:25:31.226794+0300 | DEBUG | whisper.py | 32 | Renamed file : high/TFTDS--Лекция-15--PBFT.mp4
 2024-06-30T19:25:31.227083+0300 | INFO | whisper.py | 34 | Whispering high/TFTDS--Лекция-15--PBFT.mp4, start time = 2024-06-30 19:25:31.227069
+2024-06-30T19:49:52.232536+0300 | INFO | whisper.py | 42 | Whispered: high/TFTDS--Лекция-15--PBFT.mp4 за 0.0 часов, 24.0 минут, 21.01 секунд
+2024-06-30T19:49:52.248413+0300 | INFO | whisper.py | 46 | Deleted file : high/TFTDS--Лекция-15--PBFT.mp4
+2024-06-30T19:49:52.248860+0300 | DEBUG | cache.py | 23 | Saving cache: whisper_file_cache
+2024-06-30T19:49:53.819258+0300 | INFO | download.py | 46 | Downloading video Дискретный анализ 13. Теорема Эрдеша-Ко-Радо
+2024-06-30T19:49:53.820241+0300 | DEBUG | download.py | 50 | Downloading video
+2024-06-30T19:50:48.359813+0300 | DEBUG | download.py | 54 | Adding file to cache
+2024-06-30T19:50:48.360137+0300 | INFO | download.py | 56 | Download complete! https://www.youtube.com/watch?v=0JFEVXKrcf8: Дискретный анализ 13. Теорема Эрдеша-Ко-Радо
+2024-06-30T19:50:48.360372+0300 | DEBUG | cache.py | 23 | Saving cache: whisper_cache
+2024-06-30T19:50:48.368450+0300 | INFO | whisper.py | 25 | Getting all files in folder
+2024-06-30T19:50:48.370215+0300 | INFO | whisper.py | 30 | Refactored name into : high/Дискретный-анализ-13-Теорема-Эрдеша-Ко-Радо.mp4
+2024-06-30T19:50:48.371475+0300 | DEBUG | whisper.py | 32 | Renamed file : high/Дискретный-анализ-13-Теорема-Эрдеша-Ко-Радо.mp4
+2024-06-30T19:50:48.371733+0300 | INFO | whisper.py | 34 | Whispering high/Дискретный-анализ-13-Теорема-Эрдеша-Ко-Радо.mp4, start time = 2024-06-30 19:50:48.371721
