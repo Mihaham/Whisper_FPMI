@@ -1,77 +1,43 @@
-import os
-import json
-# Add folders
-checkContentFolder = os.path.exists("content")
-checkDownLoadFolder = os.path.exists("download")
-checkHighFolder = os.path.exists("high")
-if not checkContentFolder:
-  os.mkdir("content")
-if not checkDownLoadFolder:
-  os.mkdir("download")
-if not checkHighFolder:
-  os.mkdir("high")
-from inputimeout import inputimeout, TimeoutOccurred
+'''Main script for the WHISPER of FPMI'''
+import sys
 
-from pytube import YouTube
-from pytube.cli import on_progress
+from loguru import logger as lg
 
-CACHE_FILE = "whisper_cache"
-VERBOSE = True
+from cache import load_cache, save_cache
+from download import download, check_folders, get_videos
+from whisper import whisper
 
-def load_cache():
-    files = []
-    with open(CACHE_FILE, "r") as f:
-        for line in f.readlines():
-            files.append(json.loads(line))
-    print(f"Loaded cache: {files}")
-    return files
-
-def save_cache(files):
-    with open(CACHE_FILE, "w") as f:
-        for file in files:
-            f.write(json.dumps(file))
-            f.write("\n")
+CACHE_DOWNLOAD = "whisper_cache"
+CACHE_FILE = "whisper_file_cache"
+CHANEL = "UCdxesVp6Fs7wLpnp1XKkvZg"
 
 
-def download(video_url, files):
-  yt = YouTube(video_url, on_progress_callback=on_progress)
-  if yt.title.find("ОКТЧ") != -1 and yt.title.find("ОКТЧ 13. Эйлеровость графа.") == -1 or 1:
-    print("______________________________________________________________")
-    print(yt.title)
-    if yt.title not in files:
-        files.append(yt.title)
-        save_cache(files)
-    else:
-        print(f"File is already downloaded: {video_url}: {yt.title}")
-        return 0
-    try:
-        stream = yt.streams.get_highest_resolution()
+@lg.catch()
+def main() -> None:
+    '''Whisperring all videos from channel'''
 
-        output_path = "high/"
+    lg.remove()
+    lg.level("INFO", color="<cyan>")
+    lg.add("debug.txt", format="{time} | {level} | {file} | {line} | {message}", level="DEBUG",
+           rotation="100 MB",
+           colorize=True, compression="zip")
+    lg.add(sys.stdout,
+           format="<level><b>{time} | {level} | {file} | {line} | {message}</b></level>",
+           level="DEBUG",
+           colorize=True)
+    cache_download = load_cache(CACHE_DOWNLOAD)
+    cache_file = load_cache(CACHE_FILE)
 
-        stream.download(output_path)
-        print(f"Download complete! {video_url}: {yt.title}")
-    except Exception as e:
-        print(f"SMTH went wrong with video: {video_url}: {yt.title}")
-        print(e)
-    print("______________________________________________________________")
-    try:
-        c = inputimeout(prompt="Если хотите остановить программу, введите q\n", timeout=5)
-    except TimeoutOccurred:
-        c = "timeout"
-    if (c + "123")[0] == "q":
-        exit()
-    print("______________________________________________________________")
-    return 1
-  return 0
+    lg.info(f"All folders found: {check_folders()}")
 
-import scrapetube
-videos = scrapetube.get_channel("UCdxesVp6Fs7wLpnp1XKkvZg")
-amount = 0
-files = load_cache()
-for video in videos:
-    link = "https://www.youtube.com/watch?v="+video['videoId']
-    print(f"Downloading video {link}")
-    amount += download(link, files)
+    videos = get_videos(CHANEL)
+    for video in videos:
+        link = "https://www.youtube.com/watch?v=" + video['videoId']
+        download(link, cache_download)
+        save_cache(cache_download, CACHE_DOWNLOAD)
+        whisper(cache_file)
+        save_cache(cache_file, CACHE_FILE)
 
 
+if __name__ == '__main__':
+    main()
