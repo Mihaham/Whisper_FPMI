@@ -20,3 +20,19 @@ debug.txt
 
 # кэш моделей faster-whisper, если кто-то скачает в репозиторий
 models/
+
+# секреты и сессии — не коммитить
+.env
+.env.*
+!.env.example
+cookies.txt
+*.cookies
+*.cookie
+*.pem
+*.key
+id_rsa
+id_ed25519
+credentials.json
+client_secret*.json
+secrets.json
+
