@@ -1,4 +1,22 @@
 .idea
+.venv
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# локальные видео и служебные логи
 high
 content
-.venv
+parts
+videos
+debug.txt
+*.mp4
+*.mkv
+*.webm
+*.swp
+.whisper.swp
+.wslrun
+
+# кэш моделей faster-whisper, если кто-то скачает в репозиторий
+models/

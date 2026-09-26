@@ -1,3 +1,4 @@
+# DEPRECATED. See legacy/README.md. Use: python -m whisper_fpmi run
 '''This module helps to cache the results'''
 import json
 

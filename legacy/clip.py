@@ -1,3 +1,4 @@
+# DEPRECATED. See legacy/README.md. Use: python -m whisper_fpmi run
 '''Helping with clips'''
 
 from moviepy.editor import VideoFileClip, concatenate_videoclips

@@ -1,3 +1,4 @@
+# DEPRECATED. See legacy/README.md. Use: python -m whisper_fpmi run
 '''Script for extracting subclips'''
 import os
 

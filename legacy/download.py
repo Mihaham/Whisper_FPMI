@@ -1,3 +1,4 @@
+# DEPRECATED. See legacy/README.md. Use: python -m whisper_fpmi run
 '''Module for downloading videos from Youtube'''
 import os
 import scrapetube

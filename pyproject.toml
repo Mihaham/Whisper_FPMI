@@ -1,0 +1,23 @@
+[project]
+name = "whisper-fpmi"
+version = "2.0.0"
+description = "Расшифровка лекций ФПМИ с VK Video через Whisper large-v3"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "yt-dlp>=2025.9.23",
+  "faster-whisper>=1.1.0",
+  "loguru>=0.7.2",
+  "requests>=2.32.0",
+  "tqdm>=4.66.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "flake8>=7.0"]
+
+[project.scripts]
+fpmi-whisper = "whisper_fpmi.cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
