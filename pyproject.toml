@@ -13,7 +13,13 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = ["pytest>=8.0", "flake8>=7.0"]
+dev = [
+  "pytest>=8.0",
+  "flake8>=7.0",
+  "loguru>=0.7.2",
+  "requests>=2.32.0",
+  "tqdm>=4.66.0",
+]
 
 [project.scripts]
 fpmi-whisper = "whisper_fpmi.cli:main"
