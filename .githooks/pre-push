@@ -1,0 +1,2 @@
+#!/bin/sh
+python -m whisper_fpmi wordcloud --check || exit 1

@@ -1,0 +1,3 @@
+#!/bin/sh
+python -m whisper_fpmi wordcloud --if-stale || exit 1
+git add assets/wordcloud.svg data/wordcloud.json

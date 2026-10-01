@@ -21,6 +21,11 @@ debug.txt
 # кэш моделей faster-whisper, если кто-то скачает в репозиторий
 models/
 
+# производный поисковый индекс и кэш частот
+data/search.pkl
+data/wordcloud-cache.json
+site/
+
 # секреты и сессии — не коммитить
 .env
 .env.*

@@ -51,11 +51,21 @@ def render_catalog(lectures: list[ParsedLecture] | None = None) -> str:
         f"- Курсов: **{len(grouped)}**",
         f"- Обновлено: {today}",
         "",
-        "Формат записи: **номер. тема** — ссылка на сплошной текст и, если есть, на текст с таймкодами.",
-        "",
-        "## Содержание",
-        "",
     ]
+    if (ROOT / "assets" / "wordcloud.svg").exists():
+        lines.append("![Облако слов](assets/wordcloud.svg)")
+        lines.append("")
+    if (ROOT / "assets" / "term-graph.html").exists():
+        lines.append("[Граф терминов по курсам](assets/term-graph.html)")
+        lines.append("")
+    lines.extend(
+        [
+            "Формат записи: **номер. тема** — ссылка на сплошной текст и, если есть, на текст с таймкодами.",
+            "",
+            "## Содержание",
+            "",
+        ]
+    )
     for course, items in grouped.items():
         anchor = _anchor(course)
         lines.append(f"- [{course}](#{anchor}) ({len(items)})")

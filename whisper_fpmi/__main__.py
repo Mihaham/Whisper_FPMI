@@ -8,6 +8,10 @@ from loguru import logger as lg
 from whisper_fpmi.paths import (
     CHANNEL_URL,
     DEFAULT_CPU_CORES,
+    DEFAULT_CPU_LANE_QUEUE,
+    DEFAULT_CPU_LANE_THREADS,
+    DEFAULT_DOWNLOAD_WORKERS,
+    DEFAULT_FRAGMENT_THREADS,
     DEFAULT_MAX_GB,
     DEFAULT_MODEL,
 )
@@ -17,7 +21,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="whisper_fpmi",
         description=(
-            "Скачивать лекции ФПМИ с VK пачками до 10 ГиБ, "
+            "Скачивать лекции ФПМИ с VK пачками до 3 ГиБ, "
             "расшифровывать Whisper large-v3 и удалять исходники."
         ),
     )
@@ -58,7 +62,19 @@ def build_parser() -> argparse.ArgumentParser:
         "--max-gb",
         type=float,
         default=DEFAULT_MAX_GB,
-        help="Максимум гигабайт в videos/ на один круг (по умолчанию 10)",
+        help="Максимум гигабайт в videos/ на один круг (по умолчанию 3)",
+    )
+    run.add_argument(
+        "--download-workers",
+        type=int,
+        default=DEFAULT_DOWNLOAD_WORKERS,
+        help="Сколько лекций качать одновременно (по умолчанию 4)",
+    )
+    run.add_argument(
+        "--fragment-threads",
+        type=int,
+        default=DEFAULT_FRAGMENT_THREADS,
+        help="HTTP-соединений на один ролик (по умолчанию 8)",
     )
     run.add_argument("--keep-video", action="store_true")
     run.add_argument(
@@ -70,19 +86,28 @@ def build_parser() -> argparse.ArgumentParser:
         "--cpu-cores",
         type=int,
         default=DEFAULT_CPU_CORES,
-        help="Сколько CPU-потоков отдать Whisper (по умолчанию 20 из 28, запас ffmpeg/системе)",
+        help="Сколько CPU-потоков отдать Whisper, если GPU нет (по умолчанию 20)",
     )
     run.add_argument(
         "--cpu-workers",
         type=int,
         default=None,
-        help="Сколько лекций параллельно на CPU (по умолчанию 4). 0 — только GPU",
+        help="CPU-процессов рядом с GPU. По умолчанию 1. 0 — только GPU",
     )
     run.add_argument(
         "--cpu-threads",
         type=int,
         default=None,
-        help="Потоков CTranslate2 на один CPU-воркер (по умолчанию cpu-cores / cpu-workers)",
+        help=(
+            "Потоков на один CPU-процесс. "
+            f"Рядом с GPU по умолчанию {DEFAULT_CPU_LANE_THREADS}"
+        ),
+    )
+    run.add_argument(
+        "--cpu-queue",
+        type=int,
+        default=DEFAULT_CPU_LANE_QUEUE,
+        help="Сколько видео держать в очереди CPU, пока GPU считает остальное (по умолчанию 10)",
     )
     run.add_argument(
         "--gpu-workers",
@@ -91,6 +116,36 @@ def build_parser() -> argparse.ArgumentParser:
         help="Параллельных расшифровок на GPU (по умолчанию 1). 0 — только CPU",
     )
     run.set_defaults(func=_cmd_run)
+
+    build = sub.add_parser(
+        "build",
+        help="Датасет, облако, граф терминов, поисковый индекс и метрики",
+    )
+    build.add_argument("--offline", action="store_true", help="Не ходить в VK, брать кэш описаний")
+    build.add_argument("--refresh-descriptions", action="store_true")
+    build.add_argument("--workers", type=int, default=4)
+    build.set_defaults(func=_cmd_build)
+
+    cloud = sub.add_parser("wordcloud", help="Пересобрать облако слов")
+    cloud.add_argument("--check", action="store_true", help="Код 1, если облако устарело")
+    cloud.add_argument("--if-stale", action="store_true", help="Пересобрать только если тексты изменились")
+    cloud.set_defaults(func=_cmd_wordcloud)
+
+    finding = sub.add_parser("search", help="Поиск по лекциям без нейросети")
+    finding.add_argument("query")
+    finding.add_argument("--course", default=None)
+    finding.add_argument("--limit", type=int, default=8)
+    finding.set_defaults(func=_cmd_search)
+
+    asking = sub.add_parser("rag", help="Ответ с цитатами по найденным фрагментам")
+    asking.add_argument("query")
+    asking.add_argument("--course", default=None)
+    asking.add_argument("--limit", type=int, default=5)
+    asking.set_defaults(func=_cmd_rag)
+
+    site = sub.add_parser("serve", help="Страница поиска и графа на localhost")
+    site.add_argument("--port", type=int, default=8765)
+    site.set_defaults(func=_cmd_serve)
     return parser
 
 
@@ -165,6 +220,80 @@ def _cmd_transcribe(args: argparse.Namespace) -> int:
     return 0
 
 
+def _cmd_build(args: argparse.Namespace) -> int:
+    from whisper_fpmi.analytics import build_all
+
+    metrics = build_all(
+        offline=args.offline,
+        refresh=args.refresh_descriptions,
+        workers=args.workers,
+    )
+    retrieval = metrics.get("retrieval") or {}
+    chapters = retrieval.get("chapters") or {}
+    titles = retrieval.get("titles") or {}
+    rag = retrieval.get("rag") or {}
+    lg.info(
+        "Лекций {}, с таймкодами {}, таймкодов с полем часа {}",
+        metrics.get("lectures"),
+        metrics.get("with_timecodes"),
+        metrics.get("timecodes_with_hour_field"),
+    )
+    lg.info(
+        "Главы: hit@5 {}, MRR@10 {}, граница ±90с {}",
+        chapters.get("hit_rate_at_5"),
+        chapters.get("mrr_at_10"),
+        chapters.get("boundary_hit_at_90s_at_5"),
+    )
+    lg.info("Названия: hit@1 {}, MRR@10 {}", titles.get("hit_rate_at_1"), titles.get("mrr_at_10"))
+    lg.info(
+        "RAG: попадание цитаты {}, опора на фрагменты {}",
+        rag.get("support_hit_rate"),
+        rag.get("grounded"),
+    )
+    return 0
+
+
+def _cmd_wordcloud(args: argparse.Namespace) -> int:
+    from whisper_fpmi.analytics import cloud_check, rebuild_cloud
+
+    if args.check or args.if_stale:
+        fresh, message = cloud_check()
+        if fresh or args.check:
+            print(message)
+            return 0 if fresh else 1
+    rebuild_cloud()
+    print("облако обновлено")
+    return 0
+
+
+def _cmd_search(args: argparse.Namespace) -> int:
+    from whisper_fpmi.analytics import format_hits, run_search
+
+    hits = run_search(args.query, limit=args.limit, course=args.course)
+    print(format_hits(hits, args.query))
+    return 0
+
+
+def _cmd_rag(args: argparse.Namespace) -> int:
+    from whisper_fpmi.analytics import run_rag
+
+    answer = run_rag(args.query, limit=args.limit, course=args.course)
+    print(answer.answer)
+    print()
+    for citation in answer.citations:
+        print(f"[{citation['rank']}] {citation['clock']} {citation['course']} — {citation['title']}")
+        if citation.get("url"):
+            print(f"    {citation['url']}")
+    return 0
+
+
+def _cmd_serve(args: argparse.Namespace) -> int:
+    from whisper_fpmi.serve import serve
+
+    serve(args.port)
+    return 0
+
+
 def _cmd_run(args: argparse.Namespace) -> int:
     from whisper_fpmi.pipeline import run_pipeline
 
@@ -180,7 +309,10 @@ def _cmd_run(args: argparse.Namespace) -> int:
         cpu_cores=args.cpu_cores,
         cpu_workers=args.cpu_workers,
         cpu_threads=args.cpu_threads,
+        cpu_queue=args.cpu_queue,
         gpu_workers=args.gpu_workers,
+        download_workers=args.download_workers,
+        fragment_threads=args.fragment_threads,
     )
 
 
