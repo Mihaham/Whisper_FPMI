@@ -67,6 +67,19 @@ def test_trailing_stream_without_parentheses():
     assert parsed.number == 1
 
 
+def test_parse_dotted_lecture_number():
+    parsed = parse_stem("Алгебра-и-Геометрия-11.-Метод-Грама-Шмидта.-Объём")
+    assert parsed.course == "Алгебра-и-Геометрия"
+    assert parsed.number == 11
+    assert parsed.title.startswith("Метод-Грама")
+    streamed = parse_stem(
+        "Алгоритмы-и-структуры-данных--основной-поток--1.-Асимптотика,-бинарный-поиск"
+    )
+    assert streamed.course == "Алгоритмы-и-структуры-данных"
+    assert streamed.stream == "основной-поток"
+    assert streamed.number == 1
+
+
 def test_fold_key_ignores_punctuation():
     from whisper_fpmi.names import fold_key
 

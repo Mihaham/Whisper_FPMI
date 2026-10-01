@@ -6,17 +6,17 @@ import re
 UNSAFE_CHARS = re.compile(r'[<>:"/\\|?*]')
 TAG_RE = re.compile(r"^(\[[^\]]+\])-(.+)$")
 TFTDS_RE = re.compile(
-    r"^(?P<course>.+?)--(?P<kind>Лекция|Семинар)-(?P<num>\d+)--(?P<title>.+)$",
+    r"^(?P<course>.+?)--(?P<kind>Лекция|Семинар)-(?P<num>\d+)\.?--(?P<title>.+)$",
     re.IGNORECASE,
 )
 STREAM_THEN_NUM_RE = re.compile(
-    r"^(?P<course>.+?)--(?P<stream>.+?)--(?P<num>\d+)-(?P<title>.+)$"
+    r"^(?P<course>.+?)--(?P<stream>.+?)--(?P<num>\d+)\.?-(?P<title>.+)$"
 )
 NUM_THEN_STREAM_RE = re.compile(
-    r"^(?P<course>.+?)-(?P<num>\d+)--(?P<stream>.+?)--(?P<title>.+)$"
+    r"^(?P<course>.+?)-(?P<num>\d+)\.?--(?P<stream>.+?)--(?P<title>.+)$"
 )
-NUM_TITLE_RE = re.compile(r"^(?P<course>.+?)-(?P<num>\d+)-(?P<title>.+)$")
-NUM_ONLY_RE = re.compile(r"^(?P<course>.+?)-(?P<num>\d+)$")
+NUM_TITLE_RE = re.compile(r"^(?P<course>.+?)-(?P<num>\d+)\.?-(?P<title>.+)$")
+NUM_ONLY_RE = re.compile(r"^(?P<course>.+?)-(?P<num>\d+)\.?$")
 
 STREAM_HINTS = (
     "поток",
