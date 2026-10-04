@@ -251,18 +251,22 @@ def test_csv_keeps_hour_timecode_and_commas(tmp_path):
                 "timecodes_past_one_hour": 1,
                 "filler_counts": {"значит": 2, "давайте": 1},
                 "description": "строка\nвторая",
-                "duration_sec": 4000,
+                "duration_sec": 4000.5,
             }
         ],
         path,
     )
+    raw = path.read_bytes()
+    assert raw.startswith(b"\xef\xbb\xbf")
+    assert b"\n" not in raw.replace(b"\r\n", b"")
     with path.open(encoding="utf-8-sig", newline="") as handle:
-        rows = list(csv.DictReader(handle))
+        rows = list(csv.DictReader(handle, delimiter=";"))
+    assert len(rows) == 1
     assert rows[0]["course"] == "Алгебра, геометрия"
     assert rows[0]["timecodes"] == "01:05:30 После часа, клетка"
-    assert rows[0]["filler_counts"] == "давайте=1; значит=2"
-    assert "вторая" in rows[0]["description"]
-    assert rows[0]["duration_sec"] == "4000"
+    assert rows[0]["filler_counts"] == "давайте=1 | значит=2"
+    assert rows[0]["description"] == "строка вторая"
+    assert rows[0]["duration_sec"] == "4000,5"
 
 
 def test_wordcloud_skips_empty_and_draws_the_top_word():

@@ -11,6 +11,10 @@ from whisper_fpmi.vk import ChannelVideo
 
 HOUR = 3600.0
 MINUTE = 60.0
+# У каждого CPU своя строка. Скачивание и GPU занимают строки ниже.
+CPU_BAR_POSITION = 2
+CPU_BAR_ROWS = 4
+MEDIA_BAR_POSITION = CPU_BAR_POSITION + CPU_BAR_ROWS
 
 
 def audio_seconds(videos: Iterable[ChannelVideo]) -> float:
@@ -62,6 +66,23 @@ def eta_seconds(elapsed: float, done: float, total: float) -> float | None:
     return remaining * elapsed / done
 
 
+def format_span(seconds: float) -> str:
+    """Короткий остаток как мм:сс, долгий — часы и дни вместе."""
+    seconds = max(0.0, float(seconds))
+    if seconds < HOUR:
+        total = int(round(seconds))
+        minutes, secs = divmod(total, 60)
+        return f"{minutes:02d}:{secs:02d}"
+    hours = seconds / HOUR
+    days = hours / 24.0
+    return f"{hours:.1f} ч ({days:.1f} д)"
+
+
+def format_audio_left(hours: float) -> str:
+    left = max(0.0, float(hours))
+    return f"{left:.0f} ч ({left / 24.0:.1f} д)"
+
+
 @dataclass
 class ProgressState:
     total_files: int
@@ -83,7 +104,11 @@ class ProgressState:
         self.batch_audio = audio
         self.batch_done_files = 0
         self.batch_done_audio = 0.0
-        self.active.clear()
+        self.active = {
+            label: value
+            for label, value in self.active.items()
+            if _is_cpu_label(label)
+        }
 
     def start_video(self, label: str, duration: float | None) -> None:
         self.active[label] = (0.0, float(duration or 0.0))
@@ -98,22 +123,30 @@ class ProgressState:
         added = dur if dur > 0 else pos
         self.done_files += 1
         self.done_audio += added
-        self.batch_done_files += 1
-        self.batch_done_audio += added
+        if not _is_cpu_label(label):
+            self.batch_done_files += 1
+            self.batch_done_audio += added
         return pos, dur
 
     def audio_now(self) -> float:
         return self.done_audio + sum(pos for pos, _ in self.active.values())
 
     def batch_audio_now(self) -> float:
-        return self.batch_done_audio + sum(pos for pos, _ in self.active.values())
+        return self.batch_done_audio + sum(
+            pos for pos, _ in self._active_values(include_cpu=False)
+        )
 
-    def fraction_active(self) -> float:
+    def fraction_active(self, *, include_cpu: bool = True) -> float:
         total = 0.0
-        for pos, dur in self.active.values():
+        for pos, dur in self._active_values(include_cpu=include_cpu):
             if dur > 0:
                 total += min(pos / dur, 1.0)
         return total
+
+    def _active_values(self, *, include_cpu: bool):
+        for label, value in self.active.items():
+            if include_cpu or not _is_cpu_label(label):
+                yield value
 
     def overall_n(self) -> float:
         if self.use_audio:
@@ -128,7 +161,7 @@ class ProgressState:
     def batch_n(self) -> float:
         if self.batch_audio > 0:
             return self.batch_audio_now() / HOUR
-        return float(self.batch_done_files) + self.fraction_active()
+        return float(self.batch_done_files) + self.fraction_active(include_cpu=False)
 
     def batch_total(self) -> float:
         if self.batch_audio > 0:
@@ -142,11 +175,39 @@ class ProgressState:
         return "ч" if self.batch_audio > 0 else "файл"
 
 
+def _hour_day_bar_class():
+    from tqdm import tqdm
+
+    class HourDayBar(tqdm):
+        @property
+        def format_dict(self):
+            data = super().format_dict
+            elapsed = float(data.get("elapsed") or 0)
+            done = float(data.get("n") or 0)
+            total = float(data.get("total") or 0)
+            left = eta_seconds(elapsed, done, total)
+            data["left"] = format_span(left) if left is not None else "?"
+            return data
+
+    return HourDayBar
+
+
+_HOUR_DAY_BAR = None
+
+
+def HourDayTqdm(*args, **kwargs):
+    """Полоска tqdm, где долгий остаток виден и в часах, и в днях."""
+    global _HOUR_DAY_BAR
+    if _HOUR_DAY_BAR is None:
+        _HOUR_DAY_BAR = _hour_day_bar_class()
+    return _HOUR_DAY_BAR(*args, **kwargs)
+
+
 class RunProgress:
     BAR_FORMAT = (
         "{desc}: {percentage:3.0f}%|{bar}| "
         "{n_fmt}/{total_fmt} "
-        "прошло {elapsed} осталось {remaining}"
+        "прошло {elapsed} осталось {left}"
     )
 
     def __init__(
@@ -164,7 +225,7 @@ class RunProgress:
         self._tqdm = tqdm
         self._lock = threading.RLock()
         self._positions: dict[str, int] = {}
-        self._next_video_pos = 2
+        self._next_video_pos = MEDIA_BAR_POSITION
         self.overall = self._bar(
             desc=f"Всего ({self.state.overall_unit()})",
             total=self.state.overall_total(),
@@ -232,7 +293,7 @@ class RunProgress:
             self.overall.close()
 
     def _bar(self, *, desc: str, total: float, position: int, leave: bool):
-        return self._tqdm(
+        return HourDayTqdm(
             total=total,
             desc=desc,
             position=position,
@@ -245,7 +306,9 @@ class RunProgress:
         )
 
     def _video_bar(self, label: str, title: str, duration: float):
-        if label not in self._positions:
+        if _is_cpu_label(label):
+            self._positions[label] = _cpu_bar_position(label)
+        elif label not in self._positions:
             self._positions[label] = self._next_video_pos
             self._next_video_pos += 1
         short = _short_title(title)
@@ -270,7 +333,13 @@ class RunProgress:
         self.overall.total = max(self.state.overall_total(), overall_n, 0.001)
         self.overall.n = overall_n
         self.overall.set_postfix_str(
-            f"файлов {self.state.done_files}/{self.state.total_files}",
+            _files_postfix(
+                self.state.done_files,
+                self.state.total_files,
+                overall_n,
+                self.overall.total,
+                self.state.overall_unit(),
+            ),
             refresh=False,
         )
         self.overall.refresh()
@@ -278,10 +347,41 @@ class RunProgress:
         self.batch.total = max(self.state.batch_total(), batch_n, 0.001)
         self.batch.n = batch_n
         self.batch.set_postfix_str(
-            f"файлов {self.state.batch_done_files}/{self.state.batch_files}",
+            _files_postfix(
+                self.state.batch_done_files,
+                self.state.batch_files,
+                batch_n,
+                self.batch.total,
+                self.state.batch_unit(),
+            ),
             refresh=False,
         )
         self.batch.refresh()
+
+
+def _files_postfix(
+    done_files: int,
+    total_files: int,
+    done_amount: float,
+    total_amount: float,
+    unit: str,
+) -> str:
+    text = f"файлов {done_files}/{total_files}"
+    if unit == "ч":
+        left = max(0.0, float(total_amount) - float(done_amount))
+        text = f"{text}, ещё {format_audio_left(left)}"
+    return text
+
+
+def _is_cpu_label(label: str) -> bool:
+    return label.startswith("CPU")
+
+
+def _cpu_bar_position(label: str) -> int:
+    tail = label.removeprefix("CPU").lstrip("-")
+    index = int(tail) - 1 if tail.isdigit() else 0
+    index = min(max(index, 0), CPU_BAR_ROWS - 1)
+    return CPU_BAR_POSITION + index
 
 
 def _short_title(title: str, limit: int = 28) -> str:

@@ -68,7 +68,7 @@ def transcribe_file(
         language=language,
         beam_size=5,
         vad_filter=True,
-        word_timestamps=False,
+        word_timestamps=True,
     )
     duration = float(info.duration or 0.0)
     lg.debug("Длительность аудио: {:.1f} с, язык: {}", duration, info.language)
@@ -82,9 +82,20 @@ def transcribe_file(
         text = segment.text.strip()
         if not text:
             continue
-        start = format_timestamp(segment.start)
-        end = format_timestamp(segment.end)
-        timed_lines.append(f"[{start} --> {end}]  {text}")
+        words = getattr(segment, "words", None) or []
+        wrote_word = False
+        for word in words:
+            token = word.word.strip()
+            if not token:
+                continue
+            w_start = format_timestamp(word.start)
+            w_end = format_timestamp(word.end)
+            timed_lines.append(f"[{w_start} --> {w_end}]  {token}")
+            wrote_word = True
+        if not wrote_word:
+            start = format_timestamp(segment.start)
+            end = format_timestamp(segment.end)
+            timed_lines.append(f"[{start} --> {end}]  {text}")
         plain_parts.append(text)
         last_pos = float(segment.end)
         now = time.monotonic()

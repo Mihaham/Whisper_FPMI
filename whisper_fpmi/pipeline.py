@@ -1,39 +1,56 @@
 from __future__ import annotations
 
 from pathlib import Path
+import queue
 import re
 import threading
+from concurrent.futures import Future, ThreadPoolExecutor
 
 from loguru import logger as lg
 
 from whisper_fpmi.catalog import write_catalog
-from whisper_fpmi.download import download_worst_quality, probe_filesize
+from whisper_fpmi.download import download_worst_quality
 from whisper_fpmi.names import fold_key, sanitize_title
 from whisper_fpmi.paths import (
     CHANNEL_URL,
     DEFAULT_CPU_CORES,
+    DEFAULT_DOWNLOAD_WORKERS,
+    DEFAULT_FRAGMENT_THREADS,
     DEFAULT_MAX_GB,
     DEFAULT_MODEL,
     RESULT_DIR,
+    RETRANSCRIBE_PATH,
+    TIMED_DIR,
     VIDEO_DIR,
+    YOUTUBE_URL,
 )
 from whisper_fpmi.quota import (
     bytes_from_gb,
-    can_add_to_batch,
     dir_size,
     format_gib,
     media_files,
+    next_quota_step,
 )
 from whisper_fpmi.progress import (
+    MEDIA_BAR_POSITION,
     RunProgress,
     audio_seconds,
     jobs_audio,
     probe_media_duration,
 )
 from whisper_fpmi.state import load_state, mark_done, save_state
+from whisper_fpmi.transcript import assess_timed, classify_corpus, write_retranscribe_list
 from whisper_fpmi.transcribe import has_cuda, require_ffmpeg, transcribe_file
 from whisper_fpmi.vk import ChannelVideo, list_channel_videos
-from whisper_fpmi.workers import WorkerPlan, plan_workers, transcribe_jobs
+from whisper_fpmi.youtube import list_youtube_videos
+from whisper_fpmi.workers import (
+    CpuLane,
+    TranscribeHooks,
+    WorkerPlan,
+    _path_key,
+    plan_workers,
+    transcribe_jobs,
+)
 
 LEFTOVER_NAME = re.compile(r"^(-?\d+_\d+)_(.+)$")
 
@@ -53,22 +70,51 @@ def run_pipeline(
     cpu_workers: int | None = None,
     cpu_threads: int | None = None,
     gpu_workers: int | None = None,
+    cpu_queue: int | None = None,
+    download_workers: int = DEFAULT_DOWNLOAD_WORKERS,
+    fragment_threads: int = DEFAULT_FRAGMENT_THREADS,
+    include_youtube: bool = True,
+    youtube_url: str = YOUTUBE_URL,
 ) -> int:
     require_ffmpeg()
     max_bytes = bytes_from_gb(max_gb)
     videos = list_channel_videos(channel_url)
-    lg.info("На канале {} видео", len(videos))
+    lg.info("На канале VK {} видео", len(videos))
     if limit is not None:
         videos = videos[:limit]
+        include_youtube = False
 
     state = load_state()
-    existing = _existing_keys()
-    pending = [
+    existing, redo = classify_corpus(RESULT_DIR, TIMED_DIR)
+    write_retranscribe_list(redo, RETRANSCRIBE_PATH)
+    lg.info(
+        "Готовы large-v3 по словам: {}, к перерасшифровке: {}",
+        len(existing),
+        len(redo),
+    )
+    vk_pending = [
         video
         for video in videos
         if not (skip_existing and _already_done(video, state, existing))
     ]
-    skipped = len(videos) - len(pending)
+    youtube_all: list[ChannelVideo] = []
+    youtube_pending: list[ChannelVideo] = []
+    if include_youtube:
+        youtube_all = list_youtube_videos(youtube_url)
+        youtube_pending = [
+            video
+            for video in youtube_all
+            if not (skip_existing and _already_done(video, state, existing))
+        ]
+    pending = [*vk_pending, *youtube_pending]
+    skipped = (len(videos) - len(vk_pending)) + (
+        len(youtube_all) - len(youtube_pending)
+    )
+    lg.info(
+        "Сначала VK: {} видео, потом YouTube: {}",
+        len(vk_pending),
+        len(youtube_pending),
+    )
     use_gpu = device != "cpu" and (device == "cuda" or has_cuda())
     plan = plan_workers(
         use_gpu=use_gpu,
@@ -76,6 +122,13 @@ def run_pipeline(
         cpu_workers=cpu_workers,
         cpu_threads=cpu_threads,
         gpu_workers=gpu_workers,
+        cpu_queue=cpu_queue,
+    )
+    gpu_plan = WorkerPlan(
+        gpu_workers=plan.gpu_workers,
+        cpu_workers=0,
+        cpu_threads=0,
+        cpu_compute=plan.cpu_compute,
     )
     lg.info(
         "К обработке: {}, пропуск сразу: {}, лимит пачки: {}, воркеры: {}",
@@ -92,11 +145,39 @@ def run_pipeline(
     processed = 0
     failed = 0
     cycle = 0
-    known = {video.video_id: video for video in videos}
+    known = {video.video_id: video for video in [*videos, *youtube_all]}
+    state_lock = threading.Lock()
+    on_result = _result_handler(
+        progress,
+        state,
+        existing,
+        keep_video,
+        model_name,
+        state_lock,
+    )
+    cpu_lane: CpuLane | None = None
+    if plan.independent_cpu:
+        cpu_lane = CpuLane(
+            plan,
+            model_name,
+            hooks=_cpu_hooks(on_result, progress),
+        )
+        cpu_lane.start()
+        lg.info(
+            "CPU отдельно: {} процесс, {} потоков, по {} видео. GPU его не ждёт",
+            plan.cpu_workers,
+            plan.cpu_threads,
+            plan.cpu_queue,
+        )
 
     try:
         while True:
-            leftover = _collect_leftovers(known)
+            owned = cpu_lane.owned_paths() if cpu_lane is not None else set()
+            leftover = [
+                item
+                for item in _collect_leftovers(known)
+                if _path_key(item[1]) not in owned
+            ]
             if leftover:
                 cycle += 1
                 lg.info(
@@ -105,13 +186,12 @@ def run_pipeline(
                     len(leftover),
                     format_gib(dir_size(VIDEO_DIR)),
                 )
-                done, errors = _transcribe_batch(
+                done, errors = _transcribe_ready(
                     leftover,
+                    cpu_lane=cpu_lane,
+                    plan=gpu_plan if cpu_lane is not None else plan,
                     model_name=model_name,
-                    plan=plan,
-                    state=state,
-                    existing=existing,
-                    keep_video=keep_video,
+                    on_result=on_result,
                     progress=progress,
                     cycle=cycle,
                 )
@@ -144,18 +224,19 @@ def run_pipeline(
                 max_bytes=max_bytes,
                 cookies=cookies,
                 cycle=cycle,
+                download_workers=download_workers,
+                fragment_threads=fragment_threads,
             )
             if not batch:
                 lg.warning("Цикл {}: ничего не скачалось, останавливаюсь", cycle)
                 break
 
-            done, errors = _transcribe_batch(
+            done, errors = _transcribe_ready(
                 batch,
+                cpu_lane=cpu_lane,
+                plan=gpu_plan if cpu_lane is not None else plan,
                 model_name=model_name,
-                plan=plan,
-                state=state,
-                existing=existing,
-                keep_video=keep_video,
+                on_result=on_result,
                 progress=progress,
                 cycle=cycle,
             )
@@ -166,6 +247,13 @@ def run_pipeline(
                     "Папка videos/ заполнена, а --keep-video не даёт её очистить"
                 )
                 break
+
+        if cpu_lane is not None:
+            lg.info("GPU закончил свои видео, жду очередь CPU")
+            cpu_lane.close_and_join()
+            processed += cpu_lane.ok
+            failed += cpu_lane.err
+            cpu_lane = None
 
         if refresh_catalog:
             catalog = write_catalog()
@@ -179,6 +267,8 @@ def run_pipeline(
         )
         return failed
     finally:
+        if cpu_lane is not None:
+            cpu_lane.close_and_join()
         progress.close()
 
 
@@ -223,61 +313,107 @@ def _download_batch(
     max_bytes: int,
     cookies: str | None,
     cycle: int,
+    download_workers: int = DEFAULT_DOWNLOAD_WORKERS,
+    fragment_threads: int = DEFAULT_FRAGMENT_THREADS,
 ) -> tuple[list[tuple[ChannelVideo, Path]], list[ChannelVideo]]:
     VIDEO_DIR.mkdir(parents=True, exist_ok=True)
     _cleanup_partials(VIDEO_DIR)
+    workers = max(1, download_workers)
+    threads = max(1, fragment_threads)
     batch: list[tuple[ChannelVideo, Path]] = []
+    batch_lock = threading.Lock()
     rest = list(pending)
-    lg.info("Цикл {}: скачиваю пачку до {}", cycle, format_gib(max_bytes) if max_bytes else "1 файл")
+    limit = format_gib(max_bytes) if max_bytes else "1 файл"
+    lg.info(
+        "Цикл {}: скачиваю пачку до {}, параллельно {}, потоков на файл {}",
+        cycle,
+        limit,
+        workers,
+        threads,
+    )
 
-    while rest:
-        used = dir_size(VIDEO_DIR)
-        video = rest[0]
-        extra = probe_filesize(video, cookies=cookies)
-        if not can_add_to_batch(used, extra, max_bytes, len(batch)):
-            lg.info(
-                "Пачка набрана: {} / {}, файлов {}",
-                format_gib(used),
-                format_gib(max_bytes),
-                len(batch),
-            )
-            break
+    slots: queue.Queue[int] = queue.Queue()
+    for offset in range(workers):
+        slots.put(MEDIA_BAR_POSITION + offset)
+
+    def one(video: ChannelVideo) -> None:
+        position = slots.get()
         try:
             path = download_worst_quality(
                 video,
                 VIDEO_DIR,
                 cookies=cookies,
-                quiet=True,
+                bar_position=position,
+                fragment_threads=threads,
             )
         except Exception as exc:  # noqa: BLE001
             lg.exception("Не скачалось {}: {}", video.video_id, exc)
-            rest.pop(0)
-            continue
-        rest.pop(0)
-        batch.append((video, path))
-        used = dir_size(VIDEO_DIR)
-        lg.info("В videos/: {} после {}", format_gib(used), path.name)
-        if max_bytes <= 0 or (batch and used >= max_bytes):
-            break
+            return
+        finally:
+            slots.put(position)
+        with batch_lock:
+            batch.append((video, path))
+        lg.info("В videos/: {} после {}", format_gib(dir_size(VIDEO_DIR)), path.name)
+
+    reserved = dir_size(VIDEO_DIR)
+    inflight: list[Future[None]] = []
+
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        while rest:
+            scheduled = 0
+            while rest:
+                step = next_quota_step(
+                    used=reserved,
+                    extra=0,
+                    max_bytes=max_bytes,
+                    batch_count=len(batch) + len(inflight),
+                )
+                if not step.accept:
+                    break
+                inflight.append(pool.submit(one, rest.pop(0)))
+                reserved = step.reserved
+                scheduled += 1
+                if step.stop:
+                    break
+            if scheduled == 0:
+                break
+            lg.info(
+                "Качаю {} файл(ов), одновременно {}",
+                scheduled,
+                min(workers, scheduled),
+            )
+            for future in inflight:
+                future.result()
+            inflight.clear()
+            reserved = dir_size(VIDEO_DIR)
+            if not rest or max_bytes <= 0 or reserved >= max_bytes:
+                lg.info(
+                    "Пачка набрана: {} / {}, файлов {}",
+                    format_gib(reserved),
+                    limit,
+                    len(batch),
+                )
+                break
 
     return batch, rest
 
 
-def _transcribe_batch(
-    batch: list[tuple[ChannelVideo, Path]],
-    *,
-    model_name: str,
-    plan: WorkerPlan,
+def _cpu_hooks(on_result, progress: RunProgress) -> TranscribeHooks:
+    return TranscribeHooks(
+        on_result=on_result,
+        on_start=progress.start_video,
+        on_progress=progress.update_video,
+    )
+
+
+def _result_handler(
+    progress: RunProgress,
     state: dict,
     existing: set[str],
     keep_video: bool,
-    progress: RunProgress,
-    cycle: int,
-) -> tuple[int, int]:
-    state_lock = threading.Lock()
-    progress.start_batch(cycle, len(batch), jobs_audio(batch))
-    lg.info("Расшифровываю {} файл(ов)", len(batch))
-
+    model_name: str,
+    state_lock: threading.Lock,
+):
     def on_result(video, path, ok, _error, label) -> None:
         progress.finish_video(label)
         with state_lock:
@@ -296,6 +432,85 @@ def _transcribe_batch(
                 path.unlink(missing_ok=True)
                 lg.debug("Удалил исходник {} ({})", path.name, label)
 
+    return on_result
+
+
+def _handoff_cpu(
+    batch: list[tuple[ChannelVideo, Path]],
+    cpu_lane: CpuLane | None,
+) -> tuple[list[tuple[ChannelVideo, Path]], list[tuple[ChannelVideo, Path]]]:
+    if cpu_lane is None or not batch:
+        return [], list(batch)
+    taken: list[tuple[ChannelVideo, Path]] = []
+    rest: list[tuple[ChannelVideo, Path]] = []
+    for job in batch:
+        if cpu_lane.submit(job):
+            taken.append(job)
+        else:
+            rest.append(job)
+    cpu_lane.seal()
+    return taken, rest
+
+
+def _transcribe_ready(
+    batch: list[tuple[ChannelVideo, Path]],
+    *,
+    cpu_lane: CpuLane | None,
+    plan: WorkerPlan,
+    model_name: str,
+    on_result,
+    progress: RunProgress,
+    cycle: int,
+) -> tuple[int, int]:
+    cpu_jobs, gpu_jobs = _handoff_cpu(batch, cpu_lane)
+    if cpu_lane is not None:
+        cpu_lane.arm_gpu(gpu_jobs)
+        lg.info(
+            "CPU забирает {} видео, по {} на каждый. GPU — остальные {}. "
+            "Следующие {} CPU возьмёт, когда допишет свою пачку",
+            len(cpu_jobs),
+            cpu_lane.plan.cpu_queue,
+            len(gpu_jobs),
+            cpu_lane.plan.cpu_queue,
+        )
+        if not gpu_jobs:
+            return 0, 0
+        progress.start_batch(cycle, len(gpu_jobs), jobs_audio(gpu_jobs))
+        lg.info("Расшифровываю на GPU {} файл(ов)", len(gpu_jobs))
+        processed, failed = cpu_lane.drain_gpu(
+            model_name,
+            TranscribeHooks(
+                on_result=on_result,
+                on_start=progress.start_video,
+                on_progress=progress.update_video,
+            ),
+        )
+        lg.info("GPU освободился, на диске {}", format_gib(dir_size(VIDEO_DIR)))
+        return processed, failed
+    if not gpu_jobs:
+        return 0, 0
+    return _transcribe_batch(
+        gpu_jobs,
+        model_name=model_name,
+        plan=plan,
+        on_result=on_result,
+        progress=progress,
+        cycle=cycle,
+    )
+
+
+def _transcribe_batch(
+    batch: list[tuple[ChannelVideo, Path]],
+    *,
+    model_name: str,
+    plan: WorkerPlan,
+    on_result,
+    progress: RunProgress,
+    cycle: int,
+) -> tuple[int, int]:
+    progress.start_batch(cycle, len(batch), jobs_audio(batch))
+    where = "GPU" if plan.gpu_workers else "CPU"
+    lg.info("Расшифровываю на {} {} файл(ов)", where, len(batch))
     processed, failed = transcribe_jobs(
         batch,
         plan=plan,
@@ -304,7 +519,7 @@ def _transcribe_batch(
         on_start=progress.start_video,
         on_progress=progress.update_video,
     )
-    lg.info("После расшифровки на диске {}", format_gib(dir_size(VIDEO_DIR)))
+    lg.info("{} освободился, на диске {}", where, format_gib(dir_size(VIDEO_DIR)))
     return processed, failed
 
 
@@ -339,7 +554,11 @@ def _video_from_media(
             url=f"https://vk.com/video{video_id}",
         )
     else:
-        video = ChannelVideo(video_id=path.stem, title=path.stem, url="")
+        found = _known_by_filename(path.stem, known or {})
+        if found is not None:
+            video = found
+        else:
+            video = ChannelVideo(video_id=path.stem, title=path.stem, url="")
     meta = (known or {}).get(video.video_id)
     duration = (meta.duration if meta else None) or probe_media_duration(path)
     title = meta.title if meta else video.title
@@ -352,8 +571,11 @@ def _video_from_media(
     )
 
 
-def _existing_keys() -> set[str]:
-    return {fold_key(path.stem) for path in RESULT_DIR.glob("*.txt")}
+def _known_by_filename(stem: str, known: dict[str, ChannelVideo]) -> ChannelVideo | None:
+    for video_id, video in sorted(known.items(), key=lambda item: len(item[0]), reverse=True):
+        if stem == video_id or stem.startswith(f"{video_id}_"):
+            return video
+    return None
 
 
 def _already_done(video: ChannelVideo, state: dict, existing: set[str]) -> bool:
@@ -363,5 +585,5 @@ def _already_done(video: ChannelVideo, state: dict, existing: set[str]) -> bool:
     record = state.get("videos", {}).get(video.video_id)
     if not record:
         return False
-    stored = RESULT_DIR / f"{record.get('slug', slug)}.txt"
-    return stored.exists() and stored.stat().st_size > 0
+    stored_slug = str(record.get("slug") or slug)
+    return assess_timed(TIMED_DIR / f"{stored_slug}.mp4.txt") == "final"

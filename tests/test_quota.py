@@ -1,6 +1,13 @@
 from pathlib import Path
 
-from whisper_fpmi.quota import can_add_to_batch, dir_size, format_gib, media_files
+from whisper_fpmi.quota import (
+    ASSUMED_FILE_BYTES,
+    can_add_to_batch,
+    dir_size,
+    format_gib,
+    media_files,
+    next_quota_step,
+)
 
 
 def test_empty_batch_accepts_file_larger_than_limit():
@@ -22,6 +29,37 @@ def test_fits_under_limit():
 def test_unknown_size_keeps_filling_until_limit():
     assert can_add_to_batch(used=5 * 1024**3, extra=0, max_bytes=10 * 1024**3, batch_count=1)
     assert not can_add_to_batch(used=10 * 1024**3, extra=0, max_bytes=10 * 1024**3, batch_count=1)
+
+
+def test_parallel_quota_fills_until_limit():
+    step = next_quota_step(used=0, extra=1024**3, max_bytes=3 * 1024**3, batch_count=0)
+    assert step.accept and not step.stop
+    step = next_quota_step(used=step.reserved, extra=1024**3, max_bytes=3 * 1024**3, batch_count=1)
+    assert step.accept and not step.stop
+    step = next_quota_step(used=step.reserved, extra=1024**3, max_bytes=3 * 1024**3, batch_count=2)
+    assert step.accept and step.stop
+    assert step.reserved == 3 * 1024**3
+
+
+def test_unknown_size_keeps_scheduling_until_limit():
+    used = 0
+    count = 0
+    max_bytes = 3 * 1024**3
+    while count < 100:
+        step = next_quota_step(used=used, extra=0, max_bytes=max_bytes, batch_count=count)
+        if not step.accept:
+            break
+        count += 1
+        used = step.reserved
+        if step.stop:
+            break
+    assert count == max_bytes // ASSUMED_FILE_BYTES
+    assert used >= max_bytes
+
+
+def test_over_quota_is_rejected_after_first_file():
+    step = next_quota_step(used=2 * 1024**3, extra=2 * 1024**3, max_bytes=3 * 1024**3, batch_count=1)
+    assert not step.accept and step.stop
 
 
 def test_zero_limit_means_one_file_at_a_time():

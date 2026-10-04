@@ -132,9 +132,16 @@ CSV_COLUMNS = (
 
 
 def write_csv(records: list[dict], path: Path) -> None:
+    """Таблица для Excel в русской локали: разделитель «;», десятичная запятая, одна лекция — одна строка."""
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8-sig", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=CSV_COLUMNS, extrasaction="ignore")
+        writer = csv.DictWriter(
+            handle,
+            fieldnames=CSV_COLUMNS,
+            extrasaction="ignore",
+            delimiter=";",
+            lineterminator="\r\n",
+        )
         writer.writeheader()
         for record in records:
             writer.writerow({column: _csv_cell(record, column) for column in CSV_COLUMNS})
@@ -195,16 +202,32 @@ def _csv_cell(record: dict, column: str) -> str:
         parts = []
         for item in record.get("timecodes") or []:
             clock = item.get("clock") or ""
-            title = (item.get("title") or "").replace("\n", " ").strip()
+            title = _excel_text(item.get("title") or "")
             parts.append(f"{clock} {title}".strip())
-        return "; ".join(parts)
+        return " | ".join(parts)
     if column == "filler_counts":
         counts = record.get("filler_counts") or {}
-        return "; ".join(f"{word}={count}" for word, count in sorted(counts.items()))
+        return " | ".join(f"{word}={count}" for word, count in sorted(counts.items()))
     value = record.get(column)
     if value is None:
         return ""
-    return str(value)
+    if isinstance(value, bool):
+        return "1" if value else "0"
+    if isinstance(value, int):
+        return str(value)
+    if isinstance(value, float):
+        return _excel_decimal(value)
+    return _excel_text(value)
+
+
+def _excel_decimal(value: float) -> str:
+    text = format(value, "f").rstrip("0").rstrip(".")
+    return text.replace(".", ",")
+
+
+def _excel_text(value) -> str:
+    text = str(value).replace("\r\n", "\n").replace("\r", "\n")
+    return " ".join(part.strip() for part in text.split("\n") if part.strip())
 
 
 def _rel(path: Path | None, root: Path | None) -> str | None:

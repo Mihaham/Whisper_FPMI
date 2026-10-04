@@ -14,6 +14,7 @@ from whisper_fpmi.paths import (
     DEFAULT_FRAGMENT_THREADS,
     DEFAULT_MAX_GB,
     DEFAULT_MODEL,
+    YOUTUBE_URL,
 )
 
 
@@ -21,8 +22,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="whisper_fpmi",
         description=(
-            "Скачивать лекции ФПМИ с VK пачками до 3 ГиБ, "
-            "расшифровывать Whisper large-v3 и удалять исходники."
+            "Сначала лекции ФПМИ с VK, потом с YouTube: "
+            "пачки до 3 ГиБ, Whisper large-v3, удаление исходников."
         ),
     )
     sub = parser.add_subparsers(dest="command", required=True)
@@ -51,9 +52,15 @@ def build_parser() -> argparse.ArgumentParser:
 
     run = sub.add_parser(
         "run",
-        help="Скачивать пачками до N ГиБ, расшифровывать, удалять исходники и повторять",
+        help="Сначала VK, потом YouTube: скачать, расшифровать, удалить исходники",
     )
     run.add_argument("--channel", default=CHANNEL_URL)
+    run.add_argument("--youtube", default=YOUTUBE_URL)
+    run.add_argument(
+        "--no-youtube",
+        action="store_true",
+        help="Не брать YouTube после VK",
+    )
     run.add_argument("--model", default=DEFAULT_MODEL)
     run.add_argument("--device", default="auto", choices=("auto", "cuda", "cpu"))
     run.add_argument("--limit", type=int, default=None)
@@ -313,6 +320,8 @@ def _cmd_run(args: argparse.Namespace) -> int:
         gpu_workers=args.gpu_workers,
         download_workers=args.download_workers,
         fragment_threads=args.fragment_threads,
+        include_youtube=not args.no_youtube,
+        youtube_url=args.youtube,
     )
 
 

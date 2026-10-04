@@ -96,6 +96,87 @@ def parse_clock(value: str) -> float:
     return hours * 3600 + minutes * 60 + seconds + millis / 1000.0
 
 
+FINAL_MODEL = "whisper large-v3"
+_WORD_SAMPLE = 240
+_MIN_CUES = 8
+_WORD_RATIO = 0.8
+
+RETRANSCRIBE_REASONS = {
+    "no-timed": "нет файла с таймкодами",
+    "no-model": "нет шапки модели",
+    "other-model": "не large-v3",
+    "segment-timestamps": "таймкод на фразу, не на слово",
+}
+
+
+def assess_timed(path: Path) -> str:
+    """`final`, если файл — Whisper large-v3 с таймкодом каждого слова."""
+    if not path.is_file() or path.stat().st_size == 0:
+        return "no-timed"
+    raw = path.read_text(encoding="utf-8", errors="replace")
+    header, _body = split_header(raw)
+    model = header.get("Модель", "")
+    counts = _cue_word_counts(raw)
+    if model != FINAL_MODEL:
+        return "other-model" if model else "no-model"
+    if not _is_word_level(counts):
+        return "segment-timestamps"
+    return "final"
+
+
+def classify_corpus(
+    result_dir: Path,
+    timed_dir: Path,
+) -> tuple[set[str], list[tuple[str, str]]]:
+    from whisper_fpmi.names import fold_key
+
+    done: set[str] = set()
+    redo: list[tuple[str, str]] = []
+    for path in sorted(result_dir.glob("*.txt")):
+        if not path.is_file():
+            continue
+        reason = assess_timed(timed_dir / f"{path.stem}.mp4.txt")
+        if reason == "final":
+            done.add(fold_key(path.stem))
+        else:
+            redo.append((path.stem, reason))
+    return done, redo
+
+
+def write_retranscribe_list(redo: list[tuple[str, str]], path: Path) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    lines = [
+        "# К перерасшифровке: нужны Whisper large-v3 и таймкод каждого слова.",
+        "# slug\tпричина",
+    ]
+    for slug, reason in redo:
+        label = RETRANSCRIBE_REASONS.get(reason, reason)
+        lines.append(f"{slug}\t{label}")
+    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
+def _cue_word_counts(raw: str) -> list[int]:
+    counts: list[int] = []
+    for line in raw.splitlines():
+        match = _SEGMENT.match(line.strip())
+        if match is None:
+            continue
+        text = match.group("text").strip()
+        if text:
+            counts.append(len(text.split()))
+    return counts
+
+
+def _is_word_level(counts: list[int]) -> bool:
+    if len(counts) < _MIN_CUES:
+        return False
+    if len(counts) > _WORD_SAMPLE:
+        step = len(counts) / _WORD_SAMPLE
+        counts = [counts[int(index * step)] for index in range(_WORD_SAMPLE)]
+    single = sum(1 for count in counts if count <= 1)
+    return single / len(counts) >= _WORD_RATIO
+
+
 def video_id_from_url(url: str) -> str | None:
     match = _VIDEO_ID.search(url or "")
     if not match:

@@ -1,7 +1,9 @@
 from __future__ import annotations
 
-from dataclasses import dataclass
+from collections import deque
+from dataclasses import dataclass, field
 from pathlib import Path
+import queue
 import threading
 from typing import Callable
 
@@ -9,6 +11,8 @@ from loguru import logger as lg
 
 from whisper_fpmi.paths import (
     DEFAULT_CPU_CORES,
+    DEFAULT_CPU_LANE_QUEUE,
+    DEFAULT_CPU_LANE_THREADS,
     DEFAULT_MAX_CPU_WORKERS,
     DEFAULT_MODEL,
 )
@@ -34,6 +38,8 @@ class WorkerPlan:
     cpu_workers: int
     cpu_threads: int
     cpu_compute: str = "int8"
+    cpu_queue: int = DEFAULT_CPU_LANE_QUEUE
+    independent_cpu: bool = False
 
     @property
     def total_cpu_threads(self) -> int:
@@ -44,11 +50,17 @@ class WorkerPlan:
         if self.gpu_workers:
             parts.append(f"{self.gpu_workers}×GPU FP16")
         if self.cpu_workers:
-            parts.append(
-                f"{self.cpu_workers}×CPU {self.cpu_compute} "
-                f"({self.cpu_threads} потоков на воркер, "
-                f"всего {self.total_cpu_threads})"
-            )
+            if self.independent_cpu:
+                parts.append(
+                    f"{self.cpu_workers}×CPU {self.cpu_compute} "
+                    f"({self.cpu_threads} потоков, по {self.cpu_queue} видео, GPU не ждёт)"
+                )
+            else:
+                parts.append(
+                    f"{self.cpu_workers}×CPU {self.cpu_compute} "
+                    f"({self.cpu_threads} потоков на воркер, "
+                    f"всего {self.total_cpu_threads})"
+                )
         return " + ".join(parts) if parts else "нет воркеров"
 
 
@@ -59,6 +71,7 @@ def plan_workers(
     cpu_workers: int | None = None,
     cpu_threads: int | None = None,
     gpu_workers: int | None = None,
+    cpu_queue: int | None = None,
     cpu_compute: str = "int8",
 ) -> WorkerPlan:
     if cpu_cores < 1:
@@ -68,15 +81,22 @@ def plan_workers(
     if use_gpu:
         gpu = 1 if gpu_workers is None else max(0, gpu_workers)
 
-    workers, threads = _cpu_split(cpu_cores, cpu_workers, cpu_threads)
+    if cpu_workers is None and gpu > 0:
+        workers = 1
+        threads = cpu_threads if cpu_threads else DEFAULT_CPU_LANE_THREADS
+    else:
+        workers, threads = _cpu_split(cpu_cores, cpu_workers, cpu_threads)
     if gpu == 0 and workers == 0:
         workers, threads = _cpu_split(cpu_cores, None, None)
 
+    queue_size = DEFAULT_CPU_LANE_QUEUE if cpu_queue is None else max(1, cpu_queue)
     return WorkerPlan(
         gpu_workers=gpu,
         cpu_workers=workers,
         cpu_threads=threads,
         cpu_compute=cpu_compute,
+        cpu_queue=queue_size,
+        independent_cpu=gpu > 0 and workers > 0,
     )
 
 
@@ -246,6 +266,245 @@ def _record(
         tally["ok" if ok else "err"] += 1
     if on_result is not None:
         on_result(video, path, ok, error, label)
+
+
+def _path_key(path: Path) -> str:
+    return str(path.resolve()).lower()
+
+
+_BATCH_END = object()
+
+
+@dataclass
+class _CpuSlot:
+    """Одна пачка видео у одного CPU. Следующая пачка — только после этой."""
+
+    queue: queue.Queue = field(default_factory=queue.Queue)
+    held: int = 0
+    accepting: bool = True
+    paths: set[str] = field(default_factory=set)
+    dead: bool = False
+
+
+class CpuLane:
+    """Каждый CPU держит свою пачку. Остальное лежит у GPU, пока CPU не допишет."""
+
+    def __init__(
+        self,
+        plan: WorkerPlan,
+        model_name: str,
+        hooks: TranscribeHooks,
+    ) -> None:
+        self.plan = plan
+        self._model_name = model_name
+        self._hooks = hooks
+        self._lock = threading.Lock()
+        self._load_lock = threading.Lock()
+        self._steal: deque[MediaJob] = deque()
+        self._closed = False
+        self.ok = 0
+        self.err = 0
+        workers = max(1, plan.cpu_workers)
+        self._slots = [_CpuSlot() for _ in range(workers)]
+        self._threads = [
+            threading.Thread(
+                target=self._loop,
+                args=(index,),
+                name=f"whisper-cpu-{index + 1}",
+                daemon=True,
+            )
+            for index in range(workers)
+        ]
+
+    def start(self) -> None:
+        for thread in self._threads:
+            thread.start()
+
+    def free_slots(self) -> int:
+        with self._lock:
+            return sum(
+                max(0, self.plan.cpu_queue - slot.held)
+                for slot in self._slots
+                if slot.accepting and not slot.dead
+            )
+
+    def owned_paths(self) -> set[str]:
+        with self._lock:
+            owned: set[str] = set()
+            for slot in self._slots:
+                owned.update(slot.paths)
+            return owned
+
+    def submit(self, job: MediaJob) -> bool:
+        _video, path = job
+        key = _path_key(path)
+        with self._lock:
+            slot = next(
+                (
+                    item
+                    for item in self._slots
+                    if item.accepting and not item.dead and item.held < self.plan.cpu_queue
+                ),
+                None,
+            )
+            if slot is None:
+                return False
+            slot.held += 1
+            slot.paths.add(key)
+            slot.queue.put(job)
+            if slot.held >= self.plan.cpu_queue:
+                slot.accepting = False
+                slot.queue.put(_BATCH_END)
+            return True
+
+    def seal(self) -> None:
+        """Закрыть неполную пачку, чтобы после неё CPU взял следующие видео у GPU."""
+        with self._lock:
+            for slot in self._slots:
+                if slot.accepting and slot.held > 0 and not slot.dead:
+                    slot.accepting = False
+                    slot.queue.put(_BATCH_END)
+
+    def arm_gpu(self, jobs: list[MediaJob]) -> None:
+        with self._lock:
+            self._steal.extend(jobs)
+
+    def take_gpu(self) -> MediaJob | None:
+        with self._lock:
+            if not self._steal:
+                return None
+            return self._steal.popleft()
+
+    def gpu_pending(self) -> int:
+        with self._lock:
+            return len(self._steal)
+
+    def drain_gpu(self, model_name: str, hooks: TranscribeHooks) -> tuple[int, int]:
+        with self._lock:
+            if not self._steal:
+                return 0, 0
+        tally = {"ok": 0, "err": 0}
+        tally_lock = threading.Lock()
+
+        def record(video, path, ok, error, label) -> None:
+            _record(tally, tally_lock, hooks.on_result, video, path, ok, error, label)
+
+        try:
+            model = load_whisper_model(model_name, "cuda")
+        except Exception as exc:  # noqa: BLE001
+            lg.exception("GPU Whisper не загрузился, видео останутся на диске: {}", exc)
+            with self._lock:
+                self._steal.clear()
+            return 0, 0
+        while True:
+            job = self.take_gpu()
+            if job is None:
+                break
+            _run_one(job, model, model_name, "GPU", record, hooks)
+        return tally["ok"], tally["err"]
+
+    def close_and_join(self) -> None:
+        with self._lock:
+            self._closed = True
+        for slot in self._slots:
+            slot.queue.put(None)
+        for thread in self._threads:
+            if thread.is_alive():
+                thread.join()
+
+    def _loop(self, index: int) -> None:
+        slot = self._slots[index]
+        label = f"CPU-{index + 1}"
+        try:
+            with self._load_lock:
+                model = load_whisper_model(
+                    self._model_name,
+                    "cpu",
+                    compute_type=self.plan.cpu_compute,
+                    cpu_threads=self.plan.cpu_threads,
+                    num_workers=1,
+                )
+        except Exception as exc:  # noqa: BLE001
+            lg.exception("CPU-{} Whisper не загрузился: {}", index + 1, exc)
+            self._drop_slot(slot)
+            return
+        while True:
+            job = slot.queue.get()
+            if job is None:
+                return
+            if job is _BATCH_END:
+                self._refill(slot, index + 1)
+                continue
+            self._run(job, model, label)
+
+    def _refill(self, slot: _CpuSlot, number: int) -> None:
+        with self._lock:
+            slot.held = 0
+            if self._closed or slot.dead:
+                slot.accepting = False
+                return
+            stolen: list[MediaJob] = []
+            while self._steal and len(stolen) < self.plan.cpu_queue:
+                job = self._steal.popleft()
+                stolen.append(job)
+                slot.paths.add(_path_key(job[1]))
+            if not stolen:
+                slot.accepting = True
+                return
+            slot.held = len(stolen)
+            slot.accepting = False
+            for job in stolen:
+                slot.queue.put(job)
+            slot.queue.put(_BATCH_END)
+        lg.info(
+            "CPU-{} дописал пачку, забирает ещё {} видео у GPU",
+            number,
+            len(stolen),
+        )
+
+    def _drop_slot(self, slot: _CpuSlot) -> None:
+        with self._lock:
+            slot.dead = True
+            slot.accepting = False
+            slot.held = 0
+            returned: list[MediaJob] = []
+            while True:
+                try:
+                    item = slot.queue.get_nowait()
+                except queue.Empty:
+                    break
+                if item is None or item is _BATCH_END:
+                    continue
+                returned.append(item)
+                slot.paths.discard(_path_key(item[1]))
+            for job in reversed(returned):
+                self._steal.appendleft(job)
+
+    def _run(self, job: MediaJob, model, label: str) -> None:
+        try:
+            _run_one(job, model, self._model_name, label, self._record, self._hooks)
+        finally:
+            _, path = job
+            key = _path_key(path)
+            with self._lock:
+                for slot in self._slots:
+                    slot.paths.discard(key)
+
+    def _record(
+        self,
+        video: ChannelVideo,
+        path: Path,
+        ok: bool,
+        error: str | None,
+        label: str,
+    ) -> None:
+        with self._lock:
+            if ok:
+                self.ok += 1
+            else:
+                self.err += 1
+        if self._hooks.on_result is not None:
+            self._hooks.on_result(video, path, ok, error, label)
 
 
 def _run_one(
