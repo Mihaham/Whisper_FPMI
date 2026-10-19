@@ -1,0 +1,7 @@
+# Название: Machine Learning 6. Multiclass Classification. Quality Metrics
+# Источник: https://www.youtube.com/watch?v=696Iu2lm78Q
+# Модель: whisper large-v3
+# Язык: ru
+# Дата: 2026-10-19T07:14:21Z
+
+

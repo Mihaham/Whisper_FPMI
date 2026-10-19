@@ -127,20 +127,23 @@ def assess_timed(path: Path) -> str:
 def classify_corpus(
     result_dir: Path,
     timed_dir: Path,
-) -> tuple[set[str], list[tuple[str, str]]]:
+) -> tuple[set[str], list[tuple[str, str]], dict[str, str]]:
     from whisper_fpmi.names import fold_key
 
     done: set[str] = set()
     redo: list[tuple[str, str]] = []
+    by_fold: dict[str, str] = {}
     for path in sorted(result_dir.glob("*.txt")):
         if not path.is_file():
             continue
         reason = assess_timed(timed_dir / f"{path.stem}.mp4.txt")
         if reason == "final":
-            done.add(fold_key(path.stem))
+            key = fold_key(path.stem)
+            done.add(key)
+            by_fold.setdefault(key, path.stem)
         else:
             redo.append((path.stem, reason))
-    return done, redo
+    return done, redo, by_fold
 
 
 def write_retranscribe_list(redo: list[tuple[str, str]], path: Path) -> None:

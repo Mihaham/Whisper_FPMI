@@ -1,0 +1,7 @@
+# Название: 3D Topology and Hyperbolic Geometry 1: Polyhedra in Lobachevsky Space
+# Источник: https://www.youtube.com/watch?v=zqdu5I6xjxY
+# Модель: whisper large-v3
+# Язык: ru
+# Дата: 2026-10-17T22:28:58Z
+
+Самое главное, что он хороший математик. Действительно хороший математик. Тема, поскольку тема это геометрия.

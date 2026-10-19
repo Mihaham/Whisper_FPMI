@@ -88,6 +88,20 @@ def test_cpu_video_survives_next_gpu_batch():
     assert state.batch_done_files == 1
 
 
+def test_running_video_stays_overall_when_the_next_batch_starts():
+    state = ProgressState(total_files=4, total_audio=4 * 3600)
+    state.start_batch(1, 3600)
+    state.start_video("GPU", 3600)
+    state.update_video("GPU", 1800, 3600)
+    state.start_batch(2, 3600)
+    assert state.overall_n() == 0.5
+    assert state.batch_n() == 0.0
+    state.finish_video("GPU")
+    assert state.done_files == 1
+    assert state.overall_n() == 1.0
+    assert state.batch_done_files == 0
+
+
 def test_state_falls_back_to_files_without_audio():
     state = ProgressState(total_files=4, total_audio=0)
     state.start_batch(2, 0)

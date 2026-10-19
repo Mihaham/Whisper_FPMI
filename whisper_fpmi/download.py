@@ -15,10 +15,12 @@ from whisper_fpmi.paths import DEFAULT_FRAGMENT_THREADS, VIDEO_DIR
 from whisper_fpmi.progress import HourDayTqdm
 from whisper_fpmi.vk import ChannelVideo
 
-# Низкое https-аудио. HLS с YouTube без JS-рантайма не собирается.
+# Низкое https-аудио. Если клиент отдал только 360p, берём его.
 YOUTUBE_FORMAT = (
     "worstaudio[protocol^=https]/"
     "bestaudio[protocol^=https]/"
+    "worst[protocol^=https]/"
+    "18/"
     "worstaudio"
 )
 
@@ -97,6 +99,33 @@ class ParallelHttpError(Exception):
     pass
 
 
+class _QuietYdl:
+    """Прячет stderr yt-dlp. Про куки и прочие ошибки пишет уже наш код, одной строкой."""
+
+    def debug(self, msg: str) -> None:
+        return
+
+    def info(self, msg: str) -> None:
+        return
+
+    def warning(self, msg: str) -> None:
+        return
+
+    def error(self, msg: str) -> None:
+        return
+
+
+def brief_ydl_error(exc: BaseException) -> str:
+    """Одна строка вместо простыни yt-dlp про --cookies и шаблон issue."""
+    text = str(exc).strip()
+    first = text.splitlines()[0] if text else type(exc).__name__
+    lowered = first.casefold()
+    if "cookies" in lowered or "not a bot" in lowered:
+        return "YouTube закрыл веб-страницу без куков"
+    cut = first.split("; please report", 1)[0].strip()
+    return cut[:240]
+
+
 def split_ranges(total: int, parts: int) -> list[tuple[int, int]]:
     if total <= 0:
         return []
@@ -140,19 +169,28 @@ def _content_length(url: str, headers: dict[str, str]) -> int:
 
     probe = dict(headers)
     probe["Range"] = "bytes=0-0"
-    response = requests.get(url, headers=probe, timeout=(15, 30), stream=True)
-    try:
-        if response.status_code != 206:
-            raise ParallelHttpError(f"сервер не отдаёт Range (HTTP {response.status_code})")
-        match = re.search(r"/(\d+)\s*$", response.headers.get("Content-Range", ""))
-        if not match:
-            raise ParallelHttpError("нет полного размера в Content-Range")
-        total = int(match.group(1))
-    finally:
-        response.close()
-    if total <= 0:
-        raise ParallelHttpError("пустой файл")
-    return total
+    last_error: Exception | None = None
+    for _attempt in range(3):
+        try:
+            response = requests.get(url, headers=probe, timeout=(30, 90), stream=True)
+        except requests.RequestException as exc:
+            last_error = exc
+            continue
+        try:
+            if response.status_code != 206:
+                raise ParallelHttpError(
+                    f"сервер не отдаёт Range (HTTP {response.status_code})"
+                )
+            match = re.search(r"/(\d+)\s*$", response.headers.get("Content-Range", ""))
+            if not match:
+                raise ParallelHttpError("нет полного размера в Content-Range")
+            total = int(match.group(1))
+        finally:
+            response.close()
+        if total <= 0:
+            raise ParallelHttpError("пустой файл")
+        return total
+    raise ParallelHttpError(str(last_error or "не удалось узнать размер"))
 
 
 def _fetch_range(
@@ -178,7 +216,7 @@ def _fetch_range(
             response = requests.get(
                 url,
                 headers=range_headers,
-                timeout=(15, 120),
+                timeout=(30, 180),
                 stream=True,
             )
             try:
@@ -365,13 +403,23 @@ def _ydl_options(
         "outtmpl": template,
         "windowsfilenames": True,
         "retries": 10,
-        "fragment_retries": 10,
+        "fragment_retries": 15,
+        "extractor_retries": 4,
+        "file_access_retries": 5,
+        "socket_timeout": 60,
         "noprogress": False,
-        "quiet": False,
+        "quiet": True,
+        "no_warnings": True,
+        "logger": _QuietYdl(),
         "noplaylist": True,
         "overwrites": True,
         "concurrent_fragment_downloads": max(1, fragment_threads),
     }
+    if "youtube.com" in page.casefold() or "youtu.be" in page.casefold():
+        # ANDROID_VR отдаёт дешёвое аудио, но ссылка на файл отвечает 403.
+        # У android остаётся цельный 360p, и он скачивается.
+        options["extractor_args"] = {"youtube": {"player_client": ["android"]}}
+        options["js_runtimes"] = {"node": {}}
     if cookies:
         options["cookiefile"] = cookies
     return options
@@ -395,7 +443,61 @@ def probe_filesize(video: ChannelVideo, cookies: str | None = None) -> int:
     )
 
 
+def _remove_partials(output_dir: Path, video_id: str) -> None:
+    if not output_dir.exists():
+        return
+    for item in output_dir.glob(f"{video_id}_*"):
+        name = item.name.casefold()
+        if ".part" not in name and not name.endswith(".ytdl") and not name.endswith(".tmp"):
+            continue
+        try:
+            if item.is_file():
+                item.unlink(missing_ok=True)
+        except OSError:
+            continue
+
+
 def download_worst_quality(
+    video: ChannelVideo,
+    output_dir: Path = VIDEO_DIR,
+    cookies: str | None = None,
+    quiet: bool = False,
+    bar_position: int = 0,
+    fragment_threads: int = DEFAULT_FRAGMENT_THREADS,
+) -> Path:
+    last_error: Exception | None = None
+    for attempt in range(3):
+        try:
+            return _save_media(
+                video,
+                output_dir,
+                cookies=cookies,
+                quiet=quiet,
+                bar_position=bar_position,
+                fragment_threads=fragment_threads,
+            )
+        except Exception as exc:  # noqa: BLE001
+            last_error = exc
+            _remove_partials(output_dir, video.video_id)
+            message = brief_ydl_error(exc)
+            if "no video formats" in message.casefold():
+                break
+            if attempt == 2:
+                break
+            import time
+
+            time.sleep(5 * (attempt + 1))
+            lg.warning(
+                "Скачивание {} не вышло (попытка {}): {}",
+                video.video_id,
+                attempt + 1,
+                message,
+            )
+    assert last_error is not None
+    raise last_error
+
+
+def _save_media(
     video: ChannelVideo,
     output_dir: Path = VIDEO_DIR,
     cookies: str | None = None,
@@ -451,13 +553,16 @@ def download_worst_quality(
                         connections=connections,
                         on_progress=report,
                     )
-                except ParallelHttpError as exc:
+                except Exception as exc:  # noqa: BLE001
                     lg.warning(
                         "Параллельная закачка {} не вышла ({}), одно соединение",
                         video.video_id,
-                        exc,
+                        brief_ydl_error(exc),
                     )
                     Path(filename).unlink(missing_ok=True)
+                    Path(filename).with_name(Path(filename).name + ".part").unlink(
+                        missing_ok=True
+                    )
                     client.add_progress_hook(tracker.hook)
                     client.process_info(info)
             else:

@@ -5,6 +5,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 import queue
 import threading
+import time
 from typing import Callable
 
 from loguru import logger as lg
@@ -214,6 +215,77 @@ def transcribe_jobs(
     for thread in threads:
         thread.join()
     return tally["ok"], tally["err"]
+
+
+def transcribe_as_available(
+    batch: list[MediaJob],
+    *,
+    plan: WorkerPlan,
+    model_name: str,
+    on_result: OnResult,
+    on_start: OnStart | None = None,
+    on_progress: OnProgress | None = None,
+    pull_more: Callable[[], list[MediaJob] | None],
+    on_last: Callable[[], None] | None = None,
+) -> tuple[int, int]:
+    """Расшифровывает уже лежащие файлы и подхватывает те, что успели докачаться.
+
+    pull_more возвращает новые ролики, пустой список, если закачка ещё идёт,
+    и None, когда больше ничего не будет. Модель загружается один раз.
+    """
+    label = "GPU" if plan.gpu_workers else "CPU"
+    device = "cuda" if plan.gpu_workers else "cpu"
+    try:
+        model = load_whisper_model(model_name, device)
+    except Exception as exc:  # noqa: BLE001
+        lg.exception("Whisper не загрузился, видео остаются на диске: {}", exc)
+        return 0, 0
+
+    jobs: deque[MediaJob] = deque(batch)
+    ok_n = 0
+    err_n = 0
+
+    def record(video, path, ok, error, result_label) -> None:
+        nonlocal ok_n, err_n
+        if ok:
+            ok_n += 1
+        else:
+            err_n += 1
+        on_result(video, path, ok, error, result_label)
+
+    hooks = TranscribeHooks(
+        on_result=record,
+        on_start=on_start,
+        on_progress=on_progress,
+    )
+    lg.info("Расшифровка без простоя: {}, {}", len(batch), plan.describe())
+    while True:
+        if not jobs:
+            extra = pull_more()
+            if not extra and extra is not None:
+                time.sleep(0.25)
+                continue
+            if extra:
+                jobs.extend(extra)
+                continue
+            if on_last is not None:
+                on_last()
+            extra = pull_more()
+            if extra:
+                jobs.extend(extra)
+                continue
+            if extra is None:
+                return ok_n, err_n
+            time.sleep(0.25)
+            continue
+        job = jobs.popleft()
+        if not jobs:
+            extra = pull_more()
+            if extra:
+                jobs.extend(extra)
+            elif extra is None and on_last is not None:
+                on_last()
+        _run_one(job, model, model_name, label, record, hooks)
 
 
 def _spawn_workers(

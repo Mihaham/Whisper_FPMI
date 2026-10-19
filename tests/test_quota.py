@@ -67,6 +67,21 @@ def test_zero_limit_means_one_file_at_a_time():
     assert not can_add_to_batch(100, 100, 0, 1)
 
 
+def test_dir_size_ignores_a_fragment_that_disappears(tmp_path: Path, monkeypatch):
+    (tmp_path / "a.mp4").write_bytes(b"x" * 10)
+    ghost = tmp_path / "gone.mp4.part-Frag1"
+    ghost.write_bytes(b"y" * 5)
+    original = Path.stat
+
+    def flaky(self, *args, **kwargs):
+        if self.name.startswith("gone"):
+            raise FileNotFoundError(self)
+        return original(self, *args, **kwargs)
+
+    monkeypatch.setattr(Path, "stat", flaky)
+    assert dir_size(tmp_path) == 10
+
+
 def test_dir_size_and_media_files(tmp_path: Path):
     (tmp_path / "a.mp4").write_bytes(b"x" * 100)
     (tmp_path / "b.txt").write_bytes(b"y" * 50)

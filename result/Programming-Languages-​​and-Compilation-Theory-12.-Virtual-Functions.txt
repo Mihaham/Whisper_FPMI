@@ -1,0 +1,7 @@
+# Название: Programming Languages ​​and Compilation Theory 12. Virtual Functions
+# Источник: https://www.youtube.com/watch?v=tKvQo70Z5QE
+# Модель: whisper large-v3
+# Язык: ru
+# Дата: 2026-10-18T07:01:43Z
+
+Всем привет. Сегодня у нас будет бойтовый семинар.

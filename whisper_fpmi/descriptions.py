@@ -153,6 +153,70 @@ def _request_description(video_id: str) -> str:
     return description_from_payload(payload)
 
 
+def fetch_youtube_descriptions(
+    items: list[tuple[str, str]],
+    cache_path: Path,
+    *,
+    workers: int = 4,
+    stop=None,
+) -> None:
+    """Кладёт описание YouTube в тот же кэш, что и VK. По ролику сеть не качается."""
+    cache = load_cache(cache_path)
+    missing = [
+        (video_id, url)
+        for video_id, url in items
+        if url and cached_text(cache, video_id) is None
+    ]
+    if not missing:
+        return
+    lg.info("Качаю описания YouTube: {} из {}", len(missing), len(items))
+    videos = cache.setdefault("videos", {})
+    done = 0
+    with ThreadPoolExecutor(max_workers=max(workers, 1)) as pool:
+        futures = {}
+        for video_id, url in missing:
+            if stop is not None and stop.is_set():
+                break
+            futures[pool.submit(_fetch_youtube, url)] = video_id
+        for future in as_completed(futures):
+            video_id = futures[future]
+            text, error = future.result()
+            videos[video_id] = {
+                "description": text,
+                "error": error,
+                "fetched_at": datetime.now(timezone.utc).isoformat(),
+            }
+            done += 1
+            if done % 40 == 0:
+                try:
+                    save_cache(cache_path, cache)
+                except OSError as exc:
+                    lg.warning("Не записал кэш описаний: {}", exc)
+    save_cache(cache_path, cache)
+
+
+def _fetch_youtube(url: str) -> tuple[str, str | None]:
+    import yt_dlp
+
+    from whisper_fpmi.download import _QuietYdl, brief_ydl_error
+
+    options = {
+        "quiet": True,
+        "no_warnings": True,
+        "skip_download": True,
+        "noplaylist": True,
+        "socket_timeout": 30,
+        "logger": _QuietYdl(),
+        "extractor_args": {"youtube": {"player_client": ["android"]}},
+    }
+    try:
+        with yt_dlp.YoutubeDL(options) as client:
+            info = client.extract_info(url, download=False) or {}
+    except Exception as exc:  # noqa: BLE001
+        return "", brief_ydl_error(exc)
+    return str(info.get("description") or ""), None
+
+
 def _decode_vk(content: bytes) -> dict:
     for encoding in ("utf-8", "windows-1251"):
         try:

@@ -18,10 +18,20 @@ def format_gib(size: int) -> str:
     return f"{size / GIB:.2f} ГиБ"
 
 
+def _file_size(path: Path) -> int:
+    """0, если кусок уже удалили, пока шла параллельная закачка."""
+    try:
+        if not path.is_file():
+            return 0
+        return path.stat().st_size
+    except OSError:
+        return 0
+
+
 def dir_size(path: Path) -> int:
     if not path.exists():
         return 0
-    return sum(item.stat().st_size for item in path.rglob("*") if item.is_file())
+    return sum(_file_size(item) for item in path.rglob("*"))
 
 
 def media_files(path: Path = VIDEO_DIR) -> list[Path]:
@@ -30,7 +40,7 @@ def media_files(path: Path = VIDEO_DIR) -> list[Path]:
     files = [
         item
         for item in path.iterdir()
-        if item.is_file() and item.suffix.lower() in MEDIA_SUFFIXES
+        if _file_size(item) > 0 and item.suffix.lower() in MEDIA_SUFFIXES
     ]
     files.sort()
     return files

@@ -30,9 +30,10 @@ def mark_done(
     url: str,
     slug: str,
     model: str,
+    same_lecture_as: str | None = None,
 ) -> None:
     videos = state.setdefault("videos", {})
-    videos[video_id] = {
+    record = {
         "title": title,
         "url": url,
         "slug": slug,
@@ -42,3 +43,6 @@ def mark_done(
         "status": "done",
         "updated_at": datetime.now(timezone.utc).isoformat(),
     }
+    if same_lecture_as:
+        record["same_lecture_as"] = same_lecture_as
+    videos[video_id] = record

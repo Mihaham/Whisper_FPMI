@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from datetime import datetime, timezone
 import re
 from typing import Iterable
 
@@ -33,6 +34,7 @@ class ChannelVideo:
     title: str
     url: str
     duration: float | None = None
+    published: str | None = None
 
     @property
     def vk_url(self) -> str:
@@ -221,12 +223,23 @@ def _video_from_list_item(item: list) -> ChannelVideo | None:
     video_key = f"{owner_id}_{video_id}"
     title = str(item[3]).strip() if item[3] else video_key
     duration = _parse_duration(item[5] if len(item) > 5 else None)
+    published = _published_day(item[9] if len(item) > 9 else None)
     return ChannelVideo(
         video_id=video_key,
         title=title,
         url=f"https://vk.com/video{video_key}",
         duration=duration,
+        published=published,
     )
+
+
+def _published_day(value: object) -> str | None:
+    if not isinstance(value, (int, float)):
+        return None
+    stamp = int(value)
+    if stamp < 1_000_000_000:
+        return None
+    return datetime.fromtimestamp(stamp, timezone.utc).date().isoformat()
 
 
 def _parse_duration(value: object) -> float | None:

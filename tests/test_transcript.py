@@ -67,8 +67,9 @@ def test_classify_corpus_keeps_only_final(tmp_path: Path):
     _word_file(timed / "good.mp4.txt")
     _phrase_file(timed / "old.mp4.txt", header=False)
 
-    done, redo = classify_corpus(result, timed)
+    done, redo, by_fold = classify_corpus(result, timed)
     assert done == {"good"}
+    assert by_fold == {"good": "good"}
     assert redo == [("old", "no-model")]
 
     listing = tmp_path / "retranscribe.txt"

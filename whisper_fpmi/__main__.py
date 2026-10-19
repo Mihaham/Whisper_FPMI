@@ -153,6 +153,47 @@ def build_parser() -> argparse.ArgumentParser:
     site = sub.add_parser("serve", help="Страница поиска и графа на localhost")
     site.add_argument("--port", type=int, default=8765)
     site.set_defaults(func=_cmd_serve)
+
+    shorts = sub.add_parser(
+        "shorts",
+        help="Шортс: нарезка мест, где лектор говорит выбранное слово",
+    )
+    shorts.add_argument("word", nargs="?", default=None, help="Слово или короткая фраза")
+    shorts.add_argument("--course", default=None, help="Оставить лекции, в курсе которых есть эта строка")
+    shorts.add_argument(
+        "--mode",
+        choices=("forms", "exact"),
+        default="forms",
+        help="forms — все формы слова, exact — как написано",
+    )
+    shorts.add_argument(
+        "--style",
+        choices=("tight", "phrase"),
+        default="tight",
+        help="tight — почти одно слово, phrase — короткая фраза вокруг",
+    )
+    shorts.add_argument("--seconds", type=float, default=45, help="Длина ролика, секунды")
+    shorts.add_argument("--max-per-lecture", type=int, default=3)
+    shorts.add_argument("--seed", type=int, default=1, help="Другое число — другая выборка фрагментов")
+    shorts.add_argument("--part", type=int, default=1, help="Какой ролик собрать, если их несколько")
+    shorts.add_argument("--all", action="store_true", help="Собрать все ролики, на которые хватает слова")
+    shorts.add_argument("--output", type=Path, default=None)
+    shorts.add_argument("--cookies", default=None, help="cookies.txt, если VK просит вход")
+    shorts.add_argument("--port", type=int, default=8770)
+    shorts.add_argument("--preview", action="store_true", help="Только показать фрагменты, без сборки")
+    shorts.add_argument("--reindex", action="store_true", help="Пересобрать индекс слов")
+    shorts.add_argument(
+        "--batch",
+        action="store_true",
+        help="Собрать ролики по всем словам из облака",
+    )
+    shorts.add_argument(
+        "--reserve-gb",
+        type=float,
+        default=50,
+        help="Ниже этого запаса на диске удалять исходники, которые больше не нужны",
+    )
+    shorts.set_defaults(func=_cmd_shorts)
     return parser
 
 
@@ -299,6 +340,12 @@ def _cmd_serve(args: argparse.Namespace) -> int:
 
     serve(args.port)
     return 0
+
+
+def _cmd_shorts(args: argparse.Namespace) -> int:
+    from whisper_fpmi.shorts import run_shorts
+
+    return run_shorts(args)
 
 
 def _cmd_run(args: argparse.Namespace) -> int:

@@ -6,11 +6,13 @@ from whisper_fpmi.download import (
     DownloadProgress,
     _progressive_url,
     _ydl_options,
+    brief_ydl_error,
     download_parallel_http,
     format_for_url,
     parse_download_hook,
     split_ranges,
 )
+from whisper_fpmi.pipeline import _last_video_hooks
 from whisper_fpmi.vk import ChannelVideo
 
 
@@ -124,6 +126,60 @@ def test_youtube_uses_https_audio_format():
     assert format_for_url(vk.url) == WORST_FORMAT
     options = _ydl_options(youtube, Path("videos"))
     assert options["format"] == YOUTUBE_FORMAT
+    assert options["extractor_args"]["youtube"]["player_client"] == ["android"]
+    assert options["socket_timeout"] == 60
+    assert options["logger"] is not None
+
+
+def test_cookie_essay_becomes_one_line():
+    essay = (
+        "ERROR: [youtube] abc: Sign in to confirm you're not a bot. "
+        "Use --cookies-from-browser or --cookies for the authentication. "
+        "See https://github.com/yt-dlp/yt-dlp/wiki/FAQ"
+    )
+    assert brief_ydl_error(RuntimeError(essay)) == "YouTube закрыл веб-страницу без куков"
+    formats = (
+        "ERROR: [vk] 1_2: No video formats found!; please report this issue on "
+        "https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template."
+    )
+    assert brief_ydl_error(RuntimeError(formats)) == "ERROR: [vk] 1_2: No video formats found!"
+
+
+def test_next_batch_starts_when_last_video_remains():
+    class Bar:
+        def start_video(self, label, video):
+            return
+
+    started = []
+    on_start, wrapped = _last_video_hooks(
+        2,
+        lambda *args: None,
+        Bar(),
+        lambda: started.append("next"),
+    )
+    on_start("GPU", "first")
+    wrapped("first", None, True, None, "GPU")
+    assert started == []
+    on_start("GPU", "last")
+    assert started == ["next"]
+    wrapped("last", None, True, None, "GPU")
+    assert started == ["next"]
+
+
+def test_single_video_batch_starts_next_immediately():
+    class Bar:
+        def start_video(self, label, video):
+            return
+
+    started = []
+    on_start, _wrapped = _last_video_hooks(
+        1,
+        lambda *args: None,
+        Bar(),
+        lambda: started.append("next"),
+    )
+    on_start("GPU", "only")
+    assert started == ["next"]
 
 
 def test_fragment_threads_are_passed_to_yt_dlp():
@@ -132,6 +188,52 @@ def test_fragment_threads_are_passed_to_yt_dlp():
     assert options["concurrent_fragment_downloads"] == 8
     clamped = _ydl_options(video, Path("videos"), fragment_threads=0)
     assert clamped["concurrent_fragment_downloads"] == 1
+
+
+def test_parallel_timeout_falls_back_to_one_connection(tmp_path, monkeypatch):
+    import whisper_fpmi.download as download
+
+    target = tmp_path / "abc_Лекция.mp4"
+
+    class FakeYDL:
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *args):
+            return False
+
+        def extract_info(self, url, download=False):
+            return {
+                "url": "https://rr.googlevideo.com/videoplayback",
+                "protocol": "https",
+                "ext": "mp4",
+                "http_headers": {},
+            }
+
+        def prepare_filename(self, info):
+            return str(target)
+
+        def add_progress_hook(self, hook):
+            return None
+
+        def process_info(self, info):
+            target.write_bytes(b"lecture")
+
+    monkeypatch.setattr(
+        "yt_dlp.YoutubeDL",
+        lambda options: FakeYDL(),
+    )
+
+    def fail_parallel(*args, **kwargs):
+        raise TimeoutError("Read timed out. (read timeout=15)")
+
+    monkeypatch.setattr(download, "download_parallel_http", fail_parallel)
+    path = download.download_worst_quality(
+        ChannelVideo("abc", "Лекция", "https://www.youtube.com/watch?v=abc"),
+        tmp_path,
+        fragment_threads=4,
+    )
+    assert path.read_bytes() == b"lecture"
 
 
 def test_parse_ignores_other_statuses():

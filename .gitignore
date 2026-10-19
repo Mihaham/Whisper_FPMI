@@ -24,6 +24,10 @@ models/
 # производный поисковый индекс и кэш частот
 data/search.pkl
 data/wordcloud-cache.json
+data/shorts.sqlite
+data/shorts.sqlite.tmp
+data/audio-samples/
+shorts/
 site/
 
 # секреты и сессии — не коммитить

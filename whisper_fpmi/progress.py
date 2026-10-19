@@ -94,6 +94,8 @@ class ProgressState:
     batch_done_files: int = 0
     batch_done_audio: float = 0.0
     active: dict[str, tuple[float, float]] = field(default_factory=dict)
+    # Ролик, который ещё доигрывает предыдущую пачку, в новую не входит.
+    carry: set[str] = field(default_factory=set)
 
     @property
     def use_audio(self) -> bool:
@@ -104,11 +106,13 @@ class ProgressState:
         self.batch_audio = audio
         self.batch_done_files = 0
         self.batch_done_audio = 0.0
-        self.active = {
-            label: value
-            for label, value in self.active.items()
-            if _is_cpu_label(label)
+        self.carry = {
+            label for label in self.active if not _is_cpu_label(label)
         }
+
+    def grow_batch(self, files: int, audio: float) -> None:
+        self.batch_files += max(0, files)
+        self.batch_audio += max(0.0, audio)
 
     def start_video(self, label: str, duration: float | None) -> None:
         self.active[label] = (0.0, float(duration or 0.0))
@@ -123,9 +127,10 @@ class ProgressState:
         added = dur if dur > 0 else pos
         self.done_files += 1
         self.done_audio += added
-        if not _is_cpu_label(label):
+        if not _is_cpu_label(label) and label not in self.carry:
             self.batch_done_files += 1
             self.batch_done_audio += added
+        self.carry.discard(label)
         return pos, dur
 
     def audio_now(self) -> float:
@@ -145,6 +150,8 @@ class ProgressState:
 
     def _active_values(self, *, include_cpu: bool):
         for label, value in self.active.items():
+            if label in self.carry:
+                continue
             if include_cpu or not _is_cpu_label(label):
                 yield value
 
@@ -251,6 +258,14 @@ class RunProgress:
             )
             self._sync_locked()
 
+    def grow_batch(self, files: int, audio: float) -> None:
+        if files <= 0 and audio <= 0:
+            return
+        with self._lock:
+            self.state.grow_batch(files, audio)
+            self.batch.total = max(self.state.batch_total(), self.batch.n)
+            self._sync_locked()
+
     def start_video(self, label: str, video: ChannelVideo) -> None:
         with self._lock:
             duration = float(video.duration or 0.0)
@@ -274,6 +289,12 @@ class RunProgress:
             bar.total = total / MINUTE
             bar.n = min(pos, duration or pos) / MINUTE
             bar.refresh()
+            self._sync_locked()
+
+    def note_skipped(self, video: ChannelVideo) -> None:
+        with self._lock:
+            self.state.done_files += 1
+            self.state.done_audio += float(video.duration or 0.0)
             self._sync_locked()
 
     def finish_video(self, label: str) -> None:

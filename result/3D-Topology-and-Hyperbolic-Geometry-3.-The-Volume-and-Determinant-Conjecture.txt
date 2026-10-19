@@ -1,0 +1,7 @@
+# Название: 3D Topology and Hyperbolic Geometry 3. The Volume and Determinant Conjecture
+# Источник: https://www.youtube.com/watch?v=ZT3xSaFJMp8
+# Модель: whisper large-v3
+# Язык: ru
+# Дата: 2026-10-19T07:27:22Z
+
+

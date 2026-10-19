@@ -53,6 +53,9 @@ def make_record(
         "tag": parsed.tag,
         "kind": lecture_kind(parsed),
         "url": lecture.source_url,
+        "same_lecture_as": None,
+        "upload_title": None,
+        "transcript_url": None,
         "model": lecture.model,
         "language": lecture.language,
         "transcribed_at": lecture.transcribed_at,
@@ -101,6 +104,9 @@ CSV_COLUMNS = (
     "lecturer",
     "event_date",
     "url",
+    "same_lecture_as",
+    "upload_title",
+    "transcript_url",
     "model",
     "language",
     "transcribed_at",
@@ -145,6 +151,41 @@ def write_csv(records: list[dict], path: Path) -> None:
         writer.writeheader()
         for record in records:
             writer.writerow({column: _csv_cell(record, column) for column in CSV_COLUMNS})
+
+
+def attach_lecture_copies(records: list[dict], copies: list) -> list[dict]:
+    """Каждая копия лекции — отдельная строка со своей ссылкой на ту же расшифровку."""
+    if not copies:
+        return records
+    by_slug: dict[str, dict] = {}
+    for record in records:
+        slug = record.get("slug")
+        if slug:
+            by_slug.setdefault(slug, record)
+    known_ids = {record.get("video_id") for record in records if record.get("video_id")}
+    known_urls = {record.get("url") for record in records if record.get("url")}
+    extra: list[dict] = []
+    for copy in copies:
+        video_id = copy.video_id
+        url = copy.url
+        if video_id in known_ids or (url and url in known_urls):
+            continue
+        base = by_slug.get(copy.slug)
+        if base is None:
+            continue
+        row = dict(base)
+        row["video_id"] = video_id
+        row["url"] = url or base.get("url")
+        row["upload_title"] = copy.title
+        row["transcript_url"] = base.get("url")
+        row["same_lecture_as"] = copy.same_lecture_as
+        row["plain"] = copy.plain or base.get("plain")
+        row["timed"] = copy.timed or base.get("timed")
+        extra.append(row)
+        known_ids.add(video_id)
+        if url:
+            known_urls.add(url)
+    return [*records, *extra]
 
 
 def read_jsonl(path: Path) -> list[dict]:

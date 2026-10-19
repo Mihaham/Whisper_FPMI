@@ -1,7 +1,8 @@
 from pathlib import Path
 
+from whisper_fpmi.pipeline import _ReadyInbox, _download_batch
 from whisper_fpmi.vk import ChannelVideo
-from whisper_fpmi.workers import JobQueue, plan_workers
+from whisper_fpmi.workers import JobQueue, plan_workers, transcribe_as_available
 
 
 def test_plan_gpu_gets_independent_cpu_lane():
@@ -102,6 +103,149 @@ def test_job_queue_cpu_leaves_last_for_gpu():
     last = queue.take(is_cpu=False, wait=False)
     assert last is not None
     assert last[0].video_id == "3"
+
+
+def test_ready_file_is_transcribed_before_the_batch_finishes(monkeypatch):
+    monkeypatch.setattr(
+        "whisper_fpmi.workers.load_whisper_model",
+        lambda *args, **kwargs: object(),
+    )
+    done = []
+
+    def fake_run(job, model, model_name, label, record, hooks):
+        done.append(job[0].video_id)
+        record(job[0], job[1], True, None, label)
+
+    monkeypatch.setattr("whisper_fpmi.workers._run_one", fake_run)
+    calls = {"n": 0}
+
+    def pull():
+        calls["n"] += 1
+        if calls["n"] == 1:
+            return None
+        if calls["n"] == 2:
+            return [(ChannelVideo("b", "Б", "u"), Path("b.mp4"))]
+        return None
+
+    plan = plan_workers(use_gpu=True, cpu_workers=0)
+    ok, err = transcribe_as_available(
+        [(ChannelVideo("a", "А", "u"), Path("a.mp4"))],
+        plan=plan,
+        model_name="tiny",
+        on_result=lambda *args: None,
+        pull_more=pull,
+        on_last=lambda: None,
+    )
+    assert done == ["a", "b"]
+    assert (ok, err) == (2, 0)
+
+
+def test_file_is_handed_off_as_soon_as_it_lands(tmp_path, monkeypatch):
+    monkeypatch.setattr("whisper_fpmi.pipeline.VIDEO_DIR", tmp_path)
+    returned = False
+    seen = []
+
+    def fake_download(video, output_dir, cookies=None, bar_position=0, fragment_threads=8):
+        path = output_dir / f"{video.video_id}.mp4"
+        path.write_bytes(b"x")
+        return path
+
+    def on_ready(video, path):
+        assert returned is False
+        seen.append(video.video_id)
+
+    monkeypatch.setattr("whisper_fpmi.pipeline.download_worst_quality", fake_download)
+    videos = [
+        ChannelVideo("1", "А", "https://vk.com/video1"),
+        ChannelVideo("2", "Б", "https://vk.com/video2"),
+    ]
+    batch, rest = _download_batch(
+        videos,
+        max_bytes=3 * 1024**3,
+        cookies=None,
+        cycle=1,
+        download_workers=2,
+        fragment_threads=1,
+        on_ready=on_ready,
+    )
+    returned = True
+    assert rest == []
+    assert {video.video_id for video, _path in batch} == {"1", "2"}
+    assert seen == ["1", "2"] or set(seen) == {"1", "2"}
+
+
+def test_download_stops_at_the_cap_when_gpu_deletes_files(tmp_path, monkeypatch):
+    monkeypatch.setattr("whisper_fpmi.pipeline.VIDEO_DIR", tmp_path)
+    monkeypatch.setattr("whisper_fpmi.quota.ASSUMED_FILE_BYTES", 100)
+    monkeypatch.setattr("whisper_fpmi.pipeline.ASSUMED_FILE_BYTES", 100)
+
+    def fake_download(video, output_dir, cookies=None, bar_position=0, fragment_threads=8):
+        path = output_dir / f"{video.video_id}.mp4"
+        path.write_bytes(b"x" * 100)
+        return path
+
+    def on_ready(video, path):
+        path.unlink(missing_ok=True)
+
+    monkeypatch.setattr("whisper_fpmi.pipeline.download_worst_quality", fake_download)
+    videos = [ChannelVideo(str(i), "Лекция", "https://vk.com/video") for i in range(5)]
+    batch, rest = _download_batch(
+        videos,
+        max_bytes=250,
+        cookies=None,
+        cycle=2,
+        download_workers=2,
+        fragment_threads=1,
+        on_ready=on_ready,
+    )
+    assert {video.video_id for video, _path in batch} == {"0", "1"}
+    assert [video.video_id for video in rest] == ["2", "3", "4"]
+
+
+def test_timed_out_video_returns_to_the_queue(tmp_path, monkeypatch):
+    monkeypatch.setattr("whisper_fpmi.pipeline.VIDEO_DIR", tmp_path)
+
+    def fake_download(video, output_dir, cookies=None, bar_position=0, fragment_threads=8):
+        raise TimeoutError("Read timed out. (read timeout=15)")
+
+    monkeypatch.setattr("whisper_fpmi.pipeline.download_worst_quality", fake_download)
+    video = ChannelVideo("yt1", "Лекция", "https://www.youtube.com/watch?v=yt1")
+    counts: dict[str, int] = {}
+    batch, rest = _download_batch(
+        [video],
+        max_bytes=3 * 1024**3,
+        cookies=None,
+        cycle=1,
+        download_workers=1,
+        fragment_threads=1,
+        fail_counts=counts,
+    )
+    assert batch == []
+    assert [item.video_id for item in rest] == ["yt1"]
+    assert counts["yt1"] == 1
+
+    counts["yt1"] = 2
+    batch, rest = _download_batch(
+        rest,
+        max_bytes=3 * 1024**3,
+        cookies=None,
+        cycle=2,
+        download_workers=1,
+        fragment_threads=1,
+        fail_counts=counts,
+    )
+    assert batch == []
+    assert rest == []
+    assert counts["yt1"] == 3
+
+
+def test_ready_inbox_gives_files_without_waiting_for_the_rest():
+    inbox = _ReadyInbox()
+    assert inbox.pop() == []
+    first = (ChannelVideo("1", "А", "u"), Path("a.mp4"))
+    inbox.add(*first)
+    assert inbox.pop() == [first]
+    assert inbox.pop() == []
 
 
 def test_job_queue_cpu_drains_when_gpu_closed():

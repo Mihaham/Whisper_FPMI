@@ -9,7 +9,14 @@ from loguru import logger as lg
 from tqdm import tqdm
 
 from whisper_fpmi.cloud import is_fresh, write_wordcloud
-from whisper_fpmi.dataset import make_record, read_jsonl, write_csv, write_jsonl
+from whisper_fpmi.dataset import (
+    attach_lecture_copies,
+    make_record,
+    read_jsonl,
+    write_csv,
+    write_jsonl,
+)
+from whisper_fpmi.lecture_id import copies_from_state
 from whisper_fpmi.descriptions import fetch_descriptions
 from whisper_fpmi.evaluate import retrieval_report
 from whisper_fpmi.lang import get_lemmatizer
@@ -86,6 +93,7 @@ def build_all(*, offline: bool = False, refresh: bool = False, workers: int = 4)
             )
         )
 
+    records = attach_lecture_copies(records, copies_from_state(load_state()))
     write_jsonl(records, LECTURES_PATH)
     write_csv(records, LECTURES_CSV)
     cloud = write_wordcloud(counts, digest, name)
@@ -196,6 +204,7 @@ def _summary(records, lemmatizer, graph, index, retrieval, cloud, page) -> dict:
     with_codes = [row for row in records if row.get("timecode_count")]
     return {
         "lectures": len(records),
+        "lecture_copies": sum(1 for row in records if row.get("same_lecture_as")),
         "with_video_id": sum(1 for row in records if row.get("video_id")),
         "with_description": len(described),
         "with_lecturer": sum(1 for row in records if row.get("lecturer")),
