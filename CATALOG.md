@@ -3,8 +3,8 @@
 Список уже сохранённых в репозитории текстов лекций.
 Источник новых записей: [vkvideo.ru/@lectorium_fpmi](https://vkvideo.ru/@lectorium_fpmi).
 
-- Расшифровок: **4498**
-- Курсов: **447**
+- Расшифровок: **4512**
+- Курсов: **448**
 - Обновлено: 2026-10-19
 
 ![Облако слов](assets/wordcloud.svg)
@@ -91,21 +91,22 @@
 - [[ФЯиТ] Формальные языки и трансляции 8.5. Нормальная форма Грейбах](#фяит-формальные-языки-и-трансляции-85-нормальная-форма-грейбах) (1)
 - [Algebra and Coding Theory — Advanced Track](#algebra-and-coding-theory--advanced-track) (1)
 - [Algebra and Field Theory — Advanced Stream](#algebra-and-field-theory--advanced-stream) (1)
-- [Algebra and Geometry](#algebra-and-geometry) (1)
-- [Algorithms and Data Structures](#algorithms-and-data-structures) (6)
+- [Algebra and Geometry](#algebra-and-geometry) (2)
+- [Algorithms and Data Structures](#algorithms-and-data-structures) (7)
 - [Algorithms and Data Structures — Main Stream](#algorithms-and-data-structures--main-stream) (9)
 - [Algorithms and Data Structures — Main Track](#algorithms-and-data-structures--main-track) (1)
 - [Applied Statistics](#applied-statistics) (2)
 - [Basics of Probability and Measure Theory](#basics-of-probability-and-measure-theory) (1)
 - [Boolean Algebra, Combinatorics, and Graph Theory](#boolean-algebra-combinatorics-and-graph-theory) (1)
 - [C++](#c) (40)
-- [C++ Programming — Main Stream](#c-programming--main-stream) (1)
-- [C++ Programming — Main Thread](#c-programming--main-thread) (3)
+- [C++ Programming — Main Stream](#c-programming--main-stream) (2)
+- [C++ Programming — Main Thread](#c-programming--main-thread) (6)
+- [C++ Programming — Main Track](#c-programming--main-track) (1)
 - [C++ и алгоритмы (Базовый поток)](#c-и-алгоритмы-базовый-поток) (15)
 - [Computational complexity](#computational-complexity) (2)
 - [Computational Complexity](#computational-complexity) (1)
 - [Computational Complexity — Additional Chapters](#computational-complexity--additional-chapters) (6)
-- [Computational Linear Algebra](#computational-linear-algebra) (5)
+- [Computational Linear Algebra](#computational-linear-algebra) (7)
 - [Computational Methods of Algebra](#computational-methods-of-algebra) (8)
 - [Concurrecy семинар](#concurrecy-семинар) (6)
 - [Concurrency семинар](#concurrency-семинар) (2)
@@ -138,20 +139,20 @@
 - [Group Theory](#group-theory) (3)
 - [Highload](#highload) (8)
 - [International Conference Data Analysis Optimization and their Applications day](#international-conference-data-analysis-optimization-and-their-applications-day) (1)
-- [Introduction to Deep Learning](#introduction-to-deep-learning) (13)
+- [Introduction to Deep Learning](#introduction-to-deep-learning) (15)
 - [Machine Learning](#machine-learning) (11)
 - [Mathematical Logic](#mathematical-logic) (1)
 - [Mathematical Logic and Algorithm Theory](#mathematical-logic-and-algorithm-theory) (2)
 - [Mathematical Logic and Computability Theory](#mathematical-logic-and-computability-theory) (1)
 - [Mathematical logic and the theory of algorithms](#mathematical-logic-and-the-theory-of-algorithms) (1)
 - [Mathematical Logic and Theory of Algorithms](#mathematical-logic-and-theory-of-algorithms) (12)
-- [Mathematical logic and theory of algorithms](#mathematical-logic-and-theory-of-algorithms) (2)
+- [Mathematical logic and theory of algorithms](#mathematical-logic-and-theory-of-algorithms) (3)
 - [Mathematical Statistics](#mathematical-statistics) (1)
 - [Multidimensional Analysis, Integrals and Series](#multidimensional-analysis-integrals-and-series) (1)
 - [Multidimensional Analysis, Integrals, and Series](#multidimensional-analysis-integrals-and-series) (1)
 - [Multivariable Analysis, Integrals, and Series](#multivariable-analysis-integrals-and-series) (1)
 - [Multivariable Calculus, Integrals and Series](#multivariable-calculus-integrals-and-series) (1)
-- [Multivariate analysis, integrals and series](#multivariate-analysis-integrals-and-series) (3)
+- [Multivariate analysis, integrals and series](#multivariate-analysis-integrals-and-series) (4)
 - [Multivariate Analysis, Integrals and Series](#multivariate-analysis-integrals-and-series) (5)
 - [N значные грууппы и матричная алгебра. Семинар от Виктора Матвеевича Бухштабера](#n-значные-грууппы-и-матричная-алгебра-семинар-от-виктора-матвеевича-бухштабера) (1)
 - [Number Theory — Advanced Stream](#number-theory--advanced-stream) (2)
@@ -179,7 +180,7 @@
 - [Programming Technologies — Advanced Stream](#programming-technologies--advanced-stream) (7)
 - [Python Workshop](#python-workshop) (3)
 - [Random processes](#random-processes) (2)
-- [Ring and Field Theory — Basics](#ring-and-field-theory--basics) (2)
+- [Ring and Field Theory — Basics](#ring-and-field-theory--basics) (3)
 - [Ring and Field Theory — Foundations](#ring-and-field-theory--foundations) (1)
 - [Ring and Field Theory — Fundamentals](#ring-and-field-theory--fundamentals) (1)
 - [Stochastic Analysis](#stochastic-analysis) (4)
@@ -931,11 +932,13 @@
 <a id="algebra-and-geometry"></a>
 ## Algebra and Geometry
 
+- [10. Euclidean and Hermitian spaces](result/Algebra-and-Geometry-10.-Euclidean-and-Hermitian-spaces.txt) · [таймкоды](download/Algebra-and-Geometry-10.-Euclidean-and-Hermitian-spaces.mp4.txt)
 - [14. Tensors. Tensor product](result/Algebra-and-Geometry-14.-Tensors.-Tensor-product.txt) · [таймкоды](download/Algebra-and-Geometry-14.-Tensors.-Tensor-product.mp4.txt)
 
 <a id="algorithms-and-data-structures"></a>
 ## Algorithms and Data Structures
 
+- [8. Floyd's Algorithm. Algorithms for constructing MST](result/Algorithms-and-Data-Structures-8.-Floyd's-Algorithm.-Algorithms-for-constructing-MST.txt) · [таймкоды](download/Algorithms-and-Data-Structures-8.-Floyd's-Algorithm.-Algorithms-for-constructing-MST.mp4.txt)
 - [9. Matchings](result/Algorithms-and-Data-Structures-9.-Matchings.txt) · [таймкоды](download/Algorithms-and-Data-Structures-9.-Matchings.mp4.txt)
 - [10. Finding the Maximum Matching in an Arbitrary Graph](result/Algorithms-and-Data-Structures-10.-Finding-the-Maximum-Matching-in-an-Arbitrary-Graph.txt) · [таймкоды](download/Algorithms-and-Data-Structures-10.-Finding-the-Maximum-Matching-in-an-Arbitrary-Graph.mp4.txt)
 - [12. Dinic's Algorithm](result/Algorithms-and-Data-Structures-12.-Dinic's-Algorithm.txt) · [таймкоды](download/Algorithms-and-Data-Structures-12.-Dinic's-Algorithm.mp4.txt)
@@ -1024,14 +1027,23 @@
 <a id="c-programming--main-stream"></a>
 ## C++ Programming — Main Stream
 
+- [6. Map](result/C++-Programming--Main-Stream--6.-Map.txt) · [таймкоды](download/C++-Programming--Main-Stream--6.-Map.mp4.txt)
 - [10. Lvalue, Rvalue, Perfect forwarding problem](result/C++-Programming--Main-Stream--10.-Lvalue,-Rvalue,-Perfect-forwarding-problem.txt) · [таймкоды](download/C++-Programming--Main-Stream--10.-Lvalue,-Rvalue,-Perfect-forwarding-problem.mp4.txt)
 
 <a id="c-programming--main-thread"></a>
 ## C++ Programming — Main Thread
 
 - [4. Vector bool, Bitset, Deque](result/C++-Programming--Main-Thread--4.-Vector-bool,-Bitset,-Deque.txt) · [таймкоды](download/C++-Programming--Main-Thread--4.-Vector-bool,-Bitset,-Deque.mp4.txt)
+- [5. Deque, Iterator, List](result/C++-Programming--Main-Thread--5.-Deque,-Iterator,-List.txt) · [таймкоды](download/C++-Programming--Main-Thread--5.-Deque,-Iterator,-List.mp4.txt)
+- [7. Unordered Map](result/C++-Programming--Main-Thread--7.-Unordered-Map.txt) · [таймкоды](download/C++-Programming--Main-Thread--7.-Unordered-Map.mp4.txt)
+- [9. Move Semantics](result/C++-Programming--Main-Thread--9.-Move-Semantics.txt) · [таймкоды](download/C++-Programming--Main-Thread--9.-Move-Semantics.mp4.txt)
 - [11. Std — move, Std — forward](result/C++-Programming--Main-Thread--11.-Std--move,-Std--forward.txt) · [таймкоды](download/C++-Programming--Main-Thread--11.-Std--move,-Std--forward.mp4.txt)
 - [12. Type Deduction, Std — tuple](result/C++-Programming--Main-Thread--12.-Type-Deduction,-Std--tuple.txt) · [таймкоды](download/C++-Programming--Main-Thread--12.-Type-Deduction,-Std--tuple.mp4.txt)
+
+<a id="c-programming--main-track"></a>
+## C++ Programming — Main Track
+
+- [8. Allocator, Allocator traits, alignment](result/C++-Programming--Main-Track--8.-Allocator,-Allocator-traits,-alignment.txt) · [таймкоды](download/C++-Programming--Main-Track--8.-Allocator,-Allocator-traits,-alignment.mp4.txt)
 
 <a id="c-и-алгоритмы-базовый-поток"></a>
 ## C++ и алгоритмы (Базовый поток)
@@ -1078,6 +1090,8 @@
 
 - [10. Perturbation Theory](result/Computational-Linear-Algebra-10.-Perturbation-Theory.txt) · [таймкоды](download/Computational-Linear-Algebra-10.-Perturbation-Theory.mp4.txt)
 - [11. Linear Systems. LU Decomposition](result/Computational-Linear-Algebra-11.-Linear-Systems.-LU-Decomposition.txt) · [таймкоды](download/Computational-Linear-Algebra-11.-Linear-Systems.-LU-Decomposition.mp4.txt)
+- [13. Spectral Problem. Perturbation Theory](result/Computational-Linear-Algebra-13.-Spectral-Problem.-Perturbation-Theory.txt) · [таймкоды](download/Computational-Linear-Algebra-13.-Spectral-Problem.-Perturbation-Theory.mp4.txt)
+- [14. Spectral Stability. Numerical Algorithms](result/Computational-Linear-Algebra-14.-Spectral-Stability.-Numerical-Algorithms.txt) · [таймкоды](download/Computational-Linear-Algebra-14.-Spectral-Stability.-Numerical-Algorithms.mp4.txt)
 - [15. QR Decomposition. Cholesky Decomposition](result/Computational-Linear-Algebra-15.-QR-Decomposition.-Cholesky-Decomposition.txt) · [таймкоды](download/Computational-Linear-Algebra-15.-QR-Decomposition.-Cholesky-Decomposition.mp4.txt)
 - [16. Discrete Fourier Transform](result/Computational-Linear-Algebra-16.-Discrete-Fourier-Transform.txt) · [таймкоды](download/Computational-Linear-Algebra-16.-Discrete-Fourier-Transform.mp4.txt)
 - [19. Projection Operators. Distance Between Subspaces](result/Computational-Linear-Algebra-19.-Projection-Operators.-Distance-Between-Subspaces.txt) · [таймкоды](download/Computational-Linear-Algebra-19.-Projection-Operators.-Distance-Between-Subspaces.mp4.txt)
@@ -1336,6 +1350,8 @@
 
 - [5. PyTorch](result/Introduction-to-Deep-Learning-5.-PyTorch.txt) · [таймкоды](download/Introduction-to-Deep-Learning-5.-PyTorch.mp4.txt)
 - [13. Recurrent Networks — Theory](result/Introduction-to-Deep-Learning-13.-Recurrent-Networks--Theory.txt) · [таймкоды](download/Introduction-to-Deep-Learning-13.-Recurrent-Networks--Theory.mp4.txt)
+- [15. Transformers — Theory](result/Introduction-to-Deep-Learning-15.-Transformers--Theory.txt) · [таймкоды](download/Introduction-to-Deep-Learning-15.-Transformers--Theory.mp4.txt)
+- [16. BERT, GPT, seq2seq](result/Introduction-to-Deep-Learning-16.-BERT,-GPT,-seq2seq.txt) · [таймкоды](download/Introduction-to-Deep-Learning-16.-BERT,-GPT,-seq2seq.mp4.txt)
 - [17. Transfer Learning, Transformers](result/Introduction-to-Deep-Learning-17.-Transfer-Learning,-Transformers.txt) · [таймкоды](download/Introduction-to-Deep-Learning-17.-Transfer-Learning,-Transformers.mp4.txt)
 - [18. PEFT methods](result/Introduction-to-Deep-Learning-18.-PEFT-methods.txt) · [таймкоды](download/Introduction-to-Deep-Learning-18.-PEFT-methods.mp4.txt)
 - [19. Signal Processing, Audio Representation, ASR](result/Introduction-to-Deep-Learning-19.-Signal-Processing,-Audio-Representation,-ASR.txt) · [таймкоды](download/Introduction-to-Deep-Learning-19.-Signal-Processing,-Audio-Representation,-ASR.mp4.txt)
@@ -1403,6 +1419,7 @@
 <a id="mathematical-logic-and-theory-of-algorithms"></a>
 ## Mathematical logic and theory of algorithms
 
+- [9. Computable functions. Decidable and enumerable sets](result/Mathematical-logic-and-theory-of-algorithms-9.-Computable-functions.-Decidable-and-enumerable-sets.txt) · [таймкоды](download/Mathematical-logic-and-theory-of-algorithms-9.-Computable-functions.-Decidable-and-enumerable-sets.mp4.txt)
 - [11. Sets K_u, S_u. Home UWF](result/Mathematical-logic-and-theory-of-algorithms-11.-Sets-K_u,-S_u.-Home-UWF.txt) · [таймкоды](download/Mathematical-logic-and-theory-of-algorithms-11.-Sets-K_u,-S_u.-Home-UWF.mp4.txt)
 - [12. Formal arithmetic](result/Mathematical-logic-and-theory-of-algorithms-12.-Formal-arithmetic.txt) · [таймкоды](download/Mathematical-logic-and-theory-of-algorithms-12.-Formal-arithmetic.mp4.txt)
 
@@ -1434,6 +1451,7 @@
 <a id="multivariate-analysis-integrals-and-series"></a>
 ## Multivariate analysis, integrals and series
 
+- [18. Basic properties of an improper integral](result/Multivariate-analysis,-integrals-and-series-18.-Basic-properties-of-an-improper-integral.txt) · [таймкоды](download/Multivariate-analysis,-integrals-and-series-18.-Basic-properties-of-an-improper-integral.mp4.txt)
 - [19. Convergence of alternating improper integrals](result/Multivariate-analysis,-integrals-and-series-19.-Convergence-of-alternating-improper-integrals.txt) · [таймкоды](download/Multivariate-analysis,-integrals-and-series-19.-Convergence-of-alternating-improper-integrals.mp4.txt)
 - [28. Taylor series of elementary functions](result/Multivariate-analysis,-integrals-and-series-28.-Taylor-series-of-elementary-functions.txt) · [таймкоды](download/Multivariate-analysis,-integrals-and-series-28.-Taylor-series-of-elementary-functions.mp4.txt)
 - [29. Jordan measure](result/Multivariate-analysis,-integrals-and-series-29.-Jordan-measure.txt) · [таймкоды](download/Multivariate-analysis,-integrals-and-series-29.-Jordan-measure.mp4.txt)
@@ -1623,6 +1641,7 @@
 <a id="ring-and-field-theory--basics"></a>
 ## Ring and Field Theory — Basics
 
+- [7. Algebraically Closed Fields](result/Ring-and-Field-Theory--Basics--7.-Algebraically-Closed-Fields.txt) · [таймкоды](download/Ring-and-Field-Theory--Basics--7.-Algebraically-Closed-Fields.mp4.txt)
 - [8. Constructions with Compass and Ruler](result/Ring-and-Field-Theory--Basics--8.-Constructions-with-Compass-and-Ruler.txt) · [таймкоды](download/Ring-and-Field-Theory--Basics--8.-Constructions-with-Compass-and-Ruler.mp4.txt)
 - [10. Fundamental Theorem of Galois Theory](result/Ring-and-Field-Theory--Basics--10.-Fundamental-Theorem-of-Galois-Theory.txt) · [таймкоды](download/Ring-and-Field-Theory--Basics--10.-Fundamental-Theorem-of-Galois-Theory.mp4.txt)
 

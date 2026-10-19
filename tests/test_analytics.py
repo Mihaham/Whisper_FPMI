@@ -4,7 +4,15 @@ from whisper_fpmi.descriptions import description_from_payload
 from whisper_fpmi.evaluate import retrieval_report
 from whisper_fpmi.lang import analyze, stem_token, usable_phrase
 from whisper_fpmi.rag import extractive_answer, grounded_fraction
-from whisper_fpmi.search import Chunk, build_chunks, build_index, search, vk_link
+from whisper_fpmi.search import (
+    Chunk,
+    build_chunks,
+    build_index,
+    load_index,
+    save_index,
+    search,
+    vk_link,
+)
 from whisper_fpmi.terms import build_graph, render_html
 from whisper_fpmi.timecodes import parse_description_timecodes, parse_lecturer
 from whisper_fpmi.transcript import LectureText, Segment, parse_clock, parse_segments
@@ -267,6 +275,29 @@ def test_csv_keeps_hour_timecode_and_commas(tmp_path):
     assert rows[0]["filler_counts"] == "давайте=1 | значит=2"
     assert rows[0]["description"] == "строка вторая"
     assert rows[0]["duration_sec"] == "4000,5"
+
+
+def test_search_index_roundtrip_from_parts(tmp_path):
+    lecture = LectureText(
+        slug="algebra",
+        plain_path=tmp_path / "algebra.txt",
+        timed_path=None,
+        header={"Источник": "https://vk.com/video1"},
+        text="жорданова клетка",
+        segments=[Segment(0.0, 10.0, "жорданова клетка")],
+        video_id="1",
+    )
+    index = build_index(build_chunks(lecture, title="Жордан", course="Алгебра"))
+    path = tmp_path / "search.pkl"
+    save_index(index, path, part_bytes=80)
+    path.unlink()
+    parts = sorted(tmp_path.glob("search.pkl.part*"))
+    assert len(parts) > 1
+    assert max(part.stat().st_size for part in parts) <= 80
+    loaded = load_index(path)
+    assert loaded is not None
+    assert loaded.size == index.size
+    assert loaded.chunks[0].text == "жорданова клетка"
 
 
 def test_wordcloud_skips_empty_and_draws_the_top_word():

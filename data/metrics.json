@@ -1,51 +1,51 @@
 {
-  "lectures": 5488,
+  "lectures": 5505,
   "lecture_copies": 1006,
-  "with_video_id": 4410,
-  "with_description": 4357,
-  "with_lecturer": 4247,
-  "with_timecodes": 3427,
-  "timecodes": 35722,
-  "timecodes_with_hour_field": 31619,
-  "timecodes_past_one_hour": 8103,
+  "with_video_id": 4427,
+  "with_description": 4374,
+  "with_lecturer": 4263,
+  "with_timecodes": 3442,
+  "timecodes": 35907,
+  "timecodes_with_hour_field": 31804,
+  "timecodes_past_one_hour": 8141,
   "lemmatizer": "pymorphy3",
   "wordcloud": "assets/wordcloud.svg",
   "term_graph": "assets/term-graph.html",
   "graph": {
-    "courses": 443,
-    "terms": 17492,
-    "edges": 34279,
-    "mean_jaccard": 0.8983
+    "courses": 445,
+    "terms": 17572,
+    "edges": 34414,
+    "mean_jaccard": 0.8979
   },
-  "chunks": 500791,
+  "chunks": 502476,
   "retrieval": {
     "chapters": {
-      "queries": 32376,
-      "mrr_at_10": 0.1573,
-      "hit_rate_at_1": 0.1031,
-      "hit_rate_at_5": 0.2281,
-      "hit_rate_at_10": 0.2917,
-      "boundary_hit_at_90s_at_5": 0.1856
+      "queries": 32547,
+      "mrr_at_10": 0.1569,
+      "hit_rate_at_1": 0.1026,
+      "hit_rate_at_5": 0.2282,
+      "hit_rate_at_10": 0.2916,
+      "boundary_hit_at_90s_at_5": 0.1854
     },
     "chapters_in_course": {
-      "queries": 32376,
-      "mrr_at_10": 0.3032,
-      "hit_rate_at_1": 0.2168,
-      "hit_rate_at_5": 0.422,
-      "hit_rate_at_10": 0.5074,
-      "boundary_hit_at_90s_at_5": 0.349
+      "queries": 32547,
+      "mrr_at_10": 0.3045,
+      "hit_rate_at_1": 0.2182,
+      "hit_rate_at_5": 0.4234,
+      "hit_rate_at_10": 0.5087,
+      "boundary_hit_at_90s_at_5": 0.3498
     },
     "titles": {
-      "queries": 5468,
-      "mrr_at_10": 0.7981,
-      "hit_rate_at_1": 0.7187,
-      "hit_rate_at_5": 0.9044,
+      "queries": 5485,
+      "mrr_at_10": 0.7985,
+      "hit_rate_at_1": 0.7194,
+      "hit_rate_at_5": 0.9045,
       "hit_rate_at_10": 0.9398
     },
-    "chapter_queries_skipped": 3266,
+    "chapter_queries_skipped": 3280,
     "rag": {
       "queries": 500,
-      "support_hit_rate": 0.104,
+      "support_hit_rate": 0.102,
       "grounded": 1.0,
       "mode": "extractive"
     }

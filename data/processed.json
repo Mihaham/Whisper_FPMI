@@ -28280,6 +28280,146 @@
       "model": "large-v3",
       "status": "done",
       "updated_at": "2026-10-19T08:51:32.754107+00:00"
+    },
+    "oRhHLHTQYd0": {
+      "title": "Algebra and Geometry 10. Euclidean and Hermitian spaces",
+      "url": "https://www.youtube.com/watch?v=oRhHLHTQYd0",
+      "slug": "Algebra-and-Geometry-10.-Euclidean-and-Hermitian-spaces",
+      "plain": "result/Algebra-and-Geometry-10.-Euclidean-and-Hermitian-spaces.txt",
+      "timed": "download/Algebra-and-Geometry-10.-Euclidean-and-Hermitian-spaces.mp4.txt",
+      "model": "large-v3",
+      "status": "done",
+      "updated_at": "2026-10-19T09:01:19.012876+00:00"
+    },
+    "Y2Bg4wUlX-I": {
+      "title": "Ring and Field Theory (Basics) 7. Algebraically Closed Fields",
+      "url": "https://www.youtube.com/watch?v=Y2Bg4wUlX-I",
+      "slug": "Ring-and-Field-Theory--Basics--7.-Algebraically-Closed-Fields",
+      "plain": "result/Ring-and-Field-Theory--Basics--7.-Algebraically-Closed-Fields.txt",
+      "timed": "download/Ring-and-Field-Theory--Basics--7.-Algebraically-Closed-Fields.mp4.txt",
+      "model": "large-v3",
+      "status": "done",
+      "updated_at": "2026-10-19T09:14:41.141423+00:00"
+    },
+    "EtMmeGxwd5M": {
+      "title": "Multivariate analysis, integrals and series 18. Basic properties of an improper integral",
+      "url": "https://www.youtube.com/watch?v=EtMmeGxwd5M",
+      "slug": "Multivariate-analysis,-integrals-and-series-18.-Basic-properties-of-an-improper-integral",
+      "plain": "result/Multivariate-analysis,-integrals-and-series-18.-Basic-properties-of-an-improper-integral.txt",
+      "timed": "download/Multivariate-analysis,-integrals-and-series-18.-Basic-properties-of-an-improper-integral.mp4.txt",
+      "model": "large-v3",
+      "status": "done",
+      "updated_at": "2026-10-19T09:27:27.007633+00:00"
+    },
+    "nuMu-QWuL3A": {
+      "title": "Computational Linear Algebra 14. Spectral Stability. Numerical Algorithms",
+      "url": "https://www.youtube.com/watch?v=nuMu-QWuL3A",
+      "slug": "Computational-Linear-Algebra-14.-Spectral-Stability.-Numerical-Algorithms",
+      "plain": "result/Computational-Linear-Algebra-14.-Spectral-Stability.-Numerical-Algorithms.txt",
+      "timed": "download/Computational-Linear-Algebra-14.-Spectral-Stability.-Numerical-Algorithms.mp4.txt",
+      "model": "large-v3",
+      "status": "done",
+      "updated_at": "2026-10-19T09:38:38.112258+00:00"
+    },
+    "n-NJbWRaA1I": {
+      "title": "Computational Linear Algebra 13. Spectral Problem. Perturbation Theory",
+      "url": "https://www.youtube.com/watch?v=n-NJbWRaA1I",
+      "slug": "Computational-Linear-Algebra-13.-Spectral-Problem.-Perturbation-Theory",
+      "plain": "result/Computational-Linear-Algebra-13.-Spectral-Problem.-Perturbation-Theory.txt",
+      "timed": "download/Computational-Linear-Algebra-13.-Spectral-Problem.-Perturbation-Theory.mp4.txt",
+      "model": "large-v3",
+      "status": "done",
+      "updated_at": "2026-10-19T09:49:31.091127+00:00"
+    },
+    "E2rsp7IwKZE": {
+      "title": "Introduction to Deep Learning 16. BERT, GPT, seq2seq",
+      "url": "https://www.youtube.com/watch?v=E2rsp7IwKZE",
+      "slug": "Introduction-to-Deep-Learning-16.-BERT,-GPT,-seq2seq",
+      "plain": "result/Introduction-to-Deep-Learning-16.-BERT,-GPT,-seq2seq.txt",
+      "timed": "download/Introduction-to-Deep-Learning-16.-BERT,-GPT,-seq2seq.mp4.txt",
+      "model": "large-v3",
+      "status": "done",
+      "updated_at": "2026-10-19T09:56:45.675242+00:00"
+    },
+    "XgUFDQovTvc": {
+      "title": "Mathematical logic and theory of algorithms 9. Computable functions. Decidable and enumerable sets",
+      "url": "https://www.youtube.com/watch?v=XgUFDQovTvc",
+      "slug": "Mathematical-logic-and-theory-of-algorithms-9.-Computable-functions.-Decidable-and-enumerable-sets",
+      "plain": "result/Mathematical-logic-and-theory-of-algorithms-9.-Computable-functions.-Decidable-and-enumerable-sets.txt",
+      "timed": "download/Mathematical-logic-and-theory-of-algorithms-9.-Computable-functions.-Decidable-and-enumerable-sets.mp4.txt",
+      "model": "large-v3",
+      "status": "done",
+      "updated_at": "2026-10-19T10:02:07.560807+00:00"
+    },
+    "tIUf3Myw8cU": {
+      "title": "Introduction to Deep Learning 15. Transformers: Theory",
+      "url": "https://www.youtube.com/watch?v=tIUf3Myw8cU",
+      "slug": "Introduction-to-Deep-Learning-15.-Transformers--Theory",
+      "plain": "result/Introduction-to-Deep-Learning-15.-Transformers--Theory.txt",
+      "timed": "download/Introduction-to-Deep-Learning-15.-Transformers--Theory.mp4.txt",
+      "model": "large-v3",
+      "status": "done",
+      "updated_at": "2026-10-19T10:10:16.008449+00:00"
+    },
+    "-457CSngDxY": {
+      "title": "Algorithms and Data Structures 8. Floyd's Algorithm. Algorithms for constructing MST",
+      "url": "https://www.youtube.com/watch?v=-457CSngDxY",
+      "slug": "Algorithms-and-Data-Structures-8.-Floyd's-Algorithm.-Algorithms-for-constructing-MST",
+      "plain": "result/Algorithms-and-Data-Structures-8.-Floyd's-Algorithm.-Algorithms-for-constructing-MST.txt",
+      "timed": "download/Algorithms-and-Data-Structures-8.-Floyd's-Algorithm.-Algorithms-for-constructing-MST.mp4.txt",
+      "model": "large-v3",
+      "status": "done",
+      "updated_at": "2026-10-19T10:21:30.554949+00:00"
+    },
+    "Lp1yUksra1M": {
+      "title": "C++ Programming (Main Track) 8. Allocator, Allocator traits, alignment",
+      "url": "https://www.youtube.com/watch?v=Lp1yUksra1M",
+      "slug": "C++-Programming--Main-Track--8.-Allocator,-Allocator-traits,-alignment",
+      "plain": "result/C++-Programming--Main-Track--8.-Allocator,-Allocator-traits,-alignment.txt",
+      "timed": "download/C++-Programming--Main-Track--8.-Allocator,-Allocator-traits,-alignment.mp4.txt",
+      "model": "large-v3",
+      "status": "done",
+      "updated_at": "2026-10-19T10:30:03.093081+00:00"
+    },
+    "bLTMvtWcu4k": {
+      "title": "C++ Programming (Main Thread) 9. Move Semantics",
+      "url": "https://www.youtube.com/watch?v=bLTMvtWcu4k",
+      "slug": "C++-Programming--Main-Thread--9.-Move-Semantics",
+      "plain": "result/C++-Programming--Main-Thread--9.-Move-Semantics.txt",
+      "timed": "download/C++-Programming--Main-Thread--9.-Move-Semantics.mp4.txt",
+      "model": "large-v3",
+      "status": "done",
+      "updated_at": "2026-10-19T10:37:25.708365+00:00"
+    },
+    "xKdteLu4c70": {
+      "title": "C++ Programming (Main Thread) 7. Unordered Map",
+      "url": "https://www.youtube.com/watch?v=xKdteLu4c70",
+      "slug": "C++-Programming--Main-Thread--7.-Unordered-Map",
+      "plain": "result/C++-Programming--Main-Thread--7.-Unordered-Map.txt",
+      "timed": "download/C++-Programming--Main-Thread--7.-Unordered-Map.mp4.txt",
+      "model": "large-v3",
+      "status": "done",
+      "updated_at": "2026-10-19T10:45:18.726907+00:00"
+    },
+    "lvNtq1OGixs": {
+      "title": "C++ Programming (Main Stream) 6. Map",
+      "url": "https://www.youtube.com/watch?v=lvNtq1OGixs",
+      "slug": "C++-Programming--Main-Stream--6.-Map",
+      "plain": "result/C++-Programming--Main-Stream--6.-Map.txt",
+      "timed": "download/C++-Programming--Main-Stream--6.-Map.mp4.txt",
+      "model": "large-v3",
+      "status": "done",
+      "updated_at": "2026-10-19T10:55:28.661405+00:00"
+    },
+    "kiS-VRq7Nc4": {
+      "title": "C++ Programming (Main Thread) 5. Deque, Iterator, List",
+      "url": "https://www.youtube.com/watch?v=kiS-VRq7Nc4",
+      "slug": "C++-Programming--Main-Thread--5.-Deque,-Iterator,-List",
+      "plain": "result/C++-Programming--Main-Thread--5.-Deque,-Iterator,-List.txt",
+      "timed": "download/C++-Programming--Main-Thread--5.-Deque,-Iterator,-List.mp4.txt",
+      "model": "large-v3",
+      "status": "done",
+      "updated_at": "2026-10-19T11:04:43.071796+00:00"
     }
   }
 }

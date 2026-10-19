@@ -158,15 +158,38 @@ def search(
     return hits
 
 
-def save_index(index: Index, path: Path) -> None:
+# GitHub и GitVerse не принимают один файл больше 100 МБ.
+PART_BYTES = 90 * 1024 * 1024
+
+
+def _part_paths(path: Path) -> list[Path]:
+    return sorted(path.parent.glob(path.name + ".part*"))
+
+
+def save_index(index: Index, path: Path, *, part_bytes: int = PART_BYTES) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_bytes(pickle.dumps(index, protocol=4))
+    blob = pickle.dumps(index, protocol=4)
+    path.write_bytes(blob)
+    for old in _part_paths(path):
+        old.unlink()
+    step = max(1, part_bytes)
+    starts = list(range(0, len(blob), step))
+    width = max(3, len(str(max(len(starts), 1))))
+    for number, start in enumerate(starts):
+        path.with_name(f"{path.name}.part{number:0{width}d}").write_bytes(
+            blob[start : start + step]
+        )
 
 
 def load_index(path: Path) -> Index | None:
-    if not path.is_file():
-        return None
-    return pickle.loads(path.read_bytes())
+    if path.is_file():
+        blob = path.read_bytes()
+    else:
+        parts = _part_paths(path)
+        if not parts:
+            return None
+        blob = b"".join(part.read_bytes() for part in parts)
+    return pickle.loads(blob)
 
 
 def snippet(text: str, query: str, width: int = 240) -> str:
