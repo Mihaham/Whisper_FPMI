@@ -191,6 +191,9 @@ def test_fragment_threads_are_passed_to_yt_dlp():
 
 
 def test_parallel_timeout_falls_back_to_one_connection(tmp_path, monkeypatch):
+    import sys
+    import types
+
     import whisper_fpmi.download as download
 
     target = tmp_path / "abc_Лекция.mp4"
@@ -219,10 +222,9 @@ def test_parallel_timeout_falls_back_to_one_connection(tmp_path, monkeypatch):
         def process_info(self, info):
             target.write_bytes(b"lecture")
 
-    monkeypatch.setattr(
-        "yt_dlp.YoutubeDL",
-        lambda options: FakeYDL(),
-    )
+    fake_yt_dlp = types.ModuleType("yt_dlp")
+    fake_yt_dlp.YoutubeDL = lambda options: FakeYDL()
+    monkeypatch.setitem(sys.modules, "yt_dlp", fake_yt_dlp)
 
     def fail_parallel(*args, **kwargs):
         raise TimeoutError("Read timed out. (read timeout=15)")
