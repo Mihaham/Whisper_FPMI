@@ -14,7 +14,6 @@ from whisper_fpmi.paths import (
     DEFAULT_FRAGMENT_THREADS,
     DEFAULT_MAX_GB,
     DEFAULT_MODEL,
-    YOUTUBE_URL,
 )
 
 
@@ -22,8 +21,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="whisper_fpmi",
         description=(
-            "Сначала лекции ФПМИ с VK, потом с YouTube: "
-            "пачки до 3 ГиБ, Whisper large-v3, удаление исходников."
+            "Лекции ФПМИ с VK: пачки до 3 ГиБ, Whisper large-v3, удаление исходников. "
+            "YouTube не качается."
         ),
     )
     sub = parser.add_subparsers(dest="command", required=True)
@@ -52,15 +51,9 @@ def build_parser() -> argparse.ArgumentParser:
 
     run = sub.add_parser(
         "run",
-        help="Сначала VK, потом YouTube: скачать, расшифровать, удалить исходники",
+        help="Скачать лекции VK, расшифровать их и уже лежащие в videos/ файлы, удалить исходники",
     )
     run.add_argument("--channel", default=CHANNEL_URL)
-    run.add_argument("--youtube", default=YOUTUBE_URL)
-    run.add_argument(
-        "--no-youtube",
-        action="store_true",
-        help="Не брать YouTube после VK",
-    )
     run.add_argument("--model", default=DEFAULT_MODEL)
     run.add_argument("--device", default="auto", choices=("auto", "cuda", "cpu"))
     run.add_argument("--limit", type=int, default=None)
@@ -75,13 +68,13 @@ def build_parser() -> argparse.ArgumentParser:
         "--download-workers",
         type=int,
         default=DEFAULT_DOWNLOAD_WORKERS,
-        help="Сколько лекций качать одновременно (по умолчанию 4)",
+        help="Сколько лекций качать одновременно (по умолчанию 1)",
     )
     run.add_argument(
         "--fragment-threads",
         type=int,
         default=DEFAULT_FRAGMENT_THREADS,
-        help="HTTP-соединений на один ролик (по умолчанию 8)",
+        help="HTTP-соединений на один ролик (по умолчанию 1)",
     )
     run.add_argument("--keep-video", action="store_true")
     run.add_argument(
@@ -367,8 +360,6 @@ def _cmd_run(args: argparse.Namespace) -> int:
         gpu_workers=args.gpu_workers,
         download_workers=args.download_workers,
         fragment_threads=args.fragment_threads,
-        include_youtube=not args.no_youtube,
-        youtube_url=args.youtube,
     )
 
 

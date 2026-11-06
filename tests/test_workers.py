@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from whisper_fpmi.pipeline import _ReadyInbox, _download_batch
+from whisper_fpmi.pipeline import _ReadyInbox, _download_batch, _existing_media
 from whisper_fpmi.vk import ChannelVideo
 from whisper_fpmi.workers import JobQueue, plan_workers, transcribe_as_available
 
@@ -237,6 +237,15 @@ def test_timed_out_video_returns_to_the_queue(tmp_path, monkeypatch):
     assert batch == []
     assert rest == []
     assert counts["yt1"] == 3
+
+
+def test_existing_media_skips_partial_files(tmp_path, monkeypatch):
+    monkeypatch.setattr("whisper_fpmi.pipeline.VIDEO_DIR", tmp_path)
+    (tmp_path / "abc_lecture.mp4.part").write_bytes(b"x" * 10)
+    assert _existing_media("abc") is None
+    ready = tmp_path / "abc_lecture.mp4"
+    ready.write_bytes(b"ok")
+    assert _existing_media("abc") == ready
 
 
 def test_ready_inbox_gives_files_without_waiting_for_the_rest():

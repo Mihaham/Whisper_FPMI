@@ -22,9 +22,9 @@ from whisper_fpmi.paths import (
     LECTURES_PATH,
     RESULT_DIR,
     RETRANSCRIBE_PATH,
+    MEDIA_SUFFIXES,
     TIMED_DIR,
     VIDEO_DIR,
-    YOUTUBE_URL,
 )
 from whisper_fpmi.quota import (
     ASSUMED_FILE_BYTES,
@@ -50,7 +50,6 @@ from whisper_fpmi.state import load_state, mark_done, save_state
 from whisper_fpmi.transcript import assess_timed, classify_corpus, write_retranscribe_list
 from whisper_fpmi.transcribe import has_cuda, require_ffmpeg, transcribe_file
 from whisper_fpmi.vk import ChannelVideo, list_channel_videos
-from whisper_fpmi.youtube import list_youtube_videos
 from whisper_fpmi.workers import (
     CpuLane,
     TranscribeHooks,
@@ -90,6 +89,23 @@ class _ReadyInbox:
         self._ready.wait(timeout)
 
 
+def _existing_media(video_id: str) -> Path | None:
+    if not VIDEO_DIR.exists():
+        return None
+    for item in VIDEO_DIR.glob(f"{video_id}_*"):
+        name = item.name.casefold()
+        if ".part" in name or not item.is_file():
+            continue
+        if item.suffix.lower() not in MEDIA_SUFFIXES:
+            continue
+        try:
+            if item.stat().st_size > 0:
+                return item
+        except OSError:
+            continue
+    return None
+
+
 def run_pipeline(
     *,
     channel_url: str = CHANNEL_URL,
@@ -108,8 +124,6 @@ def run_pipeline(
     cpu_queue: int | None = None,
     download_workers: int = DEFAULT_DOWNLOAD_WORKERS,
     fragment_threads: int = DEFAULT_FRAGMENT_THREADS,
-    include_youtube: bool = True,
-    youtube_url: str = YOUTUBE_URL,
 ) -> int:
     require_ffmpeg()
     max_bytes = bytes_from_gb(max_gb)
@@ -117,7 +131,6 @@ def run_pipeline(
     lg.info("На канале VK {} видео", len(videos))
     if limit is not None:
         videos = videos[:limit]
-        include_youtube = False
 
     state = load_state()
     existing, redo, slug_by_fold = classify_corpus(RESULT_DIR, TIMED_DIR)
@@ -127,28 +140,15 @@ def run_pipeline(
         len(existing),
         len(redo),
     )
-    vk_pending = [
+    pending = [
         video
         for video in videos
         if not (skip_existing and _already_done(video, state, existing))
     ]
-    youtube_all: list[ChannelVideo] = []
-    youtube_pending: list[ChannelVideo] = []
-    if include_youtube:
-        youtube_all = list_youtube_videos(youtube_url)
-        youtube_pending = [
-            video
-            for video in youtube_all
-            if not (skip_existing and _already_done(video, state, existing))
-        ]
-    pending = [*vk_pending, *youtube_pending]
-    skipped = (len(videos) - len(vk_pending)) + (
-        len(youtube_all) - len(youtube_pending)
-    )
+    skipped = len(videos) - len(pending)
     lg.info(
-        "Сначала VK: {} видео, потом YouTube: {}",
-        len(vk_pending),
-        len(youtube_pending),
+        "Качаю только VK: {} видео. YouTube не открываю, расшифрую лишь файлы, которые уже лежат в videos/",
+        len(pending),
     )
     book = load_description_book()
     catalog = build_catalog(slug_by_fold, state, book, read_jsonl(LECTURES_PATH))
@@ -165,7 +165,7 @@ def run_pipeline(
     )
     skipped += queued - len(pending)
     lg.info(
-        "По дате и лектору уже есть расшифровка: {}. Звук не сравниваю",
+        "По дате, лектору и числу таймкодов уже есть расшифровка: {}. Звук не сравниваю",
         queued - len(pending),
     )
     use_gpu = device != "cpu" and (device == "cuda" or has_cuda())
@@ -198,7 +198,7 @@ def run_pipeline(
     processed = 0
     failed = 0
     cycle = 0
-    known = {video.video_id: video for video in [*videos, *youtube_all]}
+    known = {video.video_id: video for video in videos}
     on_result = _result_handler(
         progress,
         state,
@@ -760,12 +760,28 @@ def _release_same_lectures(
     model_name: str,
     progress: RunProgress | None = None,
 ) -> list[ChannelVideo]:
+    from whisper_fpmi.lecture_id import load_same_lectures, save_same_lectures
+
     kept: list[ChannelVideo] = []
     linked: list[tuple[ChannelVideo, object]] = []
+    links = load_same_lectures()
     with state_lock:
         for video in videos:
             record = (state.get("videos") or {}).get(video.video_id) or {}
+            previous = links.get(video.video_id) or {}
             if record.get("same_lecture_as"):
+                continue
+            if previous.get("slug"):
+                mark_done(
+                    state,
+                    video.video_id,
+                    title=video.title,
+                    url=video.url,
+                    slug=str(previous.get("slug")),
+                    model=model_name,
+                    same_lecture_as=str(previous.get("same_lecture_as") or previous.get("slug")),
+                )
+                linked.append((video, previous))
                 continue
             hit = catalog.match_video(video, book)
             if hit is None:
@@ -780,18 +796,33 @@ def _release_same_lectures(
                 model=model_name,
                 same_lecture_as=hit.video_id or hit.slug,
             )
+            links[video.video_id] = {
+                "title": video.title,
+                "url": video.url,
+                "slug": hit.slug,
+                "same_lecture_as": hit.video_id or hit.slug,
+                "plain": hit.plain,
+                "timed": hit.timed,
+            }
             existing.add(fold_key(video.title))
             existing.add(fold_key(sanitize_title(video.title)))
             existing.add(fold_key(hit.slug))
             linked.append((video, hit))
         if linked:
             save_state(state)
+            save_same_lectures(links)
     for video, hit in linked:
+        if isinstance(hit, dict):
+            when = hit.get("event_date") or ""
+            who = hit.get("lecturer") or ""
+            where = hit.get("plain") or hit.get("slug") or ""
+        else:
+            when, who, where = hit.event_date, hit.lecturer, hit.plain
         lg.info(
             "Та же лекция ({}, {}). Whisper пропускаю, расшифровка: {}",
-            hit.event_date,
-            hit.lecturer,
-            hit.plain,
+            when,
+            who,
+            where,
         )
         if progress is not None:
             progress.note_skipped(video)

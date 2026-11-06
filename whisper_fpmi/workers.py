@@ -49,16 +49,16 @@ class WorkerPlan:
     def describe(self) -> str:
         parts: list[str] = []
         if self.gpu_workers:
-            parts.append(f"{self.gpu_workers}×GPU FP16")
+            parts.append(f"{self.gpu_workers}x GPU FP16")
         if self.cpu_workers:
             if self.independent_cpu:
                 parts.append(
-                    f"{self.cpu_workers}×CPU {self.cpu_compute} "
+                    f"{self.cpu_workers}x CPU {self.cpu_compute} "
                     f"({self.cpu_threads} потоков, по {self.cpu_queue} видео, GPU не ждёт)"
                 )
             else:
                 parts.append(
-                    f"{self.cpu_workers}×CPU {self.cpu_compute} "
+                    f"{self.cpu_workers}x CPU {self.cpu_compute} "
                     f"({self.cpu_threads} потоков на воркер, "
                     f"всего {self.total_cpu_threads})"
                 )

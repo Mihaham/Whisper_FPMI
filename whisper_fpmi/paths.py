@@ -34,8 +34,8 @@ DEFAULT_MODEL = "large-v3"
 LANGUAGE = "ru"
 DEFAULT_MAX_GB = 3.0
 # Сколько лекций качать одновременно и сколько HTTP-соединений на один ролик.
-DEFAULT_DOWNLOAD_WORKERS = 4
-DEFAULT_FRAGMENT_THREADS = 8
+DEFAULT_DOWNLOAD_WORKERS = 1
+DEFAULT_FRAGMENT_THREADS = 1
 # Из 28 потоков машины: запас системе, если CPU-расшифровка включена явно.
 DEFAULT_CPU_CORES = 20
 DEFAULT_MAX_CPU_WORKERS = 4

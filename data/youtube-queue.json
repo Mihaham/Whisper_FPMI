@@ -1,0 +1,4065 @@
+{
+  "frozen_at": "2026-11-03T19:22:58+00:00",
+  "source": "Старые ролики из уже известных каталогов. Канал заново не расширялся: новые видео не добавлены, у списка только подписи.",
+  "count": 676,
+  "videos": [
+    {
+      "video_id": "ZT3xSaFJMp8",
+      "title": "3D Topology and Hyperbolic Geometry 3. The Volume and Determinant Conjecture",
+      "url": "https://www.youtube.com/watch?v=ZT3xSaFJMp8",
+      "duration": 4802.0
+    },
+    {
+      "video_id": "mxmKUKbeKZI",
+      "title": "[IVTf] Optimization Theory 3. Convex Analysis. Separability",
+      "url": "https://www.youtube.com/watch?v=mxmKUKbeKZI",
+      "duration": 5299.0
+    },
+    {
+      "video_id": "oBZSzPnfPHs",
+      "title": "[АиСД] Алгоритмв и структуры данных (продвинутый поток) 1. Геометрия",
+      "url": "https://www.youtube.com/watch?v=oBZSzPnfPHs",
+      "duration": 14541.0
+    },
+    {
+      "video_id": "H5YTUl5US34",
+      "title": "[АиСД] Алгоритмв и структуры данных (продвинутый поток) 3. Продолжение геометрии",
+      "url": "https://www.youtube.com/watch?v=H5YTUl5US34",
+      "duration": 12908.0
+    },
+    {
+      "video_id": "Z0WsW3Gx07c",
+      "title": "[АиСД] Алгоритмв и структуры данных (продвинутый поток) 5. Строки",
+      "url": "https://www.youtube.com/watch?v=Z0WsW3Gx07c",
+      "duration": 15149.0
+    },
+    {
+      "video_id": "hZjj13FJfkk",
+      "title": "[АиСД] Алгоритмв и структуры данных (продвинутый поток) 6. Поиск подстрок",
+      "url": "https://www.youtube.com/watch?v=hZjj13FJfkk",
+      "duration": 15208.0
+    },
+    {
+      "video_id": "QloothgnESs",
+      "title": "[АиСД] Алгоритмв и структуры данных (продвинутый поток) 8. Суффиксный автомат",
+      "url": "https://www.youtube.com/watch?v=QloothgnESs",
+      "duration": 13659.0
+    },
+    {
+      "video_id": "wF6XlSNWdVo",
+      "title": "[АиСД] Алгоритмы и структуры данных 10. Элементарная геометрия",
+      "url": "https://www.youtube.com/watch?v=wF6XlSNWdVo",
+      "duration": 4773.0
+    },
+    {
+      "video_id": "LX_g1QDaC2k",
+      "title": "[Допсем, КИиТП] Кратные интегралы и теория поля 2. Дифференциальные формы",
+      "url": "https://www.youtube.com/watch?v=LX_g1QDaC2k",
+      "duration": 10139.0
+    },
+    {
+      "video_id": "-RchXGbNjt0",
+      "title": "[Допсем, ОКТЧ] Основы комбинаторики и теории чисел 6. Функция Мёбиуса",
+      "url": "https://www.youtube.com/watch?v=-RchXGbNjt0",
+      "duration": 5887.0
+    },
+    {
+      "video_id": "RKS2LaXJRzc",
+      "title": "[Допсем] Алгебра и геометрия. Билинейные формы, евклидовы пространства, сопряженный оператор",
+      "url": "https://www.youtube.com/watch?v=RKS2LaXJRzc",
+      "duration": 6245.0
+    },
+    {
+      "video_id": "vn4tv49oOHk",
+      "title": "[Допсем] Матлогика 5. Перечислимость и коперечислимость",
+      "url": "https://www.youtube.com/watch?v=vn4tv49oOHk",
+      "duration": 6039.0
+    },
+    {
+      "video_id": "_HaeqwTGFKA",
+      "title": "[Допсем] ОКТЧ 2. Бинарные отношения. Мощности множеств.",
+      "url": "https://www.youtube.com/watch?v=_HaeqwTGFKA",
+      "duration": 12815.0
+    },
+    {
+      "video_id": "AmTK2_LdTfY",
+      "title": "[Допсем] ОКТЧ 4. Простейшая комбинаторика",
+      "url": "https://www.youtube.com/watch?v=AmTK2_LdTfY",
+      "duration": 4436.0
+    },
+    {
+      "video_id": "H-EprYQHMvc",
+      "title": "[ЛИПС] Градуированные алгебры и число симплексов в триангуляциях 1",
+      "url": "https://www.youtube.com/watch?v=H-EprYQHMvc",
+      "duration": 4878.0
+    },
+    {
+      "video_id": "FcHpb2ohH4Y",
+      "title": "[ЛИПС] Градуированные алгебры и число симплексов в триангуляциях 3",
+      "url": "https://www.youtube.com/watch?v=FcHpb2ohH4Y",
+      "duration": 5898.0
+    },
+    {
+      "video_id": "aXOOsN_C5ok",
+      "title": "[ЛИПС] О близости решений дискретных и непрерывных задач 2",
+      "url": "https://www.youtube.com/watch?v=aXOOsN_C5ok",
+      "duration": 5606.0
+    },
+    {
+      "video_id": "WyNEGTHvDpQ",
+      "title": "[ОВиТМ] Основы вероятности и теория меры (продвинутый поток) 10.",
+      "url": "https://www.youtube.com/watch?v=WyNEGTHvDpQ",
+      "duration": 4754.0
+    },
+    {
+      "video_id": "EYABSWs1uCw",
+      "title": "[ОВиТМ] Основы вероятности и теория меры (продвинутый поток) 12.",
+      "url": "https://www.youtube.com/watch?v=EYABSWs1uCw",
+      "duration": 4549.0
+    },
+    {
+      "video_id": "Rc6WJtcPRc4",
+      "title": "[ОВиТМ] Основы вероятности и теория меры (продвинутый поток) 13.",
+      "url": "https://www.youtube.com/watch?v=Rc6WJtcPRc4",
+      "duration": 3714.0
+    },
+    {
+      "video_id": "ZMN3trbfdj0",
+      "title": "[ОВиТМ] Основы вероятности и теория меры (продвинутый поток) 2.",
+      "url": "https://www.youtube.com/watch?v=ZMN3trbfdj0",
+      "duration": 4782.0
+    },
+    {
+      "video_id": "QEK1pN1jxC4",
+      "title": "[ОВиТМ] Основы вероятности и теория меры (продвинутый поток) 4.",
+      "url": "https://www.youtube.com/watch?v=QEK1pN1jxC4",
+      "duration": 4706.0
+    },
+    {
+      "video_id": "-9iO5AyNDRw",
+      "title": "[ОВиТМ] Основы вероятности и теория меры (продвинутый поток) 5.",
+      "url": "https://www.youtube.com/watch?v=-9iO5AyNDRw",
+      "duration": 3271.0
+    },
+    {
+      "video_id": "AOQLLCuh8Qg",
+      "title": "[ОВиТМ] Основы вероятности и теория меры (продвинутый поток) 6.",
+      "url": "https://www.youtube.com/watch?v=AOQLLCuh8Qg",
+      "duration": 5147.0
+    },
+    {
+      "video_id": "PBnyDHOpYLA",
+      "title": "[ОВиТМ] Основы вероятности и теория меры (продвинутый поток) 7.",
+      "url": "https://www.youtube.com/watch?v=PBnyDHOpYLA",
+      "duration": 4839.0
+    },
+    {
+      "video_id": "eiYmxGYW6bA",
+      "title": "[Семинар] Языки программирования и теория компиляции 2. Парсинг. Рекурсивный спуск",
+      "url": "https://www.youtube.com/watch?v=eiYmxGYW6bA",
+      "duration": 4684.0
+    },
+    {
+      "video_id": "gFPr372oWTA",
+      "title": "AKOS 14. Named Channels. Signals",
+      "url": "https://www.youtube.com/watch?v=gFPr372oWTA",
+      "duration": 2771.0
+    },
+    {
+      "video_id": "LzjG5_RlyXo",
+      "title": "AKOS 15. Signals",
+      "url": "https://www.youtube.com/watch?v=LzjG5_RlyXo",
+      "duration": 1594.0
+    },
+    {
+      "video_id": "YYeXL2t3dTU",
+      "title": "AKOS 16. I/O Multiplexing",
+      "url": "https://www.youtube.com/watch?v=YYeXL2t3dTU",
+      "duration": 2508.0
+    },
+    {
+      "video_id": "FfqTXZ57P84",
+      "title": "Algebra and Geometry 18. Linear Mapping",
+      "url": "https://www.youtube.com/watch?v=FfqTXZ57P84",
+      "duration": 4967.0
+    },
+    {
+      "video_id": "GaIdfNDUtPw",
+      "title": "Algebra and Geometry 21. Properties of the Determinant",
+      "url": "https://www.youtube.com/watch?v=GaIdfNDUtPw",
+      "duration": 4162.0
+    },
+    {
+      "video_id": "OXsjkb_Bw94",
+      "title": "Algebra and Geometry 3. Basis, change of basis, Cartesian coordinate system",
+      "url": "https://www.youtube.com/watch?v=OXsjkb_Bw94",
+      "duration": 4783.0
+    },
+    {
+      "video_id": "fFmc8h91kl8",
+      "title": "Algebra and Geometry 8. Planes, lines in space",
+      "url": "https://www.youtube.com/watch?v=fFmc8h91kl8",
+      "duration": 4697.0
+    },
+    {
+      "video_id": "HtIiWrnyx58",
+      "title": "Algebra and Geometry 9. Polynomials, algebraic curve, second-order curves",
+      "url": "https://www.youtube.com/watch?v=HtIiWrnyx58",
+      "duration": 4828.0
+    },
+    {
+      "video_id": "FU0iydDXShE",
+      "title": "Algebra and Geometry. Lecture 1. Matrices.",
+      "url": "https://www.youtube.com/watch?v=FU0iydDXShE",
+      "duration": 4872.0
+    },
+    {
+      "video_id": "Np71OqVoYDU",
+      "title": "Algebra and Geometry. Lecture 6. Lines on a Plane. Planes in Space",
+      "url": "https://www.youtube.com/watch?v=Np71OqVoYDU",
+      "duration": 4770.0
+    },
+    {
+      "video_id": "NwYnjYYZo2Q",
+      "title": "Algorithms (Basic Track) 4. Hash Functions, Hash Tables",
+      "url": "https://www.youtube.com/watch?v=NwYnjYYZo2Q",
+      "duration": 4868.0
+    },
+    {
+      "video_id": "eIt9R094GM8",
+      "title": "Algorithms (Main Stream) 1. Prefix Function and KMP",
+      "url": "https://www.youtube.com/watch?v=eIt9R094GM8",
+      "duration": 3807.0
+    },
+    {
+      "video_id": "0rD44gS0BDs",
+      "title": "Algorithms and Data Structures (Main Stream) 6. Linked Lists, Fibonacci Heap.",
+      "url": "https://www.youtube.com/watch?v=0rD44gS0BDs",
+      "duration": 5098.0
+    },
+    {
+      "video_id": "gNgR1jLBAnc",
+      "title": "Algorithms and Data Structures 1: Dynamic Programming",
+      "url": "https://www.youtube.com/watch?v=gNgR1jLBAnc",
+      "duration": 4596.0
+    },
+    {
+      "video_id": "D5rG2rbcmuo",
+      "title": "Algorithms and Data Structures 9. Matchings",
+      "url": "https://www.youtube.com/watch?v=D5rG2rbcmuo",
+      "duration": 4878.0
+    },
+    {
+      "video_id": "D14CEEjT1bc",
+      "title": "Applied Machine Learning. Seminar 1. Fun with Embeddings",
+      "url": "https://www.youtube.com/watch?v=D14CEEjT1bc",
+      "duration": 1543.0
+    },
+    {
+      "video_id": "XQVOGHi4Fdo",
+      "title": "Applied Machine Learning. Seminar 2. CNN for texts",
+      "url": "https://www.youtube.com/watch?v=XQVOGHi4Fdo",
+      "duration": 3744.0
+    },
+    {
+      "video_id": "AGFtQWy_mAs",
+      "title": "Applied Machine Learning. Seminar 3. Attention and Neural Machine Translation.",
+      "url": "https://www.youtube.com/watch?v=AGFtQWy_mAs",
+      "duration": 5010.0
+    },
+    {
+      "video_id": "ESgrIRvQtm4",
+      "title": "Applied Statistics 6. LR and LM tests",
+      "url": "https://www.youtube.com/watch?v=ESgrIRvQtm4",
+      "duration": 4697.0
+    },
+    {
+      "video_id": "CEaPd79Uxzs",
+      "title": "Applied Statistics 7. AIC",
+      "url": "https://www.youtube.com/watch?v=CEaPd79Uxzs",
+      "duration": 5106.0
+    },
+    {
+      "video_id": "ojiQ8V6Vm34",
+      "title": "Backend 1. Docker",
+      "url": "https://www.youtube.com/watch?v=ojiQ8V6Vm34",
+      "duration": 6376.0
+    },
+    {
+      "video_id": "4cWg5FVZV6Y",
+      "title": "Backend 2. RabbitMQ. Pika",
+      "url": "https://www.youtube.com/watch?v=4cWg5FVZV6Y",
+      "duration": 5542.0
+    },
+    {
+      "video_id": "XrcKhjIWd1g",
+      "title": "Backend 3. Базы данных",
+      "url": "https://www.youtube.com/watch?v=XrcKhjIWd1g",
+      "duration": 3184.0
+    },
+    {
+      "video_id": "sALpu6Wl4yU",
+      "title": "Backend 4. Flask",
+      "url": "https://www.youtube.com/watch?v=sALpu6Wl4yU",
+      "duration": 4192.0
+    },
+    {
+      "video_id": "eCxaPLBgEdI",
+      "title": "Backend 5. Аутентификация. Heroku",
+      "url": "https://www.youtube.com/watch?v=eCxaPLBgEdI",
+      "duration": 2752.0
+    },
+    {
+      "video_id": "7UqrmZ89M9M",
+      "title": "Blockchain 1. Introduction to Banking Systems",
+      "url": "https://www.youtube.com/watch?v=7UqrmZ89M9M",
+      "duration": 5860.0
+    },
+    {
+      "video_id": "DVQ4u8sWxZo",
+      "title": "Blockchain 2. Cryptography",
+      "url": "https://www.youtube.com/watch?v=DVQ4u8sWxZo",
+      "duration": 4909.0
+    },
+    {
+      "video_id": "E92ra2sPdgM",
+      "title": "C++ 11. Polymorphism and virtual functions.",
+      "url": "https://www.youtube.com/watch?v=E92ra2sPdgM",
+      "duration": 5643.0
+    },
+    {
+      "video_id": "aPwA1PF5FSk",
+      "title": "COG. Algorithmic Questions in Discrete Choice.",
+      "url": "https://www.youtube.com/watch?v=aPwA1PF5FSk",
+      "duration": 2830.0
+    },
+    {
+      "video_id": "VWs7BmSJtgA",
+      "title": "COG. An algorithmic version of Banaszczyk's discrepancy theorem.",
+      "url": "https://www.youtube.com/watch?v=VWs7BmSJtgA",
+      "duration": 2589.0
+    },
+    {
+      "video_id": "QxCD6ZPT-k8",
+      "title": "COG. Complete minors in graphs without sparse cuts.",
+      "url": "https://www.youtube.com/watch?v=QxCD6ZPT-k8",
+      "duration": 2671.0
+    },
+    {
+      "video_id": "RH9Y1TMMJxM",
+      "title": "COG. Covering random graphs by monochromatic trees and Helly-type results for hypergraphs.",
+      "url": "https://www.youtube.com/watch?v=RH9Y1TMMJxM",
+      "duration": 2538.0
+    },
+    {
+      "video_id": "CTCID_rggW4",
+      "title": "COG. Explosive synchronization and Bellerophon states in networked phase oscillators.",
+      "url": "https://www.youtube.com/watch?v=CTCID_rggW4",
+      "duration": 2528.0
+    },
+    {
+      "video_id": "ovm1YNdK9so",
+      "title": "COG. Extremal problems on Berge cycles in hypergraphs.",
+      "url": "https://www.youtube.com/watch?v=ovm1YNdK9so",
+      "duration": 2198.0
+    },
+    {
+      "video_id": "Rw4Rv80f-Xw",
+      "title": "COG. Many Pairwise Crossing Edges.",
+      "url": "https://www.youtube.com/watch?v=Rw4Rv80f-Xw",
+      "duration": 3001.0
+    },
+    {
+      "video_id": "xHFlGnoYAX8",
+      "title": "COG. Polynomial to Exponential transition in Ramsey theory.",
+      "url": "https://www.youtube.com/watch?v=xHFlGnoYAX8",
+      "duration": 2512.0
+    },
+    {
+      "video_id": "E9YKGAUddtE",
+      "title": "COG. Structural properties of multiplex networks.",
+      "url": "https://www.youtube.com/watch?v=E9YKGAUddtE",
+      "duration": 2707.0
+    },
+    {
+      "video_id": "WI1F8gTtWx0",
+      "title": "COG. The connectivity of random graphs with given degree sequences.",
+      "url": "https://www.youtube.com/watch?v=WI1F8gTtWx0",
+      "duration": 2324.0
+    },
+    {
+      "video_id": "qPsdtxgCMJk",
+      "title": "COG. The phase transition in the random d-process.",
+      "url": "https://www.youtube.com/watch?v=qPsdtxgCMJk",
+      "duration": 2546.0
+    },
+    {
+      "video_id": "0ciBXg1fvdk",
+      "title": "COG. Towards a structure theory for vertex minors.",
+      "url": "https://www.youtube.com/watch?v=0ciBXg1fvdk",
+      "duration": 2453.0
+    },
+    {
+      "video_id": "NzeS8XoGCLI",
+      "title": "Computational Complexity 1. Introductory Lecture",
+      "url": "https://www.youtube.com/watch?v=NzeS8XoGCLI",
+      "duration": 4860.0
+    },
+    {
+      "video_id": "Bj-FvN2MDz8",
+      "title": "Confidential Computing 7. Private Training",
+      "url": "https://www.youtube.com/watch?v=Bj-FvN2MDz8",
+      "duration": 5105.0
+    },
+    {
+      "video_id": "xFH2BfJyk24",
+      "title": "Cryptography 2. Generalized One-Way Functions, One-Way Permutations, PRNG",
+      "url": "https://www.youtube.com/watch?v=xFH2BfJyk24",
+      "duration": 5358.0
+    },
+    {
+      "video_id": "02l3hqICtVg",
+      "title": "Cтатистические методы в биоинформатике 4. Критерии согласия. Множественная проверка гипотез.",
+      "url": "https://www.youtube.com/watch?v=02l3hqICtVg",
+      "duration": 7230.0
+    },
+    {
+      "video_id": "n3cllO6ef1o",
+      "title": "Department Presentations. Applied Research and Development",
+      "url": "https://www.youtube.com/watch?v=n3cllO6ef1o",
+      "duration": 3317.0
+    },
+    {
+      "video_id": "BPCNUQ_B-bk",
+      "title": "DevOps 1. Гибкие методологии разработки. Scrum",
+      "url": "https://www.youtube.com/watch?v=BPCNUQ_B-bk",
+      "duration": 7267.0
+    },
+    {
+      "video_id": "uJL86T4iGe4",
+      "title": "DevOps 2. Continuous Integration. Continuous Delivery",
+      "url": "https://www.youtube.com/watch?v=uJL86T4iGe4",
+      "duration": 4687.0
+    },
+    {
+      "video_id": "HNtnpFldPYI",
+      "title": "DevOps 3. Тестирование",
+      "url": "https://www.youtube.com/watch?v=HNtnpFldPYI",
+      "duration": 6180.0
+    },
+    {
+      "video_id": "L24Ov0bMlEk",
+      "title": "DevOps 4. Configuration Management  Systems",
+      "url": "https://www.youtube.com/watch?v=L24Ov0bMlEk",
+      "duration": 5355.0
+    },
+    {
+      "video_id": "UDq0NNwgwIg",
+      "title": "DevOps 5. Running long-lived services. Metric collection, metric monitoring",
+      "url": "https://www.youtube.com/watch?v=UDq0NNwgwIg",
+      "duration": 5074.0
+    },
+    {
+      "video_id": "Nf0Q3S0Cb_o",
+      "title": "Differential Equations 7. Systems of Linear ODEs",
+      "url": "https://www.youtube.com/watch?v=Nf0Q3S0Cb_o",
+      "duration": 4729.0
+    },
+    {
+      "video_id": "M9WrGOU8j5U",
+      "title": "Differential Equations 8. Linear Normal Higher-Order ODEs",
+      "url": "https://www.youtube.com/watch?v=M9WrGOU8j5U",
+      "duration": 4557.0
+    },
+    {
+      "video_id": "yhvzj9Aiz80",
+      "title": "Discrete Analysis 1. Asymptotics of a Unicyclic Graph",
+      "url": "https://www.youtube.com/watch?v=yhvzj9Aiz80",
+      "duration": 4220.0
+    },
+    {
+      "video_id": "JTMWHSdBmLs",
+      "title": "Discrete Analysis 1. Kneser Graphs",
+      "url": "https://www.youtube.com/watch?v=JTMWHSdBmLs",
+      "duration": 4496.0
+    },
+    {
+      "video_id": "5OOSFdgHzNE",
+      "title": "Discrete Analysis 12. Vapnik–Chervonenkis Dimension Part 2",
+      "url": "https://www.youtube.com/watch?v=5OOSFdgHzNE",
+      "duration": 2991.0
+    },
+    {
+      "video_id": "WB2NuX0bqCY",
+      "title": "Discrete Analysis 2. Turán's Theorem",
+      "url": "https://www.youtube.com/watch?v=WB2NuX0bqCY",
+      "duration": 5013.0
+    },
+    {
+      "video_id": "4FE395l5QYc",
+      "title": "Discrete Analysis 24. V.C. Dimension",
+      "url": "https://www.youtube.com/watch?v=4FE395l5QYc",
+      "duration": 4410.0
+    },
+    {
+      "video_id": "pLVb7_o4X4U",
+      "title": "Discrete Analysis 5. Random Graphs. Erdős Theorem",
+      "url": "https://www.youtube.com/watch?v=pLVb7_o4X4U",
+      "duration": 3681.0
+    },
+    {
+      "video_id": "i6vYUh0Vh-4",
+      "title": "Discrete Analysis 6. Markov's and Chebyshev's Inequalities. Chromatic Number",
+      "url": "https://www.youtube.com/watch?v=i6vYUh0Vh-4",
+      "duration": 4289.0
+    },
+    {
+      "video_id": "ekqbZXiQSB8",
+      "title": "Discrete Analysis 9. Systems of Distinct Representatives",
+      "url": "https://www.youtube.com/watch?v=ekqbZXiQSB8",
+      "duration": 4349.0
+    },
+    {
+      "video_id": "p7heqLZG-so",
+      "title": "Discrete Mathematics 2. Closure and Completeness",
+      "url": "https://www.youtube.com/watch?v=p7heqLZG-so",
+      "duration": 5130.0
+    },
+    {
+      "video_id": "uy-s6roy_iw",
+      "title": "DMIaCT 3. Fundamental Theorem of Arithmetic. Group Isomorphism",
+      "url": "https://www.youtube.com/watch?v=uy-s6roy_iw",
+      "duration": 4736.0
+    },
+    {
+      "video_id": "6wPniWn2XXY",
+      "title": "Equations of Mathematical Physics 6. Sobolev Spaces",
+      "url": "https://www.youtube.com/watch?v=6wPniWn2XXY",
+      "duration": 6300.0
+    },
+    {
+      "video_id": "N6Bbj7YZrls",
+      "title": "Formal Languages and Compilers 2. Deterministic Finite Automata",
+      "url": "https://www.youtube.com/watch?v=N6Bbj7YZrls",
+      "duration": 4799.0
+    },
+    {
+      "video_id": "YOOgP0U-d1Q",
+      "title": "Frontend 1. Введение, основы вёрстки, HTML, CSS",
+      "url": "https://www.youtube.com/watch?v=YOOgP0U-d1Q",
+      "duration": 4161.0
+    },
+    {
+      "video_id": "1DJnOpq3UlY",
+      "title": "Frontend 2. JavaScript",
+      "url": "https://www.youtube.com/watch?v=1DJnOpq3UlY",
+      "duration": 6490.0
+    },
+    {
+      "video_id": "nZOriIpKz-U",
+      "title": "Frontend 3. React",
+      "url": "https://www.youtube.com/watch?v=nZOriIpKz-U",
+      "duration": 7429.0
+    },
+    {
+      "video_id": "Jf5qWSZ9-hQ",
+      "title": "Frontend 4.  React (продолжение)",
+      "url": "https://www.youtube.com/watch?v=Jf5qWSZ9-hQ",
+      "duration": 5979.0
+    },
+    {
+      "video_id": "eGkj3_GIyik",
+      "title": "Frontend 5. Взаимодействие с Backend.",
+      "url": "https://www.youtube.com/watch?v=eGkj3_GIyik",
+      "duration": 4978.0
+    },
+    {
+      "video_id": "HX0dIIAE47c",
+      "title": "Full-stack разработка 1. Вводная лекция, HTML, CSS",
+      "url": "https://www.youtube.com/watch?v=HX0dIIAE47c",
+      "duration": 3547.0
+    },
+    {
+      "video_id": "79EiwJ3FifM",
+      "title": "Functional Analysis 1. Weak Convergence",
+      "url": "https://www.youtube.com/watch?v=79EiwJ3FifM",
+      "duration": 4493.0
+    },
+    {
+      "video_id": "lXslLKk-hbk",
+      "title": "Functional Analysis 2. The Language of Functional Analysis",
+      "url": "https://www.youtube.com/watch?v=lXslLKk-hbk",
+      "duration": 4604.0
+    },
+    {
+      "video_id": "RO5kzMS4hts",
+      "title": "Functional Analysis 4. Adjoint Operators",
+      "url": "https://www.youtube.com/watch?v=RO5kzMS4hts",
+      "duration": 4735.0
+    },
+    {
+      "video_id": "YHKiTGWPwEc",
+      "title": "Functional Analysis 6. Cartesian Product of Topological Spaces. Compactness",
+      "url": "https://www.youtube.com/watch?v=YHKiTGWPwEc",
+      "duration": 4775.0
+    },
+    {
+      "video_id": "rclezXa7_1M",
+      "title": "Fundamentals of Combinatorics and Number Theory 4. Combinatorics",
+      "url": "https://www.youtube.com/watch?v=rclezXa7_1M",
+      "duration": 5578.0
+    },
+    {
+      "video_id": "3qv47Rc_6do",
+      "title": "Game Theory 1. Introduction to Game Theory",
+      "url": "https://www.youtube.com/watch?v=3qv47Rc_6do",
+      "duration": 5108.0
+    },
+    {
+      "video_id": "AWHcZ08IekM",
+      "title": "Game Theory 1. The Fair Division Problem",
+      "url": "https://www.youtube.com/watch?v=AWHcZ08IekM",
+      "duration": 4977.0
+    },
+    {
+      "video_id": "C12ea6k00oI",
+      "title": "Game Theory 10: Mechanism Design",
+      "url": "https://www.youtube.com/watch?v=C12ea6k00oI",
+      "duration": 5141.0
+    },
+    {
+      "video_id": "VDLwvk236Vw",
+      "title": "Game Theory 7. Experimental Situations. Quantal Response Equilibrium",
+      "url": "https://www.youtube.com/watch?v=VDLwvk236Vw",
+      "duration": 4858.0
+    },
+    {
+      "video_id": "QNQ-_jiXQfU",
+      "title": "Game Theory 7. Sequential Equilibria",
+      "url": "https://www.youtube.com/watch?v=QNQ-_jiXQfU",
+      "duration": 4852.0
+    },
+    {
+      "video_id": "mDRyrDIaYQ8",
+      "title": "Group Theory 12. Sylow Theorems",
+      "url": "https://www.youtube.com/watch?v=mDRyrDIaYQ8",
+      "duration": 4859.0
+    },
+    {
+      "video_id": "RmqfdCcw3DM",
+      "title": "Group Theory 5. Group Action on a Set",
+      "url": "https://www.youtube.com/watch?v=RmqfdCcw3DM",
+      "duration": 5140.0
+    },
+    {
+      "video_id": "P8uRZ0qxP9Q",
+      "title": "Group Theory 5. p-groups. Burnside's Lemma. External direct product",
+      "url": "https://www.youtube.com/watch?v=P8uRZ0qxP9Q",
+      "duration": 4396.0
+    },
+    {
+      "video_id": "veI9lBWtx8E",
+      "title": "Harmonic Analysis 15. Properties of the Fourier Transform. Fourier Integral",
+      "url": "https://www.youtube.com/watch?v=veI9lBWtx8E",
+      "duration": 4576.0
+    },
+    {
+      "video_id": "dbMxe7c1OJs",
+      "title": "Harmonic Analysis 6. Term-by-term differentiation and integration of Fourier series",
+      "url": "https://www.youtube.com/watch?v=dbMxe7c1OJs",
+      "duration": 4701.0
+    },
+    {
+      "video_id": "jKk_Olf_EDk",
+      "title": "Introduction to extremal set theory 1. Sperner's theorem",
+      "url": "https://www.youtube.com/watch?v=jKk_Olf_EDk",
+      "duration": 4835.0
+    },
+    {
+      "video_id": "ExTkXSFb9_w",
+      "title": "Introduction to extremal set theory 2. Erdős-Ko-Rado Theorem.",
+      "url": "https://www.youtube.com/watch?v=ExTkXSFb9_w",
+      "duration": 4657.0
+    },
+    {
+      "video_id": "bgJK-k14qpo",
+      "title": "Introduction to extremal set theory 3. Intersecting permutations. Milner theorem.",
+      "url": "https://www.youtube.com/watch?v=bgJK-k14qpo",
+      "duration": 4815.0
+    },
+    {
+      "video_id": "3u8dwMazkpY",
+      "title": "Introduction to Programming #1. Basic Algorithms and Asymptotics",
+      "url": "https://www.youtube.com/watch?v=3u8dwMazkpY",
+      "duration": 4028.0
+    },
+    {
+      "video_id": "1KSaJSZpkLM",
+      "title": "Introduction to Programming and Algorithms (Basic Stream) 13-14. LCS and LIS.",
+      "url": "https://www.youtube.com/watch?v=1KSaJSZpkLM",
+      "duration": 5205.0
+    },
+    {
+      "video_id": "3gOWWB5SZcs",
+      "title": "Kotlin 1. Основы языка, интерфейс  IntelliJ IDEA.",
+      "url": "https://www.youtube.com/watch?v=3gOWWB5SZcs",
+      "duration": 5042.0
+    },
+    {
+      "video_id": "K3_CYvV8yH8",
+      "title": "Kotlin 2. Устройство классов. Компиляция, исполнение программы",
+      "url": "https://www.youtube.com/watch?v=K3_CYvV8yH8",
+      "duration": 4009.0
+    },
+    {
+      "video_id": "hZ0gDidiFWY",
+      "title": "Kotlin 3. Сборка проектов.",
+      "url": "https://www.youtube.com/watch?v=hZ0gDidiFWY",
+      "duration": 4589.0
+    },
+    {
+      "video_id": "C4qouKfY6-0",
+      "title": "Kotlin 4. Системы типов. Функции расширения",
+      "url": "https://www.youtube.com/watch?v=C4qouKfY6-0",
+      "duration": 5115.0
+    },
+    {
+      "video_id": "y981SRXfa88",
+      "title": "Kotlin 5. Реализация интегрирования функции методом Монте-Карло.",
+      "url": "https://www.youtube.com/watch?v=y981SRXfa88",
+      "duration": 4674.0
+    },
+    {
+      "video_id": "lcfgXgHPFio",
+      "title": "Kotlin 6. Kotlin native: Что это такое и зачем он нужен",
+      "url": "https://www.youtube.com/watch?v=lcfgXgHPFio",
+      "duration": 6070.0
+    },
+    {
+      "video_id": "K_PAnaVyoco",
+      "title": "Kotlin 7. Параллельные вычисления в kotlin.",
+      "url": "https://www.youtube.com/watch?v=K_PAnaVyoco",
+      "duration": 3011.0
+    },
+    {
+      "video_id": "O6XEEvcsvYA",
+      "title": "Kotlin 8. Завершающее занятие",
+      "url": "https://www.youtube.com/watch?v=O6XEEvcsvYA",
+      "duration": 4777.0
+    },
+    {
+      "video_id": "oMrUaNQC3po",
+      "title": "Machine Learning 10. Neural Networks, Part 2",
+      "url": "https://www.youtube.com/watch?v=oMrUaNQC3po",
+      "duration": 4015.0
+    },
+    {
+      "video_id": "hRIeHQ6Be9s",
+      "title": "Machine Learning 11. Convolutional Neural Networks",
+      "url": "https://www.youtube.com/watch?v=hRIeHQ6Be9s",
+      "duration": 4808.0
+    },
+    {
+      "video_id": "Rt-w0l0wZbQ",
+      "title": "Machine Learning 12. RNN",
+      "url": "https://www.youtube.com/watch?v=Rt-w0l0wZbQ",
+      "duration": 5060.0
+    },
+    {
+      "video_id": "sl3MM_i3az8",
+      "title": "Machine Learning 2. Linear Regression",
+      "url": "https://www.youtube.com/watch?v=sl3MM_i3az8",
+      "duration": 4014.0
+    },
+    {
+      "video_id": "JUchmd6I7Es",
+      "title": "Machine Learning 3. Linear Classification",
+      "url": "https://www.youtube.com/watch?v=JUchmd6I7Es",
+      "duration": 3957.0
+    },
+    {
+      "video_id": "vzbyk_7HdiQ",
+      "title": "Machine Learning 5. Decision Trees",
+      "url": "https://www.youtube.com/watch?v=vzbyk_7HdiQ",
+      "duration": 3869.0
+    },
+    {
+      "video_id": "696Iu2lm78Q",
+      "title": "Machine Learning 6. Multiclass Classification. Quality Metrics",
+      "url": "https://www.youtube.com/watch?v=696Iu2lm78Q",
+      "duration": 5143.0
+    },
+    {
+      "video_id": "md5krGNRrwU",
+      "title": "Machine Learning 7. Ensembles 2: stacking, blending, gradient boosting",
+      "url": "https://www.youtube.com/watch?v=md5krGNRrwU",
+      "duration": 3750.0
+    },
+    {
+      "video_id": "crD2zqW-aLE",
+      "title": "Machine Learning 8. Clustering task after dimensionality reduction",
+      "url": "https://www.youtube.com/watch?v=crD2zqW-aLE",
+      "duration": 5485.0
+    },
+    {
+      "video_id": "QLi5xlO0u-A",
+      "title": "Machine Learning 8. PCA & friends",
+      "url": "https://www.youtube.com/watch?v=QLi5xlO0u-A",
+      "duration": 4478.0
+    },
+    {
+      "video_id": "cOXmcVAKeIk",
+      "title": "Machine Learning 9. SVM",
+      "url": "https://www.youtube.com/watch?v=cOXmcVAKeIk",
+      "duration": 4500.0
+    },
+    {
+      "video_id": "nFlGRU8h9RI",
+      "title": "Mathematical Analysis 1. On Numbers",
+      "url": "https://www.youtube.com/watch?v=nFlGRU8h9RI",
+      "duration": 4779.0
+    },
+    {
+      "video_id": "m8Mnp8Pb8lk",
+      "title": "Mathematical Logic 21. Isomorphism of Structures. Predicate Logic",
+      "url": "https://www.youtube.com/watch?v=m8Mnp8Pb8lk",
+      "duration": 4566.0
+    },
+    {
+      "video_id": "ZOOQzu72jfI",
+      "title": "Mathematical Logic 31. Turing Machines",
+      "url": "https://www.youtube.com/watch?v=ZOOQzu72jfI",
+      "duration": 5434.0
+    },
+    {
+      "video_id": "wHvEh3b0Bao",
+      "title": "Mathematical Logic and Theory of Algorithms 10. First-order languages",
+      "url": "https://www.youtube.com/watch?v=wHvEh3b0Bao",
+      "duration": 4634.0
+    },
+    {
+      "video_id": "oFRhIS7Mas8",
+      "title": "Mathematical Logic and Theory of Algorithms 10. Universal Computable Functions",
+      "url": "https://www.youtube.com/watch?v=oFRhIS7Mas8",
+      "duration": 4340.0
+    },
+    {
+      "video_id": "NrQajseUstc",
+      "title": "Mathematical Logic and Theory of Algorithms 12. Formal Arithmetic",
+      "url": "https://www.youtube.com/watch?v=NrQajseUstc",
+      "duration": 4289.0
+    },
+    {
+      "video_id": "zr-LD9ux5HE",
+      "title": "Mathematical Logic and Theory of Algorithms 14. Lambda Calculus",
+      "url": "https://www.youtube.com/watch?v=zr-LD9ux5HE",
+      "duration": 5215.0
+    },
+    {
+      "video_id": "_zSZgR2khpY",
+      "title": "Measure Theory 0. Introductory Lecture",
+      "url": "https://www.youtube.com/watch?v=_zSZgR2khpY",
+      "duration": 4135.0
+    },
+    {
+      "video_id": "IOGfxT5UHC8",
+      "title": "Measure Theory 1. Geometric Probabilities",
+      "url": "https://www.youtube.com/watch?v=IOGfxT5UHC8",
+      "duration": 4789.0
+    },
+    {
+      "video_id": "GB5h-CXx39k",
+      "title": "N значные грууппы и матричная алгебра. Семинар от Виктора Матвеевича Бухштабера",
+      "url": "https://www.youtube.com/watch?v=GB5h-CXx39k",
+      "duration": 5635.0
+    },
+    {
+      "video_id": "qV97KPqKHVg",
+      "title": "OCT 2. Hadamard Matrices. Error-correcting codes.",
+      "url": "https://www.youtube.com/watch?v=qV97KPqKHVg",
+      "duration": 4380.0
+    },
+    {
+      "video_id": "fhCNI8F8D7o",
+      "title": "OCTS (Advanced Track) 7. Generalized Möbius Function",
+      "url": "https://www.youtube.com/watch?v=fhCNI8F8D7o",
+      "duration": 4397.0
+    },
+    {
+      "video_id": "1O6KyPBf3hY",
+      "title": "Optimization Methods 4. Accelerated and Optimal Methods",
+      "url": "https://www.youtube.com/watch?v=1O6KyPBf3hY",
+      "duration": 5024.0
+    },
+    {
+      "video_id": "bGB7pqhTCzY",
+      "title": "Optimization Methods 6. Conjugate Gradient Method",
+      "url": "https://www.youtube.com/watch?v=bGB7pqhTCzY",
+      "duration": 4968.0
+    },
+    {
+      "video_id": "evNKTX8LwwQ",
+      "title": "Optimization Methods 7. Newton's Methods. Quasi-Newton Methods",
+      "url": "https://www.youtube.com/watch?v=evNKTX8LwwQ",
+      "duration": 5149.0
+    },
+    {
+      "video_id": "6lw1sktCVT8",
+      "title": "Optimization Methods 8. Fenchel Conjugate Functions",
+      "url": "https://www.youtube.com/watch?v=6lw1sktCVT8",
+      "duration": 4460.0
+    },
+    {
+      "video_id": "W2Ou0L3ZIa0",
+      "title": "Optimization Methods 8. Nonsmooth Optimization. Adaptive Methods",
+      "url": "https://www.youtube.com/watch?v=W2Ou0L3ZIa0",
+      "duration": 4810.0
+    },
+    {
+      "video_id": "LS4qM-Nbxh0",
+      "title": "Parallel and Distributed Computing 2. Interconnect and Parallelism",
+      "url": "https://www.youtube.com/watch?v=LS4qM-Nbxh0",
+      "duration": 4836.0
+    },
+    {
+      "video_id": "9xSlGgCsTqo",
+      "title": "Probability Theory 11. Random Walks. Characteristic Functions (Introduction).",
+      "url": "https://www.youtube.com/watch?v=9xSlGgCsTqo",
+      "duration": 4742.0
+    },
+    {
+      "video_id": "L-fn8u6AKn4",
+      "title": "Probability Theory 13. Characteristic Functions (Part 3). CLT",
+      "url": "https://www.youtube.com/watch?v=L-fn8u6AKn4",
+      "duration": 3776.0
+    },
+    {
+      "video_id": "ski230PiLy8",
+      "title": "Probability Theory 5. Expected Value",
+      "url": "https://www.youtube.com/watch?v=ski230PiLy8",
+      "duration": 4676.0
+    },
+    {
+      "video_id": "UeV7ADtGreE",
+      "title": "Probability Theory 5. Expected Value",
+      "url": "https://www.youtube.com/watch?v=UeV7ADtGreE",
+      "duration": 5058.0
+    },
+    {
+      "video_id": "p2ON8PvntHg",
+      "title": "Probability Theory 7. Conditional Expectation and Conditional Density",
+      "url": "https://www.youtube.com/watch?v=p2ON8PvntHg",
+      "duration": 4801.0
+    },
+    {
+      "video_id": "M1Ysmp3UZmw",
+      "title": "Probability Theory 9. Limit Theorems: Inheritance of Convergence, LLN, CLT",
+      "url": "https://www.youtube.com/watch?v=M1Ysmp3UZmw",
+      "duration": 4692.0
+    },
+    {
+      "video_id": "KSHAtJGBh4Q",
+      "title": "Python Workshop 5. PyTorch. Memory Optimization. Profiling. Traces",
+      "url": "https://www.youtube.com/watch?v=KSHAtJGBh4Q",
+      "duration": 3979.0
+    },
+    {
+      "video_id": "S7S9xHGzvx0",
+      "title": "Requirements Analysis 3. Requirements Collection.",
+      "url": "https://www.youtube.com/watch?v=S7S9xHGzvx0",
+      "duration": 5142.0
+    },
+    {
+      "video_id": "_hvKm6dKQd4",
+      "title": "Requirements Analysis 6: Business Objects, Business Requirements, Functional Requirements",
+      "url": "https://www.youtube.com/watch?v=_hvKm6dKQd4",
+      "duration": 6097.0
+    },
+    {
+      "video_id": "KFk84c17zC8",
+      "title": "Seminar \"The domination number of the graph defined by two levels of the n-cube\"",
+      "url": "https://www.youtube.com/watch?v=KFk84c17zC8",
+      "duration": 5044.0
+    },
+    {
+      "video_id": "EwsH9UR1XQE",
+      "title": "Startups 1. Как проводить проблемное интервью",
+      "url": "https://www.youtube.com/watch?v=EwsH9UR1XQE",
+      "duration": 2833.0
+    },
+    {
+      "video_id": "EMJhbKPpebU",
+      "title": "Startups 2. Анализ рынка",
+      "url": "https://www.youtube.com/watch?v=EMJhbKPpebU",
+      "duration": 2170.0
+    },
+    {
+      "video_id": "u2w3lSJPNtc",
+      "title": "Stochastic Processes 13. Cramér-Lundberg Insurance Model",
+      "url": "https://www.youtube.com/watch?v=u2w3lSJPNtc",
+      "duration": 4916.0
+    },
+    {
+      "video_id": "j2sCuaP8I8E",
+      "title": "Stochastic Processes 5: Stochastic Analysis 2",
+      "url": "https://www.youtube.com/watch?v=j2sCuaP8I8E",
+      "duration": 4863.0
+    },
+    {
+      "video_id": "h5UKFlGxOkg",
+      "title": "TFTDS / Lecture 1 / Distributed Systems Model",
+      "url": "https://www.youtube.com/watch?v=h5UKFlGxOkg",
+      "duration": 5059.0
+    },
+    {
+      "video_id": "3yjy19cUWIM",
+      "title": "TFTDS 1. Distributed System Model",
+      "url": "https://www.youtube.com/watch?v=3yjy19cUWIM",
+      "duration": 4635.0
+    },
+    {
+      "video_id": "H-82_Gy6WEY",
+      "title": "TFTDS 2. Atomic Register, ABD Algorithm",
+      "url": "https://www.youtube.com/watch?v=H-82_Gy6WEY",
+      "duration": 5098.0
+    },
+    {
+      "video_id": "Bh9mLopcmaA",
+      "title": "TFTDS 5. Single-Decree Paxos",
+      "url": "https://www.youtube.com/watch?v=Bh9mLopcmaA",
+      "duration": 5993.0
+    },
+    {
+      "video_id": "m-ylzXguOEg",
+      "title": "TFTDS. Seminar 2. Distributed data store",
+      "url": "https://www.youtube.com/watch?v=m-ylzXguOEg",
+      "duration": 4160.0
+    },
+    {
+      "video_id": "QEkpDhtxLkc",
+      "title": "TFTDS. Семинар 1. Introduction",
+      "url": "https://www.youtube.com/watch?v=QEkpDhtxLkc",
+      "duration": 2613.0
+    },
+    {
+      "video_id": "wK4HqmbY_Io",
+      "title": "АКОС 13. Межпроцессные взаимодействия. Каналы",
+      "url": "https://www.youtube.com/watch?v=wK4HqmbY_Io",
+      "duration": 1631.0
+    },
+    {
+      "video_id": "g_qco-EJqDM",
+      "title": "АКОС 16. Разделяемая память. Семафоры",
+      "url": "https://www.youtube.com/watch?v=g_qco-EJqDM",
+      "duration": 2124.0
+    },
+    {
+      "video_id": "cTdCDZFg7uY",
+      "title": "АКОС 17. Сокеты и сети",
+      "url": "https://www.youtube.com/watch?v=cTdCDZFg7uY",
+      "duration": 2782.0
+    },
+    {
+      "video_id": "5k1qoRFHxsQ",
+      "title": "АКОС 18. Сокеты и сети",
+      "url": "https://www.youtube.com/watch?v=5k1qoRFHxsQ",
+      "duration": 3760.0
+    },
+    {
+      "video_id": "4yuEeM4bNQ4",
+      "title": "АКОС 19. Неблокирующие сокеты.  Событийно-ориентированное  программирование",
+      "url": "https://www.youtube.com/watch?v=4yuEeM4bNQ4",
+      "duration": 2001.0
+    },
+    {
+      "video_id": "QYG0ydp0sCs",
+      "title": "АКОС 20. Потоки",
+      "url": "https://www.youtube.com/watch?v=QYG0ydp0sCs",
+      "duration": 2405.0
+    },
+    {
+      "video_id": "MZwfVVSFP_o",
+      "title": "АКОС 21. Виды шифрования",
+      "url": "https://www.youtube.com/watch?v=MZwfVVSFP_o",
+      "duration": 1792.0
+    },
+    {
+      "video_id": "l2ZDTFOvRa4",
+      "title": "АКОС 3. Кэш процессора.  Meltdown",
+      "url": "https://www.youtube.com/watch?v=l2ZDTFOvRa4",
+      "duration": 2486.0
+    },
+    {
+      "video_id": "HPNboKtse3Y",
+      "title": "АКОС 4 лекция. Ассемблер ARM",
+      "url": "https://www.youtube.com/watch?v=HPNboKtse3Y",
+      "duration": 4480.0
+    },
+    {
+      "video_id": "G8OeJFadUGk",
+      "title": "АКОС 4.",
+      "url": "https://www.youtube.com/watch?v=G8OeJFadUGk",
+      "duration": 2373.0
+    },
+    {
+      "video_id": "vl9eAjcBNIc",
+      "title": "АКОС. Семинар 10. Атрибуты файлов и файловых дескрипторов",
+      "url": "https://www.youtube.com/watch?v=vl9eAjcBNIc",
+      "duration": 4423.0
+    },
+    {
+      "video_id": "pGtFff5BrwM",
+      "title": "АКОС. Семинар 11. POSIX API для работы с файловой системой и временем",
+      "url": "https://www.youtube.com/watch?v=pGtFff5BrwM",
+      "duration": 4011.0
+    },
+    {
+      "video_id": "zta8aA_SJ1U",
+      "title": "АКОС. Семинар 12. Отображение файлов на память",
+      "url": "https://www.youtube.com/watch?v=zta8aA_SJ1U",
+      "duration": 4132.0
+    },
+    {
+      "video_id": "a5335PNcOBc",
+      "title": "АКОС. Семинар 13,5. Использование GDB",
+      "url": "https://www.youtube.com/watch?v=a5335PNcOBc",
+      "duration": 1383.0
+    },
+    {
+      "video_id": "iQJ_cJNF5_o",
+      "title": "АКОС. Семинар 13. Запуск и завершение работы процессов",
+      "url": "https://www.youtube.com/watch?v=iQJ_cJNF5_o",
+      "duration": 3700.0
+    },
+    {
+      "video_id": "pomPxZFlb4o",
+      "title": "АКОС. Семинар 14. Системный вызов exec",
+      "url": "https://www.youtube.com/watch?v=pomPxZFlb4o",
+      "duration": 3981.0
+    },
+    {
+      "video_id": "vLl7P0PCfE4",
+      "title": "АКОС. Семинар 16. Pipes",
+      "url": "https://www.youtube.com/watch?v=vLl7P0PCfE4",
+      "duration": 2258.0
+    },
+    {
+      "video_id": "xrdUAfAHf-s",
+      "title": "АКОС. Семинар 17. Сигналы",
+      "url": "https://www.youtube.com/watch?v=xrdUAfAHf-s",
+      "duration": 4947.0
+    },
+    {
+      "video_id": "p-5jdmjOWWI",
+      "title": "АКОС. Семинар 18. Сигналы",
+      "url": "https://www.youtube.com/watch?v=p-5jdmjOWWI",
+      "duration": 3779.0
+    },
+    {
+      "video_id": "qVMBrL-xG7A",
+      "title": "АКОС. Семинар 19. Разделяемая память и семафоры POSIX",
+      "url": "https://www.youtube.com/watch?v=qVMBrL-xG7A",
+      "duration": 4113.0
+    },
+    {
+      "video_id": "RqO6XmUxLS8",
+      "title": "АКОС. Семинар 21. Сокеты UDP",
+      "url": "https://www.youtube.com/watch?v=RqO6XmUxLS8",
+      "duration": 3595.0
+    },
+    {
+      "video_id": "-JX631vsgtM",
+      "title": "АКОС. Семинар 22. Мультиплексирование ввода-вывода",
+      "url": "https://www.youtube.com/watch?v=-JX631vsgtM",
+      "duration": 3596.0
+    },
+    {
+      "video_id": "qN1HfshJaDE",
+      "title": "АКОС. Семинар 23. Многопоточность POSIX Threads",
+      "url": "https://www.youtube.com/watch?v=qN1HfshJaDE",
+      "duration": 2867.0
+    },
+    {
+      "video_id": "7b92lcZeRdg",
+      "title": "АКОС. Семинар 24. Многопоточная синхронизация",
+      "url": "https://www.youtube.com/watch?v=7b92lcZeRdg",
+      "duration": 3815.0
+    },
+    {
+      "video_id": "tpJcAndB62s",
+      "title": "АКОС. Семинар 25. Протокол HTTP/1.1. Сборка с помощью CMake",
+      "url": "https://www.youtube.com/watch?v=tpJcAndB62s",
+      "duration": 5279.0
+    },
+    {
+      "video_id": "LqMQs7u6nIE",
+      "title": "АКОС. Семинар 3. Кросс-компиляция. Ассемблер ARM",
+      "url": "https://www.youtube.com/watch?v=LqMQs7u6nIE",
+      "duration": 4974.0
+    },
+    {
+      "video_id": "Z7MTAMCWj8k",
+      "title": "АКОС. Семинар 4. Адресация памяти",
+      "url": "https://www.youtube.com/watch?v=Z7MTAMCWj8k",
+      "duration": 4836.0
+    },
+    {
+      "video_id": "XG5U1SHHuOQ",
+      "title": "АКОС. Семинар 5. Глобальные переменные, константы и библиотечные функции Си",
+      "url": "https://www.youtube.com/watch?v=XG5U1SHHuOQ",
+      "duration": 5016.0
+    },
+    {
+      "video_id": "wkHIO-RDq7s",
+      "title": "АКОС. Семинар 6. Assembly x86",
+      "url": "https://www.youtube.com/watch?v=wkHIO-RDq7s",
+      "duration": 2483.0
+    },
+    {
+      "video_id": "QIGzglSGpgc",
+      "title": "АКОС. Семинар 7. Вещественные операции и SSE",
+      "url": "https://www.youtube.com/watch?v=QIGzglSGpgc",
+      "duration": 3210.0
+    },
+    {
+      "video_id": "gvYAe1ATB4g",
+      "title": "АКОС. Семинар 8. Системные вызовы",
+      "url": "https://www.youtube.com/watch?v=gvYAe1ATB4g",
+      "duration": 5241.0
+    },
+    {
+      "video_id": "JtCQAISIKX0",
+      "title": "АКОС. Семинар 9. Низкоуровневый файловый ввод-вывод",
+      "url": "https://www.youtube.com/watch?v=JtCQAISIKX0",
+      "duration": 4974.0
+    },
+    {
+      "video_id": "hwSHs4XmaFM",
+      "title": "Алгебра и алгоритмы (лекция №4)",
+      "url": "https://www.youtube.com/watch?v=hwSHs4XmaFM",
+      "duration": 5428.0
+    },
+    {
+      "video_id": "HzAGXCqR_nE",
+      "title": "Алгебра и алгоритмы (лекция №5)",
+      "url": "https://www.youtube.com/watch?v=HzAGXCqR_nE",
+      "duration": 6730.0
+    },
+    {
+      "video_id": "9RVW1wM9mO4",
+      "title": "Алгебра и геометрия 1. Алгебра многочленов",
+      "url": "https://www.youtube.com/watch?v=9RVW1wM9mO4",
+      "duration": 8360.0
+    },
+    {
+      "video_id": "aY9IvRA3W4E",
+      "title": "Алгебра и Геометрия 11. Кривые второго порядка",
+      "url": "https://www.youtube.com/watch?v=aY9IvRA3W4E",
+      "duration": 5216.0
+    },
+    {
+      "video_id": "iX9EdodS758",
+      "title": "Алгебра и Геометрия 13. Асимптоты, диаметры, касательные",
+      "url": "https://www.youtube.com/watch?v=iX9EdodS758",
+      "duration": 4800.0
+    },
+    {
+      "video_id": "pwPhyeRtzaQ",
+      "title": "Алгебра и Геометрия 15. Подполя, подгруппы. Изоморфизм групп",
+      "url": "https://www.youtube.com/watch?v=pwPhyeRtzaQ",
+      "duration": 5248.0
+    },
+    {
+      "video_id": "tx6dXM0gNXo",
+      "title": "Алгебра и Геометрия 17. Конечномерные линейные пространства",
+      "url": "https://www.youtube.com/watch?v=tx6dXM0gNXo",
+      "duration": 5160.0
+    },
+    {
+      "video_id": "drwJh3qnqe8",
+      "title": "Алгебра и Геометрия 18. Метод Гаусса решения СЛУ",
+      "url": "https://www.youtube.com/watch?v=drwJh3qnqe8",
+      "duration": 5356.0
+    },
+    {
+      "video_id": "veXNgTayQOs",
+      "title": "Алгебра и Геометрия 21. Подпространства. Сопряжённые пространства",
+      "url": "https://www.youtube.com/watch?v=veXNgTayQOs",
+      "duration": 4636.0
+    },
+    {
+      "video_id": "yN8Hu-wjRDk",
+      "title": "Алгебра и Геометрия 23. Применения аннуляторов. Линейные отображения",
+      "url": "https://www.youtube.com/watch?v=yN8Hu-wjRDk",
+      "duration": 5161.0
+    },
+    {
+      "video_id": "T4V7gd8O7DY",
+      "title": "Алгебра и Геометрия 24. Линейные отображения (продолжение)",
+      "url": "https://www.youtube.com/watch?v=T4V7gd8O7DY",
+      "duration": 4795.0
+    },
+    {
+      "video_id": "wy5ZxCR5TF4",
+      "title": "Алгебра и Геометрия 26. Определитель матрицы. Ранг матрицы",
+      "url": "https://www.youtube.com/watch?v=wy5ZxCR5TF4",
+      "duration": 4428.0
+    },
+    {
+      "video_id": "VHmoaPNRRio",
+      "title": "Алгебра и Геометрия 27. Определитель матрицы (продолжение)",
+      "url": "https://www.youtube.com/watch?v=VHmoaPNRRio",
+      "duration": 5074.0
+    },
+    {
+      "video_id": "zJzluXd1yGg",
+      "title": "Алгебра и Геометрия 28. Теорема Кэли. Циклические группы",
+      "url": "https://www.youtube.com/watch?v=zJzluXd1yGg",
+      "duration": 4625.0
+    },
+    {
+      "video_id": "0uxn4baQ_EE",
+      "title": "Алгебра и Геометрия 29. Циклические подгруппы. Смежные классы. Теорема Лагранжа",
+      "url": "https://www.youtube.com/watch?v=0uxn4baQ_EE",
+      "duration": 5404.0
+    },
+    {
+      "video_id": "u-MtuHyGzFg",
+      "title": "Алгебра и Геометрия 3. Базис линейного пространства",
+      "url": "https://www.youtube.com/watch?v=u-MtuHyGzFg",
+      "duration": 3250.0
+    },
+    {
+      "video_id": "aqJXmwcxSXA",
+      "title": "Алгебра и геометрия 32. Нахождение жорданова базиса, единственность ЖНФ, приложения ЖНФ",
+      "url": "https://www.youtube.com/watch?v=aqJXmwcxSXA",
+      "duration": 7047.0
+    },
+    {
+      "video_id": "BrC6R4Lj3SM",
+      "title": "Алгебра и Геометрия 6. Теорема Крамера. Векторное произведение",
+      "url": "https://www.youtube.com/watch?v=BrC6R4Lj3SM",
+      "duration": 2937.0
+    },
+    {
+      "video_id": "fq-9ShZS22s",
+      "title": "Алгебра и Геометрия 8. Плоскость в пространстве",
+      "url": "https://www.youtube.com/watch?v=fq-9ShZS22s",
+      "duration": 1614.0
+    },
+    {
+      "video_id": "kT2FQGCgS60",
+      "title": "Алгебра и геометрия 9. Симметричные и кососимметричные функции",
+      "url": "https://www.youtube.com/watch?v=kT2FQGCgS60",
+      "duration": 8186.0
+    },
+    {
+      "video_id": "IIC-h7aWIaQ",
+      "title": "Алгебра и геометрия. Замена лекции 27.04.19",
+      "url": "https://www.youtube.com/watch?v=IIC-h7aWIaQ",
+      "duration": 7288.0
+    },
+    {
+      "video_id": "dubBjlL4-vU",
+      "title": "Алгебра и геометрия. Лекция 2. Векторы. Линейные соотношения. Базисы и координаты.",
+      "url": "https://www.youtube.com/watch?v=dubBjlL4-vU",
+      "duration": 4648.0
+    },
+    {
+      "video_id": "I8K-2s2OBwE",
+      "title": "Алгебра и геометрия. Лекция 3. Базисы и координаты (продолжение). Скалярное произведение",
+      "url": "https://www.youtube.com/watch?v=I8K-2s2OBwE",
+      "duration": 4752.0
+    },
+    {
+      "video_id": "VU4vzF4EYmk",
+      "title": "Алгебра и геометрия. Лекция 4. Ортогональные матрицы. Ориентация в пространстве. Определитель",
+      "url": "https://www.youtube.com/watch?v=VU4vzF4EYmk",
+      "duration": 4581.0
+    },
+    {
+      "video_id": "WZz1BBOz6r0",
+      "title": "Алгебра и геометрия. Лекция 5. Определитель. Векторное произведение. Прямая в плоскости 5-37",
+      "url": "https://www.youtube.com/watch?v=WZz1BBOz6r0",
+      "duration": 4881.0
+    },
+    {
+      "video_id": "OkAbO5cxN_s",
+      "title": "Алгоритмы (основной поток) 2. Z-функция",
+      "url": "https://www.youtube.com/watch?v=OkAbO5cxN_s",
+      "duration": 5001.0
+    },
+    {
+      "video_id": "HNIAcX2dJoM",
+      "title": "Алгоритмы (основной поток) 3. Алгоритм Ахо-Корасик",
+      "url": "https://www.youtube.com/watch?v=HNIAcX2dJoM",
+      "duration": 4266.0
+    },
+    {
+      "video_id": "TzH64mPmiIM",
+      "title": "Алгоритмы 18. Кратчайшие пути в взвешенных графах",
+      "url": "https://www.youtube.com/watch?v=TzH64mPmiIM",
+      "duration": 4999.0
+    },
+    {
+      "video_id": "8weUQo4Vxys",
+      "title": "Алгоритмы 19. Линейное улучшение алгоритма Дейкстры",
+      "url": "https://www.youtube.com/watch?v=8weUQo4Vxys",
+      "duration": 4871.0
+    },
+    {
+      "video_id": "OwGk2CY47ak",
+      "title": "Алгоритмы и структура данных 13. DFS и его применения.",
+      "url": "https://www.youtube.com/watch?v=OwGk2CY47ak",
+      "duration": 5002.0
+    },
+    {
+      "video_id": "rL1k6tSU7Gg",
+      "title": "Алгоритмы и структуры данных (базовый поток) 11. Splay-дерево",
+      "url": "https://www.youtube.com/watch?v=rL1k6tSU7Gg",
+      "duration": 5459.0
+    },
+    {
+      "video_id": "Cy7M4WnFFUY",
+      "title": "Алгоритмы и структуры данных (основной поток) 1. Динамическое программирование",
+      "url": "https://www.youtube.com/watch?v=Cy7M4WnFFUY",
+      "duration": 4898.0
+    },
+    {
+      "video_id": "fr7N_nnocdU",
+      "title": "Алгоритмы и структуры данных (основной поток) 10. Алгоритм Эдмондса",
+      "url": "https://www.youtube.com/watch?v=fr7N_nnocdU",
+      "duration": 5138.0
+    },
+    {
+      "video_id": "cuEwDXwh300",
+      "title": "Алгоритмы и структуры данных (основной поток) 10. Деревья поиска: AVL-дерево, Splay-дерево",
+      "url": "https://www.youtube.com/watch?v=cuEwDXwh300",
+      "duration": 4995.0
+    },
+    {
+      "video_id": "G4SfL6tZnBY",
+      "title": "Алгоритмы и структуры данных (основной поток) 12. Потоки, Алгоритм Диница",
+      "url": "https://www.youtube.com/watch?v=G4SfL6tZnBY",
+      "duration": 5097.0
+    },
+    {
+      "video_id": "bEHUSrkATHA",
+      "title": "Алгоритмы и структуры данных (основной поток) 13. Красно-чёрное дерево",
+      "url": "https://www.youtube.com/watch?v=bEHUSrkATHA",
+      "duration": 5002.0
+    },
+    {
+      "video_id": "IBP-hOaqxtY",
+      "title": "Алгоритмы и структуры данных (основной поток) 14. Хэш-таблицы",
+      "url": "https://www.youtube.com/watch?v=IBP-hOaqxtY",
+      "duration": 4980.0
+    },
+    {
+      "video_id": "Kyi3Xh-vKWc",
+      "title": "Алгоритмы и структуры данных (основной поток) 2. Сортировки. Merge sort. Quick sort. Quick select",
+      "url": "https://www.youtube.com/watch?v=Kyi3Xh-vKWc",
+      "duration": 5030.0
+    },
+    {
+      "video_id": "VS52Tv7oMd0",
+      "title": "Алгоритмы и структуры данных (основной поток) 2. Сортировки. Merge sort. Quick sort. Quick select",
+      "url": "https://www.youtube.com/watch?v=VS52Tv7oMd0",
+      "duration": 4964.0
+    },
+    {
+      "video_id": "DkC5JOgfia0",
+      "title": "Алгоритмы и структуры данных (основной поток) 3. Сортировки. Derandomized quick sort. LSD sort",
+      "url": "https://www.youtube.com/watch?v=DkC5JOgfia0",
+      "duration": 4990.0
+    },
+    {
+      "video_id": "svC81BiNw6M",
+      "title": "Алгоритмы и структуры данных (основной поток) 4. Кучи. Сортировка на куче",
+      "url": "https://www.youtube.com/watch?v=svC81BiNw6M",
+      "duration": 4838.0
+    },
+    {
+      "video_id": "EtiNU6PISD4",
+      "title": "Алгоритмы и структуры данных (основной поток) 7. Алгоритмы Дейкстры и Форда-Беллмана",
+      "url": "https://www.youtube.com/watch?v=EtiNU6PISD4",
+      "duration": 5157.0
+    },
+    {
+      "video_id": "xU2FzfVE_UY",
+      "title": "Алгоритмы и структуры данных (основной поток) 7. Стеки и очереди",
+      "url": "https://www.youtube.com/watch?v=xU2FzfVE_UY",
+      "duration": 5126.0
+    },
+    {
+      "video_id": "48TBN-0QB4Y",
+      "title": "Алгоритмы и структуры данных (основной поток) 8. Дерево отрезков",
+      "url": "https://www.youtube.com/watch?v=48TBN-0QB4Y",
+      "duration": 5180.0
+    },
+    {
+      "video_id": "Atp5UWnnS8o",
+      "title": "Алгоритмы и структуры данных (основной поток) 8. Дерево отрезков",
+      "url": "https://www.youtube.com/watch?v=Atp5UWnnS8o",
+      "duration": 4934.0
+    },
+    {
+      "video_id": "xdmruLbP4M0",
+      "title": "Алгоритмы и структуры данных (основной поток) 8. Минимальное остовное дерево (MST)",
+      "url": "https://www.youtube.com/watch?v=xdmruLbP4M0",
+      "duration": 4627.0
+    },
+    {
+      "video_id": "A4D-81PPCiY",
+      "title": "Алгоритмы и структуры данных (основной поток) 9. Паросочетания",
+      "url": "https://www.youtube.com/watch?v=A4D-81PPCiY",
+      "duration": 5097.0
+    },
+    {
+      "video_id": "AI8iL_rWXVk",
+      "title": "Алгоритмы и структуры данных (продвинутый поток) 1. Сортировки",
+      "url": "https://www.youtube.com/watch?v=AI8iL_rWXVk",
+      "duration": 4693.0
+    },
+    {
+      "video_id": "L-wzno7bbVQ",
+      "title": "Алгоритмы и структуры данных (продвинутый поток) 3. Алгоритм Диница и его модификации",
+      "url": "https://www.youtube.com/watch?v=L-wzno7bbVQ",
+      "duration": 15112.0
+    },
+    {
+      "video_id": "3-vkuw6y_wM",
+      "title": "Алгоритмы и структуры данных (продвинутый поток) 4. Min cost flow, задачи на разрезы и на парсочи",
+      "url": "https://www.youtube.com/watch?v=3-vkuw6y_wM",
+      "duration": 15215.0
+    },
+    {
+      "video_id": "4TAolch1dF0",
+      "title": "Алгоритмы и структуры данных (продвинутый поток) 5. Венгерский алгоритм, push relabel, discharge",
+      "url": "https://www.youtube.com/watch?v=4TAolch1dF0",
+      "duration": 12119.0
+    },
+    {
+      "video_id": "R-T50mVMMEM",
+      "title": "Алгоритмы и структуры данных (продвинутый поток). Семинар 3. Вычислительная геометрия",
+      "url": "https://www.youtube.com/watch?v=R-T50mVMMEM",
+      "duration": 6102.0
+    },
+    {
+      "video_id": "bG_VwZcw6Fo",
+      "title": "Алгоритмы и структуры данных (продвинутый поток). Семинар 4. Реализация остаточной сети",
+      "url": "https://www.youtube.com/watch?v=bG_VwZcw6Fo",
+      "duration": 4167.0
+    },
+    {
+      "video_id": "JPypmkh77S4",
+      "title": "Алгоритмы и структуры данных (продвинутый поток). Семинар 5. Выпуклые оболочки",
+      "url": "https://www.youtube.com/watch?v=JPypmkh77S4",
+      "duration": 4275.0
+    },
+    {
+      "video_id": "dgrsL_y6-Ms",
+      "title": "Алгоритмы и структуры данных (продвинутый поток). Семинар 6. Потоки и паросочетания",
+      "url": "https://www.youtube.com/watch?v=dgrsL_y6-Ms",
+      "duration": 5970.0
+    },
+    {
+      "video_id": "H2OF5R1ToFY",
+      "title": "Алгоритмы и структуры данных / базовый поток 12 Динамическое программирование",
+      "url": "https://www.youtube.com/watch?v=H2OF5R1ToFY",
+      "duration": 4338.0
+    },
+    {
+      "video_id": "6oLJ_agQSw4",
+      "title": "Алгоритмы и структуры данных 1. Поиск подстроки в строке.",
+      "url": "https://www.youtube.com/watch?v=6oLJ_agQSw4",
+      "duration": 4215.0
+    },
+    {
+      "video_id": "g0wtS2i8EJQ",
+      "title": "Алгоритмы и структуры данных 1. Потоки",
+      "url": "https://www.youtube.com/watch?v=g0wtS2i8EJQ",
+      "duration": 4914.0
+    },
+    {
+      "video_id": "WKrpmaKvhgY",
+      "title": "Алгоритмы и структуры данных 1. Хеши. Префикс-функция. Z-функция.",
+      "url": "https://www.youtube.com/watch?v=WKrpmaKvhgY",
+      "duration": 4536.0
+    },
+    {
+      "video_id": "aG4N0LuGUbA",
+      "title": "Алгоритмы и структуры данных 11. Дерево отрезков. Обновление на отрезке.",
+      "url": "https://www.youtube.com/watch?v=aG4N0LuGUbA",
+      "duration": 4544.0
+    },
+    {
+      "video_id": "guRyKIB__74",
+      "title": "Алгоритмы и структуры данных 11. Диаметр многоугольника. Cумма Минковского.",
+      "url": "https://www.youtube.com/watch?v=guRyKIB__74",
+      "duration": 4798.0
+    },
+    {
+      "video_id": "tLqQyUFdRyU",
+      "title": "Алгоритмы и структуры данных 12. Пересечение полуплоскостей.",
+      "url": "https://www.youtube.com/watch?v=tLqQyUFdRyU",
+      "duration": 4626.0
+    },
+    {
+      "video_id": "9lPLshWk3Lk",
+      "title": "Алгоритмы и структуры данных 12. Персистентность",
+      "url": "https://www.youtube.com/watch?v=9lPLshWk3Lk",
+      "duration": 5250.0
+    },
+    {
+      "video_id": "6iEbSa7ZDe4",
+      "title": "Алгоритмы и структуры данных 13. Выпуклая оболочка 3D.",
+      "url": "https://www.youtube.com/watch?v=6iEbSa7ZDe4",
+      "duration": 3066.0
+    },
+    {
+      "video_id": "uhTYWZxpNRA",
+      "title": "Алгоритмы и структуры данных 14. Доминаторы",
+      "url": "https://www.youtube.com/watch?v=uhTYWZxpNRA",
+      "duration": 5302.0
+    },
+    {
+      "video_id": "NQ-L9fWaqVs",
+      "title": "Алгоритмы и структуры данных 15. Построение дерева доминаторов и минимальных остовных деревьев",
+      "url": "https://www.youtube.com/watch?v=NQ-L9fWaqVs",
+      "duration": 5186.0
+    },
+    {
+      "video_id": "aa2PZAQZiZA",
+      "title": "Алгоритмы и структуры данных 15. Триангуляция Делоне.",
+      "url": "https://www.youtube.com/watch?v=aa2PZAQZiZA",
+      "duration": 4721.0
+    },
+    {
+      "video_id": "quRfnp-UQHw",
+      "title": "Алгоритмы и структуры данных 16. Минимальные остовные деревья",
+      "url": "https://www.youtube.com/watch?v=quRfnp-UQHw",
+      "duration": 4708.0
+    },
+    {
+      "video_id": "Yucke9_Ubj8",
+      "title": "Алгоритмы и структуры данных 17. Минимальные остовные деревья",
+      "url": "https://www.youtube.com/watch?v=Yucke9_Ubj8",
+      "duration": 5162.0
+    },
+    {
+      "video_id": "0gZS9m55Cg0",
+      "title": "Алгоритмы и структуры данных 2. ДП: Рюкзак, матрицы",
+      "url": "https://www.youtube.com/watch?v=0gZS9m55Cg0",
+      "duration": 4881.0
+    },
+    {
+      "video_id": "h0YtYh2hlnY",
+      "title": "Алгоритмы и структуры данных 2. Палиндромы. Строки и хэши.",
+      "url": "https://www.youtube.com/watch?v=h0YtYh2hlnY",
+      "duration": 4606.0
+    },
+    {
+      "video_id": "RF0ONmYSKFs",
+      "title": "Алгоритмы и структуры данных 20. Алгоритм Торупа. Паросочетания.",
+      "url": "https://www.youtube.com/watch?v=RF0ONmYSKFs",
+      "duration": 4993.0
+    },
+    {
+      "video_id": "K1OXayA-gEk",
+      "title": "Алгоритмы и структуры данных 21. Паросочетания и покрытия в двудольных графах.",
+      "url": "https://www.youtube.com/watch?v=K1OXayA-gEk",
+      "duration": 4165.0
+    },
+    {
+      "video_id": "hW9VsPd_jTw",
+      "title": "Алгоритмы и структуры данных 6. FFT",
+      "url": "https://www.youtube.com/watch?v=hW9VsPd_jTw",
+      "duration": 4902.0
+    },
+    {
+      "video_id": "xSIBDRe_M-c",
+      "title": "Алгоритмы и структуры данных 6. Суффиксный массив.",
+      "url": "https://www.youtube.com/watch?v=xSIBDRe_M-c",
+      "duration": 4881.0
+    },
+    {
+      "video_id": "EONbhJTyrqs",
+      "title": "Алгоритмы и структуры данных 7. FFT (продолжение)",
+      "url": "https://www.youtube.com/watch?v=EONbhJTyrqs",
+      "duration": 4489.0
+    },
+    {
+      "video_id": "1nr_GhZuTK4",
+      "title": "Алгоритмы и структуры данных 8. Теория чисел",
+      "url": "https://www.youtube.com/watch?v=1nr_GhZuTK4",
+      "duration": 4947.0
+    },
+    {
+      "video_id": "mv9uqilG3Ho",
+      "title": "Алгоритмы и структуры данных 9. Геометрия",
+      "url": "https://www.youtube.com/watch?v=mv9uqilG3Ho",
+      "duration": 4708.0
+    },
+    {
+      "video_id": "GXCnW3cF-AM",
+      "title": "Алгоритмы и структуры данных/ базовый поток 3. Квадратичные сортировки.",
+      "url": "https://www.youtube.com/watch?v=GXCnW3cF-AM",
+      "duration": 4751.0
+    },
+    {
+      "video_id": "eZeBflKo_14",
+      "title": "Алгоритмы. Семинар 1. Асимптотики",
+      "url": "https://www.youtube.com/watch?v=eZeBflKo_14",
+      "duration": 10380.0
+    },
+    {
+      "video_id": "lDM9qN1Feqk",
+      "title": "АЛКТГ 3. Математические определения, утверждения и доказательства",
+      "url": "https://www.youtube.com/watch?v=lDM9qN1Feqk",
+      "duration": 3985.0
+    },
+    {
+      "video_id": "xTE3_i__mms",
+      "title": "АЛКТГ 6. Двудольные графы",
+      "url": "https://www.youtube.com/watch?v=xTE3_i__mms",
+      "duration": 4491.0
+    },
+    {
+      "video_id": "FoGsGa6a9VI",
+      "title": "Анализ требований 1. Введение в аналитику, системный анализ.",
+      "url": "https://www.youtube.com/watch?v=FoGsGa6a9VI",
+      "duration": 8150.0
+    },
+    {
+      "video_id": "CS5IlysN32Y",
+      "title": "Анализ требований 2. Проекты, цели и риски. Анализ стейкхолдеров, контекст и scope проекта.",
+      "url": "https://www.youtube.com/watch?v=CS5IlysN32Y",
+      "duration": 7733.0
+    },
+    {
+      "video_id": "hywLs9ihIjk",
+      "title": "Анализ требований 4. Ценностное предложение. Анализ конкурентов.",
+      "url": "https://www.youtube.com/watch?v=hywLs9ihIjk",
+      "duration": 5359.0
+    },
+    {
+      "video_id": "BjMj5xZyqco",
+      "title": "Анализ требований 5. Ценностное предложение (практика). Метрики.",
+      "url": "https://www.youtube.com/watch?v=BjMj5xZyqco",
+      "duration": 5847.0
+    },
+    {
+      "video_id": "Kh1eukbvm3w",
+      "title": "Анализ требований 7. Группировка артефактов. Управление артефактами. Usability-тестирование.",
+      "url": "https://www.youtube.com/watch?v=Kh1eukbvm3w",
+      "duration": 7180.0
+    },
+    {
+      "video_id": "tIaTFFzarl0",
+      "title": "Введение в LaTeX 2. Оформление документа. Таблицы. Теоремы",
+      "url": "https://www.youtube.com/watch?v=tIaTFFzarl0",
+      "duration": 4984.0
+    },
+    {
+      "video_id": "V13UdEDRWaA",
+      "title": "Введение в математический анализ 11. Непрерывность функции",
+      "url": "https://www.youtube.com/watch?v=V13UdEDRWaA",
+      "duration": 4665.0
+    },
+    {
+      "video_id": "0e5BXNy_rKs",
+      "title": "Введение в математический анализ 12. Теорема об обратной функции",
+      "url": "https://www.youtube.com/watch?v=0e5BXNy_rKs",
+      "duration": 4716.0
+    },
+    {
+      "video_id": "1v56PYBpKZw",
+      "title": "Введение в математический анализ 13. Равномерная непрерывность",
+      "url": "https://www.youtube.com/watch?v=1v56PYBpKZw",
+      "duration": 4726.0
+    },
+    {
+      "video_id": "o9WlTvuYc-s",
+      "title": "Введение в математический анализ 14. Показательные и логарифмические функции",
+      "url": "https://www.youtube.com/watch?v=o9WlTvuYc-s",
+      "duration": 4482.0
+    },
+    {
+      "video_id": "__2E9DCTRBU",
+      "title": "Введение в математический анализ 15. Сравнение функций. Производная.",
+      "url": "https://www.youtube.com/watch?v=__2E9DCTRBU",
+      "duration": 4750.0
+    },
+    {
+      "video_id": "iHnQ0kQ66z8",
+      "title": "Введение в математический анализ 16. Производная обратной функции",
+      "url": "https://www.youtube.com/watch?v=iHnQ0kQ66z8",
+      "duration": 2613.0
+    },
+    {
+      "video_id": "JXnnlhm4Z0c",
+      "title": "Введение в математический анализ 17. Дифференциал. Теоремы о среднем.",
+      "url": "https://www.youtube.com/watch?v=JXnnlhm4Z0c",
+      "duration": 4702.0
+    },
+    {
+      "video_id": "SaTxkq9rAlA",
+      "title": "Введение в математический анализ 19. Дифференциал. Правило Лопиталя. Производные высших порядков.",
+      "url": "https://www.youtube.com/watch?v=SaTxkq9rAlA",
+      "duration": 4532.0
+    },
+    {
+      "video_id": "sEtLU0M5pv0",
+      "title": "Введение в математический анализ 3. Бином Ньютона. Расширенная числовая прямая.",
+      "url": "https://www.youtube.com/watch?v=sEtLU0M5pv0",
+      "duration": 2108.0
+    },
+    {
+      "video_id": "N-5nNcpObgI",
+      "title": "Введение в математический анализ 5. Теорема Кантора о вложенных отрезках",
+      "url": "https://www.youtube.com/watch?v=N-5nNcpObgI",
+      "duration": 4486.0
+    },
+    {
+      "video_id": "Z-1sXhQTqZI",
+      "title": "Введение в математический анализ 7. Критерий Коши. Частичный предел",
+      "url": "https://www.youtube.com/watch?v=Z-1sXhQTqZI",
+      "duration": 4406.0
+    },
+    {
+      "video_id": "bw2MnYyeh1k",
+      "title": "Введение в математический анализ 8. Топология числовой прямой",
+      "url": "https://www.youtube.com/watch?v=bw2MnYyeh1k",
+      "duration": 5023.0
+    },
+    {
+      "video_id": "ji2ETOej538",
+      "title": "Введение в программирование №2. Структуры данных",
+      "url": "https://www.youtube.com/watch?v=ji2ETOej538",
+      "duration": 4744.0
+    },
+    {
+      "video_id": "tbi_W8E-csA",
+      "title": "Введение в топологию 7. Узлы и зацепления.",
+      "url": "https://www.youtube.com/watch?v=tbi_W8E-csA",
+      "duration": 9597.0
+    },
+    {
+      "video_id": "vifpjWRmtYU",
+      "title": "Введение в финансы 1. Акции и облигации",
+      "url": "https://www.youtube.com/watch?v=vifpjWRmtYU",
+      "duration": 9629.0
+    },
+    {
+      "video_id": "tYVT2OJc43A",
+      "title": "Введение в финансы 11. Опционы",
+      "url": "https://www.youtube.com/watch?v=tYVT2OJc43A",
+      "duration": 8930.0
+    },
+    {
+      "video_id": "HQUkXiJa9tI",
+      "title": "Введение в финансы 13. Решение задач",
+      "url": "https://www.youtube.com/watch?v=HQUkXiJa9tI",
+      "duration": 7324.0
+    },
+    {
+      "video_id": "MXGvv9xFh0o",
+      "title": "Введение в финансы 15. Оценка опционов",
+      "url": "https://www.youtube.com/watch?v=MXGvv9xFh0o",
+      "duration": 7758.0
+    },
+    {
+      "video_id": "BzFBVopTM1c",
+      "title": "Введение в финансы 2. Present value",
+      "url": "https://www.youtube.com/watch?v=BzFBVopTM1c",
+      "duration": 9627.0
+    },
+    {
+      "video_id": "RHjV2rqc1K4",
+      "title": "Введение в финансы 3. Процентные ставки и деньги",
+      "url": "https://www.youtube.com/watch?v=RHjV2rqc1K4",
+      "duration": 8913.0
+    },
+    {
+      "video_id": "2X7d_eITLXk",
+      "title": "Введение в финансы 4. Доходность облигаций",
+      "url": "https://www.youtube.com/watch?v=2X7d_eITLXk",
+      "duration": 7892.0
+    },
+    {
+      "video_id": "7ebl2Qu_hEk",
+      "title": "Введение в финансы 5. Риски",
+      "url": "https://www.youtube.com/watch?v=7ebl2Qu_hEk",
+      "duration": 2426.0
+    },
+    {
+      "video_id": "NZDPzg1S2ic",
+      "title": "Введение в финансы 6. Бета, стоимость капитала",
+      "url": "https://www.youtube.com/watch?v=NZDPzg1S2ic",
+      "duration": 9261.0
+    },
+    {
+      "video_id": "TbSKIN23i1k",
+      "title": "Введение в финансы 9. Оценка компаний. Free cash flows",
+      "url": "https://www.youtube.com/watch?v=TbSKIN23i1k",
+      "duration": 9027.0
+    },
+    {
+      "video_id": "wEHV1x4oDgk",
+      "title": "Вычислительная линейная алгебра 10. Введение в итерационные методы",
+      "url": "https://www.youtube.com/watch?v=wEHV1x4oDgk",
+      "duration": 3943.0
+    },
+    {
+      "video_id": "UYSYoadde80",
+      "title": "Вычислительная линейная алгебра 12. Итерационные методы, предобуславливатели",
+      "url": "https://www.youtube.com/watch?v=UYSYoadde80",
+      "duration": 3801.0
+    },
+    {
+      "video_id": "O87yv7yZtSM",
+      "title": "Вычислительная линейная алгебра 6. Обзор разложений матриц. Вычисление QR-разложения",
+      "url": "https://www.youtube.com/watch?v=O87yv7yZtSM",
+      "duration": 4495.0
+    },
+    {
+      "video_id": "HepE0aFpwmk",
+      "title": "Вычислительная линейная алгебра 7. Проблема собственных значений симметричных матриц и SVD",
+      "url": "https://www.youtube.com/watch?v=HepE0aFpwmk",
+      "duration": 4864.0
+    },
+    {
+      "video_id": "hMwT0iNEGrw",
+      "title": "Вычислительная линейная алгебра 8. Рандомизированная линейная алгебра",
+      "url": "https://www.youtube.com/watch?v=hMwT0iNEGrw",
+      "duration": 5197.0
+    },
+    {
+      "video_id": "L-UD-YVmL9E",
+      "title": "Вычислительная линейная алгебра 9. От плотной к разреженной линейной алгебре",
+      "url": "https://www.youtube.com/watch?v=L-UD-YVmL9E",
+      "duration": 5135.0
+    },
+    {
+      "video_id": "LLSZ6YbiHlw",
+      "title": "Вычислительная математика 3 Итерационные методы решения СЛАУ",
+      "url": "https://www.youtube.com/watch?v=LLSZ6YbiHlw",
+      "duration": 4182.0
+    },
+    {
+      "video_id": "CIj-ZxepNbc",
+      "title": "Гармонический анализ. Консультация к письменному экзамену. Часть 3",
+      "url": "https://www.youtube.com/watch?v=CIj-ZxepNbc",
+      "duration": 2068.0
+    },
+    {
+      "video_id": "wrfIgsv8y5g",
+      "title": "Гуманитарные лекции 3.Мировая военная промышленность: трансформация после 1991 года",
+      "url": "https://www.youtube.com/watch?v=wrfIgsv8y5g",
+      "duration": 4926.0
+    },
+    {
+      "video_id": "4Xg8j31xrBE",
+      "title": "Дерандомизация и псевдослучайность 2. UPATH in RL, графы-экспандеры",
+      "url": "https://www.youtube.com/watch?v=4Xg8j31xrBE",
+      "duration": 4384.0
+    },
+    {
+      "video_id": "-yGsuJtXUao",
+      "title": "Дискретная и комбинаторная геометрия 11. Оценка Берджеса и короткие суммы характера",
+      "url": "https://www.youtube.com/watch?v=-yGsuJtXUao",
+      "duration": 4298.0
+    },
+    {
+      "video_id": "kKO5LmVKbYQ",
+      "title": "Дискретная и комбинаторная геометрия 13.",
+      "url": "https://www.youtube.com/watch?v=kKO5LmVKbYQ",
+      "duration": 4519.0
+    },
+    {
+      "video_id": "bP83h0osn0I",
+      "title": "Дискретная и комбинаторная геометрия 14.",
+      "url": "https://www.youtube.com/watch?v=bP83h0osn0I",
+      "duration": 4909.0
+    },
+    {
+      "video_id": "YFfAxpRjzBU",
+      "title": "Дискретная и комбинаторная геометрия 15.",
+      "url": "https://www.youtube.com/watch?v=YFfAxpRjzBU",
+      "duration": 5190.0
+    },
+    {
+      "video_id": "FOd4CO2S-ic",
+      "title": "Дискретная оптимизация и сети 3.",
+      "url": "https://www.youtube.com/watch?v=FOd4CO2S-ic",
+      "duration": 5366.0
+    },
+    {
+      "video_id": "9oXBjV_UoEs",
+      "title": "Дискретная оптимизация и сложные сети 4.",
+      "url": "https://www.youtube.com/watch?v=9oXBjV_UoEs",
+      "duration": 5180.0
+    },
+    {
+      "video_id": "jPPTexde73I",
+      "title": "Дискретная оптимизация и сложные сети 5.",
+      "url": "https://www.youtube.com/watch?v=jPPTexde73I",
+      "duration": 4559.0
+    },
+    {
+      "video_id": "gkoPaRn3ivU",
+      "title": "Дискретная оптимизация и сложные сети 6.",
+      "url": "https://www.youtube.com/watch?v=gkoPaRn3ivU",
+      "duration": 5169.0
+    },
+    {
+      "video_id": "kfhppA1-CPQ",
+      "title": "Дискретная оптимизация и сложные сети 7.",
+      "url": "https://www.youtube.com/watch?v=kfhppA1-CPQ",
+      "duration": 4169.0
+    },
+    {
+      "video_id": "lgTTTx8OUCs",
+      "title": "Дискретная оптимизация и сложные сети 8.",
+      "url": "https://www.youtube.com/watch?v=lgTTTx8OUCs",
+      "duration": 4310.0
+    },
+    {
+      "video_id": "SP9tr5ihb9M",
+      "title": "Дискретная оптимизация и сложные сети 9.",
+      "url": "https://www.youtube.com/watch?v=SP9tr5ihb9M",
+      "duration": 3496.0
+    },
+    {
+      "video_id": "gc1QUYafeto",
+      "title": "Дискретные структуры 1. Формальные степенные ряды. Производящие функции",
+      "url": "https://www.youtube.com/watch?v=gc1QUYafeto",
+      "duration": 4745.0
+    },
+    {
+      "video_id": "S4PF6VJFMmU",
+      "title": "Дискретные структуры 10. Доминирование в графах",
+      "url": "https://www.youtube.com/watch?v=S4PF6VJFMmU",
+      "duration": 4801.0
+    },
+    {
+      "video_id": "Tqvi12gHtdc",
+      "title": "Дискретные структуры 4. Частично упорядоченные множества. Формула обращения Мёбиуса",
+      "url": "https://www.youtube.com/watch?v=Tqvi12gHtdc",
+      "duration": 5156.0
+    },
+    {
+      "video_id": "IY6d9Z_vtbI",
+      "title": "Дискретные структуры 5. Теория чисел. Системы вычетов по натуральному модулю",
+      "url": "https://www.youtube.com/watch?v=IY6d9Z_vtbI",
+      "duration": 4882.0
+    },
+    {
+      "video_id": "xBT60jwj_k8",
+      "title": "Дискретные структуры 6. Теорема Эйлера. Деление многочленов",
+      "url": "https://www.youtube.com/watch?v=xBT60jwj_k8",
+      "duration": 4828.0
+    },
+    {
+      "video_id": "h5W5Dqn1A2g",
+      "title": "Дискретные структуры 7. Первообразные корни",
+      "url": "https://www.youtube.com/watch?v=h5W5Dqn1A2g",
+      "duration": 5005.0
+    },
+    {
+      "video_id": "WuSdMYMwu7c",
+      "title": "Дискретные структуры 9. Применение многочленов в линейно-алгебраическом методе",
+      "url": "https://www.youtube.com/watch?v=WuSdMYMwu7c",
+      "duration": 4500.0
+    },
+    {
+      "video_id": "YSCKD2Ih5n0",
+      "title": "Дискретный анализ 1. Кнезеровские графы",
+      "url": "https://www.youtube.com/watch?v=YSCKD2Ih5n0",
+      "duration": 4172.0
+    },
+    {
+      "video_id": "T-MT2zaMeUE",
+      "title": "Дискретный анализ 10.  Доказательство 2-й теоремы Баллобаша",
+      "url": "https://www.youtube.com/watch?v=T-MT2zaMeUE",
+      "duration": 4508.0
+    },
+    {
+      "video_id": "w4TGmqfrTU0",
+      "title": "Дискретный анализ 10. Гиперграфы",
+      "url": "https://www.youtube.com/watch?v=w4TGmqfrTU0",
+      "duration": 4799.0
+    },
+    {
+      "video_id": "IVdbtiKXjko",
+      "title": "Дискретный анализ 10. Исследование величины f(n, r, s)",
+      "url": "https://www.youtube.com/watch?v=IVdbtiKXjko",
+      "duration": 4016.0
+    },
+    {
+      "video_id": "0gnF97MeV30",
+      "title": "Дискретный анализ 10. Оценка системы общих представителей",
+      "url": "https://www.youtube.com/watch?v=0gnF97MeV30",
+      "duration": 4513.0
+    },
+    {
+      "video_id": "f-kHv0i7Zks",
+      "title": "Дискретный анализ 11. Гиперграфы",
+      "url": "https://www.youtube.com/watch?v=f-kHv0i7Zks",
+      "duration": 4233.0
+    },
+    {
+      "video_id": "nLRYmw-kq3U",
+      "title": "Дискретный анализ 11. Гиперграфы",
+      "url": "https://www.youtube.com/watch?v=nLRYmw-kq3U",
+      "duration": 5019.0
+    },
+    {
+      "video_id": "2i2q6bL6-sQ",
+      "title": "Дискретный анализ 11. Линейно-алгебраический метод. Исследование величины m(n, r, s)",
+      "url": "https://www.youtube.com/watch?v=2i2q6bL6-sQ",
+      "duration": 4096.0
+    },
+    {
+      "video_id": "arega4zf0Xg",
+      "title": "Дискретный анализ 11. Нижняя оценка m(n). Энтропия",
+      "url": "https://www.youtube.com/watch?v=arega4zf0Xg",
+      "duration": 3939.0
+    },
+    {
+      "video_id": "rQA7H0UDmrA",
+      "title": "Дискретный анализ 11. Размерность Вапника-Червоненкиса 1 часть",
+      "url": "https://www.youtube.com/watch?v=rQA7H0UDmrA",
+      "duration": 3963.0
+    },
+    {
+      "video_id": "4GLauc07olE",
+      "title": "Дискретный анализ 11. Теорема Эрдеша-Ко-Радо",
+      "url": "https://www.youtube.com/watch?v=4GLauc07olE",
+      "duration": 4807.0
+    },
+    {
+      "video_id": "vxbmDKIluec",
+      "title": "Дискретный анализ 12. Асимптотика величины m(n, r, s)",
+      "url": "https://www.youtube.com/watch?v=vxbmDKIluec",
+      "duration": 3896.0
+    },
+    {
+      "video_id": "wEgPNdpN-Jk",
+      "title": "Дискретный анализ 12. Теорема Эрдеша–Ко–Радо",
+      "url": "https://www.youtube.com/watch?v=wEgPNdpN-Jk",
+      "duration": 4395.0
+    },
+    {
+      "video_id": "SuEPKqkOmDo",
+      "title": "Дискретный анализ 13. Кнезеровский граф",
+      "url": "https://www.youtube.com/watch?v=SuEPKqkOmDo",
+      "duration": 4028.0
+    },
+    {
+      "video_id": "RLjI2XIGFJs",
+      "title": "Дискретный анализ 13. Матрицы Адамара",
+      "url": "https://www.youtube.com/watch?v=RLjI2XIGFJs",
+      "duration": 4881.0
+    },
+    {
+      "video_id": "DNnic5o15aQ",
+      "title": "Дискретный анализ 13. Теоремы Франкла и Уилсона",
+      "url": "https://www.youtube.com/watch?v=DNnic5o15aQ",
+      "duration": 4178.0
+    },
+    {
+      "video_id": "uQn_EQmaJpY",
+      "title": "Дискретный анализ 14. Кнезеровский граф. Теорема Ловаса",
+      "url": "https://www.youtube.com/watch?v=uQn_EQmaJpY",
+      "duration": 4541.0
+    },
+    {
+      "video_id": "-XT2-nPlcrQ",
+      "title": "Дискретный анализ 14. Проблема Борсука",
+      "url": "https://www.youtube.com/watch?v=-XT2-nPlcrQ",
+      "duration": 3997.0
+    },
+    {
+      "video_id": "yIvHquFYUKg",
+      "title": "Дискретный анализ 14. Решение задачи об уклонении с помощью матриц Адамара",
+      "url": "https://www.youtube.com/watch?v=yIvHquFYUKg",
+      "duration": 3240.0
+    },
+    {
+      "video_id": "bc9A_y2hCmA",
+      "title": "Дискретный анализ 15. Теорема Борсука. Хроматическое число R^n",
+      "url": "https://www.youtube.com/watch?v=bc9A_y2hCmA",
+      "duration": 2707.0
+    },
+    {
+      "video_id": "LklYManbyMU",
+      "title": "Дискретный анализ 16. Числа Рамсея",
+      "url": "https://www.youtube.com/watch?v=LklYManbyMU",
+      "duration": 3902.0
+    },
+    {
+      "video_id": "FqTAJmcYpeI",
+      "title": "Дискретный анализ 17.  Числа Рамсея. Локальная лемма Ловаса",
+      "url": "https://www.youtube.com/watch?v=FqTAJmcYpeI",
+      "duration": 4249.0
+    },
+    {
+      "video_id": "Nt08GLwdfIg",
+      "title": "Дискретный анализ 18. Локальная лемма Ловаса",
+      "url": "https://www.youtube.com/watch?v=Nt08GLwdfIg",
+      "duration": 3989.0
+    },
+    {
+      "video_id": "wATyVAqsIvI",
+      "title": "Дискретный анализ 18. Локальная лемма Ловаса (доказательство общего случая). Двудольное число Рамсея",
+      "url": "https://www.youtube.com/watch?v=wATyVAqsIvI",
+      "duration": 4016.0
+    },
+    {
+      "video_id": "rycczHpIwqI",
+      "title": "Дискретный анализ 19. Двудольное число Рамсея",
+      "url": "https://www.youtube.com/watch?v=rycczHpIwqI",
+      "duration": 4347.0
+    },
+    {
+      "video_id": "7KvC7lIFNBc",
+      "title": "Дискретный анализ 19. Локальная лемма Ловаса(продолжение)",
+      "url": "https://www.youtube.com/watch?v=7KvC7lIFNBc",
+      "duration": 4296.0
+    },
+    {
+      "video_id": "4lVy-TowodY",
+      "title": "Дискретный анализ 2. Локальная лемма Ловаса",
+      "url": "https://www.youtube.com/watch?v=4lVy-TowodY",
+      "duration": 3685.0
+    },
+    {
+      "video_id": "FCl9DD7c3LQ",
+      "title": "Дискретный анализ 2. Локальная лемма Ловаса.",
+      "url": "https://www.youtube.com/watch?v=FCl9DD7c3LQ",
+      "duration": 4185.0
+    },
+    {
+      "video_id": "e0oCiL0w20M",
+      "title": "Дискретный анализ 2. Унициклические графы",
+      "url": "https://www.youtube.com/watch?v=e0oCiL0w20M",
+      "duration": 4223.0
+    },
+    {
+      "video_id": "zh4SyJKIqZk",
+      "title": "Дискретный анализ 2. Унициклические графы",
+      "url": "https://www.youtube.com/watch?v=zh4SyJKIqZk",
+      "duration": 4693.0
+    },
+    {
+      "video_id": "JouOMwunwQ0",
+      "title": "Дискретный анализ 20. Явное построение примеров для чисел Рамсея",
+      "url": "https://www.youtube.com/watch?v=JouOMwunwQ0",
+      "duration": 3964.0
+    },
+    {
+      "video_id": "lRgRIuryoNk",
+      "title": "Дискретный анализ 21. Двудольные числа Рамсея",
+      "url": "https://www.youtube.com/watch?v=lRgRIuryoNk",
+      "duration": 4505.0
+    },
+    {
+      "video_id": "n9hRlerugRw",
+      "title": "Дискретный анализ 23. Системы общих представителей (прод.)",
+      "url": "https://www.youtube.com/watch?v=n9hRlerugRw",
+      "duration": 4746.0
+    },
+    {
+      "video_id": "wYHYPmKwk1k",
+      "title": "Дискретный анализ 29. AKS",
+      "url": "https://www.youtube.com/watch?v=wYHYPmKwk1k",
+      "duration": 3286.0
+    },
+    {
+      "video_id": "pWIicLf4wzY",
+      "title": "Дискретный анализ 3. Локальная лемма Ловаса. Продолжение",
+      "url": "https://www.youtube.com/watch?v=pWIicLf4wzY",
+      "duration": 4269.0
+    },
+    {
+      "video_id": "F0GuQNlay58",
+      "title": "Дискретный анализ 3. Унициклические графы (продолжение). Гамильтоновы графы",
+      "url": "https://www.youtube.com/watch?v=F0GuQNlay58",
+      "duration": 3946.0
+    },
+    {
+      "video_id": "bga5RjV7Qro",
+      "title": "Дискретный анализ 3. Числа Рамсея",
+      "url": "https://www.youtube.com/watch?v=bga5RjV7Qro",
+      "duration": 4056.0
+    },
+    {
+      "video_id": "FsGkWHogbiA",
+      "title": "Дискретный анализ 30. AKS (продолжение)",
+      "url": "https://www.youtube.com/watch?v=FsGkWHogbiA",
+      "duration": 4769.0
+    },
+    {
+      "video_id": "iGdT1h8Ai1k",
+      "title": "Дискретный анализ 4. Применения локальной леммы Ловаса",
+      "url": "https://www.youtube.com/watch?v=iGdT1h8Ai1k",
+      "duration": 4480.0
+    },
+    {
+      "video_id": "kT4YGIwkL1k",
+      "title": "Дискретный анализ 5. Жадные алгоритмы раскраски графов",
+      "url": "https://www.youtube.com/watch?v=kT4YGIwkL1k",
+      "duration": 4570.0
+    },
+    {
+      "video_id": "Iwqlm4zBhgs",
+      "title": "Дискретный анализ 5. Локальная лемма Ловаса",
+      "url": "https://www.youtube.com/watch?v=Iwqlm4zBhgs",
+      "duration": 4003.0
+    },
+    {
+      "video_id": "6nZOs5jqD38",
+      "title": "Дискретный анализ 5. Случайные графы",
+      "url": "https://www.youtube.com/watch?v=6nZOs5jqD38",
+      "duration": 3236.0
+    },
+    {
+      "video_id": "z7O1Azndwvo",
+      "title": "Дискретный анализ 5. Случайные графы. Продолжение.",
+      "url": "https://www.youtube.com/watch?v=z7O1Azndwvo",
+      "duration": 3560.0
+    },
+    {
+      "video_id": "duQdVHwLePU",
+      "title": "Дискретный анализ 6. Теорема Франкла-Уилсона",
+      "url": "https://www.youtube.com/watch?v=duQdVHwLePU",
+      "duration": 4575.0
+    },
+    {
+      "video_id": "m655tINvbw4",
+      "title": "Дискретный анализ 6. Теорема Франкла-Уилсона",
+      "url": "https://www.youtube.com/watch?v=m655tINvbw4",
+      "duration": 4289.0
+    },
+    {
+      "video_id": "_sVzlofaoV4",
+      "title": "Дискретный анализ 7, 8. Хроматическое число (продолжение)",
+      "url": "https://www.youtube.com/watch?v=_sVzlofaoV4",
+      "duration": 7570.0
+    },
+    {
+      "video_id": "YQDXGT_tB9Q",
+      "title": "Дискретный анализ 7. Двудольные числа Рамсея",
+      "url": "https://www.youtube.com/watch?v=YQDXGT_tB9Q",
+      "duration": 4603.0
+    },
+    {
+      "video_id": "3Uj8UZjWddA",
+      "title": "Дискретный анализ 7. Теорема о фазовом переходе",
+      "url": "https://www.youtube.com/watch?v=3Uj8UZjWddA",
+      "duration": 2320.0
+    },
+    {
+      "video_id": "ts_w_aZRZaA",
+      "title": "Дискретный анализ 8. Усиленная оценка двудольных чисел Рамсея",
+      "url": "https://www.youtube.com/watch?v=ts_w_aZRZaA",
+      "duration": 3429.0
+    },
+    {
+      "video_id": "_oHEYvNRJSw",
+      "title": "Дискретный анализ 9. Доказательство теоремы Баллобаша",
+      "url": "https://www.youtube.com/watch?v=_oHEYvNRJSw",
+      "duration": 4298.0
+    },
+    {
+      "video_id": "Y-zrfOjb-Ps",
+      "title": "Дискретный анализ 9. Жадный алгоритм подсчёта хроматического числа. Гиперграфы",
+      "url": "https://www.youtube.com/watch?v=Y-zrfOjb-Ps",
+      "duration": 4631.0
+    },
+    {
+      "video_id": "_T1gFQ6DHyA",
+      "title": "Дискретный анализ 9. Теорема Боллобаша 2",
+      "url": "https://www.youtube.com/watch?v=_T1gFQ6DHyA",
+      "duration": 4967.0
+    },
+    {
+      "video_id": "y-G5yzyYp-4",
+      "title": "Дифференциальные уравнения 12. Изопериметрическая задача. Приложения ОДУ",
+      "url": "https://www.youtube.com/watch?v=y-G5yzyYp-4",
+      "duration": 4025.0
+    },
+    {
+      "video_id": "s_7rw40hVfQ",
+      "title": "Дифференциальные уравнения 12. Приложения дифференциальных уравнений",
+      "url": "https://www.youtube.com/watch?v=s_7rw40hVfQ",
+      "duration": 3496.0
+    },
+    {
+      "video_id": "rGXGnUbLXsI",
+      "title": "Доп. семинар по матлогике, 15.05",
+      "url": "https://www.youtube.com/watch?v=rGXGnUbLXsI",
+      "duration": 6716.0
+    },
+    {
+      "video_id": "xneijxLEI08",
+      "title": "Доп. семинар по матлогике, 24.04",
+      "url": "https://www.youtube.com/watch?v=xneijxLEI08",
+      "duration": 5158.0
+    },
+    {
+      "video_id": "q68hrufGfUk",
+      "title": "Доп. семинар по матлогу 22.09.2019",
+      "url": "https://www.youtube.com/watch?v=q68hrufGfUk",
+      "duration": 5529.0
+    },
+    {
+      "video_id": "hOwqsa9KuC4",
+      "title": "Доп. семинар по ОКТЧ 15.09.2019",
+      "url": "https://www.youtube.com/watch?v=hOwqsa9KuC4",
+      "duration": 4787.0
+    },
+    {
+      "video_id": "oWlS2CChKgE",
+      "title": "Допсем по матлогике 2. Пропозициональные формулы",
+      "url": "https://www.youtube.com/watch?v=oWlS2CChKgE",
+      "duration": 4174.0
+    },
+    {
+      "video_id": "e_zHKd3oAzo",
+      "title": "Допсем по матлогике 4. Исчисление высказываний",
+      "url": "https://www.youtube.com/watch?v=e_zHKd3oAzo",
+      "duration": 4515.0
+    },
+    {
+      "video_id": "XAEnh-5DKs8",
+      "title": "Допсем по матлогике 5. Метод резолюций",
+      "url": "https://www.youtube.com/watch?v=XAEnh-5DKs8",
+      "duration": 5021.0
+    },
+    {
+      "video_id": "gpzMKByqRds",
+      "title": "Допсем по матлогике 6. Метод автоморфизмов. Игра Эренфойхта",
+      "url": "https://www.youtube.com/watch?v=gpzMKByqRds",
+      "duration": 4506.0
+    },
+    {
+      "video_id": "0Zcq3hWe9pQ",
+      "title": "Интеграл Лебега и теория поля 11. Замена переменной в интеграле Лебега.",
+      "url": "https://www.youtube.com/watch?v=0Zcq3hWe9pQ",
+      "duration": 6875.0
+    },
+    {
+      "video_id": "iX3s3TWclQA",
+      "title": "Интеграл Лебега и теория поля 16. Сравнение интегралов Лебега и Римана.",
+      "url": "https://www.youtube.com/watch?v=iX3s3TWclQA",
+      "duration": 6684.0
+    },
+    {
+      "video_id": "Sfrr8ry5DH0",
+      "title": "Комбинаторная теория групп 2. Теорема Нильсена-Шрайера. Свободное произведение.",
+      "url": "https://www.youtube.com/watch?v=Sfrr8ry5DH0",
+      "duration": 2606.0
+    },
+    {
+      "video_id": "_k1Fi3LdJLg",
+      "title": "Комбинаторная теория групп 3. HNN-расширения, теорема о нормальной форме. Хопфовы группы.",
+      "url": "https://www.youtube.com/watch?v=_k1Fi3LdJLg",
+      "duration": 3000.0
+    },
+    {
+      "video_id": "87LxHI92DeQ",
+      "title": "Комбинаторная теория групп 4. Теорема Магнуса о свободе.",
+      "url": "https://www.youtube.com/watch?v=87LxHI92DeQ",
+      "duration": 2793.0
+    },
+    {
+      "video_id": "mJHOZFyx0ng",
+      "title": "Комбинаторная теория групп 5. Полугруппы, проблема тождества.",
+      "url": "https://www.youtube.com/watch?v=mJHOZFyx0ng",
+      "duration": 1753.0
+    },
+    {
+      "video_id": "8-7y45BNNFU",
+      "title": "Комбинаторная теория групп 6. Графы Кэли.",
+      "url": "https://www.youtube.com/watch?v=8-7y45BNNFU",
+      "duration": 2665.0
+    },
+    {
+      "video_id": "J9YFNAhiWnI",
+      "title": "Комбинаторная теория групп 7. Концы топологических пространств, диаграммы ван Кампена",
+      "url": "https://www.youtube.com/watch?v=J9YFNAhiWnI",
+      "duration": 3255.0
+    },
+    {
+      "video_id": "WxOuWO-tbUg",
+      "title": "Комбинаторная теория групп 8. Клеточные пространства, петли.",
+      "url": "https://www.youtube.com/watch?v=WxOuWO-tbUg",
+      "duration": 1844.0
+    },
+    {
+      "video_id": "Te49rkkh3r4",
+      "title": "Комбинаторная теория групп 9. Теорема Зейферта-ван Кампена, завершение курса.",
+      "url": "https://www.youtube.com/watch?v=Te49rkkh3r4",
+      "duration": 1756.0
+    },
+    {
+      "video_id": "MVH68ZlxPso",
+      "title": "Коммутативная алгебра 3. Тензорное произведение модулей",
+      "url": "https://www.youtube.com/watch?v=MVH68ZlxPso",
+      "duration": 9184.0
+    },
+    {
+      "video_id": "UdxNCkqpUfI",
+      "title": "Коммутативная алгебра 5. Полилинейная алгебра",
+      "url": "https://www.youtube.com/watch?v=UdxNCkqpUfI",
+      "duration": 7175.0
+    },
+    {
+      "video_id": "_-r38FMLuwk",
+      "title": "Консультация к письменному госу по математике от Редкозубова В.В.",
+      "url": "https://www.youtube.com/watch?v=_-r38FMLuwk",
+      "duration": 9104.0
+    },
+    {
+      "video_id": "TXs_4Hu1IYo",
+      "title": "Консультация по ТФКП к устному госу по математике от Бунакова А.Э.",
+      "url": "https://www.youtube.com/watch?v=TXs_4Hu1IYo",
+      "duration": 5979.0
+    },
+    {
+      "video_id": "erjQPpaoqDg",
+      "title": "Кратные интегралы и теория поля. Консультация от Гусева Н.А.",
+      "url": "https://www.youtube.com/watch?v=erjQPpaoqDg",
+      "duration": 13595.0
+    },
+    {
+      "video_id": "nbmGDa8sAJY",
+      "title": "Криптография 1. Необратимые функции",
+      "url": "https://www.youtube.com/watch?v=nbmGDa8sAJY",
+      "duration": 4958.0
+    },
+    {
+      "video_id": "rQHOBmWza4k",
+      "title": "Криптография 1. Синопсис курса, односторонние функции, теорема об усилении",
+      "url": "https://www.youtube.com/watch?v=rQHOBmWza4k",
+      "duration": 6415.0
+    },
+    {
+      "video_id": "_1ZlshsUTOQ",
+      "title": "Криптография 1. Синопсис курса. Односторонние функции",
+      "url": "https://www.youtube.com/watch?v=_1ZlshsUTOQ",
+      "duration": 4539.0
+    },
+    {
+      "video_id": "zt85w7r8Pv4",
+      "title": "Криптография 10. Надёжность протоколов шифрования",
+      "url": "https://www.youtube.com/watch?v=zt85w7r8Pv4",
+      "duration": 5228.0
+    },
+    {
+      "video_id": "bZLxiITj5mk",
+      "title": "Криптография 10. Протоколы идентификации. Цифровая подпись",
+      "url": "https://www.youtube.com/watch?v=bZLxiITj5mk",
+      "duration": 4675.0
+    },
+    {
+      "video_id": "deqKvtDMOKU",
+      "title": "Криптография 11. Надёжность протоколов шифрования 2",
+      "url": "https://www.youtube.com/watch?v=deqKvtDMOKU",
+      "duration": 4989.0
+    },
+    {
+      "video_id": "800yaUbW7AA",
+      "title": "Криптография 12. Протоколы привязки",
+      "url": "https://www.youtube.com/watch?v=800yaUbW7AA",
+      "duration": 4876.0
+    },
+    {
+      "video_id": "OwH7lechmB8",
+      "title": "Криптография 13. Безопасные двусторонние вычисления",
+      "url": "https://www.youtube.com/watch?v=OwH7lechmB8",
+      "duration": 4830.0
+    },
+    {
+      "video_id": "CN3tvE_LnWs",
+      "title": "Криптография 13. Протоколы идентификации, протоколы цифровой подписи",
+      "url": "https://www.youtube.com/watch?v=CN3tvE_LnWs",
+      "duration": 5044.0
+    },
+    {
+      "video_id": "OtkDc3Vt_L8",
+      "title": "Криптография 14. Цифровая подпись. Хэш функции",
+      "url": "https://www.youtube.com/watch?v=OtkDc3Vt_L8",
+      "duration": 4748.0
+    },
+    {
+      "video_id": "hKNLnH-wMOk",
+      "title": "Криптография 15. Конфиденциальные двусторонние вычисления",
+      "url": "https://www.youtube.com/watch?v=hKNLnH-wMOk",
+      "duration": 3909.0
+    },
+    {
+      "video_id": "xTOboqftqHw",
+      "title": "Криптография 2. Теорема об усилении",
+      "url": "https://www.youtube.com/watch?v=xTOboqftqHw",
+      "duration": 4794.0
+    },
+    {
+      "video_id": "FtOU57qVqgg",
+      "title": "Криптография 3. Построение ГПСЧ по односторонней перестановке, xor-лемма Яо, лемма Левина-Голдрайха",
+      "url": "https://www.youtube.com/watch?v=FtOU57qVqgg",
+      "duration": 5734.0
+    },
+    {
+      "video_id": "j3I-eANeU30",
+      "title": "Криптография 3. Построение ГСПЧ. Односторонние перестановки",
+      "url": "https://www.youtube.com/watch?v=j3I-eANeU30",
+      "duration": 4231.0
+    },
+    {
+      "video_id": "CiCvtpNzS8k",
+      "title": "Криптография 4. Свойства ГПСЧ",
+      "url": "https://www.youtube.com/watch?v=CiCvtpNzS8k",
+      "duration": 5025.0
+    },
+    {
+      "video_id": "XLnLO1wcGII",
+      "title": "Криптография 5. XOR-лемма Яо. Лемма Левина-Голдрайха",
+      "url": "https://www.youtube.com/watch?v=XLnLO1wcGII",
+      "duration": 5042.0
+    },
+    {
+      "video_id": "GazVa42Dh60",
+      "title": "Криптография 6. Псевдослучайные функции",
+      "url": "https://www.youtube.com/watch?v=GazVa42Dh60",
+      "duration": 5068.0
+    },
+    {
+      "video_id": "k0VCFlWztTQ",
+      "title": "Криптография 7. Трудные биты для конкретных функций",
+      "url": "https://www.youtube.com/watch?v=k0VCFlWztTQ",
+      "duration": 5064.0
+    },
+    {
+      "video_id": "Ega6f8r2XCg",
+      "title": "Криптография 7. Шифрование с открытым и закрытым ключами.",
+      "url": "https://www.youtube.com/watch?v=Ega6f8r2XCg",
+      "duration": 4098.0
+    },
+    {
+      "video_id": "Pgobsd7S6js",
+      "title": "Криптография 8. Протоколы шифрования с привязкой к биту",
+      "url": "https://www.youtube.com/watch?v=Pgobsd7S6js",
+      "duration": 4479.0
+    },
+    {
+      "video_id": "RXxwaMsCKLs",
+      "title": "Криптография 8. Трудные биты конкретных функций 2.",
+      "url": "https://www.youtube.com/watch?v=RXxwaMsCKLs",
+      "duration": 5005.0
+    },
+    {
+      "video_id": "2A6s0XexxnU",
+      "title": "Криптография 9. Интерактивные протоколы привязки к биту. Орлянка по телефону",
+      "url": "https://www.youtube.com/watch?v=2A6s0XexxnU",
+      "duration": 4923.0
+    },
+    {
+      "video_id": "MHOoWSNP6Ic",
+      "title": "Критография 2. Односторонние функуии в обобщённом смысле",
+      "url": "https://www.youtube.com/watch?v=MHOoWSNP6Ic",
+      "duration": 4631.0
+    },
+    {
+      "video_id": "VUGBUxwkBdU",
+      "title": "Математика больших данных 1. Эргодическая теорема для марковских процессов",
+      "url": "https://www.youtube.com/watch?v=VUGBUxwkBdU",
+      "duration": 7214.0
+    },
+    {
+      "video_id": "qFD984kixOI",
+      "title": "Математика больших данных 10. Тензорные разложения",
+      "url": "https://www.youtube.com/watch?v=qFD984kixOI",
+      "duration": 7967.0
+    },
+    {
+      "video_id": "uq_yMkINueI",
+      "title": "Математика больших данных 2. Неравенства концентрации меры",
+      "url": "https://www.youtube.com/watch?v=uq_yMkINueI",
+      "duration": 7206.0
+    },
+    {
+      "video_id": "H3KBDKzy6fg",
+      "title": "Математика больших данных 3. Введение в теорию информации и ее приложения",
+      "url": "https://www.youtube.com/watch?v=H3KBDKzy6fg",
+      "duration": 9029.0
+    },
+    {
+      "video_id": "8dcjhNvF6Lk",
+      "title": "Математика больших данных 4. Теоретико-информационные подходы в анализе данных",
+      "url": "https://www.youtube.com/watch?v=8dcjhNvF6Lk",
+      "duration": 7392.0
+    },
+    {
+      "video_id": "T9_0oqVNHKo",
+      "title": "Математика больших данных 5. Стохастический градиентный спуск (SGD)",
+      "url": "https://www.youtube.com/watch?v=T9_0oqVNHKo",
+      "duration": 5769.0
+    },
+    {
+      "video_id": "Xp8g56pIRCE",
+      "title": "Математика больших данных 7. PAC-байесовский подход к задачам многомерной статистики",
+      "url": "https://www.youtube.com/watch?v=Xp8g56pIRCE",
+      "duration": 8181.0
+    },
+    {
+      "video_id": "x4yCcdm5xwc",
+      "title": "Математика больших данных 9. Методы малоранговой аппроксимации матриц",
+      "url": "https://www.youtube.com/watch?v=x4yCcdm5xwc",
+      "duration": 7353.0
+    },
+    {
+      "video_id": "J0ldDANLyNI",
+      "title": "Математическая логика 1. Высказывания. Логические связки. Тавтологии",
+      "url": "https://www.youtube.com/watch?v=J0ldDANLyNI",
+      "duration": 3511.0
+    },
+    {
+      "video_id": "bBeb_zQEKRQ",
+      "title": "Математическая логика 10. Вложения. Теорема Кантора",
+      "url": "https://www.youtube.com/watch?v=bBeb_zQEKRQ",
+      "duration": 4578.0
+    },
+    {
+      "video_id": "oTIGBLQbuUk",
+      "title": "Математическая логика 15. Отношение и класс эквивалентности. Ядро функции",
+      "url": "https://www.youtube.com/watch?v=oTIGBLQbuUk",
+      "duration": 4113.0
+    },
+    {
+      "video_id": "OTiRILToIYQ",
+      "title": "Математическая логика 2. Рассуждения. Кванторы и предикаты",
+      "url": "https://www.youtube.com/watch?v=OTiRILToIYQ",
+      "duration": 4093.0
+    },
+    {
+      "video_id": "pAke_dZYdko",
+      "title": "Математическая логика 4. Аксиомы пары, степени, объединения. Пустое множество",
+      "url": "https://www.youtube.com/watch?v=pAke_dZYdko",
+      "duration": 4784.0
+    },
+    {
+      "video_id": "trhda0k9M28",
+      "title": "Математическая логика 8. Функции",
+      "url": "https://www.youtube.com/watch?v=trhda0k9M28",
+      "duration": 5037.0
+    },
+    {
+      "video_id": "DUZakG4p-8E",
+      "title": "Математическая логика 9. Равномощность. Возведение множества в степень",
+      "url": "https://www.youtube.com/watch?v=DUZakG4p-8E",
+      "duration": 3959.0
+    },
+    {
+      "video_id": "irGQBnZYkv4",
+      "title": "Математическая логика и теория алгоритмов 10. Истинность формул",
+      "url": "https://www.youtube.com/watch?v=irGQBnZYkv4",
+      "duration": 5105.0
+    },
+    {
+      "video_id": "HxMkSnaQwd0",
+      "title": "Математическая логика и теория алгоритмов 11. Предварённая нормальная форма",
+      "url": "https://www.youtube.com/watch?v=HxMkSnaQwd0",
+      "duration": 4479.0
+    },
+    {
+      "video_id": "95QBB8emkck",
+      "title": "Математическая логика и теория алгоритмов 13. Игра Эренфхойта",
+      "url": "https://www.youtube.com/watch?v=95QBB8emkck",
+      "duration": 4685.0
+    },
+    {
+      "video_id": "Mr2KUNm2ZzQ",
+      "title": "Математическая логика и теория алгоритмов 13. Теорема Гёделя о неполноте",
+      "url": "https://www.youtube.com/watch?v=Mr2KUNm2ZzQ",
+      "duration": 4741.0
+    },
+    {
+      "video_id": "NPY8Kb7J5OA",
+      "title": "Математическая логика и теория алгоритмов 15. Теорема Гёделя о полноте",
+      "url": "https://www.youtube.com/watch?v=NPY8Kb7J5OA",
+      "duration": 4564.0
+    },
+    {
+      "video_id": "6rYLwf-IBGU",
+      "title": "Математическая логика и теория алгоритмов 16. Дополнительная лекция: P=NP",
+      "url": "https://www.youtube.com/watch?v=6rYLwf-IBGU",
+      "duration": 4254.0
+    },
+    {
+      "video_id": "nJDpc8Rq9vY",
+      "title": "Математическая логика и теория алгоритмов 4. Ординалы",
+      "url": "https://www.youtube.com/watch?v=nJDpc8Rq9vY",
+      "duration": 4612.0
+    },
+    {
+      "video_id": "iJjiZnJNSho",
+      "title": "Математическая логика и теория алгоритмов 6. Исчисление высказываний",
+      "url": "https://www.youtube.com/watch?v=iJjiZnJNSho",
+      "duration": 5193.0
+    },
+    {
+      "video_id": "gDMEAfa2YQ4",
+      "title": "Математическая логика и теория алгоритмов 6. Правила вывода",
+      "url": "https://www.youtube.com/watch?v=gDMEAfa2YQ4",
+      "duration": 4349.0
+    },
+    {
+      "video_id": "-EyQ6PfbudA",
+      "title": "Математическая логика и теория алгоритмов 6. Приложения аксиомы выбора",
+      "url": "https://www.youtube.com/watch?v=-EyQ6PfbudA",
+      "duration": 2388.0
+    },
+    {
+      "video_id": "_h8ea-XDYeE",
+      "title": "Математическая логика и теория алгоритмов 7. Разрешимые и перечислимые множества",
+      "url": "https://www.youtube.com/watch?v=_h8ea-XDYeE",
+      "duration": 4137.0
+    },
+    {
+      "video_id": "TGwiuH03yNw",
+      "title": "Математическая логика и теория алгоритмов 8. свойства эквивалентные перечислимости",
+      "url": "https://www.youtube.com/watch?v=TGwiuH03yNw",
+      "duration": 3858.0
+    },
+    {
+      "video_id": "b6BkzkCzmYk",
+      "title": "Математическая логика и теория алгоритмов 9. Резолюции. Языки 1-го порядка",
+      "url": "https://www.youtube.com/watch?v=b6BkzkCzmYk",
+      "duration": 4717.0
+    },
+    {
+      "video_id": "16OE6jagqfM",
+      "title": "Математическая статистика 2. Распределения Фишера и Стьюдента, базовые характеристики выборки",
+      "url": "https://www.youtube.com/watch?v=16OE6jagqfM",
+      "duration": 5124.0
+    },
+    {
+      "video_id": "n_8aVtjUsnM",
+      "title": "Математическая статистика 3. Проверка гипотез, уровень значимости, критерий Пирсона",
+      "url": "https://www.youtube.com/watch?v=n_8aVtjUsnM",
+      "duration": 5072.0
+    },
+    {
+      "video_id": "CYumlvzf47o",
+      "title": "Математическая статистика 4. Сравнение критериев, мощность, функция мощности",
+      "url": "https://www.youtube.com/watch?v=CYumlvzf47o",
+      "duration": 4800.0
+    },
+    {
+      "video_id": "SNq-NgYcqbY",
+      "title": "Математический анализ 0. Предварительные сведения",
+      "url": "https://www.youtube.com/watch?v=SNq-NgYcqbY",
+      "duration": 4784.0
+    },
+    {
+      "video_id": "9ob4cmi6N2s",
+      "title": "Математический анализ 2. Операции на действительных числах",
+      "url": "https://www.youtube.com/watch?v=9ob4cmi6N2s",
+      "duration": 4664.0
+    },
+    {
+      "video_id": "6uyRBw_t9NA",
+      "title": "Математический анализ 27. Многочлены",
+      "url": "https://www.youtube.com/watch?v=6uyRBw_t9NA",
+      "duration": 4680.0
+    },
+    {
+      "video_id": "3e9mPu-UPk8",
+      "title": "Математический анализ 3. Действительные числа. Комплексные числа.",
+      "url": "https://www.youtube.com/watch?v=3e9mPu-UPk8",
+      "duration": 4453.0
+    },
+    {
+      "video_id": "GoDMcCwyvU8",
+      "title": "Математический анализ 4. Предел последовательности",
+      "url": "https://www.youtube.com/watch?v=GoDMcCwyvU8",
+      "duration": 4685.0
+    },
+    {
+      "video_id": "53X3qS165EY",
+      "title": "Математический анализ 5. Свойства пределов",
+      "url": "https://www.youtube.com/watch?v=53X3qS165EY",
+      "duration": 4572.0
+    },
+    {
+      "video_id": "kgEqAGNw0Vg",
+      "title": "Матлогика 1. Теория формальных языков.",
+      "url": "https://www.youtube.com/watch?v=kgEqAGNw0Vg",
+      "duration": 4481.0
+    },
+    {
+      "video_id": "p8XLQDMwB48",
+      "title": "Матлогика 2 (ПМФ, ИВТ). Создание последовательностей.",
+      "url": "https://www.youtube.com/watch?v=p8XLQDMwB48",
+      "duration": 4823.0
+    },
+    {
+      "video_id": "KkO5t4j15iw",
+      "title": "Матлогика 30. М-сводимость",
+      "url": "https://www.youtube.com/watch?v=KkO5t4j15iw",
+      "duration": 5141.0
+    },
+    {
+      "video_id": "P3LLU-ukl94",
+      "title": "Матлогика 32. Лямбда-исчисление",
+      "url": "https://www.youtube.com/watch?v=P3LLU-ukl94",
+      "duration": 9951.0
+    },
+    {
+      "video_id": "JGIOoMRFPKk",
+      "title": "Машинное обучение 1. Введение, kNN-классификатор",
+      "url": "https://www.youtube.com/watch?v=JGIOoMRFPKk",
+      "duration": 2431.0
+    },
+    {
+      "video_id": "nF0rqbOwOAw",
+      "title": "Машинное обучение 4. SVM, PCA.",
+      "url": "https://www.youtube.com/watch?v=nF0rqbOwOAw",
+      "duration": 3812.0
+    },
+    {
+      "video_id": "Iot9uj5Mw3E",
+      "title": "Машинное обучение 9. SVD",
+      "url": "https://www.youtube.com/watch?v=Iot9uj5Mw3E",
+      "duration": 4957.0
+    },
+    {
+      "video_id": "9ozqEcOsjWg",
+      "title": "Методы и алгоритмы машинного обучения 4. Субградиентный спуск. AdaGrad. Adam. DoG",
+      "url": "https://www.youtube.com/watch?v=9ozqEcOsjWg",
+      "duration": 3245.0
+    },
+    {
+      "video_id": "X9SU2dbG8Lc",
+      "title": "Методы машинного обучения / 3 курс искусственные нейронные сети",
+      "url": "https://www.youtube.com/watch?v=X9SU2dbG8Lc",
+      "duration": 4891.0
+    },
+    {
+      "video_id": "NbAuYoVS6Fo",
+      "title": "Методы оптимизации (доп. главы) 4. Субградиентный метод и адаптивные подходы",
+      "url": "https://www.youtube.com/watch?v=NbAuYoVS6Fo",
+      "duration": 6286.0
+    },
+    {
+      "video_id": "Z03sPdldGAU",
+      "title": "Методы оптимизации (доп. главы) 5. Paramater-free оптимизация",
+      "url": "https://www.youtube.com/watch?v=Z03sPdldGAU",
+      "duration": 9097.0
+    },
+    {
+      "video_id": "pAEBVsCJSOE",
+      "title": "Методы оптимизации (доп. главы) 6. Методы редукции дисперсии",
+      "url": "https://www.youtube.com/watch?v=pAEBVsCJSOE",
+      "duration": 7661.0
+    },
+    {
+      "video_id": "m0WnzV1c3_o",
+      "title": "Методы оптимизации 1. Вводная лекция",
+      "url": "https://www.youtube.com/watch?v=m0WnzV1c3_o",
+      "duration": 4224.0
+    },
+    {
+      "video_id": "VKT8gikSxQ0",
+      "title": "Методы оптимизации 2. Сопряженные конусы. Выпуклые функции",
+      "url": "https://www.youtube.com/watch?v=VKT8gikSxQ0",
+      "duration": 5394.0
+    },
+    {
+      "video_id": "fyEjpBAKusU",
+      "title": "Многомерный анализ, интегралы и ряды 13. Определенный интеграл Римана",
+      "url": "https://www.youtube.com/watch?v=fyEjpBAKusU",
+      "duration": 5331.0
+    },
+    {
+      "video_id": "kkEeQXypBz0",
+      "title": "Многомерный анализ, интегралы и ряды 15. Следствия из критерия Лебега",
+      "url": "https://www.youtube.com/watch?v=kkEeQXypBz0",
+      "duration": 5465.0
+    },
+    {
+      "video_id": "91oeMX57n14",
+      "title": "Многомерный анализ, интегралы и ряды 4. Определённый интеграл Римана",
+      "url": "https://www.youtube.com/watch?v=91oeMX57n14",
+      "duration": 4842.0
+    },
+    {
+      "video_id": "f-zIHTidkZY",
+      "title": "Нейробиология обучения 12. Что будет, если не спать",
+      "url": "https://www.youtube.com/watch?v=f-zIHTidkZY",
+      "duration": 7408.0
+    },
+    {
+      "video_id": "_4davehc77I",
+      "title": "Нейробиология обучения 13. Как правильно спать",
+      "url": "https://www.youtube.com/watch?v=_4davehc77I",
+      "duration": 8893.0
+    },
+    {
+      "video_id": "f00isF51DLs",
+      "title": "ОКТЧ 1. Квадратичные вычеты. Символ Лежандра",
+      "url": "https://www.youtube.com/watch?v=f00isF51DLs",
+      "duration": 3894.0
+    },
+    {
+      "video_id": "195_Qzs4zxQ",
+      "title": "ОКТЧ 1. Основы теории множеств",
+      "url": "https://www.youtube.com/watch?v=195_Qzs4zxQ",
+      "duration": 4321.0
+    },
+    {
+      "video_id": "BuhdZ9yg1iU",
+      "title": "ОКТЧ 1. Основы теории множеств",
+      "url": "https://www.youtube.com/watch?v=BuhdZ9yg1iU",
+      "duration": 4703.0
+    },
+    {
+      "video_id": "86SMPZtl8x8",
+      "title": "ОКТЧ 1. Основы теории множеств.",
+      "url": "https://www.youtube.com/watch?v=86SMPZtl8x8",
+      "duration": 4354.0
+    },
+    {
+      "video_id": "lgNzo_9f2aI",
+      "title": "ОКТЧ 10. Решётки. Геометрия чисел. Теорема Минковского",
+      "url": "https://www.youtube.com/watch?v=lgNzo_9f2aI",
+      "duration": 4460.0
+    },
+    {
+      "video_id": "Yd0aYKgiFG4",
+      "title": "ОКТЧ 11. Решётки.",
+      "url": "https://www.youtube.com/watch?v=Yd0aYKgiFG4",
+      "duration": 4089.0
+    },
+    {
+      "video_id": "zS8IlckSVho",
+      "title": "ОКТЧ 11. Формула обращения Мёбиуса на ЧУМах",
+      "url": "https://www.youtube.com/watch?v=zS8IlckSVho",
+      "duration": 3940.0
+    },
+    {
+      "video_id": "FNk6lN0tNKY",
+      "title": "ОКТЧ 12. Равномерно распределённые последовательности. Критерий Вейля",
+      "url": "https://www.youtube.com/watch?v=FNk6lN0tNKY",
+      "duration": 4483.0
+    },
+    {
+      "video_id": "34-0Y92wv4c",
+      "title": "ОКТЧ 12. Разбиения",
+      "url": "https://www.youtube.com/watch?v=34-0Y92wv4c",
+      "duration": 4393.0
+    },
+    {
+      "video_id": "b3iwY9ENBeE",
+      "title": "ОКТЧ 13. Рекурренты",
+      "url": "https://www.youtube.com/watch?v=b3iwY9ENBeE",
+      "duration": 4436.0
+    },
+    {
+      "video_id": "woDLcz_P0pc",
+      "title": "ОКТЧ 13. Сумма Гаусса",
+      "url": "https://www.youtube.com/watch?v=woDLcz_P0pc",
+      "duration": 1846.0
+    },
+    {
+      "video_id": "DUA49wMaLd4",
+      "title": "ОКТЧ 14. Тесты на простоту. Тест Миллера-Рабина. Тест Люка-Лемера",
+      "url": "https://www.youtube.com/watch?v=DUA49wMaLd4",
+      "duration": 5236.0
+    },
+    {
+      "video_id": "RwfhaA0cbz4",
+      "title": "ОКТЧ 14. Формальные степенные ряды",
+      "url": "https://www.youtube.com/watch?v=RwfhaA0cbz4",
+      "duration": 4264.0
+    },
+    {
+      "video_id": "gY1vLHRR89c",
+      "title": "ОКТЧ 15. Теорема Роньяи.",
+      "url": "https://www.youtube.com/watch?v=gY1vLHRR89c",
+      "duration": 2085.0
+    },
+    {
+      "video_id": "ehQcjvvIIPg",
+      "title": "ОКТЧ 16. Двумерный аналог теоремы Эрдеша-Гинзбурга-Зива",
+      "url": "https://www.youtube.com/watch?v=ehQcjvvIIPg",
+      "duration": 3482.0
+    },
+    {
+      "video_id": "nj4uo3aAMMI",
+      "title": "ОКТЧ 3. Граница Плоткина",
+      "url": "https://www.youtube.com/watch?v=nj4uo3aAMMI",
+      "duration": 4209.0
+    },
+    {
+      "video_id": "Pix9Al7UJFw",
+      "title": "ОКТЧ 3.5. Основная теорема арифметики",
+      "url": "https://www.youtube.com/watch?v=Pix9Al7UJFw",
+      "duration": 3181.0
+    },
+    {
+      "video_id": "2XfNXi6oJms",
+      "title": "ОКТЧ 5. Бинарные отношения",
+      "url": "https://www.youtube.com/watch?v=2XfNXi6oJms",
+      "duration": 4361.0
+    },
+    {
+      "video_id": "jHP0WmuvA28",
+      "title": "ОКТЧ 5. Первообразные корни. Теорема Шевалле",
+      "url": "https://www.youtube.com/watch?v=jHP0WmuvA28",
+      "duration": 4679.0
+    },
+    {
+      "video_id": "iOlR-5CZVSo",
+      "title": "ОКТЧ 6. Предпорядки и решётки",
+      "url": "https://www.youtube.com/watch?v=iOlR-5CZVSo",
+      "duration": 4379.0
+    },
+    {
+      "video_id": "ORVg_IRe2WY",
+      "title": "ОКТЧ 8. Цепные дроби.",
+      "url": "https://www.youtube.com/watch?v=ORVg_IRe2WY",
+      "duration": 4797.0
+    },
+    {
+      "video_id": "SYHSjrhhPNI",
+      "title": "ОКТЧ 9. Тождество Эрмита",
+      "url": "https://www.youtube.com/watch?v=SYHSjrhhPNI",
+      "duration": 4406.0
+    },
+    {
+      "video_id": "Th3We-ooVtQ",
+      "title": "Основы ML и управления рисками в банках (факультатив) 7. Деревья решений",
+      "url": "https://www.youtube.com/watch?v=Th3We-ooVtQ",
+      "duration": 5606.0
+    },
+    {
+      "video_id": "YIcA8c9H2jg",
+      "title": "Основы ML и управления рисками в банках (факультатив) 9. Управление кредитным риском",
+      "url": "https://www.youtube.com/watch?v=YIcA8c9H2jg",
+      "duration": 5878.0
+    },
+    {
+      "video_id": "3bgY78-Rt54",
+      "title": "Основы вероятности и теории меры 8. Мера. Внешняя мера",
+      "url": "https://www.youtube.com/watch?v=3bgY78-Rt54",
+      "duration": 2444.0
+    },
+    {
+      "video_id": "sn4Pq1GKTDc",
+      "title": "Основы вероятности и теория меры 6. Теорема Каратеодори",
+      "url": "https://www.youtube.com/watch?v=sn4Pq1GKTDc",
+      "duration": 4999.0
+    },
+    {
+      "video_id": "5eBOODZ2gLI",
+      "title": "Основы вероятности и теория меры 8. Условная вероятность",
+      "url": "https://www.youtube.com/watch?v=5eBOODZ2gLI",
+      "duration": 1800.0
+    },
+    {
+      "video_id": "73QJmrYU0qY",
+      "title": "Основы вероятности и теория меры 9. Независимые случайные величины",
+      "url": "https://www.youtube.com/watch?v=73QJmrYU0qY",
+      "duration": 5084.0
+    },
+    {
+      "video_id": "fN6f8t8um1s",
+      "title": "Основы высшей алгебры и теории кодирования Л2",
+      "url": "https://www.youtube.com/watch?v=fN6f8t8um1s",
+      "duration": 4781.0
+    },
+    {
+      "video_id": "6CnnRPDNJcs",
+      "title": "Основы комбинаторики и теории чисел (продвинутый поток) 12. Разбиения",
+      "url": "https://www.youtube.com/watch?v=6CnnRPDNJcs",
+      "duration": 5051.0
+    },
+    {
+      "video_id": "ajRv28rp5sc",
+      "title": "Основы комбинаторики и теории чисел (продвинутый поток) 4. Тесты на простоту",
+      "url": "https://www.youtube.com/watch?v=ajRv28rp5sc",
+      "duration": 4845.0
+    },
+    {
+      "video_id": "8Ypbo-oFtfc",
+      "title": "Основы комбинаторики и теории чисел 1. Квадратичные сравнения. Символ Лежандра",
+      "url": "https://www.youtube.com/watch?v=8Ypbo-oFtfc",
+      "duration": 4311.0
+    },
+    {
+      "video_id": "r1CLq19pEYo",
+      "title": "Основы комбинаторики и теории чисел 10. Теорема Минковского-Главки. Продолжение",
+      "url": "https://www.youtube.com/watch?v=r1CLq19pEYo",
+      "duration": 4859.0
+    },
+    {
+      "video_id": "C-kNGMoo-lo",
+      "title": "Основы комбинаторики и теории чисел 10. Теорема Шевалле. Теорема Варнинга",
+      "url": "https://www.youtube.com/watch?v=C-kNGMoo-lo",
+      "duration": 3865.0
+    },
+    {
+      "video_id": "pOyVYceK0vQ",
+      "title": "Основы комбинаторики и теории чисел 11. Равномерное распределение последовательностей",
+      "url": "https://www.youtube.com/watch?v=pOyVYceK0vQ",
+      "duration": 4691.0
+    },
+    {
+      "video_id": "JXa7jUcflWU",
+      "title": "Основы комбинаторики и теории чисел 12. Тригонометрические суммы. Сумма Гаусса",
+      "url": "https://www.youtube.com/watch?v=JXa7jUcflWU",
+      "duration": 2741.0
+    },
+    {
+      "video_id": "3tEiNkdjHTY",
+      "title": "Основы комбинаторики и теории чисел 3. Матрицы Адамара. Приложения",
+      "url": "https://www.youtube.com/watch?v=3tEiNkdjHTY",
+      "duration": 4984.0
+    },
+    {
+      "video_id": "UK8HkyTuKRY",
+      "title": "Основы комбинаторики и теории чисел 3. Формула обращения Мёбиуса",
+      "url": "https://www.youtube.com/watch?v=UK8HkyTuKRY",
+      "duration": 4862.0
+    },
+    {
+      "video_id": "02XE12oSNKc",
+      "title": "Основы комбинаторики и теории чисел 4. Распределение простых чисел",
+      "url": "https://www.youtube.com/watch?v=02XE12oSNKc",
+      "duration": 4999.0
+    },
+    {
+      "video_id": "N_CAnO98vAg",
+      "title": "Основы комбинаторики и теории чисел 5. Первообразные корни. Индексы",
+      "url": "https://www.youtube.com/watch?v=N_CAnO98vAg",
+      "duration": 4022.0
+    },
+    {
+      "video_id": "mxi5xYAvTh0",
+      "title": "Основы комбинаторики и теории чисел 7. Диаграммы Юнга. Формальные степенные ряды",
+      "url": "https://www.youtube.com/watch?v=mxi5xYAvTh0",
+      "duration": 5155.0
+    },
+    {
+      "video_id": "3pqoZJwfhkE",
+      "title": "Основы комбинаторики и теории чисел 8. Алгебраические и трансцендентные числа",
+      "url": "https://www.youtube.com/watch?v=3pqoZJwfhkE",
+      "duration": 4621.0
+    },
+    {
+      "video_id": "biZu5cayucY",
+      "title": "Основы комбинаторики и теории чисел 9. Проблема Эрдеша-Гинзбурга-Зива",
+      "url": "https://www.youtube.com/watch?v=biZu5cayucY",
+      "duration": 4786.0
+    },
+    {
+      "video_id": "KihYfYIHcCk",
+      "title": "Основы комбинаторики и теории чисел 9. Теорема Минковского. Решетки",
+      "url": "https://www.youtube.com/watch?v=KihYfYIHcCk",
+      "duration": 4487.0
+    },
+    {
+      "video_id": "tk4auPRp1jw",
+      "title": "Основы криптографии 1. Синопсис курса. Односторонние функции",
+      "url": "https://www.youtube.com/watch?v=tk4auPRp1jw",
+      "duration": 4885.0
+    },
+    {
+      "video_id": "Lj_L7lwBjbY",
+      "title": "Параллельные и распределенные вычисления 10. Hive",
+      "url": "https://www.youtube.com/watch?v=Lj_L7lwBjbY",
+      "duration": 4910.0
+    },
+    {
+      "video_id": "NcapW_KcHXc",
+      "title": "Параллельные и распределенные вычисления 9. MapReduce 2",
+      "url": "https://www.youtube.com/watch?v=NcapW_KcHXc",
+      "duration": 5353.0
+    },
+    {
+      "video_id": "PlbwZZzAnvQ",
+      "title": "Петр Федин: Как делать стартап?",
+      "url": "https://www.youtube.com/watch?v=PlbwZZzAnvQ",
+      "duration": 8719.0
+    },
+    {
+      "video_id": "jh95pEBa7Jk",
+      "title": "Полуопределенные релаксации в оптимизации 3",
+      "url": "https://www.youtube.com/watch?v=jh95pEBa7Jk",
+      "duration": 6820.0
+    },
+    {
+      "video_id": "9LaymnHtxEM",
+      "title": "Презентация проектов Инновационного практикума 2019",
+      "url": "https://www.youtube.com/watch?v=9LaymnHtxEM",
+      "duration": 24404.0
+    },
+    {
+      "video_id": "LXFegyfOEAg",
+      "title": "Прикладная математика: искусство и ремесло вычислений 13. Вариационное исчисление, принцип Гамильтон",
+      "url": "https://www.youtube.com/watch?v=LXFegyfOEAg",
+      "duration": 8292.0
+    },
+    {
+      "video_id": "I9FF-3UAm4o",
+      "title": "Прикладное машинное обучение 1. Embeddings",
+      "url": "https://www.youtube.com/watch?v=I9FF-3UAm4o",
+      "duration": 2614.0
+    },
+    {
+      "video_id": "IhNMVeq5XH8",
+      "title": "Прикладное машинное обучение 2. RNN и CNN в NLP.",
+      "url": "https://www.youtube.com/watch?v=IhNMVeq5XH8",
+      "duration": 4123.0
+    },
+    {
+      "video_id": "QO5fpkpNEcA",
+      "title": "Прикладное машинное обучение 3. Machine Translation.",
+      "url": "https://www.youtube.com/watch?v=QO5fpkpNEcA",
+      "duration": 4478.0
+    },
+    {
+      "video_id": "CdlK5t97y8Q",
+      "title": "Программирование на языке C++ (базовый поток) 12. Шаблоны классов, объявления",
+      "url": "https://www.youtube.com/watch?v=CdlK5t97y8Q",
+      "duration": 4358.0
+    },
+    {
+      "video_id": "4LtAYJtyMy8",
+      "title": "Программирование на языке C++ (базовый поток) 3. Указатели и массивы",
+      "url": "https://www.youtube.com/watch?v=4LtAYJtyMy8",
+      "duration": 4680.0
+    },
+    {
+      "video_id": "J-U07shBrgY",
+      "title": "Программирование на языке C++ (базовый поток) 5. Функции, константность",
+      "url": "https://www.youtube.com/watch?v=J-U07shBrgY",
+      "duration": 4892.0
+    },
+    {
+      "video_id": "dhwQrqGo58E",
+      "title": "Программирование на языке C++ (базовый поток) 6. Шаблоны функций",
+      "url": "https://www.youtube.com/watch?v=dhwQrqGo58E",
+      "duration": 4231.0
+    },
+    {
+      "video_id": "h15TmG0yUqQ",
+      "title": "Программирование на языке C++ (основной поток) 3. Выражения и операторы в C++",
+      "url": "https://www.youtube.com/watch?v=h15TmG0yUqQ",
+      "duration": 4394.0
+    },
+    {
+      "video_id": "jIqng9mAa7o",
+      "title": "Промышленное программирование 1. Введение",
+      "url": "https://www.youtube.com/watch?v=jIqng9mAa7o",
+      "duration": 4403.0
+    },
+    {
+      "video_id": "ZrAbH5yyKuc",
+      "title": "Промышленное программирование 2. Django",
+      "url": "https://www.youtube.com/watch?v=ZrAbH5yyKuc",
+      "duration": 2940.0
+    },
+    {
+      "video_id": "2F52NUD4Kao",
+      "title": "Промышленное программирование 3. Frontend",
+      "url": "https://www.youtube.com/watch?v=2F52NUD4Kao",
+      "duration": 1396.0
+    },
+    {
+      "video_id": "U3EiPSrDZCg",
+      "title": "Промышленное программирование 5. Антипаттерны",
+      "url": "https://www.youtube.com/watch?v=U3EiPSrDZCg",
+      "duration": 2605.0
+    },
+    {
+      "video_id": "c2WAYU0dqBs",
+      "title": "Промышленное программирование 6. Антипаттерны 2",
+      "url": "https://www.youtube.com/watch?v=c2WAYU0dqBs",
+      "duration": 1728.0
+    },
+    {
+      "video_id": "fmYUiO2XDik",
+      "title": "Промышленное программирование 7. Паттерны",
+      "url": "https://www.youtube.com/watch?v=fmYUiO2XDik",
+      "duration": 3642.0
+    },
+    {
+      "video_id": "4Lz5K9Qd-2w",
+      "title": "Промышленное программирование 8. ООП",
+      "url": "https://www.youtube.com/watch?v=4Lz5K9Qd-2w",
+      "duration": 1926.0
+    },
+    {
+      "video_id": "KSJodHHPpPA",
+      "title": "Разработка компьютерных игр на Unity 2. Первое знакомство с Unity",
+      "url": "https://www.youtube.com/watch?v=KSJodHHPpPA",
+      "duration": 7528.0
+    },
+    {
+      "video_id": "EvvjV_MFHT4",
+      "title": "Сложность вычислений (доп.главы) - 4. CZK, PCP.",
+      "url": "https://www.youtube.com/watch?v=EvvjV_MFHT4",
+      "duration": 5921.0
+    },
+    {
+      "video_id": "hHcXmor48qA",
+      "title": "Сложность вычислений (доп.главы) - 5. PCP-теорема, приближённые решения NP-полных задач оптимизации.",
+      "url": "https://www.youtube.com/watch?v=hHcXmor48qA",
+      "duration": 5001.0
+    },
+    {
+      "video_id": "oP6DIpP738o",
+      "title": "Сложность вычислений (доп.главы) 6. Коды Уолша-Адамара, PCP(poly(n), 1).",
+      "url": "https://www.youtube.com/watch?v=oP6DIpP738o",
+      "duration": 5262.0
+    },
+    {
+      "video_id": "gksM3RfWiao",
+      "title": "Сложность вычислений (доп.главы) 7. Рациональные интерактивные доказательства",
+      "url": "https://www.youtube.com/watch?v=gksM3RfWiao",
+      "duration": 5096.0
+    },
+    {
+      "video_id": "IhoR_bTfnBs",
+      "title": "Сложность вычислений (доп.главы) 8. DRMA = CH. Задачи поиска, PPAD.",
+      "url": "https://www.youtube.com/watch?v=IhoR_bTfnBs",
+      "duration": 9069.0
+    },
+    {
+      "video_id": "XeT6cGmacf4",
+      "title": "Сложность вычислений (доп.главы) 9. Задачи поиска, лемма Шпернера, теорема Брауэра, равновесие Нэша",
+      "url": "https://www.youtube.com/watch?v=XeT6cGmacf4",
+      "duration": 8145.0
+    },
+    {
+      "video_id": "1WbYbLHrZp8",
+      "title": "Сложность вычислений 12. Дерандомизация. Интерактивные доказательства",
+      "url": "https://www.youtube.com/watch?v=1WbYbLHrZp8",
+      "duration": 4326.0
+    },
+    {
+      "video_id": "rgu7UEzUeKY",
+      "title": "Сложность вычислений 2. Свойства P и NP",
+      "url": "https://www.youtube.com/watch?v=rgu7UEzUeKY",
+      "duration": 4785.0
+    },
+    {
+      "video_id": "i3RlZVgbJPA",
+      "title": "Сложность вычислений 3. Проблемы доказательства P = NP",
+      "url": "https://www.youtube.com/watch?v=i3RlZVgbJPA",
+      "duration": 4657.0
+    },
+    {
+      "video_id": "7v8WVZVZoGM",
+      "title": "Сложность вычислений 4. NP-полные задачи",
+      "url": "https://www.youtube.com/watch?v=7v8WVZVZoGM",
+      "duration": 3534.0
+    },
+    {
+      "video_id": "z9tnYfHoZSg",
+      "title": "Сложность вычислений 4. NP-полные задачи",
+      "url": "https://www.youtube.com/watch?v=z9tnYfHoZSg",
+      "duration": 5007.0
+    },
+    {
+      "video_id": "oHJYjPy0uv0",
+      "title": "Сложность вычислений 5. NP-трудные задачи",
+      "url": "https://www.youtube.com/watch?v=oHJYjPy0uv0",
+      "duration": 4923.0
+    },
+    {
+      "video_id": "2n_NKZlDmzw",
+      "title": "Сложность вычислений, доп.главы 3. PZK, SZK, CZK. Протокол привязки к биту.",
+      "url": "https://www.youtube.com/watch?v=2n_NKZlDmzw",
+      "duration": 5633.0
+    },
+    {
+      "video_id": "jiDoLQlUMLA",
+      "title": "Сложность вычислений, доп.главы. 2. IP = PSPACE. Доказательства с нулевым разглашением.",
+      "url": "https://www.youtube.com/watch?v=jiDoLQlUMLA",
+      "duration": 5162.0
+    },
+    {
+      "video_id": "-aNjVrJ6bI8",
+      "title": "Случайные процессы 9. Марковские процессы",
+      "url": "https://www.youtube.com/watch?v=-aNjVrJ6bI8",
+      "duration": 4998.0
+    },
+    {
+      "video_id": "_vC0h5sWxRo",
+      "title": "Случайные процессы 9. Марковские процессы.",
+      "url": "https://www.youtube.com/watch?v=_vC0h5sWxRo",
+      "duration": 6795.0
+    },
+    {
+      "video_id": "9_JjiuzwV54",
+      "title": "Статистика, прикладной поток 1. Введение",
+      "url": "https://www.youtube.com/watch?v=9_JjiuzwV54",
+      "duration": 4039.0
+    },
+    {
+      "video_id": "Ys7hMhGSnyE",
+      "title": "Статистика, прикладной поток 2. Оценки, их свойства, наследование свойств (начало)",
+      "url": "https://www.youtube.com/watch?v=Ys7hMhGSnyE",
+      "duration": 6485.0
+    },
+    {
+      "video_id": "EL-V_0kWRoI",
+      "title": "Статистика, прикладной поток 3. Наследование свойств оценок (продолжение). Методы нахождения оценок.",
+      "url": "https://www.youtube.com/watch?v=EL-V_0kWRoI",
+      "duration": 7085.0
+    },
+    {
+      "video_id": "FyTrg_lu4qA",
+      "title": "Статистические методы в биоинформатике 1. Повторение теории вероятностей, задача оценки параметра.",
+      "url": "https://www.youtube.com/watch?v=FyTrg_lu4qA",
+      "duration": 5538.0
+    },
+    {
+      "video_id": "hxiDxOsclh4",
+      "title": "Статистические методы в биоинформатике 2. Методы поиска оценок и доверительных интервалов.",
+      "url": "https://www.youtube.com/watch?v=hxiDxOsclh4",
+      "duration": 8640.0
+    },
+    {
+      "video_id": "1X5IW1bdHgw",
+      "title": "Статистические методы в биоинформатике 3. Гипотезы и критерии, p-value.",
+      "url": "https://www.youtube.com/watch?v=1X5IW1bdHgw",
+      "duration": 7372.0
+    },
+    {
+      "video_id": "pSdgAb2OPBA",
+      "title": "Статистические методы в биоинформатике 5. Анализ зависимостей. Ядерная оценка плотности.",
+      "url": "https://www.youtube.com/watch?v=pSdgAb2OPBA",
+      "duration": 7885.0
+    },
+    {
+      "video_id": "gbvmJDqLM3w",
+      "title": "Статистические методы в биоинформатике 6. Дисперсионный анализ.",
+      "url": "https://www.youtube.com/watch?v=gbvmJDqLM3w",
+      "duration": 7812.0
+    },
+    {
+      "video_id": "JoF7_GtXosk",
+      "title": "Статистические методы в биоинформатике 7. Линейная регрессия",
+      "url": "https://www.youtube.com/watch?v=JoF7_GtXosk",
+      "duration": 7627.0
+    },
+    {
+      "video_id": "EebUPPo92OY",
+      "title": "Теоретическая информатика 2.",
+      "url": "https://www.youtube.com/watch?v=EebUPPo92OY",
+      "duration": 3645.0
+    },
+    {
+      "video_id": "-zEyIcV1M6Q",
+      "title": "Теоретическая информатика 4.",
+      "url": "https://www.youtube.com/watch?v=-zEyIcV1M6Q",
+      "duration": 4542.0
+    },
+    {
+      "video_id": "LvMRJmXXUCc",
+      "title": "Теоретическая информатика 5.",
+      "url": "https://www.youtube.com/watch?v=LvMRJmXXUCc",
+      "duration": 4630.0
+    },
+    {
+      "video_id": "CaDfuWKsA0A",
+      "title": "Теоретическая информатика 6.",
+      "url": "https://www.youtube.com/watch?v=CaDfuWKsA0A",
+      "duration": 4571.0
+    },
+    {
+      "video_id": "71Wlae0c3ZE",
+      "title": "Теоретическая информатика 7.",
+      "url": "https://www.youtube.com/watch?v=71Wlae0c3ZE",
+      "duration": 4822.0
+    },
+    {
+      "video_id": "j9KvgeLbNRE",
+      "title": "Теория вероятностей 1. Функции распределения на R",
+      "url": "https://www.youtube.com/watch?v=j9KvgeLbNRE",
+      "duration": 4696.0
+    },
+    {
+      "video_id": "czr4cDVOZwo",
+      "title": "Теория вероятностей 12. Характеристические функции (ч.2)",
+      "url": "https://www.youtube.com/watch?v=czr4cDVOZwo",
+      "duration": 4266.0
+    },
+    {
+      "video_id": "4rgtzkVmmXg",
+      "title": "Теория вероятностей 2. Многомерные функции распределения",
+      "url": "https://www.youtube.com/watch?v=4rgtzkVmmXg",
+      "duration": 3773.0
+    },
+    {
+      "video_id": "r_3tQkbc0kI",
+      "title": "Теория вероятностей 4. Математическое ожидание.",
+      "url": "https://www.youtube.com/watch?v=r_3tQkbc0kI",
+      "duration": 4804.0
+    },
+    {
+      "video_id": "A-xcx2fsHZk",
+      "title": "Теория вероятностей 5 Случайные величины",
+      "url": "https://www.youtube.com/watch?v=A-xcx2fsHZk",
+      "duration": 4712.0
+    },
+    {
+      "video_id": "fLhdXxd095Y",
+      "title": "Теория вероятностей 5. Дисперсия и ковариация",
+      "url": "https://www.youtube.com/watch?v=fLhdXxd095Y",
+      "duration": 4782.0
+    },
+    {
+      "video_id": "G-vQgDO50vQ",
+      "title": "Теория вероятностей 6. Условное математическое ожидание",
+      "url": "https://www.youtube.com/watch?v=G-vQgDO50vQ",
+      "duration": 4727.0
+    },
+    {
+      "video_id": "UlYDYJgBu9c",
+      "title": "Теория вероятностей 7 Матожидание Дисперсия",
+      "url": "https://www.youtube.com/watch?v=UlYDYJgBu9c",
+      "duration": 4590.0
+    },
+    {
+      "video_id": "zdiMEFuwUbg",
+      "title": "Теория вероятностей 8. Виды сходимости случайных величин",
+      "url": "https://www.youtube.com/watch?v=zdiMEFuwUbg",
+      "duration": 4604.0
+    },
+    {
+      "video_id": "09gcHw7hhDo",
+      "title": "Теория вероятностей. Доп. семинар №2 (часть 1).",
+      "url": "https://www.youtube.com/watch?v=09gcHw7hhDo",
+      "duration": 9034.0
+    },
+    {
+      "video_id": "3jJwSbF20wg",
+      "title": "Теория вероятностей. Доп. семинар №2 (часть 2).",
+      "url": "https://www.youtube.com/watch?v=3jJwSbF20wg",
+      "duration": 10583.0
+    },
+    {
+      "video_id": "nDNyw2Hu2s0",
+      "title": "Теория вероятностей. Доп. семинар.",
+      "url": "https://www.youtube.com/watch?v=nDNyw2Hu2s0",
+      "duration": 9144.0
+    },
+    {
+      "video_id": "ON-UJvaOeyY",
+      "title": "Теория групп 8. Нильпотентные группы. Простые группы",
+      "url": "https://www.youtube.com/watch?v=ON-UJvaOeyY",
+      "duration": 5068.0
+    },
+    {
+      "video_id": "LZOUlBgYbFw",
+      "title": "Теория игр 2. Задача о справедливом дележе. Часть 2.",
+      "url": "https://www.youtube.com/watch?v=LZOUlBgYbFw",
+      "duration": 5108.0
+    },
+    {
+      "video_id": "k9c0bZvKOaw",
+      "title": "Теория игр 3. Задача о справедливом дележе на графах.",
+      "url": "https://www.youtube.com/watch?v=k9c0bZvKOaw",
+      "duration": 4815.0
+    },
+    {
+      "video_id": "uehE-xHlcdc",
+      "title": "Теория игр 4. Общие сведения о теории игр.",
+      "url": "https://www.youtube.com/watch?v=uehE-xHlcdc",
+      "duration": 4387.0
+    },
+    {
+      "video_id": "0bSt5-UyLmo",
+      "title": "Теория игр 5. Теория игр (смешанные стратегии)",
+      "url": "https://www.youtube.com/watch?v=0bSt5-UyLmo",
+      "duration": 4574.0
+    },
+    {
+      "video_id": "bEGoOYrSXz0",
+      "title": "Теория игр 6. Практическое применение теории игр",
+      "url": "https://www.youtube.com/watch?v=bEGoOYrSXz0",
+      "duration": 4839.0
+    },
+    {
+      "video_id": "2EtXF4TwuIY",
+      "title": "Теория игр 9. Задача об общественном дележе",
+      "url": "https://www.youtube.com/watch?v=2EtXF4TwuIY",
+      "duration": 5100.0
+    },
+    {
+      "video_id": "eYt5lGAaewA",
+      "title": "Теория колец и полей 10. Расширения Галуа",
+      "url": "https://www.youtube.com/watch?v=eYt5lGAaewA",
+      "duration": 4589.0
+    },
+    {
+      "video_id": "IrdgUwtlT0Y",
+      "title": "Теория колец и полей 12. Симметрические многочлены",
+      "url": "https://www.youtube.com/watch?v=IrdgUwtlT0Y",
+      "duration": 4886.0
+    },
+    {
+      "video_id": "832gl6Ibxno",
+      "title": "Теория колец и полей 14. Конечные поля",
+      "url": "https://www.youtube.com/watch?v=832gl6Ibxno",
+      "duration": 4275.0
+    },
+    {
+      "video_id": "XONp9MJElTg",
+      "title": "Теория колец и полей 3. Неразложимые элементы. Идеалы. Кольца главных идеалов",
+      "url": "https://www.youtube.com/watch?v=XONp9MJElTg",
+      "duration": 4670.0
+    },
+    {
+      "video_id": "-Oe5Y211QMk",
+      "title": "Теория колец и полей 5. Великая теорема Ферма. Случай n = 3. Пример неевклидового КГИ",
+      "url": "https://www.youtube.com/watch?v=-Oe5Y211QMk",
+      "duration": 4553.0
+    },
+    {
+      "video_id": "Ktx7ZO2M1wo",
+      "title": "Теория колец и полей 5. Простые и максимальные идеалы. Поле частных",
+      "url": "https://www.youtube.com/watch?v=Ktx7ZO2M1wo",
+      "duration": 4814.0
+    },
+    {
+      "video_id": "L6WTYn5uf6A",
+      "title": "Теория колец и полей 5. Простые и максимальные идеалы. Поле частных",
+      "url": "https://www.youtube.com/watch?v=L6WTYn5uf6A",
+      "duration": 4842.0
+    },
+    {
+      "video_id": "4S4t1eiiRCo",
+      "title": "Теория колец и полей 7. Кольцо многочленов. Неприводимые многочлены. Расширение поля",
+      "url": "https://www.youtube.com/watch?v=4S4t1eiiRCo",
+      "duration": 4612.0
+    },
+    {
+      "video_id": "qSgvfu8CcrE",
+      "title": "Теория колец и полей 7. Расширение полей",
+      "url": "https://www.youtube.com/watch?v=qSgvfu8CcrE",
+      "duration": 4845.0
+    },
+    {
+      "video_id": "QFM3NR7OWQM",
+      "title": "Теория колец и полей 8. Построение циркулем и линейкой",
+      "url": "https://www.youtube.com/watch?v=QFM3NR7OWQM",
+      "duration": 4734.0
+    },
+    {
+      "video_id": "HhFcpqz6Xg8",
+      "title": "Теория колец и полей 9. Автоморфизмы. Теорема о примитивном элементе",
+      "url": "https://www.youtube.com/watch?v=HhFcpqz6Xg8",
+      "duration": 4733.0
+    },
+    {
+      "video_id": "59syNcy2EnE",
+      "title": "Теория функций комплексного переменного 15. Мероморфные функции",
+      "url": "https://www.youtube.com/watch?v=59syNcy2EnE",
+      "duration": 5011.0
+    },
+    {
+      "video_id": "k3EJBVVOCdI",
+      "title": "Теория функций комплексного переменного 4. Интегрирование. Теорема Жордана",
+      "url": "https://www.youtube.com/watch?v=k3EJBVVOCdI",
+      "duration": 4853.0
+    },
+    {
+      "video_id": "gm__hPizQWo",
+      "title": "Технологии программирования 1. Введение в компиляторы. Отладка ПО",
+      "url": "https://www.youtube.com/watch?v=gm__hPizQWo",
+      "duration": 3877.0
+    },
+    {
+      "video_id": "5XWc9JgjVLw",
+      "title": "Технологии программирования 11. Сетевок стек - виды API. Тестирование API.",
+      "url": "https://www.youtube.com/watch?v=5XWc9JgjVLw",
+      "duration": 4551.0
+    },
+    {
+      "video_id": "-8cWSrhDkhY",
+      "title": "Технологии программирования 12. Виртуализация и контейнеризация. Введение в Docker.",
+      "url": "https://www.youtube.com/watch?v=-8cWSrhDkhY",
+      "duration": 4045.0
+    },
+    {
+      "video_id": "mEkYEPVBAOk",
+      "title": "Технологии программирования 2. Отладка ПО",
+      "url": "https://www.youtube.com/watch?v=mEkYEPVBAOk",
+      "duration": 3992.0
+    },
+    {
+      "video_id": "MYmIGtMmXoo",
+      "title": "Технологии программирования 3. Стандартные техники. Эффективность системы",
+      "url": "https://www.youtube.com/watch?v=MYmIGtMmXoo",
+      "duration": 3569.0
+    },
+    {
+      "video_id": "VDybmhm9JOg",
+      "title": "Технологии программирования 5. Этапы проектирования",
+      "url": "https://www.youtube.com/watch?v=VDybmhm9JOg",
+      "duration": 4313.0
+    },
+    {
+      "video_id": "UI4E-i5_B3c",
+      "title": "Технологии программирования 6. Антипаттерны",
+      "url": "https://www.youtube.com/watch?v=UI4E-i5_B3c",
+      "duration": 4474.0
+    },
+    {
+      "video_id": "E8DMzL2GG3g",
+      "title": "Технологии программирования 7. Антипаттерны",
+      "url": "https://www.youtube.com/watch?v=E8DMzL2GG3g",
+      "duration": 2731.0
+    },
+    {
+      "video_id": "p6Im9UI_ipw",
+      "title": "Технологии программирования 8. Непрерывная интеграция",
+      "url": "https://www.youtube.com/watch?v=p6Im9UI_ipw",
+      "duration": 1973.0
+    },
+    {
+      "video_id": "QeSQEbFRdwQ",
+      "title": "Технологии программирования 9. Методологии разработки ПО",
+      "url": "https://www.youtube.com/watch?v=QeSQEbFRdwQ",
+      "duration": 3355.0
+    },
+    {
+      "video_id": "65f0NyDrghY",
+      "title": "Технологии программирования. Семинар 10. Основные команды в Linux",
+      "url": "https://www.youtube.com/watch?v=65f0NyDrghY",
+      "duration": 4813.0
+    },
+    {
+      "video_id": "Y8v_sibL5p0",
+      "title": "Технологии программирования. Семинар 2. Паттерны. Unit-тесты",
+      "url": "https://www.youtube.com/watch?v=Y8v_sibL5p0",
+      "duration": 2687.0
+    },
+    {
+      "video_id": "I0kTA0gqBnE",
+      "title": "Технологии программирования. Семинар 3. Паттерны. Системы сборки",
+      "url": "https://www.youtube.com/watch?v=I0kTA0gqBnE",
+      "duration": 3378.0
+    },
+    {
+      "video_id": "_9a_W0DdT8s",
+      "title": "Технологии программирования. Семинар 5. Утечки памяти. Паттерны",
+      "url": "https://www.youtube.com/watch?v=_9a_W0DdT8s",
+      "duration": 3712.0
+    },
+    {
+      "video_id": "AA4ioOxrsg8",
+      "title": "Технологии программирования. Семинар 6. Proxy. Кросс-компиляция. Doxygen",
+      "url": "https://www.youtube.com/watch?v=AA4ioOxrsg8",
+      "duration": 2186.0
+    },
+    {
+      "video_id": "LV-GnbyxvmI",
+      "title": "Технологии программирования. Семинар 7. Паттерны поведения",
+      "url": "https://www.youtube.com/watch?v=LV-GnbyxvmI",
+      "duration": 2773.0
+    },
+    {
+      "video_id": "55vm1hgNH3E",
+      "title": "Технологии программирования. Семинар 8. Паттерны поведения",
+      "url": "https://www.youtube.com/watch?v=55vm1hgNH3E",
+      "duration": 2795.0
+    },
+    {
+      "video_id": "y4RncCEKkPs",
+      "title": "Технологии программирования. Семинар 9. Паттерны поведения",
+      "url": "https://www.youtube.com/watch?v=y4RncCEKkPs",
+      "duration": 2108.0
+    },
+    {
+      "video_id": "hl3_Xyl-1u8",
+      "title": "Топологическая комбинаторика 2. Уникурсальные кривые: счёт, группы и алгоритмы",
+      "url": "https://www.youtube.com/watch?v=hl3_Xyl-1u8",
+      "duration": 4319.0
+    },
+    {
+      "video_id": "WBxwi7GGVkQ",
+      "title": "Топологическая комбинаторика 3. Связь бильярда и динамики: геометрия в действии",
+      "url": "https://www.youtube.com/watch?v=WBxwi7GGVkQ",
+      "duration": 4473.0
+    },
+    {
+      "video_id": "a0I3VYrR5ZU",
+      "title": "Топологическая комбинаторика 4. Множества с двумя расстояниями и гипотеза Борсука",
+      "url": "https://www.youtube.com/watch?v=a0I3VYrR5ZU",
+      "duration": 5104.0
+    },
+    {
+      "video_id": "6KNit6Wizs8",
+      "title": "Топологическая комбинаторика 5. Гомотопические группы: отображения сфер простыми словами",
+      "url": "https://www.youtube.com/watch?v=6KNit6Wizs8",
+      "duration": 5040.0
+    },
+    {
+      "video_id": "m66xWJNxphI",
+      "title": "Топологическая комбинаторика 7. Теорема Хэма-Сэндвича: алгоритмы и доказательства",
+      "url": "https://www.youtube.com/watch?v=m66xWJNxphI",
+      "duration": 5512.0
+    },
+    {
+      "video_id": "dX3dtR9XgaM",
+      "title": "Формальные языки и трансляции 1. Конечные автоматы",
+      "url": "https://www.youtube.com/watch?v=dX3dtR9XgaM",
+      "duration": 5002.0
+    },
+    {
+      "video_id": "bc3QOfHIt5Y",
+      "title": "Формальные языки и трансляции 1. Слова и языки. Конечные автоматы",
+      "url": "https://www.youtube.com/watch?v=bc3QOfHIt5Y",
+      "duration": 3846.0
+    },
+    {
+      "video_id": "zdlD5mwsogM",
+      "title": "Формальные языки и трансляции 10. Алгоритм Эрли - продолжение. Нормальная форма Грейбах",
+      "url": "https://www.youtube.com/watch?v=zdlD5mwsogM",
+      "duration": 4534.0
+    },
+    {
+      "video_id": "D3OmO1fPx9I",
+      "title": "Формальные языки и трансляции 11. LR-алгоритм",
+      "url": "https://www.youtube.com/watch?v=D3OmO1fPx9I",
+      "duration": 4893.0
+    },
+    {
+      "video_id": "kAEeMvAZPIg",
+      "title": "Формальные языки и трансляции 11. LR-алгоритм",
+      "url": "https://www.youtube.com/watch?v=kAEeMvAZPIg",
+      "duration": 4803.0
+    },
+    {
+      "video_id": "ay-j4nkbcPo",
+      "title": "Формальные языки и трансляции 11. LR-алгоритм.",
+      "url": "https://www.youtube.com/watch?v=ay-j4nkbcPo",
+      "duration": 5652.0
+    },
+    {
+      "video_id": "A02RuLY-YEs",
+      "title": "Формальные языки и трансляции 12. LR-алгоритм (продолжение).",
+      "url": "https://www.youtube.com/watch?v=A02RuLY-YEs",
+      "duration": 5071.0
+    },
+    {
+      "video_id": "Mop6ij9AE48",
+      "title": "Формальные языки и трансляции 12. LR-алгоритм - продолжение",
+      "url": "https://www.youtube.com/watch?v=Mop6ij9AE48",
+      "duration": 4721.0
+    },
+    {
+      "video_id": "htQaqKUMTlU",
+      "title": "Формальные языки и трансляции 13. Конечные преобразователи",
+      "url": "https://www.youtube.com/watch?v=htQaqKUMTlU",
+      "duration": 5326.0
+    },
+    {
+      "video_id": "T2OrDeWKl-g",
+      "title": "Формальные языки и трансляции 13. Конечные преобразователи",
+      "url": "https://www.youtube.com/watch?v=T2OrDeWKl-g",
+      "duration": 4397.0
+    },
+    {
+      "video_id": "5uuVxUn8Tck",
+      "title": "Формальные языки и трансляции 14. Доказательство инварианта. Теорема Нива",
+      "url": "https://www.youtube.com/watch?v=5uuVxUn8Tck",
+      "duration": 5196.0
+    },
+    {
+      "video_id": "rTSGJR8HsPI",
+      "title": "Формальные языки и трансляции 14. Конечные преобразователи 2",
+      "url": "https://www.youtube.com/watch?v=rTSGJR8HsPI",
+      "duration": 5042.0
+    },
+    {
+      "video_id": "60n5q-DLgpY",
+      "title": "Функциональный анализ 1. Введение в курс. История развития науки",
+      "url": "https://www.youtube.com/watch?v=60n5q-DLgpY",
+      "duration": 4634.0
+    },
+    {
+      "video_id": "wluSo_b6eeI",
+      "title": "Функциональный анализ 4. Полные метрические пространства",
+      "url": "https://www.youtube.com/watch?v=wluSo_b6eeI",
+      "duration": 5021.0
+    },
+    {
+      "video_id": "TB8rZN1tIMk",
+      "title": "Функциональный анализ 4. Тихоновская топология",
+      "url": "https://www.youtube.com/watch?v=TB8rZN1tIMk",
+      "duration": 4725.0
+    },
+    {
+      "video_id": "BlZhCIZtA1w",
+      "title": "Функциональный анализ 6. Критерий компактности метрического пространства",
+      "url": "https://www.youtube.com/watch?v=BlZhCIZtA1w",
+      "duration": 4805.0
+    },
+    {
+      "video_id": "LItUpCTX3_E",
+      "title": "Функциональный анализ 7. Предкомпактность. Теорема Арцела-Асколи",
+      "url": "https://www.youtube.com/watch?v=LItUpCTX3_E",
+      "duration": 4438.0
+    },
+    {
+      "video_id": "HeVD9slkZtw",
+      "title": "Функциональный анализ 8. Линейные нормированные пространства",
+      "url": "https://www.youtube.com/watch?v=HeVD9slkZtw",
+      "duration": 4661.0
+    },
+    {
+      "video_id": "juphkcRV6HE",
+      "title": "Функциональный анализ 9. Компактные операторы",
+      "url": "https://www.youtube.com/watch?v=juphkcRV6HE",
+      "duration": 4309.0
+    },
+    {
+      "video_id": "uEp-LY0COg4",
+      "title": "Экстремальная комбинаторика 3. Энтропия и её выпуклость в задачах комбинаторик",
+      "url": "https://www.youtube.com/watch?v=uEp-LY0COg4",
+      "duration": 4521.0
+    },
+    {
+      "video_id": "ZXL66FGI2hw",
+      "title": "Экстремальная комбинаторика 4. Граф Кнезера и пересекающиеся множества",
+      "url": "https://www.youtube.com/watch?v=ZXL66FGI2hw",
+      "duration": 4296.0
+    },
+    {
+      "video_id": "RiKhHsZRPwg",
+      "title": "Языки программирования и теориия компиляции 3. Дебаты",
+      "url": "https://www.youtube.com/watch?v=RiKhHsZRPwg",
+      "duration": 4451.0
+    },
+    {
+      "video_id": "RwhRfH8PbSc",
+      "title": "Языки программирования и теория компиляции 8. Анализ потока данных",
+      "url": "https://www.youtube.com/watch?v=RwhRfH8PbSc",
+      "duration": 4614.0
+    }
+  ],
+  "titled": 676,
+  "hours": 921.4
+}

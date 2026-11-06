@@ -4,6 +4,7 @@ from dataclasses import dataclass
 from pathlib import Path
 import os
 import re
+import shutil
 import sys
 import threading
 from concurrent.futures import ThreadPoolExecutor
@@ -15,13 +16,36 @@ from whisper_fpmi.paths import DEFAULT_FRAGMENT_THREADS, VIDEO_DIR
 from whisper_fpmi.progress import HourDayTqdm
 from whisper_fpmi.vk import ChannelVideo
 
+# Отпечаток Яндекс Браузера: YouTube сверяет с ним сессию, иначе куки не принимаются.
+YOUTUBE_HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+        "(KHTML, like Gecko) Chrome/152.0.0.0 YaBrowser/26.10.0.0 Safari/537.36"
+    ),
+    "Upgrade-Insecure-Requests": "1",
+    "device-memory": "32",
+    "sec-ch-dpr": "1",
+    "sec-ch-ua": '"Not?A_Brand";v="24", "Chromium";v="152"',
+    "sec-ch-ua-arch": '"x86"',
+    "sec-ch-ua-bitness": '"64"',
+    "sec-ch-ua-form-factors": '"Desktop"',
+    "sec-ch-ua-full-version": '"152.0.7977.140"',
+    "sec-ch-ua-full-version-list": '"Not?A_Brand";v="24.0.0.0", "Chromium";v="152.0.7977.1854"',
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-model": '""',
+    "sec-ch-ua-platform": '"Windows"',
+    "sec-ch-ua-platform-version": '"19.0.0"',
+    "sec-ch-ua-wow64": "?0",
+    "sec-ch-viewport-width": "1920",
+}
+
 # Низкое https-аудио. Если клиент отдал только 360p, берём его.
 YOUTUBE_FORMAT = (
     "worstaudio[protocol^=https]/"
-    "bestaudio[protocol^=https]/"
     "worst[protocol^=https]/"
-    "18/"
-    "worstaudio"
+    "worstaudio/"
+    "worst/"
+    "ba/b"
 )
 
 # 144p со звуком, если VK отдаёт url144; иначе минимальное видео+аудио.
@@ -416,13 +440,109 @@ def _ydl_options(
         "concurrent_fragment_downloads": max(1, fragment_threads),
     }
     if "youtube.com" in page.casefold() or "youtu.be" in page.casefold():
-        # ANDROID_VR отдаёт дешёвое аудио, но ссылка на файл отвечает 403.
-        # У android остаётся цельный 360p, и он скачивается.
-        options["extractor_args"] = {"youtube": {"player_client": ["android"]}}
+        # Запрос к ролику идёт с тем же отпечатком, что и страница в Яндекс Браузере.
+        youtube_args: dict[str, list[str]] = {
+            "player_client": ["web", "web_safari", "mweb"] if cookies else ["web_safari", "mweb", "tv_samsung"],
+        }
+        if _po_token_script().is_file():
+            youtube_args["fetch_pot"] = ["always"]
+        options["extractor_args"] = {"youtube": youtube_args}
+        options["http_headers"] = dict(YOUTUBE_HEADERS)
         options["js_runtimes"] = {"node": {}}
     if cookies:
         options["cookiefile"] = cookies
     return options
+
+
+def _po_token_script() -> Path:
+    return Path.home() / "bgutil-ytdlp-pot-provider" / "server" / "build" / "generate_once.js"
+
+
+_BOT_PAUSE_SECONDS = 180
+_bot_pause_until = 0.0
+_bot_lock = threading.Lock()
+_po_server_started = False
+
+
+def _transient_network(exc: BaseException) -> bool:
+    text = str(exc).casefold()
+    return any(
+        token in text
+        for token in (
+            "timeout",
+            "timed out",
+            "handshake",
+            "ssl",
+            "connection",
+            "reset",
+            "temporar",
+            "10054",
+            "разорвал",
+            "broken pipe",
+            "eof occurred",
+        )
+    )
+
+
+def _is_bot_wall(message: str) -> bool:
+    lowered = message.casefold()
+    return "без куков" in lowered or "not a bot" in lowered
+
+
+def _note_bot_wall() -> None:
+    global _bot_pause_until
+    with _bot_lock:
+        import time
+
+        now = time.time()
+        if now < _bot_pause_until:
+            return
+        _bot_pause_until = now + _BOT_PAUSE_SECONDS
+    lg.warning(
+        "YouTube требует вход с этого адреса. Следующая попытка через {} мин",
+        _BOT_PAUSE_SECONDS // 60,
+    )
+
+
+def _wait_bot_pause() -> None:
+    import time
+
+    delay = _bot_pause_until - time.time()
+    if delay > 0:
+        time.sleep(delay)
+
+
+def ensure_po_token_server() -> None:
+    """Локальный генератор PO-токена, если он уже собран в домашней папке."""
+    global _po_server_started
+    if _po_server_started or not _po_token_script().is_file():
+        return
+    import socket
+    import subprocess
+
+    probe = socket.socket()
+    try:
+        probe.settimeout(0.3)
+        if probe.connect_ex(("127.0.0.1", 4416)) == 0:
+            _po_server_started = True
+            return
+    finally:
+        probe.close()
+    node = shutil.which("node")
+    if not node:
+        return
+    server = _po_token_script().with_name("main.js")
+    if not server.is_file():
+        return
+    flags = getattr(subprocess, "CREATE_NO_WINDOW", 0)
+    subprocess.Popen(
+        [node, str(server)],
+        cwd=str(server.parent),
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+        creationflags=flags,
+    )
+    _po_server_started = True
 
 
 def probe_filesize(video: ChannelVideo, cookies: str | None = None) -> int:
@@ -457,6 +577,267 @@ def _remove_partials(output_dir: Path, video_id: str) -> None:
             continue
 
 
+def _is_youtube(video: ChannelVideo) -> bool:
+    page = source_url(video).casefold()
+    return "youtube.com" in page or "youtu.be" in page
+
+
+def _stream_protocol(fmt: object) -> str:
+    protocol = getattr(fmt, "protocol", "")
+    return str(getattr(protocol, "value", protocol)).casefold()
+
+
+def _worst_youtube_stream(formats: list[object]) -> object | None:
+    """Самый лёгкий https-поток. Для расшифровки хватает худшего аудио."""
+    usable = [
+        fmt
+        for fmt in formats
+        if getattr(fmt, "url", "")
+        and not getattr(fmt, "has_drm", False)
+        and not getattr(fmt, "requires_pot", False)
+        and _stream_protocol(fmt) in {"https", "http"}
+    ]
+    audio = [fmt for fmt in usable if getattr(fmt, "is_audio", False)]
+    pool = audio or [fmt for fmt in usable if getattr(fmt, "is_video", False)]
+    if not pool:
+        return None
+    return min(
+        pool,
+        key=lambda fmt: (
+            getattr(fmt, "bitrate", None) or 10**12,
+            getattr(fmt, "height", None) or 10**12,
+            getattr(fmt, "filesize", None) or 10**12,
+        ),
+    )
+
+
+def _youtube_suffix(fmt: object) -> str:
+    mime = str(getattr(fmt, "mime_type", "") or "").casefold()
+    if "webm" in mime:
+        return ".webm"
+    if getattr(fmt, "is_audio", False):
+        return ".m4a"
+    return ".mp4"
+
+
+def _googlevideo_mirrors(url: str) -> list[str]:
+    """Запасные узлы из параметра mn. Первый хост из России часто рвёт связь."""
+    from urllib.parse import parse_qs, urlparse, urlunparse
+
+    parsed = urlparse(url)
+    current_server = ""
+    if "---" in parsed.netloc:
+        current_server = parsed.netloc.split("---", 1)[1].removesuffix(".googlevideo.com")
+    names: list[str] = []
+    for item in parse_qs(parsed.query).get("mn", []):
+        names.extend(part.strip() for part in item.split(",") if part.strip())
+    others = [name for name in names if name.removesuffix(".googlevideo.com") != current_server]
+    same = [name for name in names if name.removesuffix(".googlevideo.com") == current_server]
+    mirrors = [url]
+    seen = {parsed.netloc}
+    for name in others + same:
+        server = name.removesuffix(".googlevideo.com")
+        for index in range(1, 6):
+            host = f"rr{index}---{server}.googlevideo.com"
+            if host in seen:
+                continue
+            seen.add(host)
+            mirrors.append(urlunparse(parsed._replace(netloc=host)))
+    return mirrors
+
+
+def _pull_youtube_file(holder: dict, part: Path, report, refresh) -> None:
+    """Качает файл кусками и, если узел рвёт связь, переходит на зеркало из той же ссылки."""
+    import time
+
+    import httpx
+
+    from ydpy.downloader.utils import STREAM_HEADERS
+
+    chunk = 1024 * 1024
+    timeout = httpx.Timeout(120.0, connect=20.0)
+    stalls = 0
+    refreshes = 0
+    mirrors = _googlevideo_mirrors(holder["url"])
+    mirror_at = 0
+    with httpx.Client(timeout=timeout, follow_redirects=True, http2=False) as client:
+        while True:
+            total = holder["total"]
+            downloaded = part.stat().st_size if part.is_file() else 0
+            if total is not None and downloaded >= total:
+                report(downloaded, total)
+                return
+            end = downloaded + chunk - 1
+            if total is not None:
+                end = min(end, total - 1)
+            headers = dict(STREAM_HEADERS)
+            headers["Range"] = f"bytes={downloaded}-{end}"
+            try:
+                with client.stream("GET", holder["url"], headers=headers) as response:
+                    if response.status_code in {401, 403, 410} or (
+                        response.status_code == 200 and downloaded > 0
+                    ):
+                        raise _StaleUrl()
+                    if response.status_code == 416:
+                        if total is not None and downloaded >= total:
+                            return
+                        raise _StaleUrl()
+                    if response.status_code not in {200, 206}:
+                        raise OSError(f"HTTP {response.status_code}")
+                    limit = None if response.status_code == 200 else end + 1
+                    cursor = downloaded
+                    with part.open("ab" if cursor else "wb") as handle:
+                        for piece in response.iter_bytes(32 * 1024):
+                            if not piece:
+                                break
+                            if limit is not None:
+                                room = limit - cursor
+                                if room <= 0:
+                                    break
+                                piece = piece[:room]
+                            handle.write(piece)
+                            handle.flush()
+                            cursor += len(piece)
+                            report(cursor, total)
+                            if limit is not None and cursor >= limit:
+                                break
+                if cursor == downloaded:
+                    stalls += 1
+                else:
+                    stalls = 0
+                    refreshes = 0
+                if stalls >= 30:
+                    raise TimeoutError(f"нет прогресса на {downloaded} байтах")
+            except _StaleUrl:
+                refreshes += 1
+                if refreshes > 12:
+                    raise TimeoutError("ссылка на файл YouTube протухла")
+                refresh()
+                mirrors = _googlevideo_mirrors(holder["url"])
+                mirror_at = 0
+                stalls = 0
+                time.sleep(2)
+            except Exception as exc:  # noqa: BLE001
+                if not _transient_network(exc):
+                    raise
+                stalls += 1
+                if stalls >= 40:
+                    raise
+                mirror_at += 1
+                if mirror_at < len(mirrors):
+                    holder["url"] = mirrors[mirror_at]
+                else:
+                    refreshes += 1
+                    if refreshes > 6:
+                        raise
+                    holder["url"] = refresh()
+                    mirrors = _googlevideo_mirrors(holder["url"])
+                    mirror_at = 0
+                host = holder["url"].split("/", 3)[2]
+                lg.warning("Узел оборвал связь на {} байтах, пробую {}", downloaded, host)
+                time.sleep(1)
+
+
+class _StaleUrl(Exception):
+    pass
+
+
+def _download_youtube_worst(
+    video: ChannelVideo,
+    output_dir: Path,
+    *,
+    quiet: bool,
+    bar_position: int,
+) -> Path:
+    import ydpy
+
+    import httpx
+
+    output_dir.mkdir(parents=True, exist_ok=True)
+    page = source_url(video)
+    lg.info("Скачиваю {} через ydpy в худшем качестве: {}", video.video_id, video.title)
+    data = None
+    last_error: Exception | None = None
+    timeout = httpx.Timeout(180.0, connect=60.0)
+    for attempt in range(5):
+        try:
+            with httpx.Client(timeout=timeout, follow_redirects=True) as client:
+                data = ydpy.PlayableVideo.fetch(page, http_client=client)
+            break
+        except Exception as exc:  # noqa: BLE001
+            last_error = exc
+            if attempt == 4 or not _transient_network(exc):
+                raise
+            pause = 15 * (attempt + 1)
+            lg.warning(
+                "ydpy не открыл {} (попытка {}), жду {} с: {}",
+                video.video_id,
+                attempt + 1,
+                pause,
+                brief_ydl_error(exc),
+            )
+            import time
+
+            time.sleep(pause)
+    if data is None:
+        raise last_error or RuntimeError(f"ydpy не открыл {video.video_id}")
+    chosen = _worst_youtube_stream(list(data.formats))
+    if chosen is None:
+        raise RuntimeError(f"ydpy не нашёл поток для {video.video_id}")
+    path = output_dir / f"{video.video_id}_{sanitize_title(video.title)}{_youtube_suffix(chosen)}"
+    part = path.with_name(path.name + ".part")
+    tracker = DownloadProgress(
+        video.title,
+        position=bar_position,
+        disable=quiet or not sys.stderr.isatty(),
+    )
+    holder = {"url": str(chosen.url), "total": int(getattr(chosen, "filesize", None) or 0) or None}
+
+    def refresh() -> str:
+        fresh = ydpy.PlayableVideo.fetch(page, http_client=client)
+        picked = _worst_youtube_stream(list(fresh.formats))
+        if picked is None:
+            raise RuntimeError(f"ydpy не нашёл поток для {video.video_id}")
+        holder["url"] = str(picked.url)
+        size = int(getattr(picked, "filesize", None) or 0)
+        if size:
+            holder["total"] = size
+        lg.info("Обновил ссылку на файл {}", video.video_id)
+        return holder["url"]
+
+    def report(done: int, total: int | None) -> None:
+        tracker.hook(
+            {
+                "status": "finished" if total and done >= total else "downloading",
+                "downloaded_bytes": done,
+                "total_bytes": total,
+                "filename": path.name,
+                "info_dict": {
+                    "format_id": str(getattr(chosen, "itag", "audio")),
+                    "vcodec": "none",
+                    "acodec": "opus",
+                },
+            }
+        )
+
+    try:
+        with httpx.Client(timeout=timeout, follow_redirects=True) as client:
+            _pull_youtube_file(holder, part, report, refresh)
+        if not part.is_file() or part.stat().st_size <= 0:
+            raise FileNotFoundError(f"ydpy не сохранил файл для {video.video_id}")
+        path.unlink(missing_ok=True)
+        part.replace(path)
+    finally:
+        tracker.close()
+    lg.info(
+        "ydpy сохранил {} ({} байт, itag {})",
+        path.name,
+        path.stat().st_size,
+        getattr(chosen, "itag", "?"),
+    )
+    return path
+
+
 def download_worst_quality(
     video: ChannelVideo,
     output_dir: Path = VIDEO_DIR,
@@ -465,8 +846,17 @@ def download_worst_quality(
     bar_position: int = 0,
     fragment_threads: int = DEFAULT_FRAGMENT_THREADS,
 ) -> Path:
+    if _is_youtube(video):
+        return _download_youtube_worst(
+            video,
+            output_dir,
+            quiet=quiet,
+            bar_position=bar_position,
+        )
     last_error: Exception | None = None
+    ensure_po_token_server()
     for attempt in range(3):
+        _wait_bot_pause()
         try:
             return _save_media(
                 video,
@@ -480,7 +870,14 @@ def download_worst_quality(
             last_error = exc
             _remove_partials(output_dir, video.video_id)
             message = brief_ydl_error(exc)
-            if "no video formats" in message.casefold():
+            folded = message.casefold()
+            if (
+                "no video formats" in folded
+                or "format is not available" in folded
+                or _is_bot_wall(message)
+            ):
+                if _is_bot_wall(message):
+                    _note_bot_wall()
                 break
             if attempt == 2:
                 break

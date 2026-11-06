@@ -5,6 +5,7 @@ from whisper_fpmi.download import (
     YOUTUBE_FORMAT,
     DownloadProgress,
     _progressive_url,
+    _worst_youtube_stream,
     _ydl_options,
     brief_ydl_error,
     download_parallel_http,
@@ -126,9 +127,28 @@ def test_youtube_uses_https_audio_format():
     assert format_for_url(vk.url) == WORST_FORMAT
     options = _ydl_options(youtube, Path("videos"))
     assert options["format"] == YOUTUBE_FORMAT
-    assert options["extractor_args"]["youtube"]["player_client"] == ["android"]
+    clients = options["extractor_args"]["youtube"]["player_client"]
+    assert "android" not in clients
+    assert "web_safari" in clients
     assert options["socket_timeout"] == 60
     assert options["logger"] is not None
+    assert "YaBrowser" in options["http_headers"]["User-Agent"]
+
+
+def test_worst_youtube_stream_picks_the_lightest_audio():
+    class Stream:
+        def __init__(self, **kwargs):
+            self.__dict__.update(kwargs)
+
+    https = type("Protocol", (), {"value": "https"})()
+    chosen = _worst_youtube_stream(
+        [
+            Stream(url="v", protocol=https, is_audio=False, is_video=True, bitrate=200_000, height=144, filesize=9, has_drm=False),
+            Stream(url="loud", protocol=https, is_audio=True, is_video=False, bitrate=130_000, height=None, filesize=8, has_drm=False),
+            Stream(url="quiet", protocol=https, is_audio=True, is_video=False, bitrate=48_000, height=None, filesize=3, has_drm=False),
+        ]
+    )
+    assert chosen.url == "quiet"
 
 
 def test_cookie_essay_becomes_one_line():
@@ -231,7 +251,7 @@ def test_parallel_timeout_falls_back_to_one_connection(tmp_path, monkeypatch):
 
     monkeypatch.setattr(download, "download_parallel_http", fail_parallel)
     path = download.download_worst_quality(
-        ChannelVideo("abc", "Лекция", "https://www.youtube.com/watch?v=abc"),
+        ChannelVideo("abc", "Лекция", "https://vk.com/video1_2"),
         tmp_path,
         fragment_threads=4,
     )

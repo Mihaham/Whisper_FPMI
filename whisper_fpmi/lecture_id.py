@@ -19,12 +19,11 @@ from loguru import logger as lg
 from whisper_fpmi.descriptions import (
     cached_text,
     fetch_descriptions,
-    fetch_youtube_descriptions,
     load_cache,
 )
 from whisper_fpmi.names import fold_key
 from whisper_fpmi.paths import DESCRIPTIONS_PATH, PUBLISHED_PATH, SAME_LECTURE_PATH
-from whisper_fpmi.timecodes import parse_event_date, parse_lecturer
+from whisper_fpmi.timecodes import parse_description_timecodes, parse_event_date, parse_lecturer
 from whisper_fpmi.vk import ChannelVideo
 
 _VK_ID = re.compile(r"^-?\d+_\d+$")
@@ -49,6 +48,10 @@ _SKIP = frozenset(
 )
 _INDEX = re.compile(r"(?<!\d)(\d{1,2})\.\s*")
 PUBLISH_GAP_DAYS = 14
+
+
+def description_timecode_count(text: str) -> int:
+    return len(parse_description_timecodes(text or ""))
 _LINKS: dict[str, dict] | None = None
 
 
@@ -62,6 +65,7 @@ class LectureHit:
     event_date: str
     plain: str
     timed: str
+    timecode_count: int = 0
 
 
 @dataclass(frozen=True)
@@ -112,22 +116,31 @@ class LectureCatalog:
             self._by_key[key].append(hit)
             self._slugs.add(hit.slug)
 
-    def match(self, lecturer: str | None, event_date: str | None, title: str) -> LectureHit | None:
-        if not lecturer or not event_date:
+    def match(
+        self,
+        lecturer: str | None,
+        event_date: str | None,
+        timecode_count: int,
+    ) -> LectureHit | None:
+        if not lecturer or not event_date or timecode_count <= 0:
             return None
         key = (lecturer_key(lecturer), event_date)
         with self._lock:
             found = list(self._by_key.get(key, ()))
-        matches = [item for item in found if same_lecture_title(title, item.title)]
+        matches = [item for item in found if item.timecode_count == timecode_count]
         if not matches:
             return None
-        return max(matches, key=lambda item: _shared_titles(title, item.title))
+        return matches[0]
 
     def match_video(self, video: ChannelVideo, book: DescriptionBook) -> LectureHit | None:
         text = book.get(video.video_id)
         if not text:
             return None
-        hit = self.match(parse_lecturer(text), parse_event_date(text), video.title)
+        hit = self.match(
+            parse_lecturer(text),
+            parse_event_date(text),
+            description_timecode_count(text),
+        )
         if hit is None or hit.video_id == video.video_id:
             return None
         return hit
@@ -135,7 +148,8 @@ class LectureCatalog:
     def remember(self, video: ChannelVideo, slug: str, description: str) -> None:
         lecturer = parse_lecturer(description)
         event_date = parse_event_date(description)
-        if not lecturer or not event_date:
+        count = description_timecode_count(description)
+        if not lecturer or not event_date or count <= 0:
             return
         plain, timed = _paths(slug)
         self.add(
@@ -148,6 +162,7 @@ class LectureCatalog:
                 event_date=event_date,
                 plain=plain,
                 timed=timed,
+                timecode_count=count,
             )
         )
 
@@ -180,7 +195,8 @@ def build_catalog(
         text = cached if cached else description
         lecturer = row.get("lecturer") or parse_lecturer(text)
         event_date = row.get("event_date") or parse_event_date(text)
-        if not lecturer or not event_date:
+        count = description_timecode_count(text)
+        if not lecturer or not event_date or count <= 0:
             continue
         plain, timed = _paths(slug)
         catalog.add(
@@ -193,6 +209,7 @@ def build_catalog(
                 event_date=str(event_date),
                 plain=str(row.get("plain") or plain),
                 timed=str(row.get("timed") or timed),
+                timecode_count=count,
             )
         )
     for video_id, record in (state.get("videos") or {}).items():
@@ -204,13 +221,15 @@ def build_catalog(
         text = book.get(str(video_id)) or ""
         lecturer = parse_lecturer(text)
         event_date = parse_event_date(text)
-        if not lecturer or not event_date:
+        count = description_timecode_count(text)
+        if not lecturer or not event_date or count <= 0:
             continue
         plain, timed = _paths(slug)
         catalog.add(
             LectureHit(
                 video_id=str(video_id),
                 title=str(record.get("title") or slug),
+                timecode_count=count,
                 url=str(record.get("url") or ""),
                 slug=slug,
                 lecturer=lecturer,
@@ -220,6 +239,17 @@ def build_catalog(
             )
         )
     return catalog
+
+
+def link_record(video: ChannelVideo, hit: LectureHit) -> dict:
+    return {
+        "title": video.title,
+        "url": video.url,
+        "slug": hit.slug,
+        "same_lecture_as": hit.video_id or hit.slug,
+        "plain": hit.plain,
+        "timed": hit.timed,
+    }
 
 
 def prefetch_descriptions(
@@ -237,14 +267,6 @@ def prefetch_descriptions(
         if vk_ids and not stop.is_set():
             fetch_descriptions(vk_ids, DESCRIPTIONS_PATH, workers=4)
             book.put_many(_cached_many(vk_ids))
-        youtube = [
-            (video.video_id, video.url)
-            for video in videos
-            if video.url and not _VK_ID.match(video.video_id) and book.get(video.video_id) is None
-        ]
-        if youtube and not stop.is_set():
-            fetch_youtube_descriptions(youtube, DESCRIPTIONS_PATH, workers=4, stop=stop)
-            book.put_many(_cached_many([video_id for video_id, _url in youtube]))
     except Exception as exc:  # noqa: BLE001
         lg.warning("Описания для сверки лекций не докачались: {}", exc)
 

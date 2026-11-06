@@ -11,7 +11,7 @@ LECTURER = "Евстигнеев Георгий Дмитриевич"
 DATE = "2026-04-22"
 
 
-def _hit(title: str, video_id: str = "1_1") -> LectureHit:
+def _hit(title: str, video_id: str = "1_1", timecode_count: int = 3) -> LectureHit:
     return LectureHit(
         video_id=video_id,
         title=title,
@@ -21,23 +21,28 @@ def _hit(title: str, video_id: str = "1_1") -> LectureHit:
         event_date=DATE,
         plain="result/algebra-11.txt",
         timed="download/algebra-11.mp4.txt",
+        timecode_count=timecode_count,
     )
 
 
-def test_same_lecturer_and_date_with_the_same_title_is_one_lecture():
+def _described(body: str) -> str:
+    return (
+        "00:00:00 Начало\n"
+        "00:10:00 Тема\n"
+        "00:20:00 Конец\n"
+        "Дата лекции: 22.04.2026\n"
+        "Лектор: Евстигнеев Георгий Дмитриевич\n"
+        + body
+    )
+
+
+def test_same_lecturer_date_and_timecode_count_match_despite_language():
     catalog = LectureCatalog()
-    catalog.add(_hit("Алгебра и геометрия 11. Метод Якоби"))
-    book = DescriptionBook(
-        {
-            "yt1": (
-                "Дата лекции: 22.04.2026\n"
-                "Лектор: Евстигнеев Георгий Дмитриевич\n"
-            )
-        }
-    )
+    catalog.add(_hit("Алгебра и геометрия 11. Метод Якоби", timecode_count=3))
+    book = DescriptionBook({"yt1": _described("")})
     video = ChannelVideo(
         "yt1",
-        "Алгебра и геометрия 11. Метод Якоби",
+        "Algebra and Geometry 11. Jacobi method",
         "https://youtu.be/yt1",
     )
     hit = catalog.match_video(video, book)
@@ -48,10 +53,12 @@ def test_same_lecturer_and_date_with_the_same_title_is_one_lecture():
 
 def test_next_lecture_the_same_day_is_not_the_same():
     catalog = LectureCatalog()
-    catalog.add(_hit("Алгебра и геометрия 11. Метод Якоби"))
+    catalog.add(_hit("Алгебра и геометрия 11. Метод Якоби", timecode_count=3))
     book = DescriptionBook(
         {
             "2_2": (
+                "00:00:00 Начало\n"
+                "00:05:00 Другая тема\n"
                 "Дата лекции: 22.04.2026\n"
                 "Лектор: евстигнеев георгий дмитриевич\n"
             )

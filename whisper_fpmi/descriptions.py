@@ -105,17 +105,26 @@ def _fetch_into(cache: dict, video_ids: list[str], workers: int, cache_path: Pat
         for future in tqdm(as_completed(futures), total=len(futures), desc="описания", unit="видео"):
             video_id = futures[future]
             text, error = future.result()
-            videos[video_id] = {
-                "description": text,
-                "error": error,
-                "fetched_at": datetime.now(timezone.utc).isoformat(),
-            }
+            _store_description(videos, video_id, text, error)
             done += 1
             if done % 40 == 0:
                 try:
                     save_cache(cache_path, cache)
                 except OSError as exc:
                     lg.warning("Не записал кэш описаний: {}", exc)
+
+
+def _store_description(videos: dict, video_id: str, text: str, error: str | None) -> None:
+    """Ошибка сети не затирает уже сохранённый текст."""
+    previous = videos.get(video_id) or {}
+    old = str(previous.get("description") or "")
+    if error and old and not previous.get("error"):
+        return
+    videos[video_id] = {
+        "description": text,
+        "error": error,
+        "fetched_at": datetime.now(timezone.utc).isoformat(),
+    }
 
 
 def _fetch_one(video_id: str) -> tuple[str, str | None]:
@@ -159,14 +168,18 @@ def fetch_youtube_descriptions(
     *,
     workers: int = 4,
     stop=None,
+    refresh: bool = False,
 ) -> None:
     """Кладёт описание YouTube в тот же кэш, что и VK. По ролику сеть не качается."""
     cache = load_cache(cache_path)
-    missing = [
-        (video_id, url)
-        for video_id, url in items
-        if url and cached_text(cache, video_id) is None
-    ]
+    if refresh:
+        missing = [(video_id, url) for video_id, url in items if url]
+    else:
+        missing = [
+            (video_id, url)
+            for video_id, url in items
+            if url and cached_text(cache, video_id) is None
+        ]
     if not missing:
         return
     lg.info("Качаю описания YouTube: {} из {}", len(missing), len(items))
@@ -181,11 +194,7 @@ def fetch_youtube_descriptions(
         for future in as_completed(futures):
             video_id = futures[future]
             text, error = future.result()
-            videos[video_id] = {
-                "description": text,
-                "error": error,
-                "fetched_at": datetime.now(timezone.utc).isoformat(),
-            }
+            _store_description(videos, video_id, text, error)
             done += 1
             if done % 40 == 0:
                 try:
@@ -198,7 +207,7 @@ def fetch_youtube_descriptions(
 def _fetch_youtube(url: str) -> tuple[str, str | None]:
     import yt_dlp
 
-    from whisper_fpmi.download import _QuietYdl, brief_ydl_error
+    from whisper_fpmi.download import YOUTUBE_HEADERS, _QuietYdl, brief_ydl_error
 
     options = {
         "quiet": True,
@@ -206,8 +215,13 @@ def _fetch_youtube(url: str) -> tuple[str, str | None]:
         "skip_download": True,
         "noplaylist": True,
         "socket_timeout": 30,
+        "ignore_no_formats_error": True,
         "logger": _QuietYdl(),
-        "extractor_args": {"youtube": {"player_client": ["android"]}},
+        "js_runtimes": {"node": {}},
+        "http_headers": dict(YOUTUBE_HEADERS),
+        "extractor_args": {
+            "youtube": {"player_client": ["web", "web_safari", "mweb"]}
+        },
     }
     try:
         with yt_dlp.YoutubeDL(options) as client:
