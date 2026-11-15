@@ -44,4 +44,6 @@ id_ed25519
 credentials.json
 client_secret*.json
 secrets.json
+data/youtube-client.json
+data/youtube-token.json
 

@@ -8,6 +8,8 @@ from typing import Callable
 
 from loguru import logger as lg
 
+from whisper_fpmi.cuda_path import ensure_cuda_dll_path
+from whisper_fpmi.ffmpeg_path import ensure_ffmpeg_path
 from whisper_fpmi.names import format_timestamp, sanitize_title
 from whisper_fpmi.paths import DEFAULT_MODEL, LANGUAGE, RESULT_DIR, TIMED_DIR
 
@@ -22,6 +24,7 @@ def load_whisper_model(
 ):
     from faster_whisper import WhisperModel
 
+    ensure_cuda_dll_path()
     resolved_device, resolved_compute = _device_settings(device, compute_type)
     lg.info("Загружаю Whisper {} / {} / {}", model_name, resolved_device, resolved_compute)
     kwargs: dict[str, str | int] = {
@@ -148,6 +151,7 @@ def _emit_progress(
 
 
 def has_cuda() -> bool:
+    ensure_cuda_dll_path()
     try:
         import ctranslate2
 
@@ -167,7 +171,7 @@ def _device_settings(device: str, compute_type: str | None = None) -> tuple[str,
 
 
 def require_ffmpeg() -> None:
-    if shutil.which("ffmpeg") is None:
+    if ensure_ffmpeg_path() is None:
         raise RuntimeError(
             "ffmpeg не найден в PATH. Установите ffmpeg — он нужен и yt-dlp, и Whisper."
         )

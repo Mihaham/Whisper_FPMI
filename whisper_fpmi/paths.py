@@ -25,6 +25,10 @@ SEARCH_INDEX_PATH = DATA_DIR / "search.pkl"
 METRICS_PATH = DATA_DIR / "metrics.json"
 SHORTS_DIR = ROOT / "shorts"
 SHORTS_INDEX = DATA_DIR / "shorts.sqlite"
+SHORTS_SCHEDULE_PATH = DATA_DIR / "shorts-schedule.json"
+# Тот же OAuth, что у заливки на канал Mihaham. Секреты лежат вне этого репозитория.
+YOUTUBE_CLIENT_PATH = Path(r"D:\Gigachat\secrets\youtube_client_secret.json")
+YOUTUBE_TOKEN_PATH = Path(r"D:\Gigachat\secrets\youtube_token.json")
 
 CHANNEL_URL = "https://vkvideo.ru/@lectorium_fpmi"
 CHANNEL_URL_VK = "https://vk.com/video/@lectorium_fpmi/all"

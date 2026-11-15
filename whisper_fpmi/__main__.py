@@ -187,6 +187,30 @@ def build_parser() -> argparse.ArgumentParser:
         help="Ниже этого запаса на диске удалять исходники, которые больше не нужны",
     )
     shorts.set_defaults(func=_cmd_shorts)
+
+    ranking = sub.add_parser(
+        "shorts-rank",
+        help="Отранжировать шортсы и поставить выход по вторникам и пятницам в 10:00",
+    )
+    ranking.set_defaults(func=_cmd_shorts_rank)
+
+    uploading = sub.add_parser(
+        "shorts-upload",
+        help="Залить следующие шортсы на YouTube с отложенной публикацией",
+    )
+    uploading.add_argument(
+        "--limit",
+        type=int,
+        default=6,
+        help="Сколько роликов за запуск. 6 — дневная квота YouTube Data API",
+    )
+    uploading.set_defaults(func=_cmd_shorts_upload)
+
+    connecting = sub.add_parser(
+        "shorts-connect",
+        help="Ссылка, чтобы заново выдать токен канала Mihaham",
+    )
+    connecting.set_defaults(func=_cmd_shorts_connect)
     return parser
 
 
@@ -339,6 +363,37 @@ def _cmd_shorts(args: argparse.Namespace) -> int:
     from whisper_fpmi.shorts import run_shorts
 
     return run_shorts(args)
+
+
+def _cmd_shorts_rank(_args: argparse.Namespace) -> int:
+    from datetime import datetime
+
+    from whisper_fpmi.shorts_publish import build_schedule
+
+    payload = build_schedule()
+    videos = payload["videos"]
+    for row in videos:
+        when = datetime.fromisoformat(row["publish_at"]).strftime("%Y-%m-%d %H:%M")
+        print(f"{row['rank']:3d}  {row['score']:6.2f}  {when}  {row['file']}")
+    if videos:
+        last = datetime.fromisoformat(videos[-1]["publish_at"]).strftime("%Y-%m-%d")
+        lg.info("В очереди {}, последний выход {}", len(videos), last)
+    for row in payload["skipped"]:
+        print(f"пропуск  {row['file']}  {row['reason']}")
+    return 0
+
+
+def _cmd_shorts_upload(args: argparse.Namespace) -> int:
+    from whisper_fpmi.shorts_publish import upload_pending
+
+    return upload_pending(limit=args.limit)
+
+
+def _cmd_shorts_connect(_args: argparse.Namespace) -> int:
+    from whisper_fpmi.shorts_publish import wait_for_oauth
+
+    wait_for_oauth()
+    return 0
 
 
 def _cmd_run(args: argparse.Namespace) -> int:
