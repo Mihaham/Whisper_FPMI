@@ -297,7 +297,8 @@ def test_progress_reports_download_cut_and_eta():
     assert progress.snapshot()["percent"] == 100
 
 
-def test_missing_lectures_download_at_once(tmp_path: Path):
+def test_missing_lectures_download_at_once(tmp_path: Path, monkeypatch):
+    monkeypatch.setattr("whisper_fpmi.shorts.DEFAULT_DOWNLOAD_WORKERS", 2)
     folder = tmp_path / "sources"
     folder.mkdir()
     (folder / "ready.mp4").write_bytes(b"already")

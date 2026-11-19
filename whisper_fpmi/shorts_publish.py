@@ -606,7 +606,7 @@ def upload_pending(
         except HttpError as exc:
             write_schedule(videos, list(payload.get("skipped") or []), path)
             text = str(exc)
-            if "quotaExceeded" in text or "uploadLimitExceeded" in text:
+            if "quotaExceeded" in text or "uploadLimitExceeded" in text or "Video Uploads per day" in text:
                 lg.warning("Квота YouTube на сегодня кончилась, залито {}", done)
                 return 0 if done else 2
             lg.error("{}", exc)

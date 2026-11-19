@@ -45,7 +45,8 @@ from whisper_fpmi.transcript import parse_segments, split_header
 INDEX_VERSION = 2
 MAX_VIDEOS = 5
 SAMPLE_PER_LECTURE = 8
-INTRO_SECONDS = 1.7
+# Заставка перед лектором в шортсе не нужна: ролик начинается сразу с кадра лекции.
+INTRO_SECONDS = 0.0
 _EDGE = ".,!?;:\"'«»“”()[]{}<>…\\/"
 _INDEX_LOCK = threading.Lock()
 _PHRASE_LOCK = threading.Lock()
@@ -1085,10 +1086,13 @@ def render_short(
     tracker = progress or BuildProgress()
     try:
         sources = fetch_sources(clips, source_dir, cookies, progress=tracker)
-        intro = work / "000-intro.mp4"
         tracker.begin_cut(len(clips))
-        _render_intro(ffmpeg, intro, font, label_path, meta_path, label)
-        parts = [intro]
+        intro_seconds = INTRO_SECONDS
+        parts: list[Path] = []
+        if intro_seconds > 0:
+            intro = work / "000-intro.mp4"
+            _render_intro(ffmpeg, intro, font, label_path, meta_path, label)
+            parts.append(intro)
         session = _MediaSession(ffprobe)
         skipped = 0
         for index, clip in enumerate(clips, start=1):
@@ -1106,7 +1110,8 @@ def render_short(
                 lg.warning("Пропуск {} {}: {}", clip.hit.title, format_clock_full(clip.hit.start), exc)
                 continue
             parts.append(dest)
-        if len(parts) == 1:
+        lecture_parts = len(parts) - (1 if intro_seconds > 0 else 0)
+        if lecture_parts < 1:
             raise RenderError("Ни один фрагмент не скачался. Если VK просит вход, добавь --cookies cookies.txt")
         tracker.begin_assemble()
         _concat(ffmpeg, parts, output)
@@ -1116,7 +1121,7 @@ def render_short(
         raise
     shutil.rmtree(work, ignore_errors=True)
     tracker.finish()
-    return Rendered(output, len(parts) - 1, skipped)
+    return Rendered(output, lecture_parts, skipped)
 
 
 def _draw_text(text: str) -> str:

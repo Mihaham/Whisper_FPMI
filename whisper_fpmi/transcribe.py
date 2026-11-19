@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from datetime import datetime, timezone
 from pathlib import Path
+import os
 import shutil
 import time
 from typing import Callable
@@ -26,12 +27,24 @@ def load_whisper_model(
 
     ensure_cuda_dll_path()
     resolved_device, resolved_compute = _device_settings(device, compute_type)
-    lg.info("Загружаю Whisper {} / {} / {}", model_name, resolved_device, resolved_compute)
+    gpu_name = os.environ.get("WHISPER_GPU_NAME", "") if resolved_device == "cuda" else ""
+    if gpu_name:
+        lg.info(
+            "Загружаю Whisper {} / {} ({}) / {}",
+            model_name,
+            resolved_device,
+            gpu_name,
+            resolved_compute,
+        )
+    else:
+        lg.info("Загружаю Whisper {} / {} / {}", model_name, resolved_device, resolved_compute)
     kwargs: dict[str, str | int] = {
         "device": resolved_device,
         "compute_type": resolved_compute,
         "num_workers": max(1, num_workers),
     }
+    if resolved_device == "cuda":
+        kwargs["device_index"] = 0
     if cpu_threads > 0:
         kwargs["cpu_threads"] = cpu_threads
     return WhisperModel(model_name, **kwargs)
